@@ -44,7 +44,7 @@
 
         public function getUserList($search)
         {       
-           $query="SELECT ID, USERNAME, PASSWORD, DB_NAME, APPLICATION, DATE_CREATED, REQUESTOR, REMARKS, STATUS FROM USER_MASTER WHERE USERNAME IN (SELECT USERNAME FROM DBA_USERS) AND USERNAME LIKE'$search%'";
+           $query="SELECT ROWNUM, ID, USERNAME, PASSWORD, DB_NAME, APPLICATION, DATE_CREATED, REQUESTOR, REMARKS, STATUS FROM USER_MASTER WHERE USERNAME IN (SELECT USERNAME FROM DBA_USERS) AND USERNAME LIKE'%'";
            $this->db->query($query);
            $result = $this->db->resultSet($query);
            

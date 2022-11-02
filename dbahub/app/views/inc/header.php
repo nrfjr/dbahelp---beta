@@ -12,10 +12,10 @@
     <!-- Tailwind -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
     <style>
-        @import url('https://fonts.googleapis.com/css?family=Karla:400,700&display=swap');
+        @import url('https://fonts.googleapis.com/css?family=Lexend:400,700&display=swap');
 
-        .font-family-karla {
-            font-family: karla;
+        .font-family-lexend {
+            font-family: lexend;
         }
 
         .bg-sidebar {
@@ -56,4 +56,4 @@
     <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js" integrity="sha256-R4pqcOYV8lt7snxMQO/HSbVCFRPMdrhAFMH+vr9giYI=" crossorigin="anonymous"></script> -->
 </head>
 
-<body class="bg-gray-100 font-family-karla flex">
+<body class="bg-gray-100 font-family-lexend flex">
