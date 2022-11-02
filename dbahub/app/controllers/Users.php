@@ -39,7 +39,7 @@
                 $loggedInUser = $this->userModel->login($data['username'], $data['password']);
 
                 if($loggedInUser){
-                        // Create Session
+                    // Create Session
                     $this->createUserSession($loggedInUser);
                 } else {
 
@@ -136,8 +136,8 @@
         // gets list of users
         public function show()
         {
-            //$result = $this->userModel->getUserList($_GET['search']);
-            $data = [];
+            $result = $this->userModel->getUserList("");
+            $data = $result;
             $this->view('users/show', $data);
         }
 

@@ -9,16 +9,22 @@
 
         public function login($username, $password){
 
-            $row = $this->db->connect($username,$password);
+            $query = "SELECT USERNAME FROM DBA_USERS WHERE USERNAME ='$username'";
+            $this->db->query($query);
+            $row = $this->db->single();
 
-            if(!empty($row)){
-                $data = [
-                    'username' => $username,
-                    'password' => $password
-                ];
-                return $data;
+            $result = $this->db->test_connection($username, $password);
+
+            if($result){
+                if($row['USERNAME']==$username){
+                    $data = [
+                        'username' => $row['USERNAME'],
+                        'password' => $password
+                    ];
+                    return $data;
+                }
             } else {
-                return false;
+               return false;
             }
         }
 
@@ -38,9 +44,9 @@
 
         public function getUserList($search)
         {       
-           $query="SELECT STATEMENT FROM db_table where column = '".$search."'";
+           $query="SELECT ID, USERNAME, PASSWORD, DB_NAME, APPLICATION, DATE_CREATED, REQUESTOR, REMARKS, STATUS FROM USER_MASTER WHERE USERNAME IN (SELECT USERNAME FROM DBA_USERS) AND USERNAME LIKE'$search%'";
            $this->db->query($query);
-           $result = $this->db->execute($query);
+           $result = $this->db->resultSet($query);
            
            if($result){
                 return $result;
