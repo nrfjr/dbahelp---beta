@@ -4,7 +4,7 @@
 
 <aside class="relative bg-indigo-400 h-screen w-64 hidden sm:block shadow-xl">
         <div class="p-6">
-            <a href="<?php echo URLROOT;?>/pages/dashboard" class="text-white text-3xl font-semibold hover:text-gray-300">SITENAME</a>
+            <a href="<?php echo URLROOT;?>/pages/dashboard" class="text-white text-3xl font-semibold hover:text-gray-300"><?php echo SITENAME?></a>
         </div>
         <nav class="text-white text-base font-semibold pt-3 ">
             <a href="<?php echo URLROOT;?>/pages/dashboard" class="flex items-center py-4 pl-6 nav-item text-white <?php if (strpos($url, 'dashboard')) {echo 'active-nav-link';} else {echo ' opacity-75';}?>">
