@@ -11,6 +11,8 @@
         private $stmt;
         private $error;
 
+        private $count =0;
+
         private $tns;
         private $options;
 
@@ -46,6 +48,15 @@
         public function query($sql){
             $this->stmt = $this->conn->prepare($sql);
         }
+        // Prepare statement with query with parameters
+        public function queryWithParam($sql, $param = []){
+
+            $this->stmt = $this->conn->prepare($sql);
+
+            foreach($param as $bindTarget => $ParamValue ){
+                $this->stmt->bindParam($bindTarget, $ParamValue);
+            }
+        }
         // Execute the prepared statement
         public function execute(){
             return $this->stmt->execute();
@@ -59,7 +70,7 @@
         // Get result set as array of objects
         public function resultSet(){
             $this->execute();
-            return $this->stmt->fetchAll();
+            return $this->stmt->fetchAll(PDO::FETCH_ASSOC);
         }
 
         // Get single record as object

@@ -1,16 +1,22 @@
 <?php
     class User {
-        private $db;
+        private $db, $fm;
         private $total_records_per_page = 9;
 
         public function __construct(){
             $this->db = new Database;
+            $this->fm = new FileManager;
         }
 
+        //makes sure that username and password connect and exist in the database
         public function login($username, $password){
 
-            $query = "SELECT USERNAME FROM DBA_USERS WHERE USERNAME ='$username'";
-            $this->db->query($query);
+            $query = $this->fm->loadSQL('getUsername');
+            $param = [
+                ':username' => $username
+             ];
+
+            $this->db->queryWithParam($query, $param);
             $row = $this->db->single();
 
             $result = $this->db->test_connection($username, $password);
@@ -28,10 +34,17 @@
             }
         }
 
+        //create user by provided username and password
         public function createUser($username, $password){
 
-            $query = "CREATE USER $username DEFAULT TABLESPACE RETEK_DATA IDENTIFIED BY $password";
-            $this->db->query($query);
+            $query = $this->fm->loadSQL('RMS_createUser');
+
+            $param = [
+                        ':username' => $username,
+                        ':password' => $password
+                     ];
+
+            $this->db->queryWithParam($query, $param);
 
             $result = $this->db->execute();
 
@@ -42,10 +55,15 @@
 
         }
 
+        //gets userlist from usermaster 
         public function getUserList($search)
         {       
-           $query="SELECT ROWNUM, ID, USERNAME, PASSWORD, DB_NAME, APPLICATION, DATE_CREATED, REQUESTOR, REMARKS, STATUS FROM USER_MASTER WHERE USERNAME IN (SELECT USERNAME FROM DBA_USERS) AND USERNAME LIKE'%'";
-           $this->db->query($query);
+           $query=$this->fm->loadSQL('getUser_MasterList');
+           $param = [
+                        ':search' => $search
+                    ];
+           $this->db->queryWithParam($query,$param);
+
            $result = $this->db->resultSet($query);
            
            if($result){
