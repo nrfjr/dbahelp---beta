@@ -78,41 +78,37 @@ require APPROOT . '/views/inc/header.php';
                     <tbody class="bg-gray-500">
                         <?php
                         $count = 0;
-                        foreach ($data as $user) {
+                        for ($i = 0; $i <= count($data); $i++) {
                             $count++;
                         ?>
-                            <tr>
-                                <td class="py-4 px-6"><?php echo $user['ROWNUM']; ?></td>
-                                <td class="py-4 px-6"><?php echo $user['ID']; ?></td>
-                                <td class="py-4 px-6"><?php echo $user['USERNAME']; ?></td>
-                                <td class="py-4 px-6"><?php echo $user['PASSWORD']; ?></td>
-                                <td class="py-4 px-6"><?php echo $user['DB_NAME']; ?></td>
-                                <td class="py-4 px-6"><?php echo $user['APPLICATION']; ?></td>
-                                <td class="py-4 px-6"><?php echo $user['DATE_CREATED']; ?></td>
-                                <td class="py-4 px-6"><?php echo $user['REQUESTOR']; ?></td>
-                                <td class="py-4 px-6"><?php echo $user['REMARKS']; ?></td>
-                                <td class="py-4 px-6"><?php
-                                                                    if ($user['STATUS'] == 'ACTIVE') {
-                                                                        echo '<font color="#00fc00">' . $user['STATUS'] . '</font>';
-                                                                    } else if ($user['STATUS'] == 'INACTIVE') {
-                                                                        echo '<font color="red">' . $user['STATUS'] . '</font>';
-                                                                    } else {
-                                                                        echo '<font color="yellow">' . $user['STATUS'] . '</font>';
-                                                                    }
-                                                                    ?></td>
-                                <td class="py-4 px-6">
-                                    <button data-tooltip-target="tooltip-edit" data-tooltip-trigger="hover" type="button" alt="Edit" class="px-2">
-                                        <font color="#005eff">
-                                            <i class="fas mt-1 fa-pen ml-2"></i>
-                                        </font>
-                                    </button>
-                                    <button data-tooltip-target="tooltip-delete" data-tooltip-trigger="hover" type="button" alt="Delete">
-                                        <font color="#b00020">
-                                            <i class="fas mt-1 fa-trash ml-2"></i>
-                                        </font>
-                                    </button>
-                                </td>
-                            </tr>
+
+                            <?php
+                            foreach ($data as $user) {
+                            ?>
+                                <tr>
+                                    <?php
+                                    for ($j = 0; $j <= count($user) - 1; $j++) {
+                                    ?>
+                                        <td class="py-4 px-6"><?php echo $user[$j]; ?></td>
+                                    <?php
+                                    }
+                                    ?>
+                                    <td class="py-4 px-6">
+                                        <button data-tooltip-target="tooltip-edit" data-tooltip-trigger="hover" type="button" alt="Edit" class="px-2">
+                                            <font color="#005eff">
+                                                <i class="fas mt-1 fa-pen ml-2"></i>
+                                            </font>
+                                        </button>
+                                        <button data-tooltip-target="tooltip-delete" data-tooltip-trigger="hover" type="button" alt="Delete">
+                                            <font color="#b00020">
+                                                <i class="fas mt-1 fa-trash ml-2"></i>
+                                            </font>
+                                        </button>
+                                    </td>
+                                </tr>
+                            <?php
+                            }
+                            ?>
                         <?php
                         }
                         ?>

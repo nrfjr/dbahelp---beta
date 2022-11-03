@@ -16,8 +16,4 @@
             $data = [];
             $this->view('pages/dashboard', $data);
         }
-        // Load JSON data sample
-        public function data() {
-            $this->loadJson('data');
-        }
     }

@@ -5,13 +5,13 @@
         private $db_password = 'rms13prd';
         private $service_name;
         private $sid;
-        private $port = PORT;
+        private $port=PORT;
 
         private $conn;
         private $stmt;
         private $error;
 
-        private $count =0;
+        private $count=0;
 
         private $tns;
         private $options;
@@ -70,7 +70,7 @@
         // Get result set as array of objects
         public function resultSet(){
             $this->execute();
-            return $this->stmt->fetchAll(PDO::FETCH_ASSOC);
+            return $this->stmt->fetchAll(PDO::FETCH_NUM);
         }
 
         // Get single record as object
