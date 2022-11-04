@@ -32,68 +32,47 @@ require APPROOT . '/views/inc/header.php';
             </div>
         </div>
     </div>
-    <div class="flex shadow-md">
-        <div class="overflow-auto h-96 w-full sm:rounded-lg">
+    <div class="flex h-96 shadow-md">
+        <div class="overflow-auto  w-full sm:rounded-lg">
             <?php
             if (!empty($data)) {
+
+                //Separates Column title from result set
+                foreach ($data as $outer_key => $array) {
+
+                    foreach ($array as $inner_key => $value) {
+                        $column_names[] = $inner_key;
+                    }
+                }
             ?>
                 <table class="w-full text-sm text-left text-white dark:text-gray-400">
                     <thead class="text-xs text-black bg-indigo-200 dark:bg-gray-700 dark:text-gray-400">
                         <tr>
+                            <?php for ($title = 0; $title <= count($array) - 1; $title++) { ?>
                             <th scope="col" class="py-2 px-6">
-                                No.
+                                <?php echo $column_names[$title]; ?>
                             </th>
-                            <th scope="col" class="py-3 px-6 ">
-                                ID
-                            </th>
-                            <th scope="col" class="py-3 px-6 ">
-                                Username
-                            </th>
-                            <th scope="col" class="py-3 px-6">
-                                Password
-                            </th>
-                            <th scope="col" class="py-3 px-6">
-                                DB Name
-                            </th>
-                            <th scope="col" class="py-3 px-6">
-                                Application
-                            </th>
-                            <th scope="col" class="py-3 px-6 ">
-                                Date Created
-                            </th>
-                            <th scope="col" class="py-3 px-6 ">
-                                Requestor
-                            </th>
-                            <th scope="col" class="py-3 px-6 ">
-                                Remarks
-                            </th>
-                            <th scope="col" class="py-3 px-6">
-                                Status
-                            </th>
-                            <th scope="col" class="py-3 px-6 ">
+                            <?php }?>
+                            <th scope="col" class="py-2 px-6 text-center">
                                 Action
                             </th>
                         </tr>
                     </thead>
                     <tbody class="bg-gray-500">
                         <?php
-                        $count = 0;
-                        for ($i = 0; $i <= count($data); $i++) {
-                            $count++;
+                        foreach ($data as $column_title => $value) {
                         ?>
-
-                            <?php
-                            foreach ($data as $user) {
-                            ?>
                                 <tr>
                                     <?php
-                                    for ($j = 0; $j <= count($user) - 1; $j++) {
+                                    foreach($value as $user){
                                     ?>
-                                        <td class="py-4 px-6"><?php echo $user[$j]; ?></td>
+                                        <td class="py-4 px-6">
+                                            <?php echo $user; ?>
+                                        </td>
                                     <?php
                                     }
                                     ?>
-                                    <td class="py-4 px-6">
+                                    <td class="py-4 px-6 text-center">
                                         <button data-tooltip-target="tooltip-edit" data-tooltip-trigger="hover" type="button" alt="Edit" class="px-2">
                                             <font color="#005eff">
                                                 <i class="fas mt-1 fa-pen ml-2"></i>
@@ -106,9 +85,6 @@ require APPROOT . '/views/inc/header.php';
                                         </button>
                                     </td>
                                 </tr>
-                            <?php
-                            }
-                            ?>
                         <?php
                         }
                         ?>
@@ -125,7 +101,7 @@ require APPROOT . '/views/inc/header.php';
         <div>
             <p class="text-sm text-white pr-2">
                 <?php
-                echo $count;
+                echo count($data);
                 ?>
             </p>
         </div>
