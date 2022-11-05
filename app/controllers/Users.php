@@ -96,28 +96,29 @@
 
                 // //$this->db->setDatabase($data['database'], $data['sid']);
 
-                // $fullname = strtoupper($data['fname'].' '.$data['mname'].' '.$data['lname']);
+                $fullname = strtoupper($data['fname'].' '.$data['mname'].' '.$data['lname']);
                 $username = $this->generateUsername($data['fname'], $data['mname'], $data['lname'], $data['ID']);
                 $password = $this->generatePassword();
 
 
-                // $createdUser = $this->userModel->createUser($username, $password);
+                $createdUser = $this->userModel->createUser($username, $password);
 
                 //if($data['database'] == 'RMSPRD'){
                 //$this->grantUserRoleRMS($username);
                 //}
 
-                // if($createdUser){
+                if($createdUser){
                     
-                // Generate LDIF File after user is created.
-                //$ldiffile = $this->generateLDIF($data['fname'],$data['lname'],$data['ID'],$username,$password);
+                Generate LDIF File after user is created.
+                $ldiffile = $this->generateLDIF($data['fname'],$data['lname'],$data['ID'],$username,$password);
 
-                // Shows the viewer of file contents.
+                //Shows the viewer of file contents.
                 $this->view('users/ldif', $data = [ 'lorem' => '']);
 
-                // }
+                }
 
-                // $this->view('users/create', $data);
+                // Return Back to previous view
+                $this->view('users/create', $data);
 
             } else {
                 $data = [
@@ -153,6 +154,7 @@
             return $password;
         }
 
+        // Generate LDIF file function
         public function generateLDIF($fname, $lname, $ID, $username, $password ){
             $givenName = strtoupper($fname);
             $surName = strtoupper($lname);
