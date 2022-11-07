@@ -73,10 +73,65 @@
            return false;
         }
 
+        public function insertToUserMaster($database, $data)
+        {
+            $query=$this->fm->loadSQL('insertToUserMaster');
+
+            $param = [
+                        ':username' => $data['username'],
+                        ':password' => $data['password'],
+                        ':db_name' => 'RMSPRD',
+                        ':application' => $data['application'],
+                        ':status' => 'ACTIVE',
+                        ':requestor' => $data['requestor'],
+                        ':created_by' => $data['ip'],
+                        ':remarks' => $data['remarks']
+                    ];
+            
+            $this->db->queryWithParam($query, $param);
+            $this->db->execute();
+        }
+
         public function pagination()
         {
             
         }
         
+        public function grantUserRoleRMS($username)
+        {
+        $RMS = array("GRANT CREATE SESSION TO ", 
+                "GRANT CREATE TABLE TO", 
+                "GRANT CREATE PROCEDURE TO ", 
+                "GRANT CREATE VIEW TO ", 
+                "GRANT DELETE ANY TABLE TO ", 
+                "GRANT INSERT ANY TABLE TO ",
+                "GRANT SELECT ANY TABLE TO ",
+                "GRANT UPDATE ANY TABLE TO ",
+                "GRANT SELECT ANY SEQUENCE TO ",
+                "GRANT EXECUTE ANY PROCEDURE TO ",
+                "GRANT CREATE ANY PROCEDURE TO ",
+                "GRANT DROP ANY PROCEDURE TO ",
+                "GRANT EXECUTE ANY PROCEDURE TO ",
+                "GRANT CREATE ANY TABLE TO ",
+                "GRANT DROP ANY TABLE TO ",
+                "GRANT SELECT ANY TABLE TO ",
+                "GRANT CREATE ANY CONTEXT TO ",
+                "GRANT ALTER SESSION TO ",
+                "GRANT ANALYZE ANY TO ",
+                "GRANT CREATE ANY SYNONYM TO ",
+                "GRANT CREATE ANY TYPE TO ",
+                "GRANT CREATE DATABASE LINK TO ",
+                "GRANT CREATE LIBRARY TO ", 
+                "GRANT CREATE MATERIALIZED VIEW TO ",
+                "GRANT CREATE PUBLIC DATABASE LINK TO ",
+                "GRANT CREATE PUBLIC SYNONYM TO ",
+                "GRANT CREATE SEQUENCE TO ",
+                "GRANT CREATE SYNONYM TO ",
+                "GRANT CREATE TRIGGER TO ",
+                "GRANT DROP ANY SYNONYM TO ",
+                "GRANT EXECUTE ANY TYPE TO ",
+                "GRANT QUERY REWRITE TO ");
+
+        }
 
     }

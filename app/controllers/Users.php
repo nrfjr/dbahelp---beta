@@ -23,7 +23,7 @@
 
         // verify user login to the system
         public function login(){
-            // Chech for POST
+            // Check for POST
             if($_SERVER['REQUEST_METHOD'] == 'POST'){
                 // Process form
 
@@ -94,7 +94,7 @@
                     'remarks'=> trim($_POST['remarks'])
                 ];
 
-                // //$this->db->setDatabase($data['database'], $data['sid']);
+                
 
                 $fullname = strtoupper($data['fname'].' '.$data['mname'].' '.$data['lname']);
                 $username = $this->generateUsername($data['fname'], $data['mname'], $data['lname'], $data['ID']);
@@ -103,22 +103,15 @@
 
                 $createdUser = $this->userModel->createUser($username, $password);
 
-                //if($data['database'] == 'RMSPRD'){
-                //$this->grantUserRoleRMS($username);
-                //}
-
                 if($createdUser){
                     
-                Generate LDIF File after user is created.
+                //Generate LDIF File after user is created.
                 $ldiffile = $this->generateLDIF($data['fname'],$data['lname'],$data['ID'],$username,$password);
 
                 //Shows the viewer of file contents.
-                $this->view('users/ldif', $data = [ 'lorem' => '']);
+                $this->view('users/ldif', $data = [ 'ldif' => $ldiffile]);
 
                 }
-
-                // Return Back to previous view
-                $this->view('users/create', $data);
 
             } else {
                 $data = [
@@ -172,61 +165,33 @@
             
         }
 
-        public function insertToUserMaster($database, $data)
-        {
-            $db_owner ='dbadmins.';
-            $db_link = '';
+        public function download_ldif()
+        {   
+            if($_SERVER['REQUEST_METHOD'] == 'POST'){
 
-            if ($database == 'RDWPRD') {
-                $db_link = '@kccreports_dbadmins_link';
+                // Sanitize POST data
+                $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+
+                $file = [
+                    'ldif' => trim($_POST['ldiffile'])
+                ];
+
+                if (file_exists($file['ldif'])) {
+                    header('Content-Description: File Transfer');
+                    header('Content-Type: application/octet-stream');
+                    header('Content-Disposition: attachment; filename='.basename($file['ldif']));
+                    header('Content-Transfer-Encoding: binary');
+                    header('Expires: 0');
+                    header('Cache-Control: must-revalidate');
+                    header('Pragma: public');
+                    header('Content-Length: ' . filesize($file['ldif']));
+                    ob_clean();
+                    flush();
+                    readfile($file['ldif']);
+                    exit();
+                    $this->view('users/create', $data=[]);
+                }  
+
             }
-
-            $query="insert into ".$db_owner.".user_master".$db_link." (id,username,password,db_name,application,date_created,status,requestor,created_by,remarks)values ('".$db_owner."'.user_master_seq.nextval".$db_link.",'".$data['username']."','".$data['password']."','".$database."','".$data['app']."',(select to_char(sysdate,'dd-Mon-yy') from dual),'ACTIVE','".$data['requestor']."','".$this->IP."','".$data['remarks']."');";
-            
-            $this->db->query($query);
-            $this->db->execute();
-        }
-
-        public function grantUserRoleRMS($username)
-        {
-        $roles = array("GRANT CREATE SESSION TO ", 
-                "GRANT CREATE TABLE TO", 
-                "GRANT CREATE PROCEDURE TO ", 
-                "GRANT CREATE VIEW TO ", 
-                "GRANT DELETE ANY TABLE TO ", 
-                "GRANT INSERT ANY TABLE TO ",
-                "GRANT SELECT ANY TABLE TO ",
-                "GRANT UPDATE ANY TABLE TO ",
-                "GRANT SELECT ANY SEQUENCE TO ",
-                "GRANT EXECUTE ANY PROCEDURE TO ",
-                "GRANT CREATE ANY PROCEDURE TO ",
-                "GRANT DROP ANY PROCEDURE TO ",
-                "GRANT EXECUTE ANY PROCEDURE TO ",
-                "GRANT CREATE ANY TABLE TO ",
-                "GRANT DROP ANY TABLE TO ",
-                "GRANT SELECT ANY TABLE TO ",
-                "GRANT CREATE ANY CONTEXT TO ",
-                "GRANT ALTER SESSION TO ",
-                "GRANT ANALYZE ANY TO ",
-                "GRANT CREATE ANY SYNONYM TO ",
-                "GRANT CREATE ANY TYPE TO ",
-                "GRANT CREATE DATABASE LINK TO ",
-                "GRANT CREATE LIBRARY TO ", 
-                "GRANT CREATE MATERIALIZED VIEW TO ",
-                "GRANT CREATE PUBLIC DATABASE LINK TO ",
-                "GRANT CREATE PUBLIC SYNONYM TO ",
-                "GRANT CREATE SEQUENCE TO ",
-                "GRANT CREATE SYNONYM TO ",
-                "GRANT CREATE TRIGGER TO ",
-                "GRANT DROP ANY SYNONYM TO ",
-                "GRANT EXECUTE ANY TYPE TO ",
-                "GRANT QUERY REWRITE TO ");
-        
-            
-        foreach ($roles as $role){
-            $this->db->query($role . $username.";");
-            $this->db->execute();
-        }
-
         }
     }
