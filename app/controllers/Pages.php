@@ -1,7 +1,7 @@
 <?php
     class Pages extends Controller {
         public function __construct() {
-            $this->postModel = $this->model('User');
+            $this->dashboardModel = $this->model('Dashboard');
 
             if(!isset($_SESSION['username'])) {
                 redirect('users/login');
@@ -9,11 +9,14 @@
         }
 
         public function index() {
-            $link = URLROOT.$_SERVER['REQUEST_URI'];
-            $pieces = explode("/", $link);
-            $last = array_pop($pieces);
+            
+            $result = $this->dashboardModel->getTotalUsers();
 
-            $data = [];
+            $data = [
+
+                'usercount' => $result['Total Users']
+
+            ];
             $this->view('pages/dashboard', $data);
         }
     }

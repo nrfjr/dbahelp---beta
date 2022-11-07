@@ -3,8 +3,7 @@
 ?>
 
 
-<aside class="relative bg-indigo-400 h-screen w-64 hidden sm:block shadow-xl overflow-y-auto ">
-    <div>
+<aside class="relative bg-indigo-400 h-screen w-64 hidden sm:block shadow-xl overflow-y-auto">
         <div class="p-6">
             <a href="<?php echo URLROOT;?>/pages/dashboard" class="text-white text-3xl font-semibold hover:text-gray-300"><?php echo SITENAME?></a>
 
@@ -91,22 +90,19 @@
             
             <script src="https://unpkg.com/flowbite@1.3.4/dist/flowbite.js"></script>
         </nav>
-    </div>
-        
         <!--Calendar-->
-        <div class="sticky mt-56 w-full px-1 h-48 bottom-3 left-0  ">
+        <div class="w-full px-1 mt-6 h-48 bottom-48">
             <iframe src="https://calendar.google.com/calendar/embed?height=600&wkst=1&bgcolor=%23039BE5&ctz=Asia%2FManila&showTitle=0&showTz=0&showCalendars=0&showPrint=0&showTabs=0&src=YmI1ZDVkMjgxZThjNTQ5MWYyZGRkOTBlMGQ5YzZkYWU4NWI2ODcxNzc5OGI5ZjE0NTI5ZDFiZGQzZWZmNGUxMUBncm91cC5jYWxlbmRhci5nb29nbGUuY29t&color=%23795548" style="border-width:0; border-radius: 0 0 5px 5px;" class="shadow-lg" width="100%" height="100%" frameborder="0" scrolling="no"></iframe>
-        </div>
-    
-</aside>
-    <div class="w-full flex flex-col h-screen overflow-y-hidden ">
+            </div>
+    </aside>
+    <div class="w-full flex flex-col h-screen overflow-y-hidden">
         <!-- Desktop Header -->
         <header class="w-full items-center bg-gray-600 py-2 px-6 hidden sm:flex ">
             <!--TOP NAVBAR-->
             <div class="w-3/4">
                 <div>
                     <!--MONITOR-->
-                    <button id="dropdownDefault" data-dropdown-toggle="dropdown-monitor" class="text-white bg-gray-600 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800
+                    <button id="dropdownDefault" data-dropdown-toggle="dropdown-monitor" class="text-white bg-gray-600 focus:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800
                     <!--THIS BELOW CHANGE URL-->
                     <?php if (strpos($url, 'dashboard')){ echo 'block ';}else{echo 'hidden';}?>
                     " type="button">MONITOR<svg class="ml-2 w-4 h-4" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></button>
@@ -135,7 +131,7 @@
                     </div>
 
                     <!--PERFORMANCE-->
-                    <button id="dropdownDefault" data-dropdown-toggle="dropdown-performance" class="text-white bg-gray-600 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800
+                    <button id="dropdownDefault" data-dropdown-toggle="dropdown-performance" class="text-white bg-gray-600 focus:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800
                     <?php if (strpos($url, 'dashboard')){ echo 'block ';}else{echo 'hidden';}?>
                     " type="button">PERFORMANCE<svg class="ml-2 w-4 h-4" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></button>
                     <!-- Dropdown menu -->
@@ -160,7 +156,7 @@
                     </div>
 
                     <!--SECURITY-->
-                    <button id="dropdownDefault" data-dropdown-toggle="dropdown-security" class="text-white bg-gray-600 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800
+                    <button id="dropdownDefault" data-dropdown-toggle="dropdown-security" class="text-white bg-gray-600 focus:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800
                     <?php if (strpos($url, 'dashboard')){ echo 'block ';}else{echo 'hidden';}?>
                     " type="button">SECURITY<svg class="ml-2 w-4 h-4" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></button>
                     <!-- Dropdown menu -->
@@ -182,7 +178,7 @@
                     </div>
 
                     <!---->
-                    <button id="dropdownDefault" data-dropdown-toggle="dropdown-storage" class="text-white bg-gray-600 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800
+                    <button id="dropdownDefault" data-dropdown-toggle="dropdown-storage" class="text-white bg-gray-600 focus:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg font-medium text-sm px-4 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800
                     <?php if (strpos($url, 'dashboard')){ echo 'block ';}else{echo 'hidden';}?>
                     " type="button">STORAGE & OBJECTS<svg class="ml-2 w-4 h-4" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></button>
                     <!-- Dropdown menu -->

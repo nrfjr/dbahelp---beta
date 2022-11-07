@@ -1,0 +1,1 @@
+SELECT COUNT(*) AS "Total Users" FROM dba_users

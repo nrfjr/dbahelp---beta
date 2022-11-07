@@ -18,7 +18,8 @@
                 require_once '../app/views/' . $view . '.php';
             } else {
                 // View does not exists
-                die('View does not exists');
+                die($view.' view file does not exists');
             }
         }
+
     }

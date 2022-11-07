@@ -53,7 +53,7 @@
 
             $this->stmt = $this->conn->prepare($sql);
 
-            foreach($param as $bindTarget => $ParamValue ){
+            foreach($param as $bindTarget => $ParamValue){
                 $this->stmt->bindParam($bindTarget, $ParamValue);
             }
         }

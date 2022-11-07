@@ -17,7 +17,7 @@ USER_MASTER
         :password,
         :db_name,
         :application,
-         sysdate,
+        sysdate,
         :status,
         :requestor,
         :created_by,

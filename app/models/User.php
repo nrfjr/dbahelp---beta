@@ -37,18 +37,14 @@
         //create user by provided username and password
         public function createUser($username, $password){
 
-            $query = $this->fm->loadSQL('RMS_createUser');
+            $query = str_replace(array(":username", ":password"), array($username, $password), $this->fm->loadSQL('RMS_createUser'));
 
-            $param = [
-                        ':username' => $username,
-                        ':password' => $password
-                     ];
-
-            $this->db->queryWithParam($query, $param);
+            $this->db->query($query);
 
             $result = $this->db->execute();
 
             if(!empty($result)){
+
                 return true;
             }
             return false;
@@ -73,7 +69,7 @@
            return false;
         }
 
-        public function insertToUserMaster($database, $data)
+        public function insertToUserMaster($data)
         {
             $query=$this->fm->loadSQL('insertToUserMaster');
 

@@ -3,6 +3,19 @@
 
         public function __construct(){
             $this->userModel = $this->model('User');
+
+        }
+
+        public function getIP(){
+
+            // Declaring a variable to hold the IP
+            // address getHostName() gets the name
+            // of the local machine getHostByName()
+            // gets the corresponding IP
+            $localIP = getHostByNamel(getHostName());
+        
+            // Displaying the address 
+            return $localIP[1];
         }
 
         // Redirects to Index Page
@@ -90,23 +103,24 @@
                     'lname'=> trim($_POST['last-name']),
                     'ID'=> trim($_POST['Id']),
                     'app'=> trim($_POST['application']),
+                    'ip' => $this->getIP(),
                     'requestor'=> trim($_POST['requestor']),
                     'remarks'=> trim($_POST['remarks'])
                 ];
 
-                
-
-                $fullname = strtoupper($data['fname'].' '.$data['mname'].' '.$data['lname']);
+            
                 $username = $this->generateUsername($data['fname'], $data['mname'], $data['lname'], $data['ID']);
                 $password = $this->generatePassword();
 
 
                 $createdUser = $this->userModel->createUser($username, $password);
 
+                $this->userModel->insertToUserMaster($data);
+
                 if($createdUser){
                     
                 //Generate LDIF File after user is created.
-                $ldiffile = $this->generateLDIF($data['fname'],$data['lname'],$data['ID'],$username,$password);
+                    $ldiffile = $this->generateLDIF($data['fname'],$data['lname'],$data['ID'],$username,$password);
 
                 //Shows the viewer of file contents.
                 $this->view('users/ldif', $data = [ 'ldif' => $ldiffile]);
