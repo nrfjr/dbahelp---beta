@@ -28,6 +28,7 @@ require APPROOT . '/views/inc/header.php';
     
 
     <script>
+      //NOLI: I think I fixed the x-axis, or need some adjustment, but then the only problem now is Y-axis.
       // Replace Math.random() with a pseudo-random number generator to get reproducible results in e2e tests
       // Based on https://gist.github.com/blixt/f17b47c62508be59987b
       var _seed = 42;
@@ -36,17 +37,18 @@ require APPROOT . '/views/inc/header.php';
         return (_seed - 1) / 2147483646;
       };
     </script>
-
+    
     <script>
   var lastDate = 0;
   var data = []
-  var TICKINTERVAL = 86400000
-  let XAXISRANGE = 777600000
+  var TICKINTERVAL = 15000//86400000  //1000 is recommended which matches 1 second //if any changes, needs to match with the interval below
+  let XAXISRANGE = 5000000//777600000  x-axis , time shown //100000 is recommended //this is like the interval, now = to 5 min
+
   function getDayWiseTimeSeries(baseval, count, yrange) {
     var i = 0;
     while (i < count) {
       var x = baseval;
-      var y = Math.floor(Math.random() * (yrange.max - yrange.min + 1)) + yrange.min;
+      var y = Math.floor(Math.random() * (yrange.max - yrange.min + 1)) + yrange.min; //this one is the initial value for Y
   
       data.push({
         x, y
@@ -57,32 +59,34 @@ require APPROOT . '/views/inc/header.php';
     }
   }
   
-  getDayWiseTimeSeries(new Date('11 Feb 2017 GMT').getTime(), 10, {
+  getDayWiseTimeSeries(new Date(new Date().toLocaleDateString()).getTime(), 10, {
     min: 10,
     max: 90
   })
   
+
   function getNewSeries(baseval, yrange) {
     var newDate = baseval + TICKINTERVAL;
     lastDate = newDate
-  
-    for(var i = 0; i< data.length - 10; i++) {
+  //change the value below for configuring the data Reset length
+    for(var i = 0; i< data.length - 350; i++) {
       // IMPORTANT
       // we reset the x and y of the data which is out of drawing area
       // to prevent memory leaks
       data[i].x = newDate - XAXISRANGE - TICKINTERVAL
+      //i dunno about this code, its initial value is 0, i think this is the y value every after page refresh
       data[i].y = 0
     }
   
     data.push({
       x: newDate,
-      y: Math.floor(Math.random() * (yrange.max - yrange.min + 1)) + yrange.min
+      y: Math.floor(Math.random() * (yrange.max - yrange.min + 1)) + yrange.min //this where Y axis and updating can be control
     })
   }
   
   function resetData(){
     // Alternatively, you can also reset the data at certain intervals to prevent creating a huge series 
-    data = data.slice(data.length - 10, data.length);
+    data = data.slice(data.length - 400, data.length);
   }
   </script>
   <script>
@@ -148,7 +152,7 @@ require APPROOT . '/views/inc/header.php';
       chart.updateSeries([{
         data: data
       }])
-    }, 1000)
+    }, 15000 /*refresh interval 15 sec*/)
     
   </script>
     </div>
