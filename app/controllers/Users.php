@@ -112,10 +112,19 @@
                 $username = $this->generateUsername($data['fname'], $data['mname'], $data['lname'], $data['ID']);
                 $password = $this->generatePassword();
 
+                $data += [
+                            'username' => $username,
+                            'password' => $password
+                        ];
+
 
                 $createdUser = $this->userModel->createUser($username, $password);
 
                 $this->userModel->insertToUserMaster($data);
+
+                //insert to user_attrib??
+
+                //insert to user_account??
 
                 if($createdUser){
                     

@@ -78,7 +78,7 @@ require APPROOT . '/views/inc/header.php';
                                                 <i class="fas mt-1 fa-pen ml-2"></i>
                                             </font>
                                         </button>
-                                        <button data-tooltip-target="tooltip-delete" data-tooltip-trigger="hover" type="button" alt="Delete">
+                                        <button type="button" alt="Delete" class="border-blue-500 md:border-green-500">
                                             <font color="#b00020">
                                                 <i class="fas mt-1 fa-trash ml-2"></i>
                                             </font>

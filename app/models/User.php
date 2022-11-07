@@ -88,6 +88,40 @@
             $this->db->execute();
         }
 
+        public function insertToUserAttrib($data){
+
+            $query=$this->fm->loadSQL('insertToUserAttrib');
+
+            $param = [
+                        ':username' => $data['username']
+                    ];
+
+            $this->db->queryWithParam($query, $param);
+
+            $this->db->execute();
+
+        }
+
+        public function insertToUserAccounts($data){
+
+            $query=$this->fm->loadSQL('insertToUserAccount');
+
+            $param = [
+                        ':id' => $data['ID'],
+                        ':firstname' => $data['fname'],
+                        ':middlename' => $data['mname'],
+                        ':lastname' => $data['lname'],
+                        ':password' => $data['password'],
+                        ':username' => $data['username'],
+                        ':status' => $data['status']
+                    ];
+
+            $this->db->queryWithParam($query, $param);
+
+            $this->db->execute();
+
+        }
+
         public function pagination()
         {
             
