@@ -301,7 +301,7 @@ require APPROOT . '/views/inc/header.php';
                   borderWidht:4,
                 }]
               },
-              options:{
+              options:{ //this is where i do changes for chart options, ref: https://www.chartjs.org/docs/latest/configuration/title.html
                 rotation: 90,
                 responsive: true,
                 plugins: {
@@ -310,6 +310,17 @@ require APPROOT . '/views/inc/header.php';
                       color: 'white',
                       align: 'start'
                     }
+                  },
+                  title: {
+                    display: true,
+                      text: 'RMSPRD',
+                      align: 'center',
+                      color: 'white',
+                      position: 'top',
+                      weight: 'bold'
+                  },
+                  tooltip:{
+                    intersect: 'true' //to be continue
                   }
                 }
               }
