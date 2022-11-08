@@ -34,7 +34,7 @@ require APPROOT . '/views/inc/header.php';
             </form>
         </div>
     </div>
-    <div style="height: 68vh; overflow: clip;">
+    <div style="height:fit-content; overflow: clip; max-height: 67vh;">
         <div class="flex w-full shadow-md overflow-auto sm:rounded-lg" style="max-height: 80%; min-height: 100%;">
                 <?php
                 if (!empty($data)) {
