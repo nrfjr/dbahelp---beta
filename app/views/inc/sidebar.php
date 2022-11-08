@@ -221,4 +221,4 @@
                 </div>
             </div>
         </header>
-            <main class="flex-grow h-2/5 p-6 bg-gray-800">
+            <main class="flex-grow p-6 bg-gray-800">
