@@ -4,7 +4,7 @@ require APPROOT . '/views/inc/header.php';
 ?>
 <?php require APPROOT . '/views/inc/sidebar.php'; ?>
 
-<h1 class="text-3xl text-black mb-20 pb-6 text-white"><b>Manage Users</b></h1>
+<h1 class="text-3xl text-black pb-6 text-white"><b>Manage Users</b></h1>
 
 
 <div class="overflow-x-auto relative shadow-md sm:rounded-lg">
@@ -34,78 +34,81 @@ require APPROOT . '/views/inc/header.php';
             </form>
         </div>
     </div>
-    <div class="flex w-full h-96 shadow-md overflow-auto sm:rounded-lg">
-            <?php
-            if (!empty($data)) {
-
-                //Separates Column title from result set
-                foreach ($data as $outer_key => $array) {
-
-                    foreach ($array as $inner_key => $value) {
-                        $column_names[] = $inner_key;
-                    }
-                }
-            ?>
-                <table class="w-full text-sm text-left text-white dark:text-gray-400">
-                    <thead class="text-xs text-black bg-indigo-200 dark:bg-gray-700 dark:text-gray-400">
-                        <tr>
-                            <?php for ($title = 0; $title <= count($array) - 1; $title++) { ?>
-                            <th scope="col" class="py-2 px-6">
-                                <?php echo $column_names[$title]; ?>
-                            </th>
-                            <?php }?>
-                            <th scope="col" class="py-2 px-6">
-                                Action
-                            </th>
-                        </tr>
-                    </thead>
-                    <tbody class="bg-gray-500">
-                        <?php
-                        foreach ($data as $column_title => $value) {
-                        ?>
-                                <tr>
-                                    <?php
-                                    foreach($value as $user){
-                                    ?>
-                                        <td class="py-4 px-6">
-                                            <?php echo $user; ?>
-                                        </td>
-                                    <?php
-                                    }
-                                    ?>
-                                    <td class="py-4 px-6 text-center">
-                                        <button data-tooltip-target="tooltip-edit" data-tooltip-trigger="hover" type="button" alt="Edit" class="px-2">
-                                            <font color="#005eff">
-                                                <i class="fas mt-1 fa-pen ml-2"></i>
-                                            </font>
-                                        </button>
-                                        <button type="button" alt="Delete" class="border-blue-500 md:border-green-500">
-                                            <font color="#b00020">
-                                                <i class="fas mt-1 fa-trash ml-2"></i>
-                                            </font>
-                                        </button>
-                                    </td>
-                                </tr>
-                        <?php
-                        }
-                        ?>
-                    </tbody>
-                </table>
-    </div>
-    <div class="sm:flex sm:flex-1 sm:justify-end py-4">
-        <div>
-            <p class="text-sm text-white pl-2">
-                Showing
-            </p>
-        </div>
-        <div>
-            <p class="text-sm text-white pl-1 pr-2">
+    <div style="height: 68vh; overflow: clip;">
+        <div class="flex w-full shadow-md overflow-auto sm:rounded-lg" style="max-height: 80%; min-height: 100%;">
                 <?php
-                echo count($data) <=1 ? count($data)." record": count($data)." records";
+                if (!empty($data)) {
+
+                    //Separates Column title from result set
+                    foreach ($data as $outer_key => $array) {
+
+                        foreach ($array as $inner_key => $value) {
+                            $column_names[] = $inner_key;
+                        }
+                    }
                 ?>
-            </p>
+                    <table class="w-full text-sm text-left text-white dark:text-gray-400">
+                        <thead class="text-xs text-black bg-indigo-200 dark:bg-gray-700 dark:text-gray-400">
+                            <tr>
+                                <?php for ($title = 0; $title <= count($array) - 1; $title++) { ?>
+                                <th scope="col" class="py-2 px-6">
+                                    <?php echo $column_names[$title]; ?>
+                                </th>
+                                <?php }?>
+                                <th scope="col" class="py-2 px-6">
+                                    Action
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody class="bg-gray-500">
+                            <?php
+                            foreach ($data as $column_title => $value) {
+                            ?>
+                                    <tr>
+                                        <?php
+                                        foreach($value as $user){
+                                        ?>
+                                            <td class="py-4 px-6">
+                                                <?php echo $user; ?>
+                                            </td>
+                                        <?php
+                                        }
+                                        ?>
+                                        <td class="py-4 px-6 text-center">
+                                            <button data-tooltip-target="tooltip-edit" data-tooltip-trigger="hover" type="button" alt="Edit" class="px-2">
+                                                <font color="#005eff">
+                                                    <i class="fas mt-1 fa-pen ml-2"></i>
+                                                </font>
+                                            </button>
+                                            <button type="button" alt="Delete" class="border-blue-500 md:border-green-500">
+                                                <font color="#b00020">
+                                                    <i class="fas mt-1 fa-trash ml-2"></i>
+                                                </font>
+                                            </button>
+                                        </td>
+                                    </tr>
+                            <?php
+                            }
+                            ?>
+                        </tbody>
+                    </table>
         </div>
     </div>
+        <div class="sm:flex sm:flex-1 sm:justify-end py-4">
+            <div>
+                <p class="text-sm text-white pl-2">
+                    Showing
+                </p>
+            </div>
+            <div>
+                <p class="text-sm text-white pl-1 pr-2">
+                    <?php
+                    echo count($data) <=1 ? count($data)." record": count($data)." records";
+                    ?>
+                </p>
+            </div>
+        </div>
+    
     <!-- PAGINATION (soon) -->
     <!-- <div class="hidden sm:flex sm:flex-1 sm:items-center sm:justify-between py-4">
     <div>
