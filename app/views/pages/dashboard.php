@@ -158,23 +158,24 @@ require APPROOT . '/views/inc/header.php';
       </div> 
     </div>
 
-    <?php
-
-        // get donut array from main array
-          $donut = $data['donut'];
-          $u01 = explode('/', $donut['/u01']);
-
-    ?>
+    
     
     
     <div class="grid grid-cols-4 gap-x-12 justify-center">
+      <?php
+
+          // get donut array from main array
+            $donut = $data['donut'];
+            $u01 = explode('/', $donut['/u01']);
+
+      ?>
       <!--Must rename for duplicating: chartDonut1,myChart1, sampleChart1, config1-->
       <div class="w-2/7 bg-gray-600 p-5 rounded-lg">
         <div>
           <canvas id="chartDonut1"></canvas>
         </div>
 
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+
           <script>
 
             var u01 = ["<?php  echo $u01[0]-$u01[1]; ?>","<?php echo $u01[1]; ?>"];
@@ -217,7 +218,7 @@ require APPROOT . '/views/inc/header.php';
                   },
                   title: {
                     display: true,
-                      text: '1',
+                      text: 'u01',
                       align: 'center',
                       color: 'white',
                       position: 'top',
@@ -232,8 +233,26 @@ require APPROOT . '/views/inc/header.php';
                             total = context.chart._metasets[context.datasetIndex].total;
 
                         var percentage = parseFloat((currentValue/total*100).toFixed(1));
+                        let unit;
+                        let convertedVal;
+                        if ((currentValue/1024) < 1024){
+                          convertedVal = currentValue/1024
+                          unit = 'KB';
+                        }
+                        else if ((currentValue/1048576) < 1024){
+                          convertedVal = currentValue/1048576
+                          unit = 'MB';
+                        }
+                        else if ((currentValue/1073741824) < 1024){
+                          convertedVal = currentValue/1073741824
+                          unit = 'GB';
+                        }
+                        else{
+                          convertedVal = currentValue/1099511627776
+                          unit = 'TB';
+                        }
 
-                        return label + ": " +currentValue + ' (' + percentage + '%)';
+                        return label + ": " + convertedVal.toFixed(2) + unit + ' (' + percentage + '%)';
                       }
                     }
                   }
@@ -249,13 +268,23 @@ require APPROOT . '/views/inc/header.php';
           </script>
       </div>
 
+      <?php
+
+        // get donut array from main array
+          $donut = $data['donut'];
+          $u02 = explode('/', $donut['/u02']);
+
+      ?>
+      
       <div class="w-2/7 bg-gray-600 p-5 rounded-lg">
       <div>
           <canvas id="chartDonut2"></canvas>
         </div>
 
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+        
           <script>
+            var u02 = ["<?php  echo $u02[0]-$u02[1]; ?>","<?php echo $u02[1]; ?>"];
+
             let myChart2 = document.getElementById('chartDonut2').getContext('2d');
 
             let sampleChart2 = new Chart(myChart2, {
@@ -267,7 +296,7 @@ require APPROOT . '/views/inc/header.php';
                 ],
                 datasets:[{
                   label: 'My First Dataset',
-                  data: [25, 75],
+                  data: [u02[1], u02[0]],
                   backgroundColor: [
                     'rgba(129, 140, 248,1)',
                     'rgba(255, 99, 132,1)'
@@ -293,7 +322,7 @@ require APPROOT . '/views/inc/header.php';
                   },
                   title: {
                     display: true,
-                      text: '2',
+                      text: 'u02',
                       align: 'center',
                       color: 'white',
                       position: 'top',
@@ -308,8 +337,26 @@ require APPROOT . '/views/inc/header.php';
                             total = context.chart._metasets[context.datasetIndex].total;
 
                         var percentage = parseFloat((currentValue/total*100).toFixed(1));
+                        let unit;
+                        let convertedVal;
+                        if ((currentValue/1024) < 1024){
+                          convertedVal = currentValue/1024
+                          unit = 'KB';
+                        }
+                        else if ((currentValue/1048576) < 1024){
+                          convertedVal = currentValue/1048576
+                          unit = 'MB';
+                        }
+                        else if ((currentValue/1073741824) < 1024){
+                          convertedVal = currentValue/1073741824
+                          unit = 'GB';
+                        }
+                        else{
+                          convertedVal = currentValue/1099511627776
+                          unit = 'TB';
+                        }
 
-                        return label + ": " +currentValue + ' (' + percentage + '%)';
+                        return label + ": " + convertedVal.toFixed(2) + unit + ' (' + percentage + '%)';
                       }
                     }
                   }
@@ -325,13 +372,23 @@ require APPROOT . '/views/inc/header.php';
           </script>
       </div>
         
+      <?php
+
+        // get donut array from main array
+          $donut = $data['donut'];
+          $u03 = explode('/', $donut['/u03']);
+
+      ?>
+
       <div class="w-2/7 bg-gray-600 p-5 rounded-lg">
         <div>
           <canvas id="chartDonut3"></canvas>
         </div>
 
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+        
           <script>
+            var u03 = ["<?php  echo $u03[0]-$u03[1]; ?>","<?php echo $u03[1]; ?>"];
+
             let myChart3 = document.getElementById('chartDonut3').getContext('2d');
 
             let sampleChart3 = new Chart(myChart3, {
@@ -343,7 +400,7 @@ require APPROOT . '/views/inc/header.php';
                 ],
                 datasets:[{
                   label: 'My First Dataset',
-                  data: [33, 76],
+                  data: [u03[1], u03[0]],
                   backgroundColor: [
                     'rgba(129, 140, 248,1)',
                     'rgba(255, 99, 132,1)'
@@ -369,7 +426,7 @@ require APPROOT . '/views/inc/header.php';
                   },
                   title: {
                     display: true,
-                      text: '3',
+                      text: 'u03',
                       align: 'center',
                       color: 'white',
                       position: 'top',
@@ -384,8 +441,26 @@ require APPROOT . '/views/inc/header.php';
                             total = context.chart._metasets[context.datasetIndex].total;
 
                         var percentage = parseFloat((currentValue/total*100).toFixed(1));
+                        let unit;
+                        let convertedVal;
+                        if ((currentValue/1024) < 1024){
+                          convertedVal = currentValue/1024
+                          unit = 'KB';
+                        }
+                        else if ((currentValue/1048576) < 1024){
+                          convertedVal = currentValue/1048576
+                          unit = 'MB';
+                        }
+                        else if ((currentValue/1073741824) < 1024){
+                          convertedVal = currentValue/1073741824
+                          unit = 'GB';
+                        }
+                        else{
+                          convertedVal = currentValue/1099511627776
+                          unit = 'TB';
+                        }
 
-                        return label + ": " +currentValue + ' (' + percentage + '%)';
+                        return label + ": " + convertedVal.toFixed(2) + unit + ' (' + percentage + '%)';
                       }
                     }
                   }
@@ -401,13 +476,23 @@ require APPROOT . '/views/inc/header.php';
           </script>
       </div>
 
+      <?php
+
+        // get donut array from main array
+          $donut = $data['donut'];
+          $u04 = explode('/', $donut['/u04']);
+
+      ?>
+
       <div class="w-2/7 bg-gray-600 p-5 rounded-lg">
         <div>
           <canvas id="chartDonut4"></canvas>
         </div>
 
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+        
           <script>
+            var u04 = ["<?php  echo $u04[0]-$u04[1]; ?>","<?php echo $u04[1]; ?>"];
+
             let myChart4 = document.getElementById('chartDonut4').getContext('2d');
 
             let sampleChart4 = new Chart(myChart4, {
@@ -419,7 +504,7 @@ require APPROOT . '/views/inc/header.php';
                 ],
                 datasets:[{
                   label: 'DISK',
-                  data: [75, 992],
+                  data: [u04[1], u04[0]],
                   backgroundColor: [
                     'rgba(129, 140, 248,1)',
                     'rgba(255, 99, 132,1)'
@@ -445,7 +530,7 @@ require APPROOT . '/views/inc/header.php';
                   },
                   title: {
                     display: true,
-                      text: '4',
+                      text: 'u04',
                       align: 'center',
                       color: 'white',
                       position: 'top',
@@ -460,8 +545,26 @@ require APPROOT . '/views/inc/header.php';
                             total = context.chart._metasets[context.datasetIndex].total;
 
                         var percentage = parseFloat((currentValue/total*100).toFixed(1));
+                        let unit;
+                        let convertedVal;
+                        if ((currentValue/1024) < 1024){
+                          convertedVal = currentValue/1024
+                          unit = 'KB';
+                        }
+                        else if ((currentValue/1048576) < 1024){
+                          convertedVal = currentValue/1048576
+                          unit = 'MB';
+                        }
+                        else if ((currentValue/1073741824) < 1024){
+                          convertedVal = currentValue/1073741824
+                          unit = 'GB';
+                        }
+                        else{
+                          convertedVal = currentValue/1099511627776
+                          unit = 'TB';
+                        }
 
-                        return label + ": " +currentValue + ' (' + percentage + '%)';
+                        return label + ": " + convertedVal.toFixed(2) + unit + ' (' + percentage + '%)';
                       }
                     }
                   }
