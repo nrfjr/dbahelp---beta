@@ -169,7 +169,7 @@ require APPROOT . '/views/inc/header.php';
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
           <script>
             let myChart1 = document.getElementById('chartDonut1').getContext('2d');
-
+            
             let sampleChart1 = new Chart(myChart1, {
               type: 'doughnut',
               data: {
@@ -179,7 +179,7 @@ require APPROOT . '/views/inc/header.php';
                 ],
                 datasets:[{
                   label: 'My First Dataset',
-                  data: [25, 75],
+                  data: [185303.04, 453672.96],
                   backgroundColor: [
                     'rgba(129, 140, 248,1)',
                     'rgba(255, 99, 132,1)'
