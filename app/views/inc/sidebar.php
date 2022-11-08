@@ -155,18 +155,12 @@
         }
         @media only screen and (max-height: 700px){
             .maxh{
-                max-height: 15rem;
+                max-height: 11rem;
             }
-            
         }
         @media only screen and (max-height: 600px){
             .maxh{
                 max-height: 10rem;
-            }
-        }
-        @media only screen and (min-height: 900px){
-            .maxh{
-                max-height: 25rem;
             }
         }
 
@@ -290,8 +284,8 @@
                     <img src="<?php echo URLROOT; ?>/public/img/user.png">
                 </button>
                 <button x-show="isOpen" @click="isOpen = false" class="h-full w-full fixed inset-0 cursor-default"></button>
-                <div x-show="isOpen" class="absolute w-32 justify-center bg-gray-600 rounded-lg shadow-lg py-2 mt-16">
-                    <a href="<?php echo URLROOT; ?>/users/logout" class="block text-white  text-center px-4 py-2  hover:bg-gray-600">Sign Out</a>
+                <div x-show="isOpen" class="absolute w-32  bg-gray-400 rounded-lg shadow-lg py-2 mt-16">
+                    <a href="<?php echo URLROOT; ?>/users/logout" class="block text-white text-center px-4 py-2 account-link hover:text-white">Sign Out</a>
                 </div>
             </div>
         </header>

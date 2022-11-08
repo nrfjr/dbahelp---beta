@@ -21,6 +21,11 @@
             $this->view('pages/dashboard', $data);
         }
 
+        public function diskstorage()
+        {
+            $this->view('pages/diskstorage', $data=[]);
+        }
+
         public function getDF($FTP_DIR_WITH_FILE)       
         {
             $filename = $FTP_DIR_WITH_FILE;
