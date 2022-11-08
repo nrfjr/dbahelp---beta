@@ -56,7 +56,7 @@
         {       
            $query=$this->fm->loadSQL('getUser_MasterList');
            $param = [
-                        ':search' => $search
+                        ':search' => $search[':search']
                     ];
            $this->db->queryWithParam($query,$param);
 

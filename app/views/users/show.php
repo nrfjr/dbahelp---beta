@@ -4,7 +4,7 @@ require APPROOT . '/views/inc/header.php';
 ?>
 <?php require APPROOT . '/views/inc/sidebar.php'; ?>
 
-<h1 class="text-3xl text-black pb-6 text-white"><b>Manage Users</b></h1>
+<h1 class="text-3xl text-black mb-20 pb-6 text-white"><b>Manage Users</b></h1>
 
 
 <div class="overflow-x-auto relative shadow-md sm:rounded-lg">
@@ -24,16 +24,17 @@ require APPROOT . '/views/inc/header.php';
                     <path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd"></path>
                 </svg>
             </div>
+            <form action="<?php echo URLROOT; ?>/users/show" method="POST">
             <div class="flex justify-auto">
-                <input type="text" id="table-search-users" class="block mr-4 p-2 pl-10 w-80 text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Search for users">
-                <button id="dropdownRadioButton" class="inline-flex items-center text-black bg-blue-200 focus:outline-none hover:bg-blue-700 hover:text-white focus:ring-4 focus:ring-gray-200 font-medium rounded-lg text-sm px-3 py-1.5 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700" type="button">
+                <input type="text" id="search" name="search" class="block mr-4 p-2 pl-10 w-80 text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Search for users">
+                <button id="dropdownRadioButton" class="inline-flex items-center text-black bg-blue-200 focus:outline-none hover:bg-blue-700 hover:text-white focus:ring-4 focus:ring-gray-200 font-medium rounded-lg text-sm px-3 py-1.5 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700" type="submit">
                     Search
                 </button>
             </div>
+            </form>
         </div>
     </div>
-    <div class="flex h-96 shadow-md">
-        <div class="overflow-auto  w-full sm:rounded-lg">
+    <div class="flex w-full h-96 shadow-md overflow-auto sm:rounded-lg">
             <?php
             if (!empty($data)) {
 
@@ -53,7 +54,7 @@ require APPROOT . '/views/inc/header.php';
                                 <?php echo $column_names[$title]; ?>
                             </th>
                             <?php }?>
-                            <th scope="col" class="py-2 px-6 text-center">
+                            <th scope="col" class="py-2 px-6">
                                 Action
                             </th>
                         </tr>
@@ -90,18 +91,17 @@ require APPROOT . '/views/inc/header.php';
                         ?>
                     </tbody>
                 </table>
-        </div>
     </div>
-    <div class="hidden sm:flex sm:flex-1 sm:items-center sm:justify-between py-4">
+    <div class="sm:flex sm:flex-1 sm:justify-end py-4">
         <div>
             <p class="text-sm text-white pl-2">
-                Total Records:
+                Showing
             </p>
         </div>
         <div>
-            <p class="text-sm text-white pr-2">
+            <p class="text-sm text-white pl-1 pr-2">
                 <?php
-                echo count($data);
+                echo count($data) <=1 ? count($data)." record": count($data)." records";
                 ?>
             </p>
         </div>
@@ -147,8 +147,8 @@ require APPROOT . '/views/inc/header.php';
 <?php
             } else {
 ?>
-    <div class="flex justify-center bg-gray-500">
-        <h1 class="text-white"><b>No Users Found.</b></h1>
+    <div class="flex justify-center w-full h-full bg-gray-500">
+        <h1 class="text-white m-auto "><b>No Users Found.</b></h1>
     </div>
 <?php
             }

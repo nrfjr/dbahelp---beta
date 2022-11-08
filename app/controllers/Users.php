@@ -153,7 +153,15 @@
         // gets list of users
         public function show()
         {
-            $result = $this->userModel->getUserList("");
+            $search=[':search' => ''];
+
+            if($_SERVER['REQUEST_METHOD'] == 'POST'){
+                $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+
+                $search = [':search' => trim($_POST['search'])];
+            }
+
+            $result = $this->userModel->getUserList($search);
             $data = $result;
             $this->view('users/show', $data);
         }
