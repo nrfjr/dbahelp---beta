@@ -14,9 +14,20 @@
 
             $data = [
 
-                'usercount' => $result['Total Users']
+                'usercount' => $result['Total Users'],
+                'donut' => $this->getDF(RMSPRD)
 
             ];
             $this->view('pages/dashboard', $data);
+        }
+
+        public function getDF($FTP_DIR_WITH_FILE)       
+        {
+            $filename = $FTP_DIR_WITH_FILE;
+            $handle = fopen($filename, "r");
+            $contents = fread($handle, filesize($filename));
+            fclose($handle);
+
+            return json_decode($contents, true);
         }
     }

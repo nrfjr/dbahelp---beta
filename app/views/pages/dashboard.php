@@ -157,6 +157,14 @@ require APPROOT . '/views/inc/header.php';
           </script>
       </div> 
     </div>
+
+    <?php
+
+        // get donut array from main array
+          $donut = $data['donut'];
+          $u01 = explode('/', $donut['/u01']);
+
+    ?>
     
     
     <div class="grid grid-cols-4 gap-x-12 justify-center">
@@ -168,6 +176,9 @@ require APPROOT . '/views/inc/header.php';
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
           <script>
+
+            var u01 = ["<?php  echo $u01[0]-$u01[1]; ?>","<?php echo $u01[1]; ?>"];
+
             let myChart1 = document.getElementById('chartDonut1').getContext('2d');
             
             let sampleChart1 = new Chart(myChart1, {
@@ -179,7 +190,8 @@ require APPROOT . '/views/inc/header.php';
                 ],
                 datasets:[{
                   label: 'My First Dataset',
-                  data: [185303.04, 453672.96],
+                          //Free, Used
+                  data: [u01[1], u01[0]],
                   backgroundColor: [
                     'rgba(129, 140, 248,1)',
                     'rgba(255, 99, 132,1)'
