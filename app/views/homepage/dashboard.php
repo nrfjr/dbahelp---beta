@@ -433,13 +433,12 @@ require APPROOT . '/views/inc/header.php';
     
     
     <!--Donuts-->
-    <div class="grid grid-cols-4 gap-4 justify-center height">
+    <div class="grid grid-cols-4 gap-4 justify-center">
       <!--Must rename for duplicating: chartDonut1,myChart1, sampleChart1, config1-->
-      <div class="w-full box  p-5 rounded-lg">
+      <div class="w-full box rounded-lg">
         <div>
           <canvas id="chartDonut1"></canvas>
         </div>
-
 
           <script>
 
@@ -459,8 +458,8 @@ require APPROOT . '/views/inc/header.php';
                           //Free, Used
                   data: [u01[1], u01[0]],
                   backgroundColor: [
-                    'rgba(129, 140, 248,1)',
-                    'rgba(255, 99, 132,1)'
+                    '#66ff33',
+                    '#339933'
                   ],
                   borderColor: [
                     'rgba(255, 255, 255,1)',
@@ -476,19 +475,25 @@ require APPROOT . '/views/inc/header.php';
                 responsive: true,
                 plugins: {
                   legend: {
-                    display: false,     //remove the legend
+                    position: 'left',
+                    align: 'end',
+                    display: true,     //remove the legend
                     labels: {
                       color: 'white',
-                      align: 'start'
+                      textAlign: 'start',
+                      boxWidth: 20
                     }
                   },
                   title: {
                     display: true,
-                      text: '/u01',
-                      align: 'center',
+                      text: 'OFIN Flash Recovery Area Usage',
+                      align: 'start',
                       color: 'white',
                       position: 'top',
-                      weight: 'bold'
+                      weight: 'bold',
+                      font:{
+                        size: 16
+                      }
                   },
                   tooltip:{
                     intersect: 'true',
@@ -533,7 +538,7 @@ require APPROOT . '/views/inc/header.php';
             };
           </script>
       </div>
-      <div class="w-full box  p-5 rounded-lg">
+      <div class="w-full box rounded-lg">
         <div>
           <canvas id="chartDonut2"></canvas>
         </div>
@@ -555,8 +560,8 @@ require APPROOT . '/views/inc/header.php';
                   label: 'My First Dataset',
                   data: [u02[1], u02[0]],
                   backgroundColor: [
-                    'rgba(129, 140, 248,1)',
-                    'rgba(255, 99, 132,1)'
+                    '#66ff33',
+                    '#339933'
                   ],
                   borderColor: [
                     'rgba(255, 255, 255,1)',
@@ -572,18 +577,25 @@ require APPROOT . '/views/inc/header.php';
                 responsive: true,
                 plugins: {
                   legend: {
+                    position: 'left',
+                    align: 'end',
+                    display: true,     //remove the legend
                     labels: {
                       color: 'white',
-                      align: 'start'
+                      textAlign: 'start',
+                      boxWidth: 20
                     }
                   },
                   title: {
                     display: true,
-                      text: 'u02',
-                      align: 'center',
+                      text: 'OFIN Flash Recovery Area Usage',
+                      align: 'start',
                       color: 'white',
                       position: 'top',
-                      weight: 'bold'
+                      weight: 'bold',
+                      font:{
+                        size: 16
+                      }
                   },
                   tooltip:{
                     intersect: 'true',
@@ -628,8 +640,7 @@ require APPROOT . '/views/inc/header.php';
             };
           </script>
       </div> 
-
-      <div class="w-full box  p-5 rounded-lg">
+      <div class="w-full box rounded-lg">
         <div>
           <canvas id="chartDonut3"></canvas>
         </div>
@@ -651,8 +662,8 @@ require APPROOT . '/views/inc/header.php';
                   label: 'My First Dataset',
                   data: [u03[1], u03[0]],
                   backgroundColor: [
-                    'rgba(129, 140, 248,1)',
-                    'rgba(255, 99, 132,1)'
+                    '#66ff33',
+                    '#339933'
                   ],
                   borderColor: [
                     'rgba(255, 255, 255,1)',
@@ -668,18 +679,25 @@ require APPROOT . '/views/inc/header.php';
                 responsive: true,
                 plugins: {
                   legend: {
+                    position: 'left',
+                    align: 'end',
+                    display: true,     //remove the legend
                     labels: {
                       color: 'white',
-                      align: 'start'
+                      textAlign: 'start',
+                      boxWidth: 20
                     }
                   },
                   title: {
                     display: true,
-                      text: 'u03',
-                      align: 'center',
+                      text: 'OFIN Flash Recovery Area Usage',
+                      align: 'start',
                       color: 'white',
                       position: 'top',
-                      weight: 'bold'
+                      weight: 'bold',
+                      font:{
+                        size: 16
+                      }
                   },
                   tooltip:{
                     intersect: 'true',
@@ -724,9 +742,7 @@ require APPROOT . '/views/inc/header.php';
             };
           </script>
       </div>
-
-
-      <div class="w-full   box  p-5 rounded-lg">
+      <div class="w-full  box rounded-lg">
         <div>
           <canvas id="chartDonut4"></canvas>
         </div>
@@ -748,8 +764,8 @@ require APPROOT . '/views/inc/header.php';
                   label: 'DISK',
                   data: [u04[1], u04[0]],
                   backgroundColor: [
-                    'rgba(129, 140, 248,1)',
-                    'rgba(255, 99, 132,1)'
+                    '#66ff33',
+                    '#339933'
                   ],
                   borderColor: [
                     'rgba(255, 255, 255,1)',
@@ -761,22 +777,30 @@ require APPROOT . '/views/inc/header.php';
                 }]
               },
               options:{ //this is where i do changes for chart options, ref: https://www.chartjs.org/docs/latest/configuration/title.html
+                
                 rotation: 90,
                 responsive: true,
                 plugins: {
                   legend: {
+                    position: 'left',
+                    align: 'end',
+                    display: true,     //remove the legend
                     labels: {
                       color: 'white',
-                      align: 'start'
+                      textAlign: 'start',
+                      boxWidth: 20
                     }
                   },
                   title: {
                     display: true,
-                      text: 'u04',
-                      align: 'center',
+                      text: 'OFIN Flash Recovery Area Usage',
+                      align: 'start',
                       color: 'white',
                       position: 'top',
-                      weight: 'bold'
+                      weight: 'bold',
+                      font:{
+                        size: 16
+                      }
                   },
                   tooltip:{
                     intersect: 'true',
