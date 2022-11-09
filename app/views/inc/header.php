@@ -49,6 +49,45 @@
         .account-link:hover {
             background: #3d68ff;
         }
+          
+          h1, h2, h3, h4, h5, h6, strong {
+              font-weight: 600;
+          }
+          
+          .box .apexcharts-xaxistooltip {
+              background: #1B213B;
+              color: #fff;
+          }
+          
+          .content-area {
+              max-width: 1280px;
+              margin: 0 auto;
+          }
+          
+          .box {
+              background-color: rgb(75 85 99);
+              padding: 25px 25px;
+              border-radius: 4px;
+              border: 3px solid #fff9;
+
+          }
+          
+          .columnbox {
+              padding-right: 15px;
+          }
+          .radialbox {
+              max-height: 333px;
+              margin-bottom: 60px;
+          }
+          
+          .apexcharts-legend-series tspan:nth-child(3) {
+              font-weight: bold;
+              font-size: 20px;
+          }
+          
+          .spinner-border {
+              display: none;
+          }
     </style>
 
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
