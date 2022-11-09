@@ -11,6 +11,10 @@
 
     <!-- Tailwind -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <!--Flowbite-->
+    <link rel="stylesheet" href="https://unpkg.com/flowbite@1.5.3/dist/flowbite.min.css" />
+    <!-- Apex Chart -->
+    
     <style>
         @import url('https://fonts.googleapis.com/css?family=Lexend:400,700&display=swap');
 
@@ -45,6 +49,45 @@
         .account-link:hover {
             background: #3d68ff;
         }
+          
+          h1, h2, h3, h4, h5, h6, strong {
+              font-weight: 600;
+          }
+          
+          .box .apexcharts-xaxistooltip {
+              background: #1B213B;
+              color: #fff;
+          }
+          
+          .content-area {
+              max-width: 1280px;
+              margin: 0 auto;
+          }
+          
+          .box {
+              background-color: rgb(75 85 99);
+              padding: 25px 25px;
+              border-radius: 4px;
+              border: 3px solid #fff9;
+
+          }
+          
+          .columnbox {
+              padding-right: 15px;
+          }
+          .radialbox {
+              max-height: 333px;
+              margin-bottom: 60px;
+          }
+          
+          .apexcharts-legend-series tspan:nth-child(3) {
+              font-weight: bold;
+              font-size: 20px;
+          }
+          
+          .spinner-border {
+              display: none;
+          }
     </style>
 
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
@@ -55,6 +98,12 @@
     <!-- ChartJS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
     <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js" integrity="sha256-R4pqcOYV8lt7snxMQO/HSbVCFRPMdrhAFMH+vr9giYI=" crossorigin="anonymous"></script> -->
+    <!--FlowBite-->
+    <script src="https://unpkg.com/flowbite@1.5.3/dist/flowbite.js"></script>
+    <!--Apex Chart-->
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
 </head>
 
 <body class="bg-gray-100 font-family-lexend flex">

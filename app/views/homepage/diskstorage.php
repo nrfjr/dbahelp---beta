@@ -56,6 +56,7 @@ require APPROOT . '/views/inc/header.php';
                 responsive: true,
                 plugins: {
                   legend: {
+                    position: 'bottom',
                     labels: {
                       color: 'white',
                       align: 'start'
@@ -63,7 +64,7 @@ require APPROOT . '/views/inc/header.php';
                   },
                   title: {
                     display: true,
-                      text: '1',
+                      text: '/u01',
                       align: 'center',
                       color: 'white',
                       position: 'top',
@@ -160,6 +161,7 @@ require APPROOT . '/views/inc/header.php';
                 responsive: true,
                 plugins: {
                   legend: {
+                    position: 'bottom',
                     labels: {
                       color: 'white',
                       align: 'start'
@@ -167,7 +169,7 @@ require APPROOT . '/views/inc/header.php';
                   },
                   title: {
                     display: true,
-                      text: '2',
+                      text: '/u02',
                       align: 'center',
                       color: 'white',
                       position: 'top',
@@ -264,6 +266,7 @@ require APPROOT . '/views/inc/header.php';
                 responsive: true,
                 plugins: {
                   legend: {
+                    position: 'bottom',
                     labels: {
                       color: 'white',
                       align: 'start'
@@ -271,7 +274,7 @@ require APPROOT . '/views/inc/header.php';
                   },
                   title: {
                     display: true,
-                      text: '3',
+                      text: '/u03',
                       align: 'center',
                       color: 'white',
                       position: 'top',
@@ -368,6 +371,7 @@ require APPROOT . '/views/inc/header.php';
                 responsive: true,
                 plugins: {
                   legend: {
+                    position: 'bottom',
                     labels: {
                       color: 'white',
                       align: 'start'
@@ -375,7 +379,7 @@ require APPROOT . '/views/inc/header.php';
                   },
                   title: {
                     display: true,
-                      text: '4',
+                      text: '/u04',
                       align: 'center',
                       color: 'white',
                       position: 'top',
