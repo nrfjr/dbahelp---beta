@@ -74,7 +74,7 @@
 
         public function createUserSession($user){
             $_SESSION['username'] = $user['username'];
-            redirect('pages/dashboard');
+            redirect('homepage/dashboard');
         }
 
         public function logout(){

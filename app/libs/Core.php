@@ -2,7 +2,7 @@
     // App Core Class
     // URL & Core controller
 class Core {
-    protected $currentController = 'Pages';
+    protected $currentController = 'Homepage';
     public $currentMethod = 'index';
     protected $params = [];
 

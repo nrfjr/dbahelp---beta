@@ -7,13 +7,13 @@
 <aside class="relative bg-indigo-400 h-screen w-64 hidden sm:block shadow-xl overflow-y-auto transition ease-in-out delay-150">
     <div>
         <div class="p-6">
-            <a href="<?php echo URLROOT;?>/pages/dashboard" class="text-white text-3xl font-semibold hover:text-gray-300"><?php echo SITENAME?></a>
+            <a href="<?php echo URLROOT;?>/homepage/dashboard" class="text-white text-3xl font-semibold hover:text-gray-300"><?php echo SITENAME?></a>
         </div>
         <nav class="text-white text-base font-semibold pt-3 overflow-y-auto maxh">
             <ul>
                 <!--DASHBOARD-->
                 <li class="flex flex-row">
-                        <a href="<?php echo URLROOT;?>/pages/dashboard" class="flex items-center py-4 pl-6 nav-item text-white w-10/12 <?php if (strpos($url, 'dashboard')) {echo 'active-nav-link';} else {echo ' opacity-75';}?>" 
+                        <a href="<?php echo URLROOT;?>/homepage/dashboard" class="flex items-center py-4 pl-6 nav-item text-white w-10/12 <?php if (strpos($url, 'dashboard')) {echo 'active-nav-link';} else {echo ' opacity-75';}?>" 
                         >
                             <i class="fas fa-chart-line mr-3"></i>
                             Dashboard 
@@ -31,14 +31,14 @@
                 <!--DASHBOARD DROP DOWN CONTENTS-->
                 <ul id="dashboard" class="hidden py-1 ">
                 <li>
-                    <a href="<?php echo URLROOT;?>/pages/diskstorage" class="flex items-center py-4 pl-6 nav-item text-white <?php if (strpos($url, 'diskstorage')) {echo 'active-nav-link';} else {echo ' opacity-75';}?>" 
+                    <a href="<?php echo URLROOT;?>/diskstorages/diskstorage" class="flex items-center py-4 pl-6 nav-item text-white <?php if (strpos($url, 'diskstorage')) {echo 'active-nav-link';} else {echo ' opacity-75';}?>" 
                             >
                         <i class="fas fa-compact-disc mr-3"></i>
                         Disk Storage
                     </a>
                 </li>
                 <li>
-                    <a href="<?php echo URLROOT;?>/pages/flashrecovery" class="flex items-center py-4 pl-6 nav-item text-white <?php if (strpos($url, 'flashrecovery')) {echo 'active-nav-link';} else {echo ' opacity-75';}?>" 
+                    <a href="<?php echo URLROOT;?>/homepage/flashrecovery" class="flex items-center py-4 pl-6 nav-item text-white <?php if (strpos($url, 'flashrecovery')) {echo 'active-nav-link';} else {echo ' opacity-75';}?>" 
                             >
                         <i class="fas fa-compact-disc mr-3"></i>
                         Flash Recovery
@@ -57,19 +57,19 @@
                     </button>
                     <ul id="databases" class="hidden py-1  ">
                         <li>
-                        <a href="<?php echo URLROOT;?>/pages/dashboard"  class="flex items-center hover:opacity-100 py-4 pl-12 nav-item text-white <?php if (strpos($url, 'oracle')){ echo 'active-nav-link ';}else{echo 'opacity-75';}?>">
+                        <a href="<?php echo URLROOT;?>/homepage/dashboard"  class="flex items-center hover:opacity-100 py-4 pl-12 nav-item text-white <?php if (strpos($url, 'oracle')){ echo 'active-nav-link ';}else{echo 'opacity-75';}?>">
                             <i class="fas fa-database mr-3"></i>
                         ORACLE
                         </a>
                         </li>
                         <li>
-                            <a href="<?php echo URLROOT;?>/pages/dashboard"  class="flex items-center hover:opacity-100 py-4 pl-12 nav-item text-white <?php if (strpos($url, 'mssql')){ echo 'active-nav-link ';}else{echo 'opacity-75';}?>">
+                            <a href="<?php echo URLROOT;?>/homepage/dashboard"  class="flex items-center hover:opacity-100 py-4 pl-12 nav-item text-white <?php if (strpos($url, 'mssql')){ echo 'active-nav-link ';}else{echo 'opacity-75';}?>">
                                 <i class="fas fa-database mr-3"></i>
                             MSSQL
                             </a>
                         </li>
                         <li>
-                            <a href="<?php echo URLROOT;?>/pages/dashboard"  class="flex items-center hover:opacity-100 py-4 pl-12 nav-item text-white <?php if (strpos($url, 'mariadb')){ echo 'active-nav-link ';}else{echo 'opacity-75';}?>">
+                            <a href="<?php echo URLROOT;?>/homepage/dashboard"  class="flex items-center hover:opacity-100 py-4 pl-12 nav-item text-white <?php if (strpos($url, 'mariadb')){ echo 'active-nav-link ';}else{echo 'opacity-75';}?>">
                                 <i class="fas fa-database mr-3"></i>
                                 MARIA DB
                             </a>
