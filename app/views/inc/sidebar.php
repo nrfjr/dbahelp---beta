@@ -10,99 +10,87 @@
             <a href="<?php echo URLROOT;?>/homepage/dashboard" class="text-white text-3xl font-semibold hover:text-gray-300"><?php echo SITENAME?></a>
         </div>
         <nav class="text-white text-base font-semibold pt-3 overflow-y-auto maxh">
-            <div id="accordion-open" data-accordion="open">
-                <ul>
-                    <!--DASHBOARD-->
-                    
-                        <li class="flex flex-row">
-                                <a href="<?php echo URLROOT;?>/homepage/dashboard" class="flex items-center py-4 pl-6 nav-item text-white w-10/12 <?php if (strpos($url, 'dashboard')) {echo 'active-nav-link';} else {echo ' opacity-75';}?>" 
-                                >
-                                    <i class="fas fa-chart-line mr-3"></i>
-                                    Dashboard 
-                                </a>
-
-                                    <button type="button" class="border-solid border-2 border-gray flex-auto items-center py-4 hover:bg-gray-300 text-white" 
-                                    
-                                    aria-expanded="<?php 
-                                    if (strpos($url, 'diskstorage')) {echo 'true';} else {echo ' false';}?>" 
-                                    aria-controls="dashboard" 
-                                    data-accordion-target="#dashboard"
-                                    data-collapse-toggle="dashboard"> 
-                                    <!--Code above is needed for collapse open while select-->
-                                    <!--Change here for control variables-->
-                                            <svg sidebar-toggle-item class="w-6 h-8" fill="currentColor" viewBox="0 -5 12 28" xmlns="http://www.w3.org/2000/svg">
-                                                <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path>
-                                            </svg>  
-                                        
-                                    </button>
-                                
-                                    
-                            
-                        </li>
-                        <!--DASHBOARD DROP DOWN CONTENTS-->
-                        <ul id="dashboard" class="hidden py-1" data-accordion="open">
-                        <li>
-                            <a href="<?php echo URLROOT;?>/diskstorages/diskstorage" class="flex items-center py-4 pl-6 nav-item text-white <?php if (strpos($url, 'diskstorage')) {echo 'active-nav-link';} else {echo ' opacity-75';}?>" 
-                                    >
-                                <i class="fas fa-compact-disc mr-3"></i>
-                                Disk Storage
-                            </a>
-                        </li>
-                        <li>
-                            <a href="<?php echo URLROOT;?>/homepage/flashrecovery" class="flex items-center py-4 pl-6 nav-item text-white <?php if (strpos($url, 'flashrecovery')) {echo 'active-nav-link';} else {echo ' opacity-75';}?>" 
-                                    >
-                                <i class="fas fa-compact-disc mr-3"></i>
-                                Flash Recovery
-                            </a>
-                        </li>
-                        </ul>
-                    <!--DATABASES-->
-                    <li>
-                        <button type="button" class="flex items-center py-4 pl-6 nav-item text-white w-full text-sm font-semibold pt-3" aria-controls="databases" data-accordion-target="#databases" aria-expanded="false" data-collapse-toggle="databases"> <!--Change here for control variables-->
-                                    <i class="fas fa-database mr-3"></i>
-                                    <span class="flex-1 text-left" sidebar-toggle-item>DATABASES</span>
-                                        <svg sidebar-toggle-item class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                                            <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path>
-                                        </svg>
-                        </button>
-                        <ul id="databases" class="hidden py-1  ">
-                            <li>
-                            <a href="<?php echo URLROOT;?>/homepage/dashboard"  class="flex items-center hover:opacity-100 py-4 pl-12 nav-item text-white <?php if (strpos($url, 'oracle')){ echo 'active-nav-link ';}else{echo 'opacity-75';}?>">
-                                <i class="fas fa-database mr-3"></i>
-                            ORACLE
-                            </a>
-                            </li>
-                            <li>
-                                <a href="<?php echo URLROOT;?>/homepage/dashboard"  class="flex items-center hover:opacity-100 py-4 pl-12 nav-item text-white <?php if (strpos($url, 'mssql')){ echo 'active-nav-link ';}else{echo 'opacity-75';}?>">
-                                    <i class="fas fa-database mr-3"></i>
-                                MSSQL
-                                </a>
-                            </li>
-                            <li>
-                                <a href="<?php echo URLROOT;?>/homepage/dashboard"  class="flex items-center hover:opacity-100 py-4 pl-12 nav-item text-white <?php if (strpos($url, 'mariadb')){ echo 'active-nav-link ';}else{echo 'opacity-75';}?>">
-                                    <i class="fas fa-database mr-3"></i>
-                                    MARIA DB
-                                </a>
-                            </li>  
-                        </ul>
-
-                    </li>
-
-                    <li>
-                        <a href="<?php echo URLROOT;?>/users/show"  class="flex items-center hover:opacity-100 py-4 pl-6 nav-item text-white <?php if (strpos($url, 'show')){ echo 'active-nav-link ';}else{echo 'opacity-75';}?>">
-                        <i class="fas fa-user-cog mr-3"></i>
-                        Manage Users
+            <ul>
+                <!--DASHBOARD-->
+                <li class="flex flex-row">
+                        <a href="<?php echo URLROOT;?>/homepage/dashboard" class="flex items-center py-4 pl-6 nav-item text-white w-10/12 <?php if (strpos($url, 'dashboard')) {echo 'active-nav-link';} else {echo ' opacity-75';}?>" 
+                        >
+                            <i class="fas fa-chart-line mr-3"></i>
+                            Dashboard 
                         </a>
-                    </li>
+                            <button type="button" class="border-solid border-2 border-gray flex-auto items-center py-4 hover:bg-gray-300 text-white" aria-controls="dashboard" data-collapse-toggle="dashboard"> <!--Change here for control variables-->
+                                    <svg sidebar-toggle-item class="w-6 h-8" fill="currentColor" viewBox="0 -5 12 28" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+                                    </svg>  
+                                
+                            </button>
+                        
+                            
                     
+                </li>
+                <!--DASHBOARD DROP DOWN CONTENTS-->
+                <ul id="dashboard" class="hidden py-1 ">
+                <li>
+                    <a href="<?php echo URLROOT;?>/diskstorages/diskstorage" class="flex items-center py-4 pl-6 nav-item text-white <?php if (strpos($url, 'diskstorage')) {echo 'active-nav-link';} else {echo ' opacity-75';}?>" 
+                            >
+                        <i class="fas fa-compact-disc mr-3"></i>
+                        Disk Storage
+                    </a>
+                </li>
+                <li>
+                    <a href="<?php echo URLROOT;?>/homepage/flashrecovery" class="flex items-center py-4 pl-6 nav-item text-white <?php if (strpos($url, 'flashrecovery')) {echo 'active-nav-link';} else {echo ' opacity-75';}?>" 
+                            >
+                        <i class="fas fa-compact-disc mr-3"></i>
+                        Flash Recovery
+                    </a>
+                </li>
                 </ul>
-            </div>
+                
+                <!--DATABASES-->
+                <li>
+                    <button type="button" class="flex items-center py-4 pl-6 nav-item text-white w-full text-sm font-semibold pt-3" aria-controls="databases" data-collapse-toggle="databases"> <!--Change here for control variables-->
+                                <i class="fas fa-database mr-3"></i>
+                                <span class="flex-1 text-left" sidebar-toggle-item>DATABASES</span>
+                                    <svg sidebar-toggle-item class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+                                    </svg>
+                    </button>
+                    <ul id="databases" class="hidden py-1  ">
+                        <li>
+                        <a href="<?php echo URLROOT;?>/homepage/dashboard"  class="flex items-center hover:opacity-100 py-4 pl-12 nav-item text-white <?php if (strpos($url, 'oracle')){ echo 'active-nav-link ';}else{echo 'opacity-75';}?>">
+                            <i class="fas fa-database mr-3"></i>
+                        ORACLE
+                        </a>
+                        </li>
+                        <li>
+                            <a href="<?php echo URLROOT;?>/homepage/dashboard"  class="flex items-center hover:opacity-100 py-4 pl-12 nav-item text-white <?php if (strpos($url, 'mssql')){ echo 'active-nav-link ';}else{echo 'opacity-75';}?>">
+                                <i class="fas fa-database mr-3"></i>
+                            MSSQL
+                            </a>
+                        </li>
+                        <li>
+                            <a href="<?php echo URLROOT;?>/homepage/dashboard"  class="flex items-center hover:opacity-100 py-4 pl-12 nav-item text-white <?php if (strpos($url, 'mariadb')){ echo 'active-nav-link ';}else{echo 'opacity-75';}?>">
+                                <i class="fas fa-database mr-3"></i>
+                                MARIA DB
+                            </a>
+                        </li>  
+                    </ul>
+
+                </li>
+
+                <li>
+                    <a href="<?php echo URLROOT;?>/users/show"  class="flex items-center hover:opacity-100 py-4 pl-6 nav-item text-white <?php if (strpos($url, 'show')){ echo 'active-nav-link ';}else{echo 'opacity-75';}?>">
+                    <i class="fas fa-user-cog mr-3"></i>
+                    Manage Users
+                    </a>
+                </li>
+                
+            </ul>
+
             
             <script src="https://unpkg.com/flowbite@1.3.4/dist/flowbite.js"></script>
         </nav>
     </div>
-
-    <!--Time & Date-->
     <div class="left-0 widgets transition ease-in-out delay-150">
         <div class="w-full px-1 drop-shadow-lg rounded-lg justify-center">
             <!--Dayspedia.com widget--><iframe width='100%' height='100%' style='padding:0!important;margin:0!important;border:none!important;background:none!important;background:transparent!important;pointer-events:none;' marginheight='0' marginwidth='0' frameborder='0' scrolling='no' comment='/*defined*/' src='https://dayspedia.com/if/digit/?v=1&iframe=eyJ3LTEyIjp0cnVlLCJ3LTExIjp0cnVlLCJ3LTEzIjp0cnVlLCJ3LTE0IjpmYWxzZSwidy0xNSI6ZmFsc2UsInctMTEwIjpmYWxzZSwidy13aWR0aC0wIjp0cnVlLCJ3LXdpZHRoLTEiOmZhbHNlLCJ3LXdpZHRoLTIiOmZhbHNlLCJ3LTE2IjoiMTZweCAxNnB4IDI0cHgiLCJ3LTE5IjoiMzIiLCJ3LTE3IjoiMTIiLCJ3LTIxIjp0cnVlLCJiZ2ltYWdlIjo2LCJiZ2ltYWdlU2V0Ijp0cnVlLCJ3LTIxYzAiOiIjZmZmZmZmIiwidy0wIjp0cnVlLCJ3LTMiOmZhbHNlLCJ3LTNjMCI6IiMzNDM0MzQiLCJ3LTNiMCI6IjEiLCJ3LTYiOiIjMzQzNDM0Iiwidy0yMCI6dHJ1ZSwidy00IjoiI2Y2ZmJmZSIsInctMTgiOmZhbHNlLCJ3LXdpZHRoLTJjLTAiOiIzMDAiLCJ3LTExNSI6ZmFsc2V9&lang=en&cityid=7780'></iframe><!--Dayspedia.com widget ENDS-->

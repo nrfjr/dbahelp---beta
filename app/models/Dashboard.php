@@ -9,9 +9,9 @@
             $this->fm = new FileManager;
         }
 
-        public function getTotalUsers()
+        public function getTotalSessions()
         {
-            $query = $this->fm->loadSQL('get_TotalUsers');
+            $query = $this->fm->loadSQL('get_TotalSessions');
 
             $this->db->query($query);
 

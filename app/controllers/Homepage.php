@@ -10,14 +10,14 @@
 
         public function index() {
             
-            $result = $this->dashboardModel->getTotalUsers();
+            $this->view('homepage/dashboard', $data=[]);
+        }
 
-            $data = [
+        public function getUserSessions()
+        {
+            $result = $this->dashboardModel->getTotalSessions();
 
-                'usercount' => $result['Total Users']
-
-            ];
-            $this->view('homepage/dashboard', $data);
+            return $result['Total Sessions'];
         }
 
 
