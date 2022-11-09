@@ -196,6 +196,16 @@
             
         }
 
+        public function deleteUser(){
+
+            $data = [
+                        'message' => 'Are you sure to delete this user?'
+            ];
+
+            $this->view('modal/confirm', $data);
+
+        }
+
         public function download_ldif()
         {   
             if($_SERVER['REQUEST_METHOD'] == 'POST'){

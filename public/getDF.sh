@@ -1,3 +1,12 @@
+# ############################################################################
+# $KCC Property Holdings Inc.
+# $Revision: 0001 $:
+# $Author: Nurfajar S. Sali $:
+# $Date: 11/09/2022$:
+# $Id: Get Disk Free/Total Size $:
+# ############################################################################
+
+. ~/.profile
 
 df -k  | grep /u0 | awk '
     BEGIN { ORS = ""; print " { "}
@@ -7,4 +16,4 @@ df -k  | grep /u0 | awk '
       separator = ", "
     }
     END { print " } " }
-' > df.txt
+' > /home/oracle/dba_scripts/df.txt

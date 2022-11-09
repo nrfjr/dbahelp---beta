@@ -80,11 +80,13 @@ require APPROOT . '/views/inc/header.php';
                                                     <i class="fas mt-1 fa-pen ml-2"></i>
                                                 </font>
                                             </button>
+                                        <a href="<?php echo URLROOT; ?>/users/deleteUser">
                                             <button type="button" alt="Delete" class="border-blue-500 md:border-green-500">
                                                 <font color="#b00020">
                                                     <i class="fas mt-1 fa-trash ml-2"></i>
                                                 </font>
                                             </button>
+                                            </a>
                                         </td>
                                     </tr>
                             <?php
@@ -150,7 +152,7 @@ require APPROOT . '/views/inc/header.php';
 <?php
             } else {
 ?>
-    <div class="flex justify-center w-full h-full bg-gray-500">
+    <div class="flex w-full shadow-md overflow-auto sm:rounded-lg bg-gray-500" style="max-height: 80%; min-height: 100%;">
         <h1 class="text-white m-auto "><b>No Users Found.</b></h1>
     </div>
 <?php
