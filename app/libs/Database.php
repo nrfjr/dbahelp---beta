@@ -29,7 +29,7 @@
                     $this->conn = new PDO("oci:dbname=" . $this->tns . ";charset=utf8", $this->db_username, $this->db_password, $this->options);
                     
                 } catch(PDOException $e){
-                    $this->error = $e->getMessage();
+                    redirect('errors/errorHandler');
                 }
 
         }
