@@ -32,16 +32,16 @@ require APPROOT . '/views/inc/header.php';
               type: 'doughnut',
               data: {
                 labels:[
-                  'Free',
-                  'Used'
+                  'Used',
+                  'Free'
                 ],
                 datasets:[{
                   label: 'My First Dataset',
                           //Free, Used
                   data: ["<?php  echo $df[0]-$df[1]; ?>", "<?php echo $df[1]; ?>"],
                   backgroundColor: [
-                    'rgba(129, 140, 248,1)',
-                    'rgba(255, 99, 132,1)'
+                    'rgba(255, 99, 132,1)',
+                    'rgba(129, 140, 248,1)'
                   ],
                   borderColor: [
                     'rgba(255, 255, 255,1)',

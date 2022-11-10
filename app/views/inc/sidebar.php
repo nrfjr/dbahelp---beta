@@ -271,7 +271,7 @@
                         </ul>
                     </div>
 
-                    <!--STORAGE & OBJECTS-->
+                    <!---->
                     <button id="dropdownDefault" data-dropdown-toggle="dropdown-storage" class="text-white bg-gray-600 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800
                     <?php echo strpos($url, 'dashboard')? 'block ':'hidden';?>
                     " type="button">STORAGE & OBJECTS<svg class="ml-2 w-4 h-4" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></button>
@@ -292,34 +292,6 @@
                         </li>
                         <li>
                             <a href="#" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Table Indexes</a>
-                        </li>
-                        </ul>
-                    </div>
-
-                    <!--Disk Storage/Databases-->
-                    <button id="dropdownDefault" data-dropdown-toggle="dropdown-diskdb" class="text-white bg-gray-600 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800
-                    <?php echo strpos($url, 'diskstorage')? 'block ':'hidden';?>
-                    " type="button">DATABASE<svg class="ml-2 w-4 h-4" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></button>
-                    <!-- Dropdown menu -->
-                    <div id="dropdown-diskdb" class="hidden z-10 w-44 bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700 whitespace-normal">
-                        <ul class="py-1 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefault">
-                        <li>
-                            <a href="#" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">RMSPRD /OIDB3 /APPWORXPRD</a>
-                        </li>
-                        <li>
-                            <a href="#" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">RDWPRD</a>
-                        </li>
-                        <li>
-                            <a href="#" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">ERPP</a>
-                        </li>
-                        <li>
-                            <a href="#" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">WMSDB/REFSDB</a>
-                        </li>
-                        <li>
-                            <a href="#" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">OBIDB (192.168.32.114)</a>
-                        </li>
-                        <li>
-                            <a href="#" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">OBIDB (192.168.32.117)</a>
                         </li>
                         </ul>
                     </div>
