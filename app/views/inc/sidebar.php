@@ -307,56 +307,35 @@
                                 <li>
                                 <a href="<?php echo URLROOT;?>/diskstorages/diskstorage/RMSPRD">
                                         <button type="button" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
-                                            192.168.32.184
+                                            192.168.32.184 - RMSPRD
                                         </button>
                                     </a>
                                 </li>
                                 <li>
                                     <a href="<?php echo URLROOT;?>/diskstorages/diskstorage/RDWPRD">
                                         <button type="submit" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
-                                            192.168.32.198
+                                            192.168.32.198 - RDWPRD
                                         </button>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="#">
+                                    <a href="<?php echo URLROOT;?>/diskstorages/diskstorage/RMSOID">
                                         <button type="submit" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
-                                            192.168.32.44
+                                            192.168.32.162 - RMS/OID
                                         </button>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="#">
+                                    <a href="<?php echo URLROOT;?>/diskstorages/diskstorage/SIMREIM">
                                         <button type="submit" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
-                                        NA(192.168.34.8)
+                                        192.168.32.164 - SIM/REIM
                                         </button>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="#">
+                                    <a href="<?php echo URLROOT;?>/diskstorages/diskstorage/RPM">
                                         <button type="submit" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
-                                        192.168.33.57
-                                        </button>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <button type="submit" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
-                                        192.168.33.60
-                                        </button>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <button type="submit" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
-                                        192.168.32.114
-                                        </button>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <button type="submit" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
-                                        192.168.32.117
+                                        192.168.32.165 - RPM
                                         </button>
                                     </a>
                                 </li>

@@ -11,7 +11,7 @@ class DiskStorages extends Controller{
     public function diskstorage($host)
     {
         $data = [
-                    'donut' => $this->getDF($this->getDFSource($host))
+                    'df' => $this->getDF($this->getDFSource($host))
         ];
         $this->view('homepage/diskstorage', $data);
     }
@@ -24,20 +24,14 @@ class DiskStorages extends Controller{
         else if ($hostname == 'RDWPRD'){
             return RDWPRD;
         }
-        else if ($hostname == 'ERPP'){
-            return ERPP;
+        else if ($hostname == 'SIMREIM'){
+            return SIMREIM;
         }
-        else if ($hostname == 'WMSPRD1'){
-            return WMSPRD1;
+        else if ($hostname == 'RPM'){
+            return RPM;
         }
-        else if ($hostname == 'WMSPRD2'){
-            return WMSPRD2;
-        }
-        else if ($hostname == 'OBIEE1'){
-            return OBIEE1;
-        }
-        else if ($hostname == 'OBIEE2'){
-            return OBIEE2;
+        else if ($hostname == 'RMSOID'){
+            return RMSOID;
         }
         else{
             return RMSPRD;

@@ -10,25 +10,29 @@ require APPROOT . '/views/inc/header.php';
       <?php
 
           // get donut array from main array
-            $donut = $data['donut'];
+            $df = $data['df'];
 
-            for($i=1; $i<=count($donut);$i++){
+            $mountcnt=0;
 
-            $df = explode('/', $donut['/u0'.$i.'']);
+            foreach($df as $mount => $size){
+
+            $mountcnt++;
+
+            $usage = explode('/', $size);
 
       ?>
       <!--Must rename for duplicating: chartDonut1,myChart1, sampleChart1, config1-->
       <div class="w-2/7 bg-gray-600 p-5 rounded-lg">
         <div>
-          <canvas id="chartDonut<?php echo $i ?>"></canvas>
+          <canvas id="chartDonut<?php echo $mountcnt ?>"></canvas>
         </div>
 
     
           <script>
 
-            let myChart<?php echo $i ?> = document.getElementById('chartDonut'+"<?php echo $i ?>").getContext('2d');
+            let myChart<?php echo $mountcnt ?> = document.getElementById('chartDonut'+"<?php echo $mountcnt ?>").getContext('2d');
             
-            let sampleChart<?php echo $i ?> = new Chart(myChart<?php echo $i ?>, {
+            let sampleChart<?php echo $mountcnt ?> = new Chart(myChart<?php echo $mountcnt ?>, {
               type: 'doughnut',
               data: {
                 labels:[
@@ -38,7 +42,7 @@ require APPROOT . '/views/inc/header.php';
                 datasets:[{
                   label: 'My First Dataset',
                           //Free, Used
-                  data: ["<?php  echo $df[0]-$df[1]; ?>", "<?php echo $df[1]; ?>"],
+                  data: ["<?php  echo $usage[0]-$usage[1]; ?>", "<?php echo $usage[1]; ?>"],
                   backgroundColor: [
                     'rgba(255, 99, 132,1)',
                     'rgba(129, 140, 248,1)'
@@ -70,7 +74,7 @@ require APPROOT . '/views/inc/header.php';
                   },
                   title: {
                     display: true,
-                      text: '/u0'+"<?php echo $i ?>",
+                      text: "<?php echo $mount ?>",
                       align: 'start',
                       color: 'white',
                       position: 'top',
@@ -116,7 +120,7 @@ require APPROOT . '/views/inc/header.php';
 
             });
 
-            const config<?php echo $i?>= {
+            const config<?php echo $mountcnt?>= {
               type: 'doughnut',
               data: data
             };
