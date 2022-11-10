@@ -437,7 +437,9 @@ require APPROOT . '/views/inc/header.php';
       <!--Must rename for duplicating: chartDonut1,myChart1, sampleChart1, config1-->
       <div class="w-full box rounded-lg">
         <div>
-          <canvas id="chartDonut1"></canvas>
+          <canvas id="chartDonut1" class="hat">
+            <a></a>
+          </canvas>
         </div>
 
           <script>
@@ -547,7 +549,7 @@ require APPROOT . '/views/inc/header.php';
       </div>
       <div class="w-full box rounded-lg">
         <div>
-          <canvas id="chartDonut2"></canvas>
+          <canvas id="chartDonut2" class="hat"></canvas>
         </div>
 
         
@@ -656,7 +658,7 @@ require APPROOT . '/views/inc/header.php';
       </div> 
       <div class="w-full box rounded-lg">
         <div>
-          <canvas id="chartDonut3"></canvas>
+          <canvas id="chartDonut3" class="hat"></canvas>
         </div>
 
         
@@ -765,7 +767,7 @@ require APPROOT . '/views/inc/header.php';
       </div>
       <div class="w-full  box rounded-lg">
         <div>
-          <canvas id="chartDonut4"></canvas>
+          <canvas id="chartDonut4" class="hat"></canvas>
         </div>
 
         
@@ -872,6 +874,39 @@ require APPROOT . '/views/inc/header.php';
             };
           </script>
       </div>
+      
+      <audio preload="auto" id="beep-two0">
+        <source src="../public/audio/slap.mp3"></source>
+        Your browser isn't invited for super fun audio time.
+      </audio>
+      <audio preload="auto" id="beep-two1">
+        <source src="../public/audio/sound.mp3"></source>
+        Your browser isn't invited for super fun audio time.
+      </audio>
+      <audio preload="auto" id="beep-two2">
+        <source src="../public/audio/sound.mp3"></source>
+        Your browser isn't invited for super fun audio time.
+      </audio>
+      <audio preload="auto" id="beep-two3">
+        <source src="../public/audio/wow.mp3"></source>
+        Your browser isn't invited for super fun audio time.
+      </audio>
+      <script>
+        $(".hat")
+          .each(function(i) {
+            if (i != 0) {
+              $("#beep-two")
+                .clone()
+                .attr("id", "beep-two" + i)
+                .appendTo($(this).parent());
+            }
+            $(this).data("beeper", i);
+          })
+          .mouseenter(function() {
+            $("#beep-two" + $(this).data("beeper"))[0].play();
+          });
+        $("#beep-two").attr("id", "beep-two0");
+      </script>
 
     </div>
     <!--Donuts-->
