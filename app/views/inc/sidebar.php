@@ -326,9 +326,9 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="<?php echo URLROOT;?>/diskstorages/diskstorage/OFIN">
+                                    <a href="#">
                                         <button type="submit" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
-                                        192.168.34.8
+                                        NA(192.168.34.8)
                                         </button>
                                     </a>
                                 </li>
