@@ -6,7 +6,7 @@ require APPROOT . '/views/inc/header.php';
 
     <h1 class="text-3xl text-black pb-2 text-white"><b>Disk Storage</b></h1>
 
-    <div class="grid grid-cols-4 gap-x-10 gap-y-8 justify-center">
+    <div class="grid grid-cols-4 gap-x-10 gap-y-8 justify-center place-content-evenly">
       <?php
 
           // get donut array from main array

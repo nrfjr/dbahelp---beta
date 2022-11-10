@@ -76,14 +76,14 @@ require APPROOT . '/views/inc/header.php';
                                         ?>
                                         <td class="py-4 px-6 text-center">
                                             <button data-tooltip-target="tooltip-edit" data-tooltip-trigger="hover" type="button" alt="Edit" class="px-2">
-                                                <font color="#005eff">
-                                                    <i class="fas mt-1 fa-pen ml-2"></i>
-                                                </font>
+                                                <font color="#005eff" title="Edit User">
+                                                    <i class="fas mt-1 fa-pen ml-2 hover:bg-blue-200 rounded-lg w-6 h-6"></i>
+                                                </font> 
                                             </button>
                                         <a href="<?php echo URLROOT; ?>/users/deleteUser">
                                             <button type="button" alt="Delete" class="border-blue-500 md:border-green-500">
-                                                <font color="#b00020">
-                                                    <i class="fas mt-1 fa-trash ml-2"></i>
+                                                <font color="#b00020" title="Delete User">
+                                                    <i class="fas mt-1 fa-trash ml-2 hover:bg-red-200 rounded-lg w-6 h-6"></i>
                                                 </font>
                                             </button>
                                             </a>
