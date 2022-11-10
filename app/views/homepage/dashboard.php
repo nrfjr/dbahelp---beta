@@ -462,8 +462,8 @@ require APPROOT . '/views/inc/header.php';
                     '#339933'
                   ],
                   borderColor: [
-                    'rgba(255, 255, 255,1)',
-                    'rgba(255, 255, 255,1)'
+                    '#66ff33',
+                    '#339933'
                   ],
                   
                   hoverOffset: 4,
@@ -564,8 +564,8 @@ require APPROOT . '/views/inc/header.php';
                     '#339933'
                   ],
                   borderColor: [
-                    'rgba(255, 255, 255,1)',
-                    'rgba(255, 255, 255,1)'
+                    '#66ff33',
+                    '#339933'
                   ],
                   
                   hoverOffset: 4,
@@ -666,8 +666,8 @@ require APPROOT . '/views/inc/header.php';
                     '#339933'
                   ],
                   borderColor: [
-                    'rgba(255, 255, 255,1)',
-                    'rgba(255, 255, 255,1)'
+                    '#66ff33',
+                    '#339933'
                   ],
                   
                   hoverOffset: 4,
@@ -768,8 +768,8 @@ require APPROOT . '/views/inc/header.php';
                     '#339933'
                   ],
                   borderColor: [
-                    'rgba(255, 255, 255,1)',
-                    'rgba(255, 255, 255,1)'
+                    '#66ff33',
+                    '#339933'
                   ],
                   
                   hoverOffset: 4,

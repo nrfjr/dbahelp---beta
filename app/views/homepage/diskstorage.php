@@ -44,8 +44,8 @@ require APPROOT . '/views/inc/header.php';
                     'rgba(129, 140, 248,1)'
                   ],
                   borderColor: [
-                    'rgba(255, 255, 255,1)',
-                    'rgba(255, 255, 255,1)'
+                    'rgba(255, 99, 132,1)',
+                    'rgba(129, 140, 248,1)'
                   ],
                   
                   hoverOffset: 4,
@@ -57,19 +57,25 @@ require APPROOT . '/views/inc/header.php';
                 responsive: true,
                 plugins: {
                   legend: {
-                    position: 'bottom',
+                    position: 'left',
+                    align: 'end',
+                    display: true,     //remove the legend
                     labels: {
                       color: 'white',
-                      align: 'start'
+                      textAlign: 'start',
+                      boxWidth: 20
                     }
                   },
                   title: {
                     display: true,
                       text: '/u0'+"<?php echo $i ?>",
-                      align: 'center',
+                      align: 'start',
                       color: 'white',
                       position: 'top',
-                      weight: 'bold'
+                      weight: 'bold',
+                      font:{
+                        size: 16
+                      }
                   },
                   tooltip:{
                     intersect: 'true',
