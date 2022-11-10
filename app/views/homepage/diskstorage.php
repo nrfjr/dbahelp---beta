@@ -55,6 +55,8 @@ require APPROOT . '/views/inc/header.php';
               options:{ //this is where i do changes for chart options, ref: https://www.chartjs.org/docs/latest/configuration/title.html
                 rotation: 90,
                 responsive: true,
+                cutout: '30%',
+                hoverBorderColor: '#fff',
                 plugins: {
                   legend: {
                     position: 'left',

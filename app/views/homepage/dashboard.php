@@ -174,7 +174,7 @@ require APPROOT . '/views/inc/header.php';
                   show: false
               },
               },
-              colors: ['#FCCF31', '#17ead9', '#f02fc2'], //line colors palette; Multiple Series
+              colors: ['#0099ff', '#0066ff', '#0000cc'], //line colors palette; Multiple Series
               stroke: {
               width: 2
               },
@@ -473,6 +473,8 @@ require APPROOT . '/views/inc/header.php';
               options:{ //this is where i do changes for chart options, ref: https://www.chartjs.org/docs/latest/configuration/title.html
                 rotation: 90,
                 responsive: true,
+                cutout: '30%',
+                hoverBorderColor: '#fff',
                 plugins: {
                   legend: {
                     position: 'left',
@@ -575,6 +577,8 @@ require APPROOT . '/views/inc/header.php';
               options:{ //this is where i do changes for chart options, ref: https://www.chartjs.org/docs/latest/configuration/title.html
                 rotation: 90,
                 responsive: true,
+                cutout: '30%',
+                hoverBorderColor: '#fff',
                 plugins: {
                   legend: {
                     position: 'left',
@@ -677,6 +681,8 @@ require APPROOT . '/views/inc/header.php';
               options:{ //this is where i do changes for chart options, ref: https://www.chartjs.org/docs/latest/configuration/title.html
                 rotation: 90,
                 responsive: true,
+                cutout: '30%',
+                hoverBorderColor: '#fff',
                 plugins: {
                   legend: {
                     position: 'left',
@@ -686,7 +692,7 @@ require APPROOT . '/views/inc/header.php';
                       color: 'white',
                       textAlign: 'start',
                       boxWidth: 20
-                    }
+                    },
                   },
                   title: {
                     display: true,
@@ -780,6 +786,8 @@ require APPROOT . '/views/inc/header.php';
                 
                 rotation: 90,
                 responsive: true,
+                cutout: '30%',
+                hoverBorderColor: '#fff',
                 plugins: {
                   legend: {
                     position: 'left',
