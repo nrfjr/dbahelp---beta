@@ -875,11 +875,11 @@ require APPROOT . '/views/inc/header.php';
           </script>
       </div>
       
-      <audio preload="auto" id="beep-two0">
-        <source src="../public/audio/slap.mp3"></source>
+      <audio preload="auto" id="beep-one">
+        <source src="../public/audio/sound.mp3"></source>
         Your browser isn't invited for super fun audio time.
       </audio>
-      <audio preload="auto" id="beep-two1">
+      <!-- <audio preload="auto" id="beep-two1">
         <source src="../public/audio/sound.mp3"></source>
         Your browser isn't invited for super fun audio time.
       </audio>
@@ -890,22 +890,13 @@ require APPROOT . '/views/inc/header.php';
       <audio preload="auto" id="beep-two3">
         <source src="../public/audio/wow.mp3"></source>
         Your browser isn't invited for super fun audio time.
-      </audio>
+      </audio> -->
       <script>
+        var beepOne = $("#beep-one")[0];
         $(".hat")
-          .each(function(i) {
-            if (i != 0) {
-              $("#beep-two")
-                .clone()
-                .attr("id", "beep-two" + i)
-                .appendTo($(this).parent());
-            }
-            $(this).data("beeper", i);
-          })
           .mouseenter(function() {
-            $("#beep-two" + $(this).data("beeper"))[0].play();
+            beepOne.play();
           });
-        $("#beep-two").attr("id", "beep-two0");
       </script>
 
     </div>
