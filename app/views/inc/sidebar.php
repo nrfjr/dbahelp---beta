@@ -42,7 +42,7 @@
                         <!--DASHBOARD DROP DOWN CONTENTS-->
                         <ul id="dashboard" class="hidden py-1" data-accordion="open">
                         <li>
-                            <a href="<?php echo URLROOT;?>/diskstorages/diskstorage" class="flex items-center py-4 pl-6 nav-item text-white <?php if (strpos($url, 'diskstorage')) {echo 'active-nav-link';} else {echo ' opacity-75';}?>" 
+                            <a href="<?php echo URLROOT;?>/diskstorages/diskstorage/null" class="flex items-center py-4 pl-6 nav-item text-white <?php if (strpos($url, 'diskstorage')) {echo 'active-nav-link';} else {echo ' opacity-75';}?>" 
                                     >
                                 <i class="fas fa-compact-disc mr-3"></i>
                                 Disk Storage
@@ -302,11 +302,11 @@
                     " type="button">Database<svg class="ml-2 w-4 h-4" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></button>
                     <!-- Dropdown menu -->
                     <div id="dropdown-disk" class="whitespace-normal hidden z-10 w-fit bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700">
-                        <form>
+
                             <ul class="py-1 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefault">
                                 <li>
-                                    <a href="<?php echo URLROOT;?>/diskstorages/diskstorage/RMSPRD">
-                                        <button type="submit" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
+                                <a href="<?php echo URLROOT;?>/diskstorages/diskstorage/RMSPRD">
+                                        <button type="button" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
                                             192.168.32.184
                                         </button>
                                     </a>
@@ -319,7 +319,7 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="<?php echo URLROOT;?>/diskstorages/diskstorage/ERPP">
+                                    <a href="#">
                                         <button type="submit" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
                                             192.168.32.44
                                         </button>
@@ -333,28 +333,34 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="<?php echo URLROOT;?>/diskstorages/diskstorage/WMSDB">
+                                    <a href="#">
                                         <button type="submit" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
                                         192.168.33.57
                                         </button>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="<?php echo URLROOT;?>/diskstorages/diskstorage/OBIDB">
+                                    <a href="#">
+                                        <button type="submit" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
+                                        192.168.33.60
+                                        </button>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
                                         <button type="submit" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
                                         192.168.32.114
                                         </button>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="<?php echo URLROOT;?>/diskstorages/diskstorage/OBIEEPRD">
+                                    <a href="#">
                                         <button type="submit" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
                                         192.168.32.117
                                         </button>
                                     </a>
                                 </li>
                             </ul>
-                        </form>
                     </div>
                 </div>
             </div>

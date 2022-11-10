@@ -10,7 +10,7 @@
 
         public function errorHandler()
         {
-            $this->view('error/error', $data =[]);
+            $this->view('error/error', $data =['link' => '/users/login']);
         }
 
     }

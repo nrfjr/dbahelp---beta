@@ -13,6 +13,7 @@
     //ftp df file sites
     define('RMSPRD', 'ftp://oracle:0racleas1@192.168.32.184/home/oracle/dba_scripts/df.txt');
     define('RDWPRD', 'ftp://oracle:0racleas1@192.168.32.198/u01/oracle/dba_scripts/df.txt');
+    //NO FTP!!!!!!!!!!!
     define('RMSUAT', 'ftp://oracle:0racleas1@192.168.32.101/home/oracle/dba_scripts/df.txt');
     define('OFIN', 'ftp://oraerpp:oraerpp@05:34:08@192.168.34.8/home/oracle/dba_scripts/df.txt');
     define('ERPP', 'ftp://oracle:0racleas1@192.168.32.44/u01/dba/scripts/df.txt');
