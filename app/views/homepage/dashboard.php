@@ -466,16 +466,22 @@ require APPROOT . '/views/inc/header.php';
                     '#339933'
                   ],
                   
-                  hoverOffset: 4,
+                  hoverOffset: 20,
                   borderWidht:4,
                 }]
               },
               options:{ //this is where i do changes for chart options, ref: https://www.chartjs.org/docs/latest/configuration/title.html
+                layout: {
+                  padding: {
+                    right: 10
+                  }
+                },
                 rotation: 90,
                 responsive: true,
                 cutout: '30%',
                 hoverBorderColor: '#fff',
                 plugins: {
+                  
                   legend: {
                     position: 'left',
                     align: 'end',
@@ -570,11 +576,16 @@ require APPROOT . '/views/inc/header.php';
                     '#339933'
                   ],
                   
-                  hoverOffset: 4,
+                  hoverOffset: 20,
                   borderWidht:4,
                 }]
               },
               options:{ //this is where i do changes for chart options, ref: https://www.chartjs.org/docs/latest/configuration/title.html
+                layout: {
+                  padding: {
+                    right: 10
+                  }
+                },
                 rotation: 90,
                 responsive: true,
                 cutout: '30%',
@@ -674,11 +685,16 @@ require APPROOT . '/views/inc/header.php';
                     '#339933'
                   ],
                   
-                  hoverOffset: 4,
+                  hoverOffset: 20,
                   borderWidht:4,
                 }]
               },
               options:{ //this is where i do changes for chart options, ref: https://www.chartjs.org/docs/latest/configuration/title.html
+                layout: {
+                  padding: {
+                    right: 10
+                  }
+                },
                 rotation: 90,
                 responsive: true,
                 cutout: '30%',
@@ -778,12 +794,16 @@ require APPROOT . '/views/inc/header.php';
                     '#339933'
                   ],
                   
-                  hoverOffset: 4,
+                  hoverOffset: 20,
                   borderWidht:4,
                 }]
               },
               options:{ //this is where i do changes for chart options, ref: https://www.chartjs.org/docs/latest/configuration/title.html
-                
+                layout: {
+                  padding: {
+                    right: 10
+                  }
+                },
                 rotation: 90,
                 responsive: true,
                 cutout: '30%',
