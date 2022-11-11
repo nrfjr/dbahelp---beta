@@ -4,12 +4,12 @@
 
 
 
-<aside class="relative bg-indigo-400 h-screen w-64 hidden sm:block shadow-xl overflow-y-auto transition ease-in-out delay-150">
+<aside class="relative h-screen w-64 hidden sm:block shadow-xl overflow-y-auto transition ease-in-out delay-150 bg-gradient-to-br from-indigo-500 via-blue-300 to-blue-600">
     <div>
         <div class="p-6">
             <a href="<?php echo URLROOT;?>/homepage/dashboard" class="text-white text-3xl font-semibold hover:text-gray-300"><?php echo SITENAME?></a>
         </div>
-        <nav class="text-white text-base font-semibold pt-3 overflow-y-auto maxh">
+        <nav class="text-white text-base font-semibold pt-3 overflow-y-auto maxh sidebar-menus ">
             <div id="accordion-open" data-accordion="open">
                 <ul>
                     <!--DASHBOARD-->
@@ -113,80 +113,6 @@
             <iframe src="https://calendar.google.com/calendar/embed?height=600&wkst=1&bgcolor=%23039BE5&ctz=Asia%2FManila&showTitle=0&showTz=0&showCalendars=0&showPrint=0&showTabs=0&src=YmI1ZDVkMjgxZThjNTQ5MWYyZGRkOTBlMGQ5YzZkYWU4NWI2ODcxNzc5OGI5ZjE0NTI5ZDFiZGQzZWZmNGUxMUBncm91cC5jYWxlbmRhci5nb29nbGUuY29t&color=%23795548" style="border-width:0; border-radius: 0 0 5px 5px;pointer-events:none;" class="shadow-lg" width="100%" height="100%" frameborder="0" scrolling="no"></iframe>
         </div>
     </div>
-    
-    <style>
-        @media only screen and (min-height: 800px){
-            .widgets{
-                /* animation-name: response_sidebar;
-                animation-duration: 1.5s;
-                transition: ease-in-out;
-                animation-fill-mode: forwards;
-                animation-direction: normal; */
-                position: absolute;
-                bottom: 0.5rem;
-            }
-            /* @keyframes response_sidebar{
-                from{
-                    position:relative;
-                }
-                50%{
-                    position: absolute;
-                    bottom: 14.55rem;
-                }
-                100%{
-                    position: absolute;
-                    bottom: 0.5rem;
-                }
-            } */
-            .maxh{
-                max-height: 26rem;
-            }
-        }
-        @media only screen and (max-height: 750px){
-            .maxh{
-                max-height: 20rem;
-            }
-            .widgets{
-                /* animation-name: response_sidebar;
-                animation-duration: 1.5s;
-                transition: ease-in-out;
-                animation-fill-mode: forwards;
-                animation-direction: normal; */
-                position: absolute;
-                bottom: 0.5rem;
-            }
-            /* @keyframes response_sidebar{
-                from{
-                    position:relative;
-                }
-                50%{
-                    position: absolute;
-                    bottom: 14.55rem;
-                }
-                100%{
-                    position: absolute;
-                    bottom: 0.5rem;
-                }
-            } */
-        }
-        @media only screen and (max-height: 700px){
-            .maxh{
-                max-height: 15rem;
-            }
-            
-        }
-        @media only screen and (max-height: 600px){
-            .maxh{
-                max-height: 10rem;
-            }
-        }
-        @media only screen and (min-height: 900px){
-            .maxh{
-                max-height: 25rem;
-            }
-        }
-
-    </style>
     
 </aside>
     <div class="w-full flex flex-col h-screen overflow-y-auto">

@@ -10,11 +10,7 @@ require APPROOT . '/views/inc/header.php';
     <div class="grid grid-cols-1">
       
       <!--Rename for duplicate: chart1, options1-->
-      <div class="w-full p-5 rounded-lg mb-2 box">
 
-          <div id="linechart"></div>
-
-      </div>
       <!-- <div class="w-2/7 bg-gray-600 p-5 rounded-lg mb-2">
           <div id="chart1"></div>
           <script>
@@ -50,8 +46,8 @@ require APPROOT . '/views/inc/header.php';
           <script>
           var lastDate = 0;
           var data = []
-          var TICKINTERVAL = 15000//86400000  //1000 is recommended which matches 1 second //if any changes, needs to match with the interval below
-          let XAXISRANGE =  1000000//777600000  x-axis , time shown//this is like the interval, 1000000 = to 5 min; 3500000 = 15 min
+          var TICKINTERVAL = 1000//86400000  //1000 is recommended which matches 1 second //if any changes, needs to match with the interval below
+          let XAXISRANGE =  TICKINTERVAL*9//777600000  x-axis , time shown//this is like the interval, 1000000 = to 5 min; 3500000 = 15 min
 
           function getDayWiseTimeSeries(baseval, count, yrange) {
           var i = 0;
@@ -68,9 +64,10 @@ require APPROOT . '/views/inc/header.php';
           }
           }
 
-          getDayWiseTimeSeries(new Date(new Date().toLocaleDateString()).getTime(), 10, {
-          min: 10,
-          max: 90
+          let initNumber = 10
+          getDayWiseTimeSeries(new Date().getTime()-(initNumber - 1)*TICKINTERVAL, initNumber, {
+            min: 10,
+            max: 90
           })
 
 
@@ -160,11 +157,16 @@ require APPROOT . '/views/inc/header.php';
             chart1.updateSeries([{
               data: data
             }])
-          }, 15000 /*refresh interval 15 sec*/)
+          }, 1000 /*refresh interval 15 sec*/)
 
           </script>
-      </div>  -->
+      </div> -->
     
+      <div class="w-full p-5 rounded-lg mb-2 box">
+
+          <div id="linechart"></div>
+
+      </div>
       <script>
           // For Show Window
           window.Apex = {
@@ -333,21 +335,21 @@ require APPROOT . '/views/inc/header.php';
               //initial series range '12' of x
               series: [{
               name: 'Running',
-              data: generateMinuteWiseTimeSeries(new Date("12/12/2016 00:20:00").getTime(), 10, {
-                  min: 0,
-                  max: 10
+              data: generateMinuteWiseTimeSeries(new Date().getTime()-(10 - 1)*15000, 10, {
+                  min: 10,
+                  max: 90
               })
               }, {
               name: 'Waiting',
-              data: generateMinuteWiseTimeSeries(new Date("12/12/2016 00:20:00").getTime(), 10, {
-                min: 0,
-                  max: 10
+              data: generateMinuteWiseTimeSeries(new Date().getTime()-(10 - 1)*15000, 10, {
+                  min: 10,
+                  max: 90
               })
               }, {
               name: 'Hatsusin',
-              data: generateMinuteWiseTimeSeries(new Date("12/12/2016 00:20:00").getTime(), 10, {
-                min: 0,
-                  max: 10
+              data: generateMinuteWiseTimeSeries(new Date().getTime()-(10 - 1)*15000, 10, {
+                  min: 10,
+                  max: 90
               })
               }],
               xaxis: {
@@ -875,29 +877,48 @@ require APPROOT . '/views/inc/header.php';
           </script>
       </div>
       
-      <audio preload="auto" id="beep-one">
+      <!-- <audio preload="auto" id="beep-one">
         <source src="../public/audio/sound.mp3"></source>
         Your browser isn't invited for super fun audio time.
+      </audio> -->
+      <!-- <audio preload="auto" id="beep-two0">
+        <source src="../public/audio/indian1.mp3"></source>
+        Your browser isn't invited for super fun audio time.
       </audio>
-      <!-- <audio preload="auto" id="beep-two1">
-        <source src="../public/audio/sound.mp3"></source>
+      <audio preload="auto" id="beep-two1">
+        <source src="../public/audio/indian2.mp3"></source>
         Your browser isn't invited for super fun audio time.
       </audio>
       <audio preload="auto" id="beep-two2">
-        <source src="../public/audio/sound.mp3"></source>
+        <source src="../public/audio/indian3.mp3"></source>
         Your browser isn't invited for super fun audio time.
       </audio>
       <audio preload="auto" id="beep-two3">
-        <source src="../public/audio/wow.mp3"></source>
+        <source src="../public/audio/indian4.mp3"></source>
         Your browser isn't invited for super fun audio time.
       </audio> -->
-      <script>
-        var beepOne = $("#beep-one")[0];
-        $(".hat")
+      <!-- <script>
+        // var beepOne = $("#beep-one")[0];
+        // $(".hat")
+        //   .mouseenter(function() {
+        //     beepOne.play();
+        //   });
+
+          $(".hat")
+          .each(function(i) {
+            if (i != 0) {
+              $("#beep-two")
+                .clone()
+                .attr("id", "beep-two" + i)
+                .appendTo($(this).parent());
+            }
+            $(this).data("beeper", i);
+          })
           .mouseenter(function() {
-            beepOne.play();
+            $("#beep-two" + $(this).data("beeper"))[0].play();
           });
-      </script>
+        $("#beep-two").attr("id", "beep-two0");
+      </script> -->
 
     </div>
     <!--Donuts-->

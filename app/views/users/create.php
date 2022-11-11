@@ -4,7 +4,8 @@ require APPROOT . '/views/inc/header.php';
 ?>
 <?php require APPROOT . '/views/inc/sidebar.php'; ?>
 
-<h1 class="text-3xl text-black pb-6 text-white"><b>Create User</b></h1>
+<h1 class="text-3xl text-black pb-2 text-white" id="p1"><b>Create User</b></h1>
+
 <!-- <label for="database" class="absolute right-0 text-sm font-medium text-gray-700">Database</label>
       <select id="database" name="database" autocomplete="database" class="mr-6 absolute right-0 block w-64 rounded-md border border-gray-300 bg-white py-2 px-2 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm" required>
         <option>RMSPRD</option>
@@ -13,20 +14,20 @@ require APPROOT . '/views/inc/header.php';
         <option>OBIEE</option>
       </select> -->
 <div class="hidden sm:block" aria-hidden="true">
-  <div class="py-6">
+  <div class="py-4 ">
     <div class="border-t border-gray-200"></div>
   </div>
 </div>
-<div class="mt-10 sm:mt-0">
-  <div class="md:grid md:grid-cols-3 md:gap-6">
-    <div class="md:col-span-1">
+<div class="mt-10 sm:mt-0 ">
+  <div class="">
+    <div class="">
       <div class="px-4 sm:px-0">
         <h3 class="text-lg font-medium leading-6 text-gray-300">Employee Information</h3>
         <p class="mt-1 text-sm text-gray-500"><em>Include remarks to notice user access.</em></p>
       </div>
     </div>
     <div class="mt-5 md:col-span-2 md:mt-0">
-      <div class="bg-white overflow-hidden shadow sm:rounded-md pb-44 relative">
+      <div class="bg-white overflow-hidden shadow sm:rounded-md pb-44 relative object-cover">
         <form action="<?php echo URLROOT; ?>/users/create" method="POST">
           <div class="bg-white px-4 py-5 sm:p-6">
             <div class="grid mt-10 grid-cols-6 gap-16">
@@ -75,7 +76,11 @@ require APPROOT . '/views/inc/header.php';
               <p class="mt-2 text-sm text-gray-500"><em>User account remarks (ie: Access).</em></p>
             </div>
           </div>
+          
           <div class="bg-gray-50 px-4 py-3 text-right sm:px-6 absolute inset-x-0 bottom-0">
+          <div class="py-4">
+            <div class="border-t border-gray-400"></div>
+          </div>
             <button type="submit" name="CreateUser" value="submit" class="inline-flex justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
               Create
               <i class="fas mt-1 fa-user-plus ml-2"></i>
