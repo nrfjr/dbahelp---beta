@@ -187,7 +187,7 @@
 
             @media only screen and (min-height: 750px){
                 .maxh{
-                    max-height: 20rem;
+                    max-height: 24rem;
                 }
                 .widgets{
                     /* animation-name: response_sidebar;
@@ -261,7 +261,7 @@
 
             @media only screen and (min-height: 900px){
                 .maxh{
-                    max-height: 25rem;
+                    max-height: 32rem;
                 }
             }
 
