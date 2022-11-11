@@ -117,7 +117,7 @@
 </aside>
     <div class="w-full flex flex-col h-screen overflow-y-auto">
         <!-- Desktop Header -->
-        <header class="w-full items-center bg-gray-600 py-2 px-6 hidden sm:flex ">
+        <header class="w-full items-center bg-gray-600 py-2 px-6 hidden sm:flex">
             <!--TOP NAVBAR-->
             <div class="w-3/4">
                 <div>
@@ -270,7 +270,7 @@
                 </div>
             </div>
             <!--TOP NAVBAR-->
-            <div x-data="{ isOpen: false }" class="relative w-1/2 flex justify-end">
+            <div x-data="{ isOpen: false }" class="relative w-1/3 flex justify-end">
             <?php if(isset($_SESSION['username'])): ?>
                 <h4 class="py-1 px-2 text-white"><?php echo  '<b>'.$_SESSION['username'].'</b>' ?></h4>
             <?php endif; ?>
