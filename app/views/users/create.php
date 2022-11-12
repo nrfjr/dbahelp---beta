@@ -4,7 +4,7 @@ require APPROOT . '/views/inc/header.php';
 ?>
 <?php require APPROOT . '/views/inc/sidebar.php'; ?>
 
-<h1 class="text-3xl text-black pb-6 text-white"><b>Create User</b></h1>
+<h1 class="text-3xl text-black pb-6 text-white"><b><?php echo $data==null? 'Create User' : 'Edit User'; ?></b></h1>
 <!-- <label for="database" class="absolute right-0 text-sm font-medium text-gray-700">Database</label>
       <select id="database" name="database" autocomplete="database" class="mr-6 absolute right-0 block w-64 rounded-md border border-gray-300 bg-white py-2 px-2 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm" required>
         <option>RMSPRD</option>

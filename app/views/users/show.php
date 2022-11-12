@@ -75,18 +75,20 @@ require APPROOT . '/views/inc/header.php';
                                         }
                                         ?>
                                         <td class="py-4 px-6 text-center">
-                                            <button data-tooltip-target="tooltip-edit" data-tooltip-trigger="hover" type="button" alt="Edit" class="px-2">
+                                        <form action="<?php echo URLROOT; ?>/users/edit/<?php echo $value['ID']?>" method="POST">
+                                            <button type="submit" alt="Edit" class="px-2">
                                                 <font color="#005eff" title="Edit User">
                                                     <i class="fas mt-1 fa-pen ml-2 hover:bg-blue-200 rounded-lg w-6 h-6"></i>
                                                 </font> 
                                             </button>
-                                        <a href="<?php echo URLROOT; ?>/users/deleteUser">
-                                            <button type="button" alt="Delete" class="border-blue-500 md:border-green-500">
+                                        </form>
+                                        <form action="<?php echo URLROOT; ?>/users/delete/<?php echo $value['USERNAME']?>" method="POST">
+                                            <button type="submit" alt="Delete" class="border-blue-500 md:border-green-500">
                                                 <font color="#b00020" title="Delete User">
                                                     <i class="fas mt-1 fa-trash ml-2 hover:bg-red-200 rounded-lg w-6 h-6"></i>
                                                 </font>
                                             </button>
-                                            </a>
+                                        </form>
                                         </td>
                                     </tr>
                             <?php

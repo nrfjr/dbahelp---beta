@@ -72,11 +72,6 @@ require APPROOT . '/views/inc/header.php';
           var trigoStrength = 3
           var iteration = 11
 
-          function getRandom() {
-              var i = iteration;
-              return (Math.sin(i / trigoStrength) * (i / trigoStrength) + i / trigoStrength + 1) * (trigoStrength * 2)
-          }
-
           function getRangeRandom(yrange) {
               return Math.floor(Math.random() * (yrange.max - yrange.min + 1)) + yrange.min
           }
@@ -89,19 +84,12 @@ require APPROOT . '/views/inc/header.php';
               var y = 0//((Math.sin(i / trigoStrength) * (i / trigoStrength) + i / trigoStrength + 1) * (trigoStrength * 2))
 
               series.push([x, y]);
-              baseval += 15000;
+              baseval += 1000;
               i++;
               }
               return series;
           }
 
-          function getNewData(baseval, yrange) {
-              var newTime = baseval + 15000;
-              return {
-              x: newTime,
-              y: 0//Math.floor(Math.random() * (yrange.max - yrange.min + 1)) + yrange.min
-              }
-          }
           //15000 = 15 seconds per tick
           var xRange = 5000000; //1000000 equivalent to 5 minutes interval shown on x axis is long; 1000000 is 5 minutes but short
           //-------------------------------------------
@@ -140,10 +128,10 @@ require APPROOT . '/views/inc/header.php';
                           data: newData1
                           }],
                           subtitle: {
-                          text: parseInt(getRandom() * Math.random()).toString(),
+                          text: sessions,
                           }
                       }, false, false)
-                      }, 300)
+                      }, 1000)
                   }
 
                   }
@@ -159,8 +147,8 @@ require APPROOT . '/views/inc/header.php';
               enabled: false
               },
               stroke: {
-              curve: 'straight',
-              width: 5,
+              curve: 'smooth',
+              width: 2,
               },
               grid: {
               padding: {
@@ -196,7 +184,7 @@ require APPROOT . '/views/inc/header.php';
               }
               },
               subtitle: {
-              text: '1 second refresh',
+              text: '',
               floating: true,
               align: 'right',
               offsetY: 0,
@@ -222,12 +210,6 @@ require APPROOT . '/views/inc/header.php';
               optionsLine
           );
           chartLine.render()
-
-
-          //test function only
-          function gRandom() {
-              return Math.floor(Math.random() * 100);
-          }
 
           window.setInterval(function () {
                   

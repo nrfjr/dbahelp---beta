@@ -1,8 +1,8 @@
 <?php
     class Database {
         private $db_server   = DB_SERVER;
-        private $db_username = 'dbadmins';
-        private $db_password = 'kccdba315';
+        private $db_username = 'rms13prd';
+        private $db_password = 'rms13prd';
         private $service_name;
         private $sid;
         private $port=PORT;

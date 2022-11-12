@@ -137,16 +137,7 @@
                 }
 
             } else {
-                $data = [
-                    'fname'=> '',
-                    'mname'=> '',
-                    'lname'=> '',
-                    'ID'=> '',
-                    'app'=> '',
-                    'requestor'=> '',
-                    'remarks'=> ''
-                ];
-               $this->view('users/create', $data);
+               $this->view('users/create', $data=[]);
             }
         }
 
@@ -196,13 +187,32 @@
             
         }
 
-        public function deleteUser(){
+        public function delete($username){
 
+            // Check for POST
+            if($_SERVER['REQUEST_METHOD'] == 'POST'){
+            
             $data = [
-                        'message' => 'Are you sure to delete this user?'
+                        'message' => 'Are you sure to delete '.$username.' ?'
             ];
 
             $this->view('modal/confirm', $data);
+
+            }
+
+        }
+        
+        public function edit($id){
+
+        // Check for POST
+            if($_SERVER['REQUEST_METHOD'] == 'POST'){
+
+                $data=['sample' => $id];
+
+                $this->view('users/create', $data);
+
+            }
+
 
         }
 

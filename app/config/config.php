@@ -1,6 +1,6 @@
 <?php
     // DB Params
-    define('DB_SERVER', '192.168.32.184');
+    define('DB_SERVER', '192.168.32.101');
     define('PORT', 1521);
 
     // App Root
