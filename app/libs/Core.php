@@ -19,6 +19,7 @@ class Core {
         // Instantiate controller class
         $this->currentController = new $this->currentController;
 
+
         // Check for second part of url
         if(isset($url[1])) {
             // Check to see if method exists in controller

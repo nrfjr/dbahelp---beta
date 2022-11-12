@@ -15,6 +15,8 @@ require APPROOT . '/views/inc/header.php';
           <div id="linechart"></div>
 
       </div>
+
+      <div class="hidden" id="RMSSessions"><?php echo $data['RMSSessions'];?></div>
     
       <script>
           // For Show Window
@@ -84,7 +86,7 @@ require APPROOT . '/views/inc/header.php';
               var series = [];
               while (i < count) {
               var x = baseval;
-              var y = sessions; //((Math.sin(i / trigoStrength) * (i / trigoStrength) + i / trigoStrength + 1) * (trigoStrength * 2))
+              var y = 0//((Math.sin(i / trigoStrength) * (i / trigoStrength) + i / trigoStrength + 1) * (trigoStrength * 2))
 
               series.push([x, y]);
               baseval += 15000;
@@ -97,7 +99,7 @@ require APPROOT . '/views/inc/header.php';
               var newTime = baseval + 15000;
               return {
               x: newTime,
-              y: sessions //Math.floor(Math.random() * (yrange.max - yrange.min + 1)) + yrange.min
+              y: 0//Math.floor(Math.random() * (yrange.max - yrange.min + 1)) + yrange.min
               }
           }
           //15000 = 15 seconds per tick
@@ -175,8 +177,8 @@ require APPROOT . '/views/inc/header.php';
               //For Multiple Series
               //initial series range '12' of x
               series: [{
-              name: 'Running',
-              data: generateMinuteWiseTimeSeries(new Date().getTime()-(10 - 1)*15000, 10, {
+              name: 'Session',
+              data: generateMinuteWiseTimeSeries(new Date().getTime()-(10 - 1)*1000, 1, {
                   min: 10,
                   max: 90
               })
@@ -187,19 +189,19 @@ require APPROOT . '/views/inc/header.php';
               range: xRange
               },
               title: {
-              text: 'Processes',
+              text: '192.168.32.184 Sessions',
               align: 'left',
               style: {
                   fontSize: '12px'
               }
               },
               subtitle: {
-              text: 'Subtitle',
+              text: '1 second refresh',
               floating: true,
               align: 'right',
               offsetY: 0,
               style: {
-                  fontSize: '22px'
+                  fontSize: '8px'
               }
               },
               legend: {
@@ -236,30 +238,30 @@ require APPROOT . '/views/inc/header.php';
               data: [...chartLine.w.config.series[0].data,
                   [
                   chartLine.w.globals.maxX + 15000,
-                  gRandom()
+                  sessions
                   ]
               ]
               }])
 
 
-          }, 15000);
+          }, 1000);
       </script>
     </div>
     <!--RealLine-->
 
     <script>
 
-      var sessions;
+      var sessions
 
             setInterval(() => {
-                $.ajax({
-                    url: "../app/controllers/RMS_Sessions/getSessions",
-                    dataType: "JSON",
-                    data: {},
-                    success: function(x) {
-                        sessions = x;
-                    }
+              $.ajax({ 
+                url: '../app/controllers/Homepage/getRMSSessions',
+                dataType: 'html', 
+                success: function(response) { 
+                  sessions = jQuery(response).find('#RMSSessions').html();
+                 } 
                 });
+
 
             }, 1000);
     </script>
