@@ -4,12 +4,12 @@
 
 
 
-<aside class="relative h-screen w-64 hidden sm:block shadow-xl overflow-y-auto transition ease-in-out delay-150 bg-gradient-to-br from-indigo-500 via-blue-300 to-blue-600">
+<aside class="relative bg-indigo-400 h-screen w-64 hidden sm:block shadow-xl overflow-y-auto transition ease-in-out delay-150">
     <div>
         <div class="p-6">
             <a href="<?php echo URLROOT;?>/homepage/dashboard" class="text-white text-3xl font-semibold hover:text-gray-300"><?php echo SITENAME?></a>
         </div>
-        <nav class="text-white text-base font-semibold pt-3 overflow-y-auto maxh sidebar-menus ">
+        <nav class="text-white text-base font-semibold pt-3 overflow-y-auto maxh">
             <div id="accordion-open" data-accordion="open">
                 <ul>
                     <!--DASHBOARD-->
@@ -114,10 +114,84 @@
         </div>
     </div>
     
+    <style>
+        @media only screen and (min-height: 800px){
+            .widgets{
+                /* animation-name: response_sidebar;
+                animation-duration: 1.5s;
+                transition: ease-in-out;
+                animation-fill-mode: forwards;
+                animation-direction: normal; */
+                position: absolute;
+                bottom: 0.5rem;
+            }
+            /* @keyframes response_sidebar{
+                from{
+                    position:relative;
+                }
+                50%{
+                    position: absolute;
+                    bottom: 14.55rem;
+                }
+                100%{
+                    position: absolute;
+                    bottom: 0.5rem;
+                }
+            } */
+            .maxh{
+                max-height: 26rem;
+            }
+        }
+        @media only screen and (max-height: 750px){
+            .maxh{
+                max-height: 20rem;
+            }
+            .widgets{
+                /* animation-name: response_sidebar;
+                animation-duration: 1.5s;
+                transition: ease-in-out;
+                animation-fill-mode: forwards;
+                animation-direction: normal; */
+                position: absolute;
+                bottom: 0.5rem;
+            }
+            /* @keyframes response_sidebar{
+                from{
+                    position:relative;
+                }
+                50%{
+                    position: absolute;
+                    bottom: 14.55rem;
+                }
+                100%{
+                    position: absolute;
+                    bottom: 0.5rem;
+                }
+            } */
+        }
+        @media only screen and (max-height: 700px){
+            .maxh{
+                max-height: 15rem;
+            }
+            
+        }
+        @media only screen and (max-height: 600px){
+            .maxh{
+                max-height: 10rem;
+            }
+        }
+        @media only screen and (min-height: 900px){
+            .maxh{
+                max-height: 25rem;
+            }
+        }
+
+    </style>
+    
 </aside>
     <div class="w-full flex flex-col h-screen overflow-y-auto">
         <!-- Desktop Header -->
-        <header class="w-full items-center bg-gray-600 py-2 px-6 hidden sm:flex">
+        <header class="w-full items-center bg-gray-600 py-2 px-6 hidden sm:flex ">
             <!--TOP NAVBAR-->
             <div class="w-3/4">
                 <div>
@@ -270,7 +344,7 @@
                 </div>
             </div>
             <!--TOP NAVBAR-->
-            <div x-data="{ isOpen: false }" class="relative w-1/3 flex justify-end">
+            <div x-data="{ isOpen: false }" class="relative w-1/2 flex justify-end">
             <?php if(isset($_SESSION['username'])): ?>
                 <h4 class="py-1 px-2 text-white"><?php echo  '<b>'.$_SESSION['username'].'</b>' ?></h4>
             <?php endif; ?>

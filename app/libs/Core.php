@@ -15,7 +15,6 @@ class Core {
             // Unset 0 index
             unset($url[0]);
         }
-
         require_once '../app/controllers/' . $this->currentController . '.php';
         // Instantiate controller class
         $this->currentController = new $this->currentController;

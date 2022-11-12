@@ -10,163 +10,12 @@ require APPROOT . '/views/inc/header.php';
     <div class="grid grid-cols-1">
       
       <!--Rename for duplicate: chart1, options1-->
-
-      <!-- <div class="w-2/7 bg-gray-600 p-5 rounded-lg mb-2">
-          <div id="chart1"></div>
-          <script>
-                window.Promise ||
-                  document.write(
-                    '<script src="https://cdn.jsdelivr.net/npm/promise-polyfill@8/dist/polyfill.min.js"><\/script>'
-                  )
-                window.Promise ||
-                  document.write(
-                    '<script src="https://cdn.jsdelivr.net/npm/eligrey-classlist-js-polyfill@1.2.20171210/classList.min.js"><\/script>'
-                  )
-                window.Promise ||
-                  document.write(
-                    '<script src="https://cdn.jsdelivr.net/npm/findindex_polyfill_mdn"><\/script>'
-                  )
-          </script>
-
-
-          <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
-
-
-          <script>
-            //NOLI: I think I fixed the x-axis, or need some adjustment, but then the only problem now is Y-axis.
-            // Replace Math.random() with a pseudo-random number generator to get reproducible results in e2e tests
-            // Based on https://gist.github.com/blixt/f17b47c62508be59987b
-            var _seed = 42;
-            Math.random = function() {
-              _seed = _seed * 16807 % 2147483647;
-              return (_seed - 1) / 2147483646;
-            };
-          </script>
-
-          <script>
-          var lastDate = 0;
-          var data = []
-          var TICKINTERVAL = 1000//86400000  //1000 is recommended which matches 1 second //if any changes, needs to match with the interval below
-          let XAXISRANGE =  TICKINTERVAL*9//777600000  x-axis , time shown//this is like the interval, 1000000 = to 5 min; 3500000 = 15 min
-
-          function getDayWiseTimeSeries(baseval, count, yrange) {
-          var i = 0;
-          while (i < count) {
-            var x = baseval;
-            var y = Math.floor(Math.random() * (yrange.max - yrange.min + 1)) + yrange.min; //this one is the initial value for Y
-
-            data.push({
-              x, y
-            });
-            lastDate = baseval
-            baseval += TICKINTERVAL;
-            i++;
-          }
-          }
-
-          let initNumber = 10
-          getDayWiseTimeSeries(new Date().getTime()-(initNumber - 1)*TICKINTERVAL, initNumber, {
-            min: 10,
-            max: 90
-          })
-
-
-          function getNewSeries(baseval, yrange) {
-          var newDate = baseval + TICKINTERVAL;
-          lastDate = newDate
-          //change the value below for configuring the data Reset length
-          for(var i = 0; i< data.length - 150; i++) {
-            // IMPORTANT
-            // we reset the x and y of the data which is out of drawing area
-            // to prevent memory leaks
-            data[i].x = newDate - XAXISRANGE - TICKINTERVAL
-            //i dunno about this code, its initial value is 0, i think this is the y value every after page refresh
-            data[i].y = 0
-          }
-
-          data.push({
-            x: newDate,
-            y: Math.floor(Math.random() * (yrange.max - yrange.min + 1)) + yrange.min //this where Y axis and updating can be control
-          })
-          }
-
-          function resetData(){
-          // Alternatively, you can also reset the data at certain intervals to prevent creating a huge series 
-          data = data.slice(data.length - 100, data.length);
-          }
-          </script>
-          <script>
-            
-            var options1 = {
-              series: [{
-              data: data.slice()
-            }],
-              chart: {
-              foreColor: 'white',
-              id: 'realtime',
-              height: 300 ,
-              type: 'area',
-              animations: {
-                enabled: true,
-                easing: 'linear',
-                dynamicAnimation: {
-                  speed: 1000
-                }
-              },
-              toolbar: {
-                show: false
-              },
-              zoom: {
-                enabled: false
-              }
-            },
-            dataLabels: {
-              enabled: false
-            },
-            stroke: {
-              curve: 'smooth'
-            },
-            title: {
-              text: 'Users Session Chart Sample',
-              align: 'left'
-            },
-            markers: {
-              size: 0
-            },
-            xaxis: {
-              type: 'datetime',
-              range: XAXISRANGE,
-            },
-            yaxis: {
-              max: 100
-            },
-            legend: {
-              show: true
-            },
-            };
-            var chart1 = new ApexCharts(document.querySelector("#chart1"), options1);
-            chart1.render();
-
-
-            window.setInterval(function () {
-            getNewSeries(lastDate, {
-              min: 10,
-              max: 90
-            })
-
-            chart1.updateSeries([{
-              data: data
-            }])
-          }, 1000 /*refresh interval 15 sec*/)
-
-          </script>
-      </div> -->
-    
       <div class="w-full p-5 rounded-lg mb-2 box">
 
           <div id="linechart"></div>
 
       </div>
+    
       <script>
           // For Show Window
           window.Apex = {
@@ -235,7 +84,7 @@ require APPROOT . '/views/inc/header.php';
               var series = [];
               while (i < count) {
               var x = baseval;
-              var y = ((Math.sin(i / trigoStrength) * (i / trigoStrength) + i / trigoStrength + 1) * (trigoStrength * 2))
+              var y = sessions; //((Math.sin(i / trigoStrength) * (i / trigoStrength) + i / trigoStrength + 1) * (trigoStrength * 2))
 
               series.push([x, y]);
               baseval += 15000;
@@ -248,7 +97,7 @@ require APPROOT . '/views/inc/header.php';
               var newTime = baseval + 15000;
               return {
               x: newTime,
-              y: Math.floor(Math.random() * (yrange.max - yrange.min + 1)) + yrange.min
+              y: sessions //Math.floor(Math.random() * (yrange.max - yrange.min + 1)) + yrange.min
               }
           }
           //15000 = 15 seconds per tick
@@ -279,10 +128,6 @@ require APPROOT . '/views/inc/header.php';
                   animationEnd: function (chartCtx, opts) {
                   const newData1 = chartCtx.w.config.series[0].data.slice()
                   newData1.shift()
-                  const newData2 = chartCtx.w.config.series[1].data.slice()
-                  newData2.shift()
-                  const newData3 = chartCtx.w.config.series[2].data.slice()
-                  newData3.shift()
 
                   // check animation end event for just 1 series to avoid multiple updates
                   //For Multiple Series
@@ -291,10 +136,6 @@ require APPROOT . '/views/inc/header.php';
                       chartCtx.updateOptions({
                           series: [{
                           data: newData1
-                          }, {
-                          data: newData2
-                          }, {
-                          data: newData3
                           }],
                           subtitle: {
                           text: parseInt(getRandom() * Math.random()).toString(),
@@ -335,18 +176,6 @@ require APPROOT . '/views/inc/header.php';
               //initial series range '12' of x
               series: [{
               name: 'Running',
-              data: generateMinuteWiseTimeSeries(new Date().getTime()-(10 - 1)*15000, 10, {
-                  min: 10,
-                  max: 90
-              })
-              }, {
-              name: 'Waiting',
-              data: generateMinuteWiseTimeSeries(new Date().getTime()-(10 - 1)*15000, 10, {
-                  min: 10,
-                  max: 90
-              })
-              }, {
-              name: 'Hatsusin',
               data: generateMinuteWiseTimeSeries(new Date().getTime()-(10 - 1)*15000, 10, {
                   min: 10,
                   max: 90
@@ -410,20 +239,6 @@ require APPROOT . '/views/inc/header.php';
                   gRandom()
                   ]
               ]
-              }, {
-              data: [...chartLine.w.config.series[1].data,
-                  [
-                  chartLine.w.globals.maxX + 15000,
-                  21
-                  ]
-              ]
-              }, {
-              data: [...chartLine.w.config.series[2].data,
-                  [
-                  chartLine.w.globals.maxX + 15000,
-                  getRandom() * 2
-                  ]
-              ]
               }])
 
 
@@ -431,6 +246,23 @@ require APPROOT . '/views/inc/header.php';
       </script>
     </div>
     <!--RealLine-->
+
+    <script>
+
+      var sessions;
+
+            setInterval(() => {
+                $.ajax({
+                    url: "../app/controllers/RMS_Sessions/getSessions",
+                    dataType: "JSON",
+                    data: {},
+                    success: function(x) {
+                        sessions = x;
+                    }
+                });
+
+            }, 1000);
+    </script>
 
     
     
@@ -877,48 +709,29 @@ require APPROOT . '/views/inc/header.php';
           </script>
       </div>
       
-      <!-- <audio preload="auto" id="beep-one">
+      <audio preload="auto" id="beep-one">
         <source src="../public/audio/sound.mp3"></source>
         Your browser isn't invited for super fun audio time.
-      </audio> -->
-      <!-- <audio preload="auto" id="beep-two0">
-        <source src="../public/audio/indian1.mp3"></source>
-        Your browser isn't invited for super fun audio time.
       </audio>
-      <audio preload="auto" id="beep-two1">
-        <source src="../public/audio/indian2.mp3"></source>
+      <!-- <audio preload="auto" id="beep-two1">
+        <source src="../public/audio/sound.mp3"></source>
         Your browser isn't invited for super fun audio time.
       </audio>
       <audio preload="auto" id="beep-two2">
-        <source src="../public/audio/indian3.mp3"></source>
+        <source src="../public/audio/sound.mp3"></source>
         Your browser isn't invited for super fun audio time.
       </audio>
       <audio preload="auto" id="beep-two3">
-        <source src="../public/audio/indian4.mp3"></source>
+        <source src="../public/audio/wow.mp3"></source>
         Your browser isn't invited for super fun audio time.
       </audio> -->
-      <!-- <script>
-        // var beepOne = $("#beep-one")[0];
-        // $(".hat")
-        //   .mouseenter(function() {
-        //     beepOne.play();
-        //   });
-
-          $(".hat")
-          .each(function(i) {
-            if (i != 0) {
-              $("#beep-two")
-                .clone()
-                .attr("id", "beep-two" + i)
-                .appendTo($(this).parent());
-            }
-            $(this).data("beeper", i);
-          })
+      <script>
+        var beepOne = $("#beep-one")[0];
+        $(".hat")
           .mouseenter(function() {
-            $("#beep-two" + $(this).data("beeper"))[0].play();
+            beepOne.play();
           });
-        $("#beep-two").attr("id", "beep-two0");
-      </script> -->
+      </script>
 
     </div>
     <!--Donuts-->

@@ -9,6 +9,8 @@
     define('URLROOT', 'http://localhost/dbahelp');
     // Site Name
     define('SITENAME', 'DBAHelp');
+    //Method Controller
+    define('METHOD', '../app/method_controllers/');
 
     //ftp df file sites
     define('RMSPRD', 'ftp://oracle:0racleas1@192.168.32.184/home/oracle/dba_scripts/df.txt');

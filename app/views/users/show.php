@@ -4,7 +4,8 @@ require APPROOT . '/views/inc/header.php';
 ?>
 <?php require APPROOT . '/views/inc/sidebar.php'; ?>
 
-<h1 class="text-2xl text-black pb-3 text-white"><b>Manage Users</b></h1>
+<h1 class="text-3xl text-black pb-6 text-white"><b>Manage Users</b></h1>
+
 
 <div class="overflow-x-auto relative shadow-md sm:rounded-lg">
     <div class="flex justify-between items-center pb-4 bg-gray-800 dark:bg-gray-900">
@@ -33,8 +34,8 @@ require APPROOT . '/views/inc/header.php';
             </form>
         </div>
     </div>
-    <div style="overflow: clip;" class="show-table show-tb-txt ">
-        <div class="flex w-full shadow-md overflow-auto sm:rounded-lg" style="max-height: 80%; min-height: 100%; color: red;">
+    <div style="height: 68vh; overflow: clip;">
+        <div class="flex w-full shadow-md overflow-auto sm:rounded-lg" style="max-height: 80%; min-height: 100%;">
                 <?php
                 if (!empty($data)) {
 
@@ -73,18 +74,18 @@ require APPROOT . '/views/inc/header.php';
                                         <?php
                                         }
                                         ?>
-                                        <td class="py-4 px-6 text-center justify-center">
-                                                <button data-tooltip-target="tooltip-edit" data-tooltip-trigger="hover" type="button" alt="Edit" class="px-2">
-                                                    <font color="#005eff" title="Edit User">
-                                                        <i class="fas mt-1 fa-pen ml-2 hover:bg-blue-200 rounded-lg w-6 h-6"></i>
-                                                    </font> 
-                                                </button>
-                                            <a href="<?php echo URLROOT; ?>/users/deleteUser">
-                                                <button type="button" alt="Delete" class="border-blue-500 md:border-green-500">
-                                                    <font color="#b00020" title="Delete User">
-                                                        <i class="fas mt-1 fa-trash ml-2 hover:bg-red-200 rounded-lg w-6 h-6"></i>
-                                                    </font>
-                                                </button>
+                                        <td class="py-4 px-6 text-center">
+                                            <button data-tooltip-target="tooltip-edit" data-tooltip-trigger="hover" type="button" alt="Edit" class="px-2">
+                                                <font color="#005eff" title="Edit User">
+                                                    <i class="fas mt-1 fa-pen ml-2 hover:bg-blue-200 rounded-lg w-6 h-6"></i>
+                                                </font> 
+                                            </button>
+                                        <a href="<?php echo URLROOT; ?>/users/deleteUser">
+                                            <button type="button" alt="Delete" class="border-blue-500 md:border-green-500">
+                                                <font color="#b00020" title="Delete User">
+                                                    <i class="fas mt-1 fa-trash ml-2 hover:bg-red-200 rounded-lg w-6 h-6"></i>
+                                                </font>
+                                            </button>
                                             </a>
                                         </td>
                                     </tr>
@@ -108,7 +109,7 @@ require APPROOT . '/views/inc/header.php';
                     ?>
                 </p>
             </div>
-        </div>                  
+        </div>
     
     <!-- PAGINATION (soon) -->
     <!-- <div class="hidden sm:flex sm:flex-1 sm:items-center sm:justify-between py-4">

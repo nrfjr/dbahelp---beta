@@ -13,12 +13,5 @@
             $this->view('homepage/dashboard', $data=[]);
         }
 
-        public function getUserSessions()
-        {
-            $result = $this->dashboardModel->getTotalSessions();
-
-            return $result['Total Sessions'];
-        }
-
 
     }
