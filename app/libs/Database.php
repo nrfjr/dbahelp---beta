@@ -1,11 +1,10 @@
 <?php
     class Database {
-        private $db_server   = DB_SERVER;
-        private $db_username = 'rms13prd';
-        private $db_password = 'rms13prd';
-        private $service_name;
-        private $sid;
-        private $port=PORT;
+        private $db_server   = RMS_HOST;
+        private $db_username = ADMIN_USERNAME;
+        private $db_password = ADMIN_PASSWORD;
+        private $sid = RMS_SID;
+        private $port = DEFAULT_PORT;
 
         private $conn;
         private $stmt;
@@ -18,7 +17,7 @@
 
         public function __construct(){
 
-            $this->tns = '(DESCRIPTION = (ADDRESS = (PROTOCOL = TCP)(HOST = '.$this->db_server.')(PORT = '.$this->port.')) (CONNECT_DATA = (SERVICE_NAME = '.(empty($this->service_name)? "RMSPRD" : $this->service_name).') (SID = '.(empty($this->sid)? "RMSPRD" : $this->sid).')))';
+            $this->tns = '(DESCRIPTION = (ADDRESS = (PROTOCOL = TCP)(HOST = '.$this->db_server.')(PORT = '.$this->port.')) (CONNECT_DATA = (SERVICE_NAME = '.$this->sid.') (SID = '.$this->sid.')))';
             $this->options = array(
                 PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
                 PDO::ATTR_EMULATE_PREPARES => false,
@@ -35,10 +34,12 @@
         }
         public function test_connection($username, $password){
 
+            try{
+
             if($this->conn = new PDO("oci:dbname=" . $this->tns . ";charset=utf8", $username, $password, $this->options)){
                 return true;
             }
-            else{
+            }catch(\Exception $e){
                 return false;
             }
 

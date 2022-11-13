@@ -4,11 +4,11 @@
         public function __construct() {
 
             if(!isset($_SESSION['username'])) {
-                $this->errorHandler();
+                $this->void();
             }
         }
 
-        public function errorHandler()
+        public function void()
         {
             $this->view('error/error', $data =['link' => '/users/login']);
         }

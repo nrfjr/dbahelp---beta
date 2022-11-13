@@ -72,10 +72,6 @@ require APPROOT . '/views/inc/header.php';
           var trigoStrength = 3
           var iteration = 11
 
-          function getRangeRandom(yrange) {
-              return Math.floor(Math.random() * (yrange.max - yrange.min + 1)) + yrange.min
-          }
-
           function generateMinuteWiseTimeSeries(baseval, count, yrange) {
               var i = 0;
               var series = [];
@@ -148,7 +144,7 @@ require APPROOT . '/views/inc/header.php';
               },
               stroke: {
               curve: 'smooth',
-              width: 2,
+              width: 5,
               },
               grid: {
               padding: {
