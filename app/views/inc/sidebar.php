@@ -3,7 +3,7 @@
 ?>
 
 
-<aside class="relative bg-indigo-400 h-screen w-64 hidden sm:block shadow-xl overflow-y-auto scrollbar-hide transition ease-in-out delay-150">
+<aside class="relative bg-gradient-to-br from-blue-500 to-indigo-900 h-screen w-64 hidden sm:block shadow-xl overflow-y-auto scrollbar-hide transition ease-in-out delay-150">
     <div>
         <div class="p-6">
             <a href="<?php echo URLROOT;?>/homepage/dashboard" class="text-white text-3xl font-semibold hover:text-gray-300"><?php echo SITENAME?></a>
