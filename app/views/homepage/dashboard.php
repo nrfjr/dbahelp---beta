@@ -55,7 +55,7 @@ require APPROOT . '/views/inc/header.php';
               theme: 'dark',
               x: {
                   formatter: function (val) {
-                  return moment(new Date(val)).format("HH:mm:ss")
+                    return moment(new Date(val).getTime()-(10 - 1)*1000).format("hh:mm:ss")
                   }
               }
               },
@@ -87,8 +87,8 @@ require APPROOT . '/views/inc/header.php';
           }
 
           //15000 = 15 seconds per tick
-          var xRange = 5000000; //1000000 equivalent to 5 minutes interval shown on x axis is long; 1000000 is 5 minutes but short
-          //-------------------------------------------
+          var xRange = 1500000; //1000000 equivalent to 5 minutes interval shown on x axis is long; 1000000/1500000 is 5 minutes but short
+          //------------------------------------------- 
           var optionsLine = {
               chart: {
               height: 320,
@@ -114,6 +114,12 @@ require APPROOT . '/views/inc/header.php';
                   animationEnd: function (chartCtx, opts) {
                   const newData1 = chartCtx.w.config.series[0].data.slice()
                   newData1.shift()
+                  const newData2 = chartCtx.w.config.series[1].data.slice()
+                  newData2.shift()
+                  const newData3 = chartCtx.w.config.series[2].data.slice()
+                  newData3.shift()
+                  const newData4 = chartCtx.w.config.series[3].data.slice()
+                  newData3.shift()
 
                   // check animation end event for just 1 series to avoid multiple updates
                   //For Multiple Series
@@ -122,6 +128,12 @@ require APPROOT . '/views/inc/header.php';
                       chartCtx.updateOptions({
                           series: [{
                           data: newData1
+                          }, {
+                          data: newData2
+                          }, {
+                          data: newData3
+                          }, {
+                          data: newData4
                           }],
                           subtitle: {
                           text: sessions,
@@ -166,11 +178,35 @@ require APPROOT . '/views/inc/header.php';
                   min: 10,
                   max: 90
               })
+              }, {
+              name: 'Session 2',
+              data: generateMinuteWiseTimeSeries(new Date().getTime()-(10 - 1)*1000, 1, {
+                  min: 10,
+                  max: 90
+              })
+              }, {
+              name: 'Session 3',
+              data: generateMinuteWiseTimeSeries(new Date().getTime()-(10 - 1)*1000, 1, {
+                  min: 10,
+                  max: 90
+              })
+              }, {
+              name: 'Session 4',
+              data: generateMinuteWiseTimeSeries(new Date().getTime()-(10 - 1)*1000, 1, {
+                  min: 10,
+                  max: 90
+              })
               }],
               xaxis: {
               type: 'datetime',
               tickPlacement: 'on',
-              range: xRange
+              range: xRange,
+              labels: {
+                formatter: function (val) {
+                  return moment(new Date(val)).format("hh:mm")
+                },
+                  // format: 'hh:mm TT'
+              }
               },
               title: {
               text: '192.168.32.184 Sessions',
@@ -195,6 +231,19 @@ require APPROOT . '/views/inc/header.php';
               onItemClick: {
                   toggleDataSeries: false
               },
+              // onItemHover: {
+              //   subtitle: {
+              //     text:{
+              //       formatter:{
+              //         function(context){
+              //         let currentVal = context.raw;
+              //         return currentVal
+              //       }
+              //       }
+                    
+              //     }
+              //   }
+              // },
               position: 'top',
               offsetY: -28,
               offsetX: 60
@@ -207,6 +256,11 @@ require APPROOT . '/views/inc/header.php';
           );
           chartLine.render()
 
+          //random Number generator - sample data purposes
+          function getRndInteger(min, max) {
+            return Math.floor(Math.random() * (max - min + 1) ) + min;
+          }
+
           window.setInterval(function () {
                   
               iteration++;
@@ -215,8 +269,29 @@ require APPROOT . '/views/inc/header.php';
               chartLine.updateSeries([{
               data: [...chartLine.w.config.series[0].data,
                   [
-                  chartLine.w.globals.maxX + 15000,
+                  chartLine.w.globals.maxX + 1000,
                   sessions
+                  ]
+              ]
+              }, {
+              data: [...chartLine.w.config.series[1].data,
+                  [
+                  chartLine.w.globals.maxX + 1000,
+                  getRndInteger(1500, 1800)
+                  ]
+              ]
+              }, {
+              data: [...chartLine.w.config.series[2].data,
+                  [
+                  chartLine.w.globals.maxX + 1000,
+                  getRndInteger(1200, 1900)
+                  ]
+              ]
+              }, {
+              data: [...chartLine.w.config.series[3].data,
+                  [
+                  chartLine.w.globals.maxX + 1000,
+                  getRndInteger(1000, 2000)
                   ]
               ]
               }])

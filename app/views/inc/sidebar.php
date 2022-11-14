@@ -3,12 +3,12 @@
 ?>
 
 
-<aside class="relative bg-indigo-400 h-screen w-64 hidden sm:block shadow-xl overflow-y-auto transition ease-in-out delay-150">
+<aside class="relative bg-indigo-400 h-screen w-64 hidden sm:block shadow-xl overflow-y-auto scrollbar-hide transition ease-in-out delay-150">
     <div>
         <div class="p-6">
             <a href="<?php echo URLROOT;?>/homepage/dashboard" class="text-white text-3xl font-semibold hover:text-gray-300"><?php echo SITENAME?></a>
         </div>
-        <nav class="text-white text-base font-semibold pt-3 overflow-y-auto maxh">
+        <nav class="text-white text-base font-semibold pt-3 overflow-y-auto scrollbar-hide maxh">
             <div id="accordion-open" data-accordion="open">
                 <ul>
                     <!--DASHBOARD-->
@@ -188,7 +188,7 @@
     </style>
     
 </aside>
-    <div class="w-full flex flex-col h-screen overflow-y-auto">
+    <div class="w-full flex flex-col h-screen overflow-y-auto scrollbar-hide">
         <!-- Desktop Header -->
         <header class="w-full items-center bg-gray-600 py-2 px-6 hidden sm:flex ">
             <!--TOP NAVBAR-->

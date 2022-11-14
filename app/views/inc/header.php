@@ -87,6 +87,16 @@
           .spinner-border {
               display: none;
           }
+
+          .scrollbar-hide::-webkit-scrollbar {
+                display: none;
+            }
+
+            /* For IE, Edge and Firefox */
+            .scrollbar-hide {
+                -ms-overflow-style: none;  /* IE and Edge */
+                scrollbar-width: none;  /* Firefox */
+            }
     </style>
 
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
