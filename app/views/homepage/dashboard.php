@@ -87,7 +87,7 @@ require APPROOT . '/views/inc/header.php';
           }
 
           //15000 = 15 seconds per tick
-          var xRange = 1500000; //1000000 equivalent to 5 minutes interval shown on x axis is long; 1000000/1500000 is 5 minutes but short
+          var xRange = 1500000; //1000000 equivalent to 5 minutes interval shown on x axis is long; 5000000/1000000/1500000 is 5 minutes but short
           //------------------------------------------- 
           var optionsLine = {
               chart: {
@@ -202,10 +202,11 @@ require APPROOT . '/views/inc/header.php';
               tickPlacement: 'on',
               range: xRange,
               labels: {
-                formatter: function (val) {
-                  return moment(new Date(val)).format("hh:mm")
-                },
-                  // format: 'hh:mm TT'
+                // formatter: function (val) {
+                //   return moment(new Date(val)).format("hh:mm")
+                // }
+                datetimeUTC: false, //finally the fix to the x-axis time problem
+                  format: 'hh:mm TT'
               }
               },
               title: {
@@ -231,19 +232,6 @@ require APPROOT . '/views/inc/header.php';
               onItemClick: {
                   toggleDataSeries: false
               },
-              // onItemHover: {
-              //   subtitle: {
-              //     text:{
-              //       formatter:{
-              //         function(context){
-              //         let currentVal = context.raw;
-              //         return currentVal
-              //       }
-              //       }
-                    
-              //     }
-              //   }
-              // },
               position: 'top',
               offsetY: -28,
               offsetX: 60
@@ -277,21 +265,21 @@ require APPROOT . '/views/inc/header.php';
               data: [...chartLine.w.config.series[1].data,
                   [
                   chartLine.w.globals.maxX + 1000,
-                  getRndInteger(1500, 1800)
+                  getRndInteger(50, 55)
                   ]
               ]
               }, {
               data: [...chartLine.w.config.series[2].data,
                   [
                   chartLine.w.globals.maxX + 1000,
-                  getRndInteger(1200, 1900)
+                  getRndInteger(100, 110)
                   ]
               ]
               }, {
               data: [...chartLine.w.config.series[3].data,
                   [
                   chartLine.w.globals.maxX + 1000,
-                  getRndInteger(1000, 2000)
+                  getRndInteger(10, 40)
                   ]
               ]
               }])
@@ -762,31 +750,6 @@ require APPROOT . '/views/inc/header.php';
             };
           </script>
       </div>
-      
-      <audio preload="auto" id="beep-one">
-        <source src="../public/audio/sound.mp3"></source>
-        Your browser isn't invited for super fun audio time.
-      </audio>
-      <!-- <audio preload="auto" id="beep-two1">
-        <source src="../public/audio/sound.mp3"></source>
-        Your browser isn't invited for super fun audio time.
-      </audio>
-      <audio preload="auto" id="beep-two2">
-        <source src="../public/audio/sound.mp3"></source>
-        Your browser isn't invited for super fun audio time.
-      </audio>
-      <audio preload="auto" id="beep-two3">
-        <source src="../public/audio/wow.mp3"></source>
-        Your browser isn't invited for super fun audio time.
-      </audio> -->
-      <script>
-        var beepOne = $("#beep-one")[0];
-        $(".hat")
-          .mouseenter(function() {
-            beepOne.play();
-          });
-      </script>
-
     </div>
     <!--Donuts-->
 
