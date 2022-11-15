@@ -12,12 +12,11 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
     <!--Flowbite-->
     <!-- <link rel="stylesheet" href="https://unpkg.com/flowbite@1.5.3/dist/flowbite.min.css" /> -->
-    <!-- Apex Chart -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lexend:400,700&display=swap">
+    <link rel="stylesheet" href="/dbahelp/public/css/extstyle.css">
 
     
     <style>
-        @import url('https://fonts.googleapis.com/css?family=Lexend:400,700&display=swap');
-
         .font-family-lexend {
             font-family: lexend;
         }
@@ -39,7 +38,6 @@
         }
 
         .active-nav-link {
-            /* background: #1947ee; */
             box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
             background-image: linear-gradient(150deg, #0575E6, #021B79);
         }
@@ -52,90 +50,7 @@
             background: #3d68ff;
         }
 
-        /* to be separated */
-        h1, h2, h3, h4, h5, h6, strong {
-            font-weight: 600;
-        }
-
-        .box .apexcharts-xaxistooltip {
-            background: #1B213B;
-            color: #fff;
-        }
-
-        .content-area {
-            max-width: 1280px;
-            margin: 0 auto;
-        }
-
-        .box {
-            box-shadow: rgba(0, 0, 0, 1) 0px 1px 3px, rgba(0, 0, 0, 1) 0px 1px 2px;
-            padding: 25px 25px;
-            border-radius: 4px;
-            border: 1px solid #99ccff;
-
-        }
-
-        .columnbox {
-            padding-right: 15px;
-        }
-        .radialbox {
-            max-height: 333px;
-            margin-bottom: 60px;
-        }
-
-        .apexcharts-legend-series tspan:nth-child(3) {
-            font-weight: bold;
-            font-size: 20px;
-        }
-
-        .spinner-border {
-            display: none;
-        }
-
-        .scrollbar-hide::-webkit-scrollbar {
-            display: none;
-        }
-
-        /* For IE, Edge and Firefox */
-        .scrollbar-hide {
-            -ms-overflow-style: none;  /* IE and Edge */
-            scrollbar-width: none;  /* Firefox */
-        }
-
-        @media only screen and (min-height: 800px){
-            .widgets{
-                position: absolute;
-                bottom: 0.5rem;
-            }
-            .maxh{
-                max-height: 26rem;
-            }
-        }
-        @media only screen and (max-height: 750px){
-            .maxh{
-                max-height: 20rem;
-            }
-            .widgets{
-                position: absolute;
-                bottom: 0.5rem;
-            }
-        }
-        @media only screen and (max-height: 700px){
-            .maxh{
-                max-height: 15rem;
-            }
-            
-        }
-        @media only screen and (max-height: 600px){
-            .maxh{
-                max-height: 10rem;
-            }
-        }
-        @media only screen and (min-height: 900px){
-            .maxh{
-                max-height: 25rem;
-            }
-        }
+        
     </style>
 
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
