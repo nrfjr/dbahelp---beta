@@ -87,7 +87,7 @@ require APPROOT . '/views/inc/header.php';
           }
 
           //15000 = 15 seconds per tick
-          var xRange = 1500000; //1000000 equivalent to 5 minutes interval shown on x axis is long; 5000000/1000000/1500000 is 5 minutes but short
+          var xRange = 1000000; //1000000 equivalent to 5 minutes interval shown on x axis is long; 5000000/1000000/1500000 is 5 minutes but short
           //------------------------------------------- 
           var optionsLine = {
               chart: {
@@ -99,7 +99,8 @@ require APPROOT . '/views/inc/header.php';
                   enabled: true,
                   easing: 'linear',
                   dynamicAnimation: {
-                  speed: 1000
+                    enabled: false, // from true to false
+                    speed: 1000
                   }
               },
               dropShadow: {
@@ -119,7 +120,7 @@ require APPROOT . '/views/inc/header.php';
                   const newData3 = chartCtx.w.config.series[2].data.slice()
                   newData3.shift()
                   const newData4 = chartCtx.w.config.series[3].data.slice()
-                  newData3.shift()
+                  newData4.shift()
 
                   // check animation end event for just 1 series to avoid multiple updates
                   //For Multiple Series
