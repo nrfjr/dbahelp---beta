@@ -8,7 +8,7 @@
         <div class="p-6">
             <a href="<?php echo URLROOT;?>/homepage/dashboard" class="text-white text-3xl font-semibold hover:text-gray-300"><?php echo SITENAME?></a>
         </div>
-        <nav class="text-white text-base font-semibold pt-3 overflow-y-auto scrollbar-hide maxh">
+        <nav class="text-white text-base font-semibold py-2 overflow-y-auto scrollbar-hide maxh">
             <div id="accordion-open" data-accordion="open">
                 <ul>
                     <!--DASHBOARD-->
@@ -20,7 +20,7 @@
                                     Dashboard 
                                 </a>
 
-                                    <button type="button" class="border-solid border-2 border-gray flex-auto items-center py-4 hover:bg-gray-300 text-white" 
+                                    <button type="button" class="flex-auto items-center py-4 hover:bg-gray-300 text-white" 
                                     
                                     aria-expanded="<?php 
                                     if (strpos($url, 'diskstorage')) {echo 'true';} else {echo ' false';}?>" 
@@ -56,15 +56,32 @@
                         </li>
                         </ul>
                     <!--DATABASES-->
-                    <li>
-                        <button type="button" class="flex items-center py-4 pl-6 nav-item text-white w-full text-sm font-semibold pt-3" aria-controls="databases" data-accordion-target="#databases" aria-expanded="false" data-collapse-toggle="databases"> <!--Change here for control variables-->
-                                    <i class="fas fa-database mr-3"></i>
-                                    <span class="flex-1 text-left" sidebar-toggle-item>DATABASES</span>
-                                        <svg sidebar-toggle-item class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                                            <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path>
-                                        </svg>
-                        </button>
-                        <ul id="databases" class="hidden py-1  ">
+                    <li class="flex flex-row">
+                                <a href="<?php echo URLROOT;?>/homepage/#" class="flex items-center py-4 pl-6 nav-item text-white w-10/12 <?php if (strpos($url, '#')) {echo 'active-nav-link';} else {echo ' opacity-75';}?>" 
+                                >
+                                    <i class="fas fa-warehouse mr-3"></i>
+                                    Databases 
+                                </a>
+
+                                    <button type="button" class="flex-auto items-center py-4 hover:bg-gray-300 text-white" 
+                                    
+                                    aria-expanded="<?php 
+                                    if (strpos($url, '#')) {echo 'true';} else {echo ' false';}?>" 
+                                    aria-controls="databases" 
+                                    data-accordion-target="#databases"
+                                    data-collapse-toggle="databases"> 
+                                    <!--Code above is needed for collapse open while select-->
+                                    <!--Change here for control variables-->
+                                            <svg sidebar-toggle-item class="w-6 h-8" fill="currentColor" viewBox="0 -5 12 28" xmlns="http://www.w3.org/2000/svg">
+                                                <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+                                            </svg>  
+                                        
+                                    </button>
+                                
+                                    
+                            
+                        </li>
+                    <ul id="databases" class="hidden py-1  ">
                             <li>
                             <a href="<?php echo URLROOT;?>/homepage/dashboard"  class="flex items-center hover:opacity-100 py-4 pl-12 nav-item text-white <?php if (strpos($url, 'oracle')){ echo 'active-nav-link ';}else{echo 'opacity-75';}?>">
                                 <i class="fas fa-database mr-3"></i>
@@ -85,7 +102,6 @@
                             </li>  
                         </ul>
 
-                    </li>
 
                     <li>
                         <a href="<?php echo URLROOT;?>/users/show"  class="flex items-center hover:opacity-100 py-4 pl-6 nav-item text-white <?php if (strpos($url, 'show')){ echo 'active-nav-link ';}else{echo 'opacity-75';}?>">
@@ -102,9 +118,10 @@
     </div>
 
     <!--Time & Date-->
-    <div class="left-0 widgets transition ease-in-out delay-150">
-        <div class="w-full px-1 drop-shadow-lg rounded-lg justify-center">
-            <!--Dayspedia.com widget--><iframe width='100%' height='100%' style='padding:0!important;margin:0!important;border:none!important;background:none!important;background:transparent!important;pointer-events:none;' marginheight='0' marginwidth='0' frameborder='0' scrolling='no' comment='/*defined*/' src='https://dayspedia.com/if/digit/?v=1&iframe=eyJ3LTEyIjp0cnVlLCJ3LTExIjp0cnVlLCJ3LTEzIjp0cnVlLCJ3LTE0IjpmYWxzZSwidy0xNSI6ZmFsc2UsInctMTEwIjpmYWxzZSwidy13aWR0aC0wIjp0cnVlLCJ3LXdpZHRoLTEiOmZhbHNlLCJ3LXdpZHRoLTIiOmZhbHNlLCJ3LTE2IjoiMTZweCAxNnB4IDI0cHgiLCJ3LTE5IjoiMzIiLCJ3LTE3IjoiMTIiLCJ3LTIxIjp0cnVlLCJiZ2ltYWdlIjo2LCJiZ2ltYWdlU2V0Ijp0cnVlLCJ3LTIxYzAiOiIjZmZmZmZmIiwidy0wIjp0cnVlLCJ3LTMiOmZhbHNlLCJ3LTNjMCI6IiMzNDM0MzQiLCJ3LTNiMCI6IjEiLCJ3LTYiOiIjMzQzNDM0Iiwidy0yMCI6dHJ1ZSwidy00IjoiI2Y2ZmJmZSIsInctMTgiOmZhbHNlLCJ3LXdpZHRoLTJjLTAiOiIzMDAiLCJ3LTExNSI6ZmFsc2V9&lang=en&cityid=7780'></iframe><!--Dayspedia.com widget ENDS-->
+    <div class="left-0 widgets transition ease-in-out delay-150 bg-gradient-to-br from-blue-500 to-indigo-900 rounded-lg">
+        <div class="w-9/10 justify-center px-1 mt-1">
+            <div id="swtClock" class="bg-gradient-to-r from-pink-100 to-blue-100 rounded-t-lg" style="text-align: center;"></div>
+            <script type="text/javascript" src="https://www.superwebtricks.com/wp-content/uploads/clock.js.txt"></script>
             
         </div>
         <!--Calendar-->
@@ -113,79 +130,6 @@
         </div>
     </div>
     
-    <style>
-        @media only screen and (min-height: 800px){
-            .widgets{
-                /* animation-name: response_sidebar;
-                animation-duration: 1.5s;
-                transition: ease-in-out;
-                animation-fill-mode: forwards;
-                animation-direction: normal; */
-                position: absolute;
-                bottom: 0.5rem;
-            }
-            /* @keyframes response_sidebar{
-                from{
-                    position:relative;
-                }
-                50%{
-                    position: absolute;
-                    bottom: 14.55rem;
-                }
-                100%{
-                    position: absolute;
-                    bottom: 0.5rem;
-                }
-            } */
-            .maxh{
-                max-height: 26rem;
-            }
-        }
-        @media only screen and (max-height: 750px){
-            .maxh{
-                max-height: 20rem;
-            }
-            .widgets{
-                /* animation-name: response_sidebar;
-                animation-duration: 1.5s;
-                transition: ease-in-out;
-                animation-fill-mode: forwards;
-                animation-direction: normal; */
-                position: absolute;
-                bottom: 0.5rem;
-            }
-            /* @keyframes response_sidebar{
-                from{
-                    position:relative;
-                }
-                50%{
-                    position: absolute;
-                    bottom: 14.55rem;
-                }
-                100%{
-                    position: absolute;
-                    bottom: 0.5rem;
-                }
-            } */
-        }
-        @media only screen and (max-height: 700px){
-            .maxh{
-                max-height: 15rem;
-            }
-            
-        }
-        @media only screen and (max-height: 600px){
-            .maxh{
-                max-height: 10rem;
-            }
-        }
-        @media only screen and (min-height: 900px){
-            .maxh{
-                max-height: 25rem;
-            }
-        }
-
-    </style>
     
 </aside>
     <div class="w-full flex flex-col h-screen overflow-y-auto scrollbar-hide">

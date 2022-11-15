@@ -6,7 +6,7 @@ require APPROOT . '/views/inc/header.php';
 
     <h1 class="text-3xl text-black pb-2 text-white"><b>Disk Storage</b></h1>
 
-    <div class="grid grid-cols-4 gap-x-10 gap-y-8 justify-center place-content-evenly">
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-x-10 gap-y-8 justify-center place-content-evenly">
       <?php
 
           // get donut array from main array
@@ -22,14 +22,13 @@ require APPROOT . '/views/inc/header.php';
 
       ?>
       <!--Must rename for duplicating: chartDonut1,myChart1, sampleChart1, config1-->
-      <div class="w-2/7 bg-gray-600 p-5 rounded-lg">
+      <div class="w-full p-5 rounded-lg box">
         <div>
           <canvas id="chartDonut<?php echo $mountcnt ?>"></canvas>
         </div>
 
-    
+            
           <script>
-
             let myChart<?php echo $mountcnt ?> = document.getElementById('chartDonut'+"<?php echo $mountcnt ?>").getContext('2d');
             
             let sampleChart<?php echo $mountcnt ?> = new Chart(myChart<?php echo $mountcnt ?>, {
@@ -37,7 +36,7 @@ require APPROOT . '/views/inc/header.php';
               data: {
                 labels:[
                   'Used',
-                  'Free'
+                  'Free' 
                 ],
                 datasets:[{
                   label: 'My First Dataset',

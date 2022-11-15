@@ -303,7 +303,6 @@ require APPROOT . '/views/inc/header.php';
     <!--RealLine-->
 
     <script>
-
       var sessions
 
             setInterval(() => {
@@ -322,7 +321,7 @@ require APPROOT . '/views/inc/header.php';
     
     
     <!--Donuts-->
-    <div class="grid grid-cols-4 gap-4 justify-center">
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-4 justify-center">
       <!--Must rename for duplicating: chartDonut1,myChart1, sampleChart1, config1-->
       <div class="w-full box rounded-lg">
         <div>
