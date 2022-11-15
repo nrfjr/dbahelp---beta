@@ -46,10 +46,16 @@ require APPROOT . '/views/inc/header.php';
               }
               },
               fill: {
-              type: 'gradient',
+              type: 'image',
+              opacity: 0.2,
               gradient: {
                   gradientToColors: ['#F55555', '#6078ea', '#6094ea']
               },
+              image: {
+                  src: ['../../../../dbahelp/public/img/kcc.png'],
+                  width: 1180,
+                  height: 300
+              }
               },
               tooltip: {
               theme: 'dark',
