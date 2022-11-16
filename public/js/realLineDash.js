@@ -192,7 +192,7 @@ var optionsLine = {
     markers: {
     size: 0,
     hover: {
-        size: 0
+        size: 5
     }
     },
     //For Multiple Series
@@ -251,13 +251,26 @@ var optionsLine = {
     }
     },
     legend: {
-    show: true,
-    floating: true,
-    verticalAlign: 'right',
-    
-    position: 'top',
-    offsetY: -28,
-    offsetX: 60
+        show: true,
+        floating: true,
+        verticalAlign: 'right',
+        onItemClick: {
+            toggleDataSeries: false
+        },
+        onItemHover: {
+            highlightDataSeries: true
+        },
+        position: 'top',
+        offsetY: -28,
+        offsetX: 60,
+        fontSize: '14px',
+        labels:{
+            useSeriesColors: true
+        },
+        markers:{
+            width: 20,
+            height: 20
+        }
     },
 }
 
