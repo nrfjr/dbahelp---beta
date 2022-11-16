@@ -132,9 +132,9 @@
 </aside>
     <div class="w-full flex flex-col h-screen overflow-y-auto scrollbar-hide">
         <!-- Desktop Header -->
-        <header class="w-full items-center bg-gray-600 py-2 px-6 hidden sm:flex ">
+        <header class="w-full items-center bg-gray-600 py-2 px-6 hidden sm:flex border-b-2 border-gray-800 top-nav">
             <!--TOP NAVBAR-->
-            <div class="w-3/4">
+            <div class="w-3/4 ">
                 <div>
                     <!--MONITOR-->
                     <button id="dropdownDefault" data-dropdown-toggle="dropdown-monitor" class="text-white bg-gray-600 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800
@@ -298,4 +298,4 @@
                 </div>
             </div>
         </header>
-            <main class="flex-grow p-6 bg-gray-800">
+            <main class="flex-grow p-6 bg-gray-600">

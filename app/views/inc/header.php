@@ -8,12 +8,12 @@
     <meta name="description" content="">
     <link rel="icon" href="<?php echo URLROOT; ?>/public/img/kcc.png" />
 
+    <link rel="stylesheet" href="../../../dbahelp/public/css/extstyle.css">
     <!-- Tailwind -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
-    <!--Flowbite-->
-    <!-- <link rel="stylesheet" href="https://unpkg.com/flowbite@1.5.3/dist/flowbite.min.css" /> -->
+    
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lexend:400,700&display=swap">
-    <link rel="stylesheet" href="/dbahelp/public/css/extstyle.css">
+    
 
     
     <style>
@@ -49,6 +49,17 @@
         .account-link:hover {
             background: #3d68ff;
         }
+
+        .box-card {
+            box-shadow: rgba(0, 0, 0, 1) 0px 1px 3px, rgba(0, 0, 0, 1) 0px 1px 2px;
+            padding: 25px 25px;
+            border-radius: 5px;
+            background-color: #2c2f33;
+        }
+
+        .top-nav{
+            box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+        } 
 
         
     </style>
