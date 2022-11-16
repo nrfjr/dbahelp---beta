@@ -10,17 +10,17 @@ require APPROOT . '/views/inc/header.php';
 <div class="grid grid-cols-1">
 
   <!--Rename for duplicate: chart1, options1-->
-  <div class="w-full p-5 rounded-lg mb-2 box">
+  <div class="w-full p-5 rounded-lg mb-2 box-card">
 
     <div id="linechart"></div>
 
   </div>
 
-  <?php 
-      
-          $Sessions = $data['Sessions'];
-          $FRA = $data['FRA'];
-  
+  <?php
+
+  $Sessions = $data['Sessions'];
+  $FRA = $data['FRA'];
+
   ?>
 
   <div class="hidden" id="RMSSessions"><?php echo $Sessions['RMSSessions']; ?></div>
@@ -97,7 +97,7 @@ require APPROOT . '/views/inc/header.php';
     }
 
     //15000 = 15 seconds per tick
-    var xRange = 1000000; //1000000 equivalent to 5 minutes interval shown on x axis is long; 5000000/1000000/1500000 is 5 minutes but short
+    var xRange = 1500000; //1000000 equivalent to 5 minutes interval shown on x axis is long; 5000000/1000000/1500000 is 5 minutes but short
     //------------------------------------------- 
     var optionsLine = {
       chart: {
@@ -179,29 +179,28 @@ require APPROOT . '/views/inc/header.php';
       },
       //For Multiple Series
       //initial series range '12' of x
-      series: [
-        {
-        name: 'RMS',
-        data: generateMinuteWiseTimeSeries(new Date().getTime() - (10 - 1) * 1000, 1, {
-          min: 10,
-          max: 90
-        })
+      series: [{
+          name: 'RMS',
+          data: generateMinuteWiseTimeSeries(new Date().getTime() - (10 - 1) * 1000, 1, {
+            min: 10,
+            max: 90
+          })
         },
         {
-        name: 'RDW',
-        data: generateMinuteWiseTimeSeries(new Date().getTime() - (10 - 1) * 1000, 1, {
-          min: 10,
-          max: 90
-        })
+          name: 'RDW',
+          data: generateMinuteWiseTimeSeries(new Date().getTime() - (10 - 1) * 1000, 1, {
+            min: 10,
+            max: 90
+          })
         },
         {
-        name: 'OFIN',
-        data: generateMinuteWiseTimeSeries(new Date().getTime() - (10 - 1) * 1000, 1, {
-          min: 10,
-          max: 90
-        })
+          name: 'OFIN',
+          data: generateMinuteWiseTimeSeries(new Date().getTime() - (10 - 1) * 1000, 1, {
+            min: 10,
+            max: 90
+          })
         }
-    ],
+      ],
       xaxis: {
         type: 'datetime',
         tickPlacement: 'on',
@@ -309,96 +308,141 @@ require APPROOT . '/views/inc/header.php';
 
 
 <!--Donuts-->
-<div class="grid grid-cols-1 md:grid-cols-4 gap-4 justify-center">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4 justify-center">
   <!--Must rename for duplicating: chartDonut1,myChart1, sampleChart1, config1-->
   <?php foreach ($FRA as $db => $fras) {
-        $total = explode('/', $fras); ?>
-    <div class="w-full box rounded-lg">
+    $total = explode('/', $fras); ?>
+    <div class="w-full box-card rounded-lg">
       <div>
         <canvas id="chartDonut<?php echo $db; ?>">
         </canvas>
       </div>
 
       <script>
-
         let myChart<?php echo $db; ?> = document.getElementById('chartDonut<?php echo $db; ?>').getContext('2d');
 
         new Chart(myChart<?php echo $db; ?>, {
-        type: 'doughnut',
-        data: {
-        labels:[
-        'Free',
-        'Used'
-        ],
-        datasets:[{
-        label: 'My First Dataset',
-        //Free, Used
-        data: [<?php echo $total[1]; ?>, <?php echo $total[0]; ?>],
-        backgroundColor: [
-        '#66ff33',
-        '#339933'
-        ],
-        borderColor: [
-        '#66ff33',
-        '#339933'
-        ],
+          type: 'doughnut',
+          data: {
+            labels: [
+              'Free',
+              'Used'
+            ],
+            datasets: [{
+              label: 'My First Dataset',
+              //Free, Used
+              data: [<?php echo $total[1]; ?>, <?php echo $total[0]; ?>],
+              backgroundColor: [
+                '#66ff33',
+                '#339933'
+              ],
+              borderColor: [
+                '#66ff33',
+                '#339933'
+              ],
 
-        hoverOffset: 20,
-        borderWidht:4,
-        }]
-        },
-        options:{ //this is where i do changes for chart options, ref: https://www.chartjs.org/docs/latest/configuration/title.html
-        layout:{
-        padding:{
-        right: 10
-        }
-        },
-        rotation: 90,
-        responsive: true,
-        cutout: '30%',
-        hoverBorderColor: '#fff',
-        plugins: {
-        legend: {
-        position: 'left',
-        align: 'end',
-        display: true, //remove the legend
-        labels: {
-        color: 'white',
-        textAlign: 'start',
-        boxWidth: 20
-        }
-        },
-        title: {
-        display: true,
-        text: '<?php echo str_replace('_FRA','',$db); ?> Flash Recovery Area Usage',
-        align: 'start',
-        color: 'white',
-        position: 'top',
-        weight: 'bold',
-        font:{
-        size: 16
-        }
-        },
-        tooltip:{
-        intersect: 'true',
-        callbacks: {
-        label: function(context){
-        var label = context.label,
-        currentValue = context.raw
+              hoverOffset: 20,
+              borderWidht: 4,
+            }]
+          },
+          options: { //this is where i do changes for chart options, ref: https://www.chartjs.org/docs/latest/configuration/title.html
+            layout: {
+              padding: {
+                right: 10
+              }
+            },
+            rotation: 90,
+            responsive: true,
+            cutout: '30%',
+            hoverBorderColor: '#fff',
+            plugins: {
+              legend: {
+                position: 'left',
+                align: 'end',
+                display: true, //remove the legend
+                labels: {
+                  color: 'white',
+                  textAlign: 'start',
+                  boxWidth: 20
+                }
+              },
+              title: {
+                display: true,
+                text: '<?php echo str_replace('_FRA', '', $db); ?> Flash Recovery Area Usage',
+                align: 'start',
+                color: 'white',
+                position: 'top',
+                weight: 'bold',
+                font: {
+                  size: 16
+                }
+              },
+              tooltip: {
+                intersect: 'true',
+                callbacks: {
+                  label: function(context) {
+                    var label = context.label,
+                      currentValue = context.raw
 
-          return label + ": " + currentValue.toFixed(2) + '%)' ; 
-          } 
-          } 
-          } 
-          }, 
-          } }); 
+                    return label + ": " + currentValue.toFixed(2) + '%)';
+                  }
+                }
+              }
+            },
+          }
+        });
 
-          const config<?php echo $db; ?>={ type: 'doughnut' , data: data }; 
-        </script>
+        const config<?php echo $db; ?> = {
+          type: 'doughnut',
+          data: data
+        };
+      </script>
 
     </div>
   <?php  } ?>
 </div>
 <!--Donuts-->
+
+<!-- DB Statuses -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4 justify-center mt-2">
+  <div class="w-full box-card rounded-lg text-md justify-center items-center  ">
+    <h5 class="text-white font-bold">Hostname: <span class="underline">oradb1prd.kccmalls.com</span></h5>
+    <table>
+      <tr>
+        <th>FRA Size: </th>
+        <td><span>102,400 MB</span></td>
+      </tr>
+      <tr>
+        <th>FRA Usage: </th>
+        <td><span>10,726 MB</span></td>
+      </tr>
+      <tr>
+        <th>Temp TS Free: </th>
+        <td><span>3,489 MB</span></td>
+      </tr>
+      <tr>
+        <th>    </th>
+        <td><span>3,490 MB</span></td>
+      </tr>
+      <tr>
+        <th>Temp TS Usage: </th>
+        <td><span>898 MB</span></td>
+      </tr>
+      <tr>
+        <th>    </th>
+        <td><span>897 MB</span></td>
+      </tr>
+      <tr>
+        <th>Locked Session: </th>
+        <td><span>0</span></td>
+      </tr>
+      <tr>
+        <th>DB Status: </th>
+        <td class="text-red-500"><span>Bottle Neck Performance</span></td>
+      </tr>
+    </table>
+  </div>
+</div>
+<!-- DB Statuses -->
 
 <?php require APPROOT . '/views/inc/footer.php'; ?>
