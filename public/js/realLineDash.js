@@ -49,11 +49,21 @@
     }
     },
     yaxis: {
-    decimalsInFloat: 2,
-    opposite: false,
-    labels: {
-        offsetX: -10
-    }
+        decimalsInFloat: 2,
+        forceNiceScale: true,
+        opposite: false,
+        labels: {
+            offsetX: -10
+        },
+        axisBorder: {
+            show: true,
+            color: '#99ccff',
+            offsetX: -2,
+        },
+        tooltip: {
+            enabled: true,
+            offsetX: 0,
+        }
     }
 };
 
@@ -138,7 +148,9 @@ var optionsLine = {
         show: false
     },
     zoom: {
-        enabled: false
+        enabled: false,
+        type: 'y',
+        autoScaleYaxis: false,
     }
     },
     dataLabels: {
@@ -242,9 +254,7 @@ var optionsLine = {
     show: true,
     floating: true,
     verticalAlign: 'right',
-    onItemClick: {
-        toggleDataSeries: false
-    },
+    
     position: 'top',
     offsetY: -28,
     offsetX: 60
@@ -278,24 +288,35 @@ window.setInterval(function () {
     data: [...chartLine.w.config.series[1].data,
         [
         chartLine.w.globals.maxX + 1000,
-        getRndInteger(50, 55)
+        getRndInteger(1800, 1950)
         ]
     ]
     }, {
     data: [...chartLine.w.config.series[2].data,
         [
         chartLine.w.globals.maxX + 1000,
-        getRndInteger(100, 110)
+        getRndInteger(1800, 1950)
         ]
     ]
     }, {
     data: [...chartLine.w.config.series[3].data,
         [
         chartLine.w.globals.maxX + 1000,
-        getRndInteger(10, 40)
+        getRndInteger(1800, 1950)
         ]
     ]
     }])
+
+    chartLine.updateOptions({
+        yaxis:{
+            tooltip: {
+                enabled: true,
+                offsetX: 0,
+            }
+        }
+        
+      })
+    
 
 
 }, 1000);
