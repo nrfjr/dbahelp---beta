@@ -36,7 +36,7 @@ require APPROOT . '/views/inc/header.php';
           show: false
         },
       },
-      colors: ['#0099ff', '#0066ff', '#0000cc'], //line colors palette; Multiple Series
+      colors: ['#ff4d4d', '#4d4dff', '#4dff4d'], //line colors palette; Multiple Series
       stroke: {
         width: 2
       },
@@ -331,7 +331,7 @@ require APPROOT . '/views/inc/header.php';
             datasets: [{
               label: 'My First Dataset',
               //Free, Used
-              data: [<?php echo $total[1]; ?>, <?php echo $total[0]; ?>],
+              data: [<?php echo $total[0]; ?>, <?php echo $total[1]; ?>],
               backgroundColor: [
                 '#66ff33',
                 '#339933'
