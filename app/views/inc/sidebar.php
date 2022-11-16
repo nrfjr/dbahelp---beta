@@ -286,9 +286,9 @@
             </div>
             <!--TOP NAVBAR-->
             <div x-data="{ isOpen: false }" class="relative w-1/2 flex justify-end">
-            <?php if(isset($_SESSION['username'])): ?>
-                <h4 class="py-1 px-2 text-white"><?php echo  '<b>'.$_SESSION['username'].'</b>' ?></h4>
-            <?php endif; ?>
+            <?php if(isset($_SESSION['username'])){ ?>
+                <h4 class="py-1 px-2 text-white"><b><?php echo greetings($_SESSION['username']); ?></b></h4>
+            <?php }?>
                 <button @click="isOpen = !isOpen" class="realtive z-10 w-12 h-12 rounded-full overflow-hidden border-4 border-gray-400 hover:border-gray-300 focus:border-gray-300 focus:outline-none">
                     <img src="<?php echo URLROOT; ?>/public/img/user.png">
                 </button>
