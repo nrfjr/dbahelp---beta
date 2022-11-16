@@ -1,11 +1,13 @@
 <?php
     class User {
-        private $db, $fm;
+        private $rmsdb, $fm;
         private $total_records_per_page = 9;
 
         public function __construct(){
-            $this->db = new Database;
+
+            $this->rmsdb = new RMS_Database;
             $this->fm = new FileManager;
+            
         }
 
         //makes sure that username and password connect and exist in the database
@@ -16,10 +18,10 @@
                 ':username' => $username
              ];
 
-            $this->db->queryWithParam($query, $param);
-            $row = $this->db->single();
+            $this->rmsdb->queryWithParam($query, $param);
+            $row = $this->rmsdb->single();
 
-            $result = $this->db->test_connection($username, $password);
+            $result = $this->rmsdb->test_connection($username, $password, 'RMS');
 
             if($result){
                 if($row['USERNAME']==$username){
@@ -39,9 +41,9 @@
 
             $query = str_replace(array(":username", ":password"), array($username, $password), $this->fm->loadSQL('RMS_createUser'));
 
-            $this->db->query($query);
+            $this->rmsdb->query($query);
 
-            $result = $this->db->execute();
+            $result = $this->rmsdb->execute();
 
             if(!empty($result)){
 
@@ -58,9 +60,9 @@
            $param = [
                         ':search' => $search[':search']
                     ];
-           $this->db->queryWithParam($query,$param);
+           $this->rmsdb->queryWithParam($query,$param);
 
-           $result = $this->db->resultSet($query);
+           $result = $this->rmsdb->resultSet($query);
            
            if($result){
                 return $result;
@@ -84,8 +86,8 @@
                         ':remarks' => $data['remarks']
                     ];
             
-            $this->db->queryWithParam($query, $param);
-            $this->db->execute();
+            $this->rmsdb->queryWithParam($query, $param);
+            $this->rmsdb->execute();
         }
 
         public function insertToUserAttrib($data){
@@ -96,9 +98,9 @@
                         ':username' => $data['username']
                     ];
 
-            $this->db->queryWithParam($query, $param);
+            $this->rmsdb->queryWithParam($query, $param);
 
-            $this->db->execute();
+            $this->rmsdb->execute();
 
         }
 
@@ -116,9 +118,9 @@
                         ':status' => $data['status']
                     ];
 
-            $this->db->queryWithParam($query, $param);
+            $this->rmsdb->queryWithParam($query, $param);
 
-            $this->db->execute();
+            $this->rmsdb->execute();
 
         }
 
