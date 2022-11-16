@@ -13,9 +13,6 @@
     dataLabels: {
     enabled: false
     },
-    grid: {
-    borderColor: "#fff",
-    },
     xaxis: {
     axisTicks: {
         color: '#873e23#'
@@ -38,9 +35,10 @@
     },
     tooltip: {
     theme: 'dark',
+    followCursor: false,
     fixed: {
-        enabled: true,
-        position: 'top',
+        enabled: false,
+        position: 'topRight',
         offsetX: 0,
         offsetY: 0,
     },
@@ -85,9 +83,9 @@ var optionsLine = {
     height: 320,
     type: 'area',
     id: 'realtime',
-    stacked: true,
+    stacked: false,
     animations: {
-        enabled: true,
+        enabled: false,
         easing: 'linear',
         dynamicAnimation: {
           enabled: false, // from true to false
@@ -151,10 +149,33 @@ var optionsLine = {
     width: 5,
     },
     grid: {
-    padding: {
-        left: 0,
-        right: 0
-    }
+        show: true,
+        borderColor: '#99ccff',
+        strokeDashArray: 0,
+        position: 'back',
+        xaxis: {
+            lines: {
+                show: true
+            }
+        },   
+        yaxis: {
+            lines: {
+                show: true
+            }
+        },  
+        row: {
+            colors: undefined,
+            opacity: 0.1
+        },  
+        column: {
+            colors: undefined,
+            opacity: 0.1
+        },  
+        padding: {
+            left: 0,
+            right: 0
+        }
+    
     },
     markers: {
     size: 0,
