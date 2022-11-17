@@ -20,12 +20,18 @@ require APPROOT . '/views/inc/header.php';
 
   $Sessions = $data['Sessions'];
   $FRA = $data['FRA'];
+  $DBStatus = $data['DB Status'];
 
   ?>
 
+<!-- Value Placeholders for ajax -->
   <div class="hidden" id="RMSSessions"><?php echo $Sessions['RMSSessions']; ?></div>
   <div class="hidden" id="RDWSessions"><?php echo $Sessions['RDWSessions']; ?></div>
   <div class="hidden" id="OFINSessions"><?php echo $Sessions['OFINSessions']; ?></div>
+
+  <div class="hidden" id="RMSDBStatus"><?php echo $DBStatus['RMS_DBSTATUS']; ?></div>
+  <div class="hidden" id="RDWDBStatus"><?php echo $DBStatus['RDW_DBSTATUS']; ?></div>
+  <div class="hidden" id="OFINDBStatus"><?php echo $DBStatus['OFIN_DBSTATUS']; ?></div>
 
   <script>
     // For Show Window
@@ -289,6 +295,7 @@ require APPROOT . '/views/inc/header.php';
 
 <script>
   var RMS_Sessions, RDW_Sessions, OFIN_Sessions;
+  var RMS_DBStatus, RDW_DBStatus, RMS_DBStatus;
 
   setInterval(() => {
     $.ajax({
@@ -299,13 +306,18 @@ require APPROOT . '/views/inc/header.php';
         RDW_Sessions = jQuery(response).find('#RDWSessions').html();
         OFIN_Sessions = jQuery(response).find('#OFINSessions').html();
 
+        RMS_DBStatus = jQuery(response).find('#RMSDBStatus').html();
+        RDW_DBStatus = jQuery(response).find('#RDWDBStatus').html();
+        OFIN_DBStatus = jQuery(response).find('#OFINDBStatus').html();
+
+        document.getElementById('RMS_DBSTATUS').innerHTML = RMS_DBStatus;
+        document.getElementById('RDW_DBSTATUS').innerHTML = RDW_DBStatus;
+        document.getElementById('OFIN_DBSTATUS').innerHTML = OFIN_DBStatus;
       }
     });
 
   }, 1000);
 </script>
-
-
 
 <!--Donuts-->
 <div class="grid grid-cols-1 md:grid-cols-3 gap-4 justify-center">
@@ -404,7 +416,12 @@ require APPROOT . '/views/inc/header.php';
 <!--Donuts-->
 
 <!-- DB Statuses -->
+
+
 <div class="grid grid-cols-1 md:grid-cols-3 gap-4 justify-center mt-2">
+<?php 
+      foreach ($DBStatus as $key => $value) {
+?>
   <div class="w-full box-card rounded-lg text-md justify-center items-center  ">
     <h5 class="text-white font-bold">Hostname: <span class="underline">oradb1prd.kccmalls.com</span></h5>
     <table>
@@ -438,10 +455,13 @@ require APPROOT . '/views/inc/header.php';
       </tr>
       <tr>
         <th>DB Status: </th>
-        <td class="text-red-500"><span>Bottle Neck Performance</span></td>
+        <td class="text-red-500" id="<?php echo $key; ?>"><span><?php echo $value; ?></span></td>
       </tr>
     </table>
   </div>
+  <?php 
+      }
+?>
 </div>
 <!-- DB Statuses -->
 

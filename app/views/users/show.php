@@ -3,7 +3,7 @@ $title = 'Manage Users';
 require APPROOT . '/views/inc/header.php';
 require APPROOT . '/views/inc/sidebar.php'; 
 
-// components for pagination 
+//>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> components for pagination 
 
 $users = $data;
 
@@ -32,14 +32,15 @@ if ($first_user_displayed === $last_user_displayed) {
 } else {
     $range = $first_user_displayed . ' - ' . $last_user_displayed . ' of ' . $total_users . ' Users ';
 }
-// components for pagination 
+
+//<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< components for pagination 
 ?>
 
 <h1 class="text-3xl text-black pb-6 text-white"><b>Manage Users</b></h1>
 
 
 <div class="overflow-x-auto relative shadow-md sm:rounded-lg">
-    <div class="flex justify-between items-center pb-4 bg-gray-600 dark:bg-gray-900">
+    <div class="flex justify-between items-center pb-4 bg-gray-800 dark:bg-gray-900">
         <div>
             <a href="<?php echo URLROOT; ?>/users/create">
                 <button id="dropdownRadioButton" class="inline-flex items-center text-black bg-green-300 focus:outline-none hover:bg-green-700 focus:ring-4 focus:ring-gray-200 font-medium rounded-lg text-sm px-3 py-1.5 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700 hover:text-white" type="button">
@@ -66,7 +67,7 @@ if ($first_user_displayed === $last_user_displayed) {
         </div>
     </div>
     <div style="height: 68vh; overflow: clip;">
-        <div class="flex w-full h-full shadow-md overflow-auto sm:rounded-lg" style="max-height: 80%; min-height: 100%;">
+        <div class="flex w-full shadow-md overflow-auto sm:rounded-lg" style="max-height: 80%; min-height: 100%;">
                 <?php
                 if (!empty($users)) {
 
@@ -78,7 +79,7 @@ if ($first_user_displayed === $last_user_displayed) {
                         }
                     }
                 ?>
-                    <table class="w-full h-full text-sm text-left text-white dark:text-gray-400">
+                    <table class="w-full text-sm text-left text-white dark:text-gray-400">
                         <thead class="text-xs text-black bg-indigo-200 dark:bg-gray-700 dark:text-gray-400">
                             <tr>
                                 <?php for ($title = 0; $title <= count($array) - 1; $title++) { ?>
@@ -86,7 +87,7 @@ if ($first_user_displayed === $last_user_displayed) {
                                     <?php echo $column_names[$title]; ?>
                                 </th>
                                 <?php }?>
-                                <th scope="col" class="py-2 px-6 ">
+                                <th scope="col" class="py-2 px-6">
                                     Action
                                 </th>
                             </tr>
@@ -132,7 +133,7 @@ if ($first_user_displayed === $last_user_displayed) {
                     </table>
         </div>
     </div>
-        <div class="sm:flex sm:flex-1 sm:justify-between py-4 relative">
+        <div class="sm:flex sm:flex-1 sm:justify-between py-4">
             <div>
                 <p class="text-sm text-white pl-2">
                     Showing <?php
@@ -145,13 +146,13 @@ if ($first_user_displayed === $last_user_displayed) {
 
 if ($total_pages > 1) { ?>
 
-    <nav class="rounded-md shadow-sm absolute right-0 bottom-2" aria-label="Pagination">
-        <ul class="pagination inline-flex items-center -space-x-px">
+    <nav class="isolate inline-flex -space-x-px rounded-md shadow-sm" aria-label="Pagination">
+        <ul class="pagination">
 
                 <?php
                 if ($current_page > 1) { ?>
 
-                    <li class="page-item"><a class="page-link block px-3 py-2 ml-0 leading-tight text-gray-500 bg-white border border-gray-300 rounded-l-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white" href="<?php echo '?page=1' ; ?>">First</a></li>
+                    <li class="page-item"><a class="page-link" href="<?php echo '?page=1' ; ?>">First</a></li>
 
                     <?php
                 }
@@ -162,7 +163,7 @@ if ($total_pages > 1) { ?>
                         if (($page_in_loop >= $current_page - 5 && $page_in_loop <= $current_page)  || ($page_in_loop <= $current_page + 5 && $page_in_loop >= $current_page)) {  ?>
 
                             <li class="page-item <?php echo $page_in_loop == $current_page ? 'active disabled' : ''; ?>">
-                                <a class="page-link px-3 py-2 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white" href="<?php echo '?page=' . $page_in_loop ; ?> "><?php echo $page_in_loop; ?></a>
+                                <a class="page-link" href="<?php echo '?page=' . $page_in_loop ; ?> "><?php echo $page_in_loop; ?></a>
                             </li>
 
                         <?php }
@@ -170,7 +171,7 @@ if ($total_pages > 1) { ?>
                     else { ?>
 
                         <li class="page-item <?php echo $page_in_loop == $current_page ? 'active disabled' : ''; ?>">
-                            <a class="page-link px-3 py-2 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white" href="<?php echo '?page=' . $page_in_loop ; ?> "><?php echo $page_in_loop; ?></a>
+                            <a class="page-link" href="<?php echo '?page=' . $page_in_loop ; ?> "><?php echo $page_in_loop; ?></a>
                         </li>
 
                     <?php } 
@@ -180,7 +181,7 @@ if ($total_pages > 1) { ?>
 
                 if ($current_page < $total_pages) { ?>
 
-                    <li class="page-item"><a class="page-link block px-3 py-2 leading-tight text-gray-500 bg-white border border-gray-300 rounded-r-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white" href="<?php echo '?page=' . $total_pages ; ?>">Last</a></li>
+                    <li class="page-item"><a class="page-link" href="<?php echo '?page=' . $total_pages ; ?>">Last</a></li>
 
                 <?php } ?>
             </ul>
@@ -188,6 +189,9 @@ if ($total_pages > 1) { ?>
 
     <?php } 
     ?>
+            <div>
+
+            </div>
         </div>
 <?php
             } else {

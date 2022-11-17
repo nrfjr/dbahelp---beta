@@ -9,7 +9,7 @@ function greetings($username){
     if($date > 00 && $date < 12){
         return 'Good morning, '.$username.'!';
     }
-    else if ($date > 12 && $date < 17){
+    else if ($date >= 12 && $date < 17){
         return 'Good afternoon, '.$username.'!';
     }else{
         return 'Good evening, '.$username.'!';

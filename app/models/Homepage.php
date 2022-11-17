@@ -10,98 +10,83 @@
             $this->ofindb = new OFIN_Database;
             $this->fm = new FileManager;
 
-
         }
 
-        public function getRMS_Session()
+        public function getSession()
         {
             $query = $this->fm->loadSQL('get_TotalSessions');
     
             $this->rmsdb->query($query);
-    
-            $result = $this->rmsdb->single();
-    
-            if(!empty($result)){
-    
-                return $result;
-            }
-            return false;
-        }
-
-        public function getRDW_Session()
-        {
-            $query = $this->fm->loadSQL('get_TotalSessions');
-    
             $this->rdwdb->query($query);
-    
-            $result = $this->rdwdb->single();
-    
-            if(!empty($result)){
-    
-                return $result;
-            }
-            return false;
-        }
-
-        public function getOFIN_Session()
-        {
-            $query = $this->fm->loadSQL('get_TotalSessions');
-    
             $this->ofindb->query($query);
     
-            $result = $this->ofindb->single();
+            $result_rms = $this->rmsdb->single();
+            $result_rdw = $this->rdwdb->single();
+            $result_ofin = $this->ofindb->single();
     
-            if(!empty($result)){
-    
-                return $result;
+            if(!empty($result_rms)&&!empty($result_rms)&&!empty($result_rms)){
+
+                $data = [
+                    'RMSSession' => $result_rms['Total Sessions'],
+                    'RDWSession' => $result_rdw['Total Sessions'],
+                    'OFINSession' => $result_ofin['Total Sessions']
+                ];
+
+                return $data;
+                    
             }
             return false;
         }
 
-        public function getRMS_FRA()
+
+        public function getFRA()
         {
             $query = $this->fm->loadSQL('get_FRA');
     
             $this->rmsdb->query($query);
-    
-            $result = $this->rmsdb->single();
-    
-            if(!empty($result)){
-    
-                return $result;
-            }
-            return false;
-        }
-
-        public function getRDW_FRA()
-        {
-            $query = $this->fm->loadSQL('get_FRA');
-    
             $this->rdwdb->query($query);
-    
-            $result = $this->rdwdb->single();
-    
-            if(!empty($result)){
-    
-                return $result;
-            }
-            return false;
-        }
-
-        public function getOFIN_FRA()
-        {
-            $query = $this->fm->loadSQL('get_FRA');
-    
             $this->ofindb->query($query);
     
-            $result = $this->ofindb->single();
+            $result_rms = $this->rmsdb->single();
+            $result_rdw = $this->rdwdb->single();
+            $result_ofin = $this->ofindb->single();
     
-            if(!empty($result)){
+            if(!empty($result_rms)&&!empty($result_rms)&&!empty($result_rms)){
     
-                return $result;
+                $data = [
+                    'RMS_FRA' => $result_rms['USED/FREE'],
+                    'RDW_FRA' => $result_rdw['USED/FREE'],
+                    'OFIN_FRA' => $result_ofin['USED/FREE']
+                ];
+
+                return $data;
             }
             return false;
         }
 
+        public function getDBStatus()
+        {
+            $query = $this->fm->loadSQL('get_DBStatus');
+    
+            $this->rmsdb->query($query);
+            $this->rdwdb->query($query);
+            $this->ofindb->query($query);
+    
+            $result_rms = $this->rmsdb->single();
+            $result_rdw = $this->rdwdb->single();
+            $result_ofin = $this->ofindb->single();
+    
+            if(!empty($result_rms)&&!empty($result_rms)&&!empty($result_rms)){
+    
+                $data = [
+                    'RMS_DBSTATUS' => $result_rms['DB STATUS'],
+                    'RDW_DBSTATUS' => $result_rdw['DB STATUS'],
+                    'OFIN_DBSTATUS' => $result_ofin['DB STATUS']
+                ];
+
+                return $data;
+            }
+            return false;
+        }
 
     }
