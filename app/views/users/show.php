@@ -1,8 +1,39 @@
 <?php
 $title = 'Manage Users';
 require APPROOT . '/views/inc/header.php';
+require APPROOT . '/views/inc/sidebar.php'; 
+
+// components for pagination 
+
+$users = $data;
+
+$filtered_users = array();
+
+$total_users = count($users);
+
+$current_page = isset($_GET['page']) ? $_GET['page'] : 1;
+
+$limit = 10;
+
+if (!empty($current_page) && $current_page > 1) {
+    $offset = ($current_page * $limit) - $limit;
+} else {
+    $offset = 0;
+}
+
+$total_pages = ceil($total_users / $limit);
+
+$first_user_displayed = $offset + 1;
+
+$last_user_displayed = $total_users >= ($offset * $limit) + $limit ? $offset + $limit : $total_users;
+
+if ($first_user_displayed === $last_user_displayed) {
+    $range = 'the Last of ' . $total_users . ' Products';
+} else {
+    $range = $first_user_displayed . ' - ' . $last_user_displayed . ' of ' . $total_users . ' Users ';
+}
+// components for pagination 
 ?>
-<?php require APPROOT . '/views/inc/sidebar.php'; ?>
 
 <h1 class="text-3xl text-black pb-6 text-white"><b>Manage Users</b></h1>
 
@@ -37,7 +68,7 @@ require APPROOT . '/views/inc/header.php';
     <div style="height: 68vh; overflow: clip;">
         <div class="flex w-full shadow-md overflow-auto sm:rounded-lg" style="max-height: 80%; min-height: 100%;">
                 <?php
-                if (!empty($data)) {
+                if (!empty($users)) {
 
                     //Separates Column title from result set
                     foreach ($data as $outer_key => $array) {
@@ -62,7 +93,10 @@ require APPROOT . '/views/inc/header.php';
                         </thead>
                         <tbody class="bg-gray-500">
                             <?php
-                            foreach ($data as $column_title => $value) {
+
+                            $users = array_slice($users, $offset, $limit);
+
+                            foreach ($users as $column_title => $value) {
                             ?>
                                     <tr>
                                         <?php
@@ -98,59 +132,66 @@ require APPROOT . '/views/inc/header.php';
                     </table>
         </div>
     </div>
-        <div class="sm:flex sm:flex-1 sm:justify-end py-4">
+        <div class="sm:flex sm:flex-1 sm:justify-between py-4">
             <div>
                 <p class="text-sm text-white pl-2">
-                    Showing
-                </p>
-            </div>
-            <div>
-                <p class="text-sm text-white pl-1 pr-2">
-                    <?php
-                    echo count($data) <=1 ? count($data)." record": count($data)." records";
+                    Showing <?php
+                    echo $range;
                     ?>
                 </p>
             </div>
+                            
+            <?php
+
+if ($total_pages > 1) { ?>
+
+    <nav class="isolate inline-flex -space-x-px rounded-md shadow-sm" aria-label="Pagination">
+        <ul class="pagination">
+
+                <?php
+                if ($current_page > 1) { ?>
+
+                    <li class="page-item"><a class="page-link" href="<?php echo '?page=1' ; ?>">First</a></li>
+
+                    <?php
+                }
+
+                for ($page_in_loop = 1; $page_in_loop <= $total_pages; $page_in_loop++) {
+
+                    if ($total_pages > 3) {
+                        if (($page_in_loop >= $current_page - 5 && $page_in_loop <= $current_page)  || ($page_in_loop <= $current_page + 5 && $page_in_loop >= $current_page)) {  ?>
+
+                            <li class="page-item <?php echo $page_in_loop == $current_page ? 'active disabled' : ''; ?>">
+                                <a class="page-link" href="<?php echo '?page=' . $page_in_loop ; ?> "><?php echo $page_in_loop; ?></a>
+                            </li>
+
+                        <?php }
+                    }
+                    else { ?>
+
+                        <li class="page-item <?php echo $page_in_loop == $current_page ? 'active disabled' : ''; ?>">
+                            <a class="page-link" href="<?php echo '?page=' . $page_in_loop ; ?> "><?php echo $page_in_loop; ?></a>
+                        </li>
+
+                    <?php } 
+                    ?>
+
+                <?php } 
+
+                if ($current_page < $total_pages) { ?>
+
+                    <li class="page-item"><a class="page-link" href="<?php echo '?page=' . $total_pages ; ?>">Last</a></li>
+
+                <?php } ?>
+            </ul>
+        </nav>
+
+    <?php } 
+    ?>
+            <div>
+
+            </div>
         </div>
-    
-    <!-- PAGINATION (soon) -->
-    <!-- <div class="hidden sm:flex sm:flex-1 sm:items-center sm:justify-between py-4">
-    <div>
-      <p class="text-sm text-white pl-2">
-        Showing
-        <span class="font-medium">n</span>
-        to
-        <span class="font-medium">n1</span>
-        of
-        <span class="font-medium">n2</span>
-        results
-      </p>
-    </div>
-    <div>
-      <nav class="isolate inline-flex -space-x-px rounded-md shadow-sm" aria-label="Pagination">
-        <a href="#" class="relative inline-flex items-center rounded-l-md border border-gray-300 bg-white px-2 py-2 text-sm font-medium text-gray-500 hover:bg-gray-50 focus:z-20">
-          <span class="sr-only">Previous</span> -->
-    <!-- Heroicon name: mini/chevron-left -->
-    <!-- <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-            <path fill-rule="evenodd" d="M12.79 5.23a.75.75 0 01-.02 1.06L8.832 10l3.938 3.71a.75.75 0 11-1.04 1.08l-4.5-4.25a.75.75 0 010-1.08l4.5-4.25a.75.75 0 011.06.02z" clip-rule="evenodd" />
-          </svg>
-        </a> -->
-    <!-- Current: "z-10 bg-indigo-50 border-indigo-500 text-indigo-600", Default: "bg-white border-gray-300 text-gray-500 hover:bg-gray-50" -->
-    <!-- <a href="#" aria-current="page" class="relative z-10 inline-flex items-center border border-indigo-500 bg-indigo-50 px-4 py-2 text-sm font-medium text-indigo-600 focus:z-20">1</a>
-        <a href="#" class="relative inline-flex items-center border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-50 focus:z-20">2</a>
-        <a href="#" class="relative hidden items-center border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-50 focus:z-20 md:inline-flex">3</a>
-        <span class="relative inline-flex items-center border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700">...</span>
-        <a href="#" class="relative inline-flex items-center border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-50 focus:z-20">10</a>
-        <a href="#" class="relative inline-flex items-center rounded-r-md border border-gray-300 bg-white px-2 py-2 text-sm font-medium text-gray-500 hover:bg-gray-50 focus:z-20">
-          <span class="sr-only">Next</span> -->
-    <!-- Heroicon name: mini/chevron-right -->
-    <!-- <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-            <path fill-rule="evenodd" d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z" clip-rule="evenodd" />
-          </svg>
-        </a>
-      </nav>
-    </div>
-  </div> -->
 <?php
             } else {
 ?>
