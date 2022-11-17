@@ -6,32 +6,38 @@ require APPROOT . '/views/inc/header.php';
 
 <h1 class="text-3xl text-black pb-2 text-white">Dashboard</b></h1>
 
+
 <!--RealLine-->
 <div class="grid grid-cols-1">
 
   <!--Rename for duplicate: chart1, options1-->
-  <div class="w-full p-5 rounded-lg mb-2 box-card">
+  <div class="w-full p-5 rounded-lg mb-2 box-card grid grid-cols-5 gap-x-4">
 
-    <div id="linechart"></div>
-
+    <div id="linechart" class="w-full col-span-4"></div>
+    <div class="w-9/10 col-span-1 box-card">
+      <h1 class="text-xl text-white">DB Sessions</h1>
+      <div class="card">
+        <h2 id="RMS_num" class="text-red-500">RMS Sessions</h2>
+      </div>
+      <div class="card">
+        <h2 id="RDW_num" class="text-blue-500">RDW Sessions</h2>
+      </div>
+      <div class="card">
+        <h2 id="OFIN_num" class="text-green-400">OFIN Sessions</h2>
+      </div>
+    </div>
   </div>
 
   <?php
 
   $Sessions = $data['Sessions'];
   $FRA = $data['FRA'];
-  $DBStatus = $data['DB Status'];
 
   ?>
 
-<!-- Value Placeholders for ajax -->
   <div class="hidden" id="RMSSessions"><?php echo $Sessions['RMSSessions']; ?></div>
   <div class="hidden" id="RDWSessions"><?php echo $Sessions['RDWSessions']; ?></div>
   <div class="hidden" id="OFINSessions"><?php echo $Sessions['OFINSessions']; ?></div>
-
-  <div class="hidden" id="RMSDBStatus"><?php echo $DBStatus['RMS_DBSTATUS']; ?></div>
-  <div class="hidden" id="RDWDBStatus"><?php echo $DBStatus['RDW_DBSTATUS']; ?></div>
-  <div class="hidden" id="OFINDBStatus"><?php echo $DBStatus['OFIN_DBSTATUS']; ?></div>
 
   <script>
     // For Show Window
@@ -51,7 +57,13 @@ require APPROOT . '/views/inc/header.php';
       },
       grid: {
         borderColor: "#fff",
+        row: {
+          colors: "#fff",
+          opacity: 0.2
+        },
       },
+
+
       xaxis: {
         axisTicks: {
           color: '#873e23#'
@@ -77,7 +89,7 @@ require APPROOT . '/views/inc/header.php';
       },
       yaxis: {
         decimalsInFloat: 2,
-        opposite: false,
+        opposite: true,
         labels: {
           offsetX: -10
         }
@@ -107,7 +119,7 @@ require APPROOT . '/views/inc/header.php';
     //------------------------------------------- 
     var optionsLine = {
       chart: {
-        height: 320,
+        height: 250,
         type: 'area',
         id: 'realtime',
         stacked: false,
@@ -254,11 +266,6 @@ require APPROOT . '/views/inc/header.php';
     );
     chartLine.render()
 
-    //random Number generator - sample data purposes
-    function getRndInteger(min, max) {
-      return Math.floor(Math.random() * (max - min + 1)) + min;
-    }
-
     window.setInterval(function() {
 
       iteration++;
@@ -290,179 +297,183 @@ require APPROOT . '/views/inc/header.php';
 
     }, 1000);
   </script>
+
+  <script>
+    var RMS_Sessions, RDW_Sessions, OFIN_Sessions;
+
+
+
+    setInterval(() => {
+      $.ajax({
+        url: '../app/controllers/Homepage',
+        dataType: 'html',
+        success: function(response) {
+          RMS_Sessions = jQuery(response).find('#RMSSessions').html();
+          RDW_Sessions = jQuery(response).find('#RDWSessions').html();
+          OFIN_Sessions = jQuery(response).find('#OFINSessions').html();
+
+          document.getElementById("RMS_num").innerHTML = RMS_Sessions;
+          document.getElementById("RDW_num").innerHTML = RDW_Sessions;
+          document.getElementById("OFIN_num").innerHTML = OFIN_Sessions;
+        }
+      });
+
+    }, 1000);
+  </script>
 </div>
+
+
 <!--RealLine-->
 
-<script>
-  var RMS_Sessions, RDW_Sessions, OFIN_Sessions;
-  var RMS_DBStatus, RDW_DBStatus, RMS_DBStatus;
-
-  setInterval(() => {
-    $.ajax({
-      url: '../app/controllers/Homepage',
-      dataType: 'html',
-      success: function(response) {
-        RMS_Sessions = jQuery(response).find('#RMSSessions').html();
-        RDW_Sessions = jQuery(response).find('#RDWSessions').html();
-        OFIN_Sessions = jQuery(response).find('#OFINSessions').html();
-
-        RMS_DBStatus = jQuery(response).find('#RMSDBStatus').html();
-        RDW_DBStatus = jQuery(response).find('#RDWDBStatus').html();
-        OFIN_DBStatus = jQuery(response).find('#OFINDBStatus').html();
-
-        document.getElementById('RMS_DBSTATUS').innerHTML = RMS_DBStatus;
-        document.getElementById('RDW_DBSTATUS').innerHTML = RDW_DBStatus;
-        document.getElementById('OFIN_DBSTATUS').innerHTML = OFIN_DBStatus;
-      }
-    });
-
-  }, 1000);
-</script>
-
 <!--Donuts-->
-<div class="grid grid-cols-1 md:grid-cols-3 gap-4 justify-center">
-  <!--Must rename for duplicating: chartDonut1,myChart1, sampleChart1, config1-->
-  <?php foreach ($FRA as $db => $fras) {
-    $total = explode('/', $fras); ?>
-    <div class="w-full box-card rounded-lg">
-      <div>
-        <canvas id="chartDonut<?php echo $db; ?>">
-        </canvas>
-      </div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-2 justify-center">
+      <!--Must rename for duplicating: chartDonut1,myChart1, sampleChart1, config1-->
+      <?php foreach ($FRA as $db => $fras) {
+        $total = explode('/', $fras); ?>
+        <div class="w-full box-card rounded-lg">
+          <div class="grid grid-cols-3">
+            <canvas id="chartDonut<?php echo $db; ?>" class="col-span-2"></canvas>
+            <div class="grid grid-rows-2 h-2/3">
+              <div class="card">
+                <h1 class="font-bold underline">Free</h1>
+                <p class="text-xl"><?php echo $total[0]; ?>%</p>
+              </div>
+              <div class="card">
+                <h1 class="font-bold underline">Used</h1>
+                <p class="text-xl"><?php echo $total[1]; ?> %</p>
+              </div>
+            </div>
+            
+          </div>
 
-      <script>
-        let myChart<?php echo $db; ?> = document.getElementById('chartDonut<?php echo $db; ?>').getContext('2d');
+          <script>
+            let myChart<?php echo $db; ?> = document.getElementById('chartDonut<?php echo $db; ?>').getContext('2d');
 
-        new Chart(myChart<?php echo $db; ?>, {
-          type: 'doughnut',
-          data: {
-            labels: [
-              'Free',
-              'Used'
-            ],
-            datasets: [{
-              label: 'My First Dataset',
-              //Free, Used
-              data: [<?php echo $total[0]; ?>, <?php echo $total[1]; ?>],
-              backgroundColor: [
-                '#66ff33',
-                '#339933'
-              ],
-              borderColor: [
-                '#66ff33',
-                '#339933'
-              ],
+            new Chart(myChart<?php echo $db; ?>, {
+              type: 'doughnut',
+              data: {
+                labels: [
+                  'Free',
+                  'Used'
+                ],
+                datasets: [{
+                  label: 'My First Dataset',
+                  //Free, Used
+                  data: [<?php echo $total[0]; ?>, <?php echo $total[1]; ?>],
+                  backgroundColor: [
+                    '#66ff33',
+                    '#339933'
+                  ],
+                  borderColor: [
+                    '#66ff33',
+                    '#339933'
+                  ],
 
-              hoverOffset: 20,
-              borderWidht: 4,
-            }]
-          },
-          options: { //this is where i do changes for chart options, ref: https://www.chartjs.org/docs/latest/configuration/title.html
-            layout: {
-              padding: {
-                right: 10
-              }
-            },
-            rotation: 90,
-            responsive: true,
-            cutout: '30%',
-            hoverBorderColor: '#fff',
-            plugins: {
-              legend: {
-                position: 'left',
-                align: 'end',
-                display: true, //remove the legend
-                labels: {
-                  color: 'white',
-                  textAlign: 'start',
-                  boxWidth: 20
-                }
+                  hoverOffset: 20,
+                  borderWidht: 4,
+                }]
               },
-              title: {
-                display: true,
-                text: '<?php echo str_replace('_FRA', '', $db); ?> Flash Recovery Area Usage',
-                align: 'start',
-                color: 'white',
-                position: 'top',
-                weight: 'bold',
-                font: {
-                  size: 16
-                }
-              },
-              tooltip: {
-                intersect: 'true',
-                callbacks: {
-                  label: function(context) {
-                    var label = context.label,
-                      currentValue = context.raw
-
-                    return label + ": " + currentValue.toFixed(2) + '%)';
+              options: { //this is where i do changes for chart options, ref: https://www.chartjs.org/docs/latest/configuration/title.html
+                layout: {
+                  padding: {
+                    right: 10
                   }
-                }
+                },
+                rotation: 90,
+                responsive: false,
+                cutout: '30%',
+                hoverBorderColor: '#fff',
+                plugins: {
+                  legend: {
+                    position: 'left',
+                    align: 'end',
+                    display: true, //remove the legend
+                    labels: {
+                      color: 'white',
+                      textAlign: 'start',
+                      boxWidth: 20
+                    }
+                  },
+                  title: {
+                    display: true,
+                    text: '<?php echo str_replace('_FRA', '', $db); ?> Flash Recovery Area Usage',
+                    align: 'start',
+                    color: 'white',
+                    position: 'top',
+                    weight: 'bold',
+                    font: {
+                      size: 16
+                    }
+                  },
+                  tooltip: {
+                    intersect: 'true',
+                    callbacks: {
+                      label: function(context) {
+                        var label = context.label,
+                          currentValue = context.raw
+
+                        return label + ": " + currentValue.toFixed(2) + '%)';
+                      }
+                    }
+                  }
+                },
               }
-            },
-          }
-        });
+            });
 
-        const config<?php echo $db; ?> = {
-          type: 'doughnut',
-          data: data
-        };
-      </script>
+            const config<?php echo $db; ?> = {
+              type: 'doughnut',
+              data: data
+            };
+          </script>
 
+        </div>
+      <?php  } ?>
     </div>
-  <?php  } ?>
-</div>
-<!--Donuts-->
+    <!--Donuts-->
+
 
 <!-- DB Statuses -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-2 mt-2 justify-center db-stat">
+      <div class="w-full box-card rounded-lg text-md justify-center items-center  ">
+        <h5 class="text-white font-bold">Hostname: <span class="underline">oradb1prd.kccmalls.com</span></h5>
+        <table>
+          <tr>
+            <th>FRA Size: </th>
+            <td><span>102,400 MB</span></td>
+          </tr>
+          <tr>
+            <th>FRA Usage: </th>
+            <td><span>10,726 MB</span></td>
+          </tr>
+          <tr>
+            <th>Temp TS Free: </th>
+            <td><span>3,489 MB</span></td>
+          </tr>
+          <tr>
+            <th> </th>
+            <td><span>3,490 MB</span></td>
+          </tr>
+          <tr>
+            <th>Temp TS Usage: </th>
+            <td><span>898 MB</span></td>
+          </tr>
+          <tr>
+            <th> </th>
+            <td><span>897 MB</span></td>
+          </tr>
+          <tr>
+            <th>Locked Session: </th>
+            <td><span>0</span></td>
+          </tr>
+          <tr>
+            <th>DB Status: </th>
+            <td class="text-red-500"><span>Bottle Neck Performance</span></td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <!-- DB Statuses -->
 
 
-<div class="grid grid-cols-1 md:grid-cols-3 gap-4 justify-center mt-2">
-<?php 
-      foreach ($DBStatus as $key => $value) {
-?>
-  <div class="w-full box-card rounded-lg text-md justify-center items-center  ">
-    <h5 class="text-white font-bold">Hostname: <span class="underline">oradb1prd.kccmalls.com</span></h5>
-    <table>
-      <tr>
-        <th>FRA Size: </th>
-        <td><span>102,400 MB</span></td>
-      </tr>
-      <tr>
-        <th>FRA Usage: </th>
-        <td><span>10,726 MB</span></td>
-      </tr>
-      <tr>
-        <th>Temp TS Free: </th>
-        <td><span>3,489 MB</span></td>
-      </tr>
-      <tr>
-        <th>    </th>
-        <td><span>3,490 MB</span></td>
-      </tr>
-      <tr>
-        <th>Temp TS Usage: </th>
-        <td><span>898 MB</span></td>
-      </tr>
-      <tr>
-        <th>    </th>
-        <td><span>897 MB</span></td>
-      </tr>
-      <tr>
-        <th>Locked Session: </th>
-        <td><span>0</span></td>
-      </tr>
-      <tr>
-        <th>DB Status: </th>
-        <td class="text-red-500" id="<?php echo $key; ?>"><span><?php echo $value; ?></span></td>
-      </tr>
-    </table>
-  </div>
-  <?php 
-      }
-?>
-</div>
-<!-- DB Statuses -->
 
 <?php require APPROOT . '/views/inc/footer.php'; ?>
