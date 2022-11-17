@@ -8,7 +8,8 @@
     <meta name="description" content="">
     <link rel="icon" href="<?php echo URLROOT; ?>/public/img/kcc.png" />
 
-    <link rel="stylesheet" href="../../../dbahelp/public/css/extstyle.css">
+    <link rel="stylesheet" href="<?php echo URLROOT.'/public/css/extstyle.css'?>">
+
     <!-- Tailwind -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
     
