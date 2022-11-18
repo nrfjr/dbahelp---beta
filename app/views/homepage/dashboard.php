@@ -26,7 +26,7 @@ require APPROOT . '/views/inc/header.php';
       <!--Rename for duplicate: chart1, options1-->
       <div class="w-full h-full p-5 rounded-lg mb-2 box">
 
-          <div id="linechart" class=""></div>
+          <div id="linechart" class="relative"><span id="noData" class="z-10 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-2xl text-white font-bold"></span></div>
 
           <div class="card grid grid-rows-2 gap-2">
             <div class="row-span-1">
@@ -103,7 +103,7 @@ require APPROOT . '/views/inc/header.php';
               fill: {
               type: 'gradient',
               gradient: {
-                  gradientToColors: ['#F55555', '#6078ea', '#6094ea']
+                  gradientToColors: ['#8f99a6', '#6078ea', '#6094ea']
               },
               },
               tooltip: {
@@ -181,7 +181,7 @@ require APPROOT . '/views/inc/header.php';
                           }],
                           subtitle: {
                           text: sessions,
-                          }
+                          },
                       }, false, false)
                       }, 1000)
                   }
@@ -276,16 +276,17 @@ require APPROOT . '/views/inc/header.php';
 
               //For Multiple Series
               if(RMS_Sessions != null){
-              chartLine.updateSeries([{
-              data: [...chartLine.w.config.series[0].data,
-                  [
-                  chartLine.w.globals.maxX + 1000,
-                  RMS_Sessions
-                  ]
-              ]
-              }])
-            }
-
+                chartLine.updateSeries([{
+                data: [...chartLine.w.config.series[0].data,
+                    [
+                    chartLine.w.globals.maxX + 1000,
+                    RMS_Sessions
+                    ]
+                ]
+                }])
+              }else{
+                document.getElementById("noData").innerHTML = "Data Loading";
+              }
 
           }, 1000);
       </script>
@@ -324,9 +325,6 @@ require APPROOT . '/views/inc/header.php';
                   document.getElementById('TotalSes').innerHTML = TotalSes;
                   document.getElementById('InactiveSes').innerHTML = InactiveSes;
                   document.getElementById('SystemSes').innerHTML = SystemSes;
-
-
-
                 } 
                 });
 
@@ -342,7 +340,7 @@ require APPROOT . '/views/inc/header.php';
         $total = explode('/', $fras); ?> -->
         <div class="w-full box rounded-lg">
           <div class="grid grid-cols-3 place-center">
-            <canvas id="chartDonut<?php echo $db; ?>" class="col-span-2"></canvas>
+            <canvas id="chartDonut<?php echo $db; ?>" class="col-span-2 z-10"></canvas>
             <div class="grid grid-rows-2 h-2/3 col-span-1">
               <div class="card">
                 <h1 class="font-bold underline">Free</h1>
