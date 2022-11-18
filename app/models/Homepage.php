@@ -27,7 +27,7 @@
             $result_rdw = $this->rdwdb->single();
             $result_ofin = $this->ofindb->single();
 
-            if(!empty($result_rms)&&!empty($result_rms)&&!empty($result_rms)){
+            if(!empty($result_rms)&&!empty($result_rdw)&&!empty($result_ofin)){
 
                 $data = [
                     'RMSSession' => $result_rms['Total Sessions'],
@@ -52,7 +52,7 @@
             $result_rdw = $this->rdwdb->single();
             $result_ofin = $this->ofindb->single();
 
-            if(!empty($result_rms)&&!empty($result_rms)&&!empty($result_rms)){
+            if(!empty($result_rms)&&!empty($result_rdw)&&!empty($result_ofin)){
 
                 $data = [
                     'RMS_FRA' => $result_rms['USED/FREE'],
@@ -77,7 +77,7 @@
             $result_rdw = $this->rdwdb->single();
             $result_ofin = $this->ofindb->single();
 
-            if(!empty($result_rms)&&!empty($result_rms)&&!empty($result_rms)){
+            if(!empty($result_rms)&&!empty($result_rdw)&&!empty($result_ofin)){
 
                 $data = [
                     'RMS_DBSTATUS' => $result_rms['DB STATUS'],
@@ -86,6 +86,21 @@
                 ];
 
                 return $data;
+            }
+            return false;
+        }
+
+        public function getDBInfoSummary()
+        {
+            $query = $this->fm->loadSQL('get_DBInfoSummary');
+
+            $this->rmsdb->query($query);
+
+            $result_rms = $this->rmsdb->single();
+
+            if(!empty($result_rms)){
+
+                return $result_rms;
             }
             return false;
         }

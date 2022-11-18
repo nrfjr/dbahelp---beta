@@ -21,6 +21,4 @@ UTL_INADDR.get_host_address AS "IP Address",
 
 (select count(*) from v$session where status = 'INACTIVE') AS "INACTIVE",
 
-(select count(*) ACTIVE from v$session where status = 'ACTIVE' and username is not null) AS "ACTIVE",
-
 (select count(*) SYSTEM from v$session where username is null) AS "SYSTEM" FROM DUAL

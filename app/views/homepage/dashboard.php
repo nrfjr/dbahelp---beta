@@ -12,11 +12,13 @@ require APPROOT . '/views/inc/header.php';
       $Sessions = $data['Sessions'];
       $FRA = $data['FRA'];
       $DBStatus = $data['DB Status'];
+      $DBInfo = $data['DB Info'];
 
     ?>
 
       <div class="hidden" id="RMSSessions"><?php echo $Sessions['RMSSessions']; ?></div>
       <div class="hidden" id="RMSDBStatus"><?php echo $DBStatus['RMS_DBSTATUS']; ?></div>
+      <div class="hidden" id="DBInfoArray"><?php foreach($DBInfo as $i){echo $i.'/'; } ?></div>
 
     <!--RealLine-->
     <div class="col-span-2">
@@ -31,15 +33,15 @@ require APPROOT . '/views/inc/header.php';
               <div class="grid grid-cols-3 cardp">
                 <div class="cardb">
                   <p>Hostname</p>
-                  <h1>asdwasdawdas</h1>
+                  <h1 id="Hostname">Fetching...</h1>
                 </div>
                 <div class="cardb">
                   <p>IP Address</p>
-                  <h1>12399172712</h1>
+                  <h1 id="IP">Fetching...</h1>
                 </div>
                 <div class="cardb">
                   <p>DB Size</p>
-                  <h1>449626 MB</h1>
+                  <h1 id="Size">Fetching...</h1>
                 </div>
               </div>
             </div>
@@ -48,19 +50,19 @@ require APPROOT . '/views/inc/header.php';
             <div class="grid grid-cols-4 cardp">
                 <div class="cardb">
                   <p>Total Sessions</p>
-                  <h1>443</h1>
+                  <h1 id="TotalSes">Fetching...</h1>
                 </div>
                 <div class="cardb">
                   <p>Inactive Sessions</p>
-                  <h1>412</h1>
+                  <h1 id="InactiveSes">Fetching...</h1>
                 </div>
                 <div class="cardb">
                   <p>Active Sessions</p>
-                  <h1>0</h1>
+                  <h1 id="Active_Num">Fetching...</h1>
                 </div>
                 <div class="cardb">
                   <p>System Sessions</p>
-                  <h1>22</h1>
+                  <h1 id="SystemSes">Fetching...</h1>
                 </div>
               </div>
             </div>
@@ -273,6 +275,7 @@ require APPROOT . '/views/inc/header.php';
               iteration++;
 
               //For Multiple Series
+              if(RMS_Sessions != null){
               chartLine.updateSeries([{
               data: [...chartLine.w.config.series[0].data,
                   [
@@ -281,6 +284,7 @@ require APPROOT . '/views/inc/header.php';
                   ]
               ]
               }])
+            }
 
 
           }, 1000);
@@ -289,8 +293,8 @@ require APPROOT . '/views/inc/header.php';
     <!--RealLine-->
 
     <script>
-      var RMS_Sessions;
-      var RMS_DBStatus;
+      var RMS_Sessions, RMS_DBStatus, DBInfo, Hostname, IP, Size, TotalSes, InactiveSes, SystemSes;
+      var DBInfo;
 
             setInterval(() => {
               $.ajax({ 
@@ -301,7 +305,28 @@ require APPROOT . '/views/inc/header.php';
 
                   RMS_DBStatus = jQuery(response).find('#RMSDBStatus').html();
 
+                  DBInfoArray = jQuery(response).find('#DBInfoArray').html();
+
+                  DBInfo = DBInfoArray.split('/');
+
+                  Hostname = DBInfo[0];
+                  IP = DBInfo[1];
+                  Size = DBInfo[2];
+                  TotalSes = DBInfo[3];
+                  InactiveSes = DBInfo[4];
+                  SystemSes = DBInfo[5];
+
                   document.getElementById('RMS_DBSTATUS').innerHTML = RMS_DBStatus;
+                  document.getElementById('Active_Num').innerHTML = RMS_Sessions===null?'Fetching...': RMS_Sessions;
+                  document.getElementById('Hostname').innerHTML = Hostname;
+                  document.getElementById('IP').innerHTML = IP;
+                  document.getElementById('Size').innerHTML = Size;
+                  document.getElementById('TotalSes').innerHTML = TotalSes;
+                  document.getElementById('InactiveSes').innerHTML = InactiveSes;
+                  document.getElementById('SystemSes').innerHTML = SystemSes;
+
+
+
                 } 
                 });
 

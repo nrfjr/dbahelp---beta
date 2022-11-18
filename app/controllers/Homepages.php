@@ -25,7 +25,8 @@
                             'RMS_DBSTATUS' => $this->homepageModel->getDBStatus()['RMS_DBSTATUS'],
                             // 'RDW_DBSTATUS' => $this->homepageModel->getDBStatus()['RDW_DBSTATUS'],
                             // 'OFIN_DBSTATUS' => $this->homepageModel->getDBStatus()['OFIN_DBSTATUS'],
-                        ]
+                        ],
+                        'DB Info' => $this->homepageModel->getDBInfoSummary()
             ];
 
             $this->view('homepage/dashboard', $data);
