@@ -256,7 +256,7 @@ var optionsLine = {
         verticalAlign: 'right',
         onItemClick: {
             toggleDataSeries: false
-        },  
+        },
         onItemHover: {
             highlightDataSeries: true
         },

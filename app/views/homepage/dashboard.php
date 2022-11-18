@@ -24,22 +24,22 @@ require APPROOT . '/views/inc/header.php';
       <!--Rename for duplicate: chart1, options1-->
       <div class="w-full h-full p-5 rounded-lg mb-2 box">
 
-          <div id="linechart" class="invisible"></div>
+          <div id="linechart" class=""></div>
 
           <div class="card grid grid-rows-2 gap-2">
             <div class="row-span-1">
               <div class="grid grid-cols-3 cardp">
                 <div class="cardb">
-                  <h4>Hostname</h4>
-                  <p>asdwasdawdas</p>
+                  <p>Hostname</p>
+                  <h1>asdwasdawdas</h1>
                 </div>
                 <div class="cardb">
-                  <h4>IP Address</h4>
-                  <p>12399172712</p>
+                  <p>IP Address</p>
+                  <h1>12399172712</h1>
                 </div>
                 <div class="cardb">
-                  <h4>DB Size</h4>
-                  <p>449626 MB</p>
+                  <p>DB Size</p>
+                  <h1>449626 MB</h1>
                 </div>
               </div>
             </div>
@@ -47,20 +47,20 @@ require APPROOT . '/views/inc/header.php';
             <div class="row-span-1">
             <div class="grid grid-cols-4 cardp">
                 <div class="cardb">
-                  <h4>Total Sessions</h4>
-                  <p>443</p>
+                  <p>Total Sessions</p>
+                  <h1>443</h1>
                 </div>
                 <div class="cardb">
-                  <h4>Inactive Sessions</h4>
-                  <p>412</p>
+                  <p>Inactive Sessions</p>
+                  <h1>412</h1>
                 </div>
                 <div class="cardb">
-                  <h4>Active Sessions</h4>
-                  <p>0</p>
+                  <p>Active Sessions</p>
+                  <h1>0</h1>
                 </div>
                 <div class="cardb">
-                  <h4>System Sessions</h4>
-                  <p>22</p>
+                  <p>System Sessions</p>
+                  <h1>22</h1>
                 </div>
               </div>
             </div>
@@ -306,7 +306,7 @@ require APPROOT . '/views/inc/header.php';
                 });
 
 
-            }, 1000);
+            }, 15000);
     </script>
 
     
@@ -318,7 +318,7 @@ require APPROOT . '/views/inc/header.php';
         <div class="w-full box rounded-lg">
           <div class="grid grid-cols-3 place-center">
             <canvas id="chartDonut<?php echo $db; ?>" class="col-span-2"></canvas>
-            <div class="grid grid-rows-2 h-2/3">
+            <div class="grid grid-rows-2 h-2/3 col-span-1">
               <div class="card">
                 <h1 class="font-bold underline">Free</h1>
                 <p class="text-xl"><?php echo $total[0]; ?>%</p>
@@ -387,7 +387,7 @@ require APPROOT . '/views/inc/header.php';
                     position: 'top',
                     weight: 'bold',
                     font: {
-                      size: 16
+                      size: '15%'
                     }
                   },
                   tooltip: {

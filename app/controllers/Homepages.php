@@ -12,26 +12,26 @@
 
             $data = [
                         'Sessions' => [
-                                        'RMSSessions' => $this->homepageModel->getSession()['RMSSession'],
-                                        'RDWSessions' => $this->homepageModel->getSession()['RDWSession'],
-                                        'OFINSessions' => $this->homepageModel->getSession()['OFINSession'],
+                            'RMSSessions' => $this->homepageModel->getSession()['RMSSession'],
+                            // 'RDWSessions' => $this->homepageModel->getSession()['RDWSession'],
+                            // 'OFINSessions' => $this->homepageModel->getSession()['OFINSession'],
                         ],
                         'FRA' =>[
-                                        'RMS_FRA' => $this->homepageModel->getFRA()['RMS_FRA'],
-                                        'RDW_FRA' => $this->homepageModel->getFRA()['RDW_FRA'],
-                                        'OFIN_FRA' => $this->homepageModel->getFRA()['OFIN_FRA']
+                            'RMS_FRA' => $this->homepageModel->getFRA()['RMS_FRA'],
+                            // 'RDW_FRA' => $this->homepageModel->getFRA()['RDW_FRA'],
+                            // 'OFIN_FRA' => $this->homepageModel->getFRA()['OFIN_FRA'],
                         ],
                         'DB Status' => [
-                                        'RMS_DBSTATUS' => $this->homepageModel->getDBStatus()['RMS_DBSTATUS'],
-                                        'RDW_DBSTATUS' => $this->homepageModel->getDBStatus()['RDW_DBSTATUS'],
-                                        'OFIN_DBSTATUS' => $this->homepageModel->getDBStatus()['OFIN_DBSTATUS']
+                            'RMS_DBSTATUS' => $this->homepageModel->getDBStatus()['RMS_DBSTATUS'],
+                            // 'RDW_DBSTATUS' => $this->homepageModel->getDBStatus()['RDW_DBSTATUS'],
+                            // 'OFIN_DBSTATUS' => $this->homepageModel->getDBStatus()['OFIN_DBSTATUS'],
                         ]
-
             ];
-            
+
             $this->view('homepage/dashboard', $data);
 
         }
 
+        
 
     }

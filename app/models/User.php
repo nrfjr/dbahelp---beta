@@ -4,10 +4,8 @@
         private $total_records_per_page = 9;
 
         public function __construct(){
-
             $this->rmsdb = new RMS_Database;
             $this->fm = new FileManager;
-            
         }
 
         //makes sure that username and password connect and exist in the database
@@ -18,10 +16,10 @@
                 ':username' => $username
              ];
 
-            $this->rmsdb->queryWithParam($query, $param);
-            $row = $this->rmsdb->single();
+             $this->rmsdb->queryWithParam($query, $param);
+             $row = $this->rmsdb->single();
 
-            $result = $this->rmsdb->test_connection($username, $password, 'RMS');
+             $result = $this->rmsdb->test_connection($username, $password, 'RMS');
 
             if($result){
                 if($row['USERNAME']==$username){
@@ -60,9 +58,9 @@
            $param = [
                         ':search' => $search[':search']
                     ];
-           $this->rmsdb->queryWithParam($query,$param);
+            $this->rmsdb->queryWithParam($query,$param);
 
-           $result = $this->rmsdb->resultSet($query);
+            $result = $this->rmsdb->resultSet($query);
            
            if($result){
                 return $result;

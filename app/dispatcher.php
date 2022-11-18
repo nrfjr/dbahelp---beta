@@ -8,13 +8,9 @@
     // Load Databases
     require_once 'databases/RMS_Database.php';
     require_once 'databases/RDW_Database.php';
-    require_once 'databases/OFIN_Database.php';
-
-    // Load Misc
-    require_once 'misc/Greeting.php';
+    require_once 'databases/OFIn_Database.php';
 
     // Autoload Core Libraries
     spl_autoload_register(function($className) {
         require_once 'libs/' .$className. '.php';
     });
-
