@@ -7,6 +7,24 @@ h1, h2, h3, h4, h5, h6, strong {
     color: #fff;
 }
 
+aside{
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    background-color: #2c2f33;
+    z-index: 2;
+}
+
+main{
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+    z-index: 1;
+}
+header{
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    z-index: 2;
+}
+footer{
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    z-index: 2;
+}
 .content-area {
     max-width: 1280px;
     margin: 0 auto;
@@ -49,13 +67,50 @@ h1, h2, h3, h4, h5, h6, strong {
     text-align: center;
 }
 
+.cardp{
+    padding-top: .5rem;
+    padding-bottom: .5rem;
+    
+}
+
+.cardp:first-child{
+    border-bottom: 1px solid #2c2f33;
+}
+
+.cardb{
+    padding: 15px 15px;
+    background-color: #8f99a6;
+    /* margin-top: 5px; */
+    font-size: 100%;
+    text-align: center;
+    color: #000000;
+
+    border-left: 1px solid #2c2f33;
+}
+
+.cardb:first-child{
+    border-left: none;
+}
+
+.cardb  h4{
+    font-size: medium;
+    text-align: start;
+}
+
+.cardb p{
+    font-size: large;
+    font-weight: bold;
+    text-align: center;
+}
+
 .db-stat table{
     justify-content: center;
-    color: #2c2f33;
+    color: #000000;
     text-align: center;
+    place-items: center;
     box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
     width: 100%;
-    background-color: #EDE9E8;
+    background-color: #8f99a6;
     margin-top: .5rem;
     line-height: 2rem;
     border-radius: 10px;
