@@ -83,7 +83,7 @@ footer{
     /* margin-top: 5px; */
     font-size: 100%;
     text-align: center;
-    color: #000000;
+    
 
     border-left: 1px solid #2c2f33;
 }
@@ -92,15 +92,17 @@ footer{
     border-left: none;
 }
 
-.cardb  h4{
-    font-size: medium;
+.cardb p{
+    font-size: small;
     text-align: start;
+    color: #2c2f33;
 }
 
-.cardb p{
+.cardb h1{
     font-size: large;
     font-weight: bold;
     text-align: center;
+    color: #000000;
 }
 
 .db-stat table{
