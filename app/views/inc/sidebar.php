@@ -3,7 +3,7 @@
 ?>
 
 
-<aside class="relative bg-gradient-to-br from-blue-500 to-indigo-900 h-screen w-64 hidden sm:block shadow-xl overflow-y-auto scrollbar-hide transition ease-in-out delay-150">
+<aside class="relative h-screen w-64 hidden sm:block overflow-y-auto scrollbar-hide transition ease-in-out delay-150">
     <div>
         <div class="p-6">
             <a href="<?php echo URLROOT;?>/homepage/dashboard" class="text-white text-3xl font-semibold hover:text-gray-300"><?php echo SITENAME?></a>
@@ -11,22 +11,21 @@
         <nav class="text-white text-base font-semibold py-2 overflow-y-auto scrollbar-hide maxh">
             <div id="accordion-open" data-accordion="open">
                 <ul>
-                    <!--DASHBOARD-->
-                    
-                        <li class="flex flex-row">
-                                <a href="<?php echo URLROOT;?>/homepage/dashboard" class="flex items-center py-4 pl-6 nav-item text-white w-10/12 <?php if (strpos($url, 'dashboard')) {echo 'active-nav-link';} else {echo ' opacity-75';}?>" 
+                    <!--DATABASES-->
+                    <li class="flex flex-row">
+                                <a  class="flex items-center py-4 pl-6 text-white w-10/12" 
                                 >
-                                    <i class="fas fa-chart-line mr-3"></i>
-                                    Dashboard 
+                                    <i class="fas fa-warehouse mr-3"></i>
+                                    Databases 
                                 </a>
 
                                     <button type="button" class="flex-auto items-center py-4 hover:bg-gray-300 text-white" 
                                     
                                     aria-expanded="<?php 
-                                    if (strpos($url, 'diskstorage')) {echo 'true';} else {echo ' false';}?>" 
-                                    aria-controls="dashboard" 
-                                    data-accordion-target="#dashboard"
-                                    data-collapse-toggle="dashboard"> 
+                                    if (strpos($url, 'dashboard')) {echo 'true';} else {echo ' false';}?>" 
+                                    aria-controls="databases" 
+                                    data-accordion-target="#databases"
+                                    data-collapse-toggle="databases"> 
                                     <!--Code above is needed for collapse open while select-->
                                     <!--Change here for control variables-->
                                             <svg sidebar-toggle-item class="w-6 h-8" fill="currentColor" viewBox="0 -5 12 28" xmlns="http://www.w3.org/2000/svg">
@@ -37,9 +36,28 @@
                                 
                                     
                             
-                        </li>
-                        <!--DASHBOARD DROP DOWN CONTENTS-->
-                        <ul id="dashboard" class="hidden py-1" data-accordion="open">
+                    </li>
+                    <ul id="databases" class="hidden py-1  ">
+                            <li >
+                                <a href="<?php echo URLROOT;?>/homepage/dashboard"  class="flex items-center hover:opacity-100 py-4 pl-12 nav-item text-white <?php if (strpos($url, 'dashboard')){ echo 'active-nav-link ';}else{echo 'opacity-75';}?>">
+                                    <i class="fas fa-database mr-3"></i>
+                                ORACLE
+                                </a>
+                            <li>
+                                <a href="<?php echo URLROOT;?>/homepage/dashboard"  class="flex items-center hover:opacity-100 py-4 pl-12 nav-item text-white <?php if (strpos($url, 'mssql')){ echo 'active-nav-link ';}else{echo 'opacity-75';}?>">
+                                    <i class="fas fa-database mr-3"></i>
+                                MSSQL
+                                </a>
+                            </li>
+                            <li>
+                                <a href="<?php echo URLROOT;?>/homepage/dashboard"  class="flex items-center hover:opacity-100 py-4 pl-12 nav-item text-white <?php if (strpos($url, 'mariadb')){ echo 'active-nav-link ';}else{echo 'opacity-75';}?>">
+                                    <i class="fas fa-database mr-3"></i>
+                                    MARIA DB
+                                </a>
+                            </li>  
+                        </ul>
+                    <!--DASHBOARD-->
+                    
                         <li>
                             <a href="<?php echo URLROOT;?>/diskstorages/diskstorage/null" class="flex items-center py-4 pl-6 nav-item text-white <?php if (strpos($url, 'diskstorage')) {echo 'active-nav-link';} else {echo ' opacity-75';}?>" 
                                     >
@@ -54,54 +72,6 @@
                                 Flash Recovery
                             </a>
                         </li>
-                        </ul>
-                    <!--DATABASES-->
-                    <li class="flex flex-row">
-                                <a href="<?php echo URLROOT;?>/homepage/#" class="flex items-center py-4 pl-6 nav-item text-white w-10/12 <?php if (strpos($url, '#')) {echo 'active-nav-link';} else {echo ' opacity-75';}?>" 
-                                >
-                                    <i class="fas fa-warehouse mr-3"></i>
-                                    Databases 
-                                </a>
-
-                                    <button type="button" class="flex-auto items-center py-4 hover:bg-gray-300 text-white" 
-                                    
-                                    aria-expanded="<?php 
-                                    if (strpos($url, '#')) {echo 'true';} else {echo ' false';}?>" 
-                                    aria-controls="databases" 
-                                    data-accordion-target="#databases"
-                                    data-collapse-toggle="databases"> 
-                                    <!--Code above is needed for collapse open while select-->
-                                    <!--Change here for control variables-->
-                                            <svg sidebar-toggle-item class="w-6 h-8" fill="currentColor" viewBox="0 -5 12 28" xmlns="http://www.w3.org/2000/svg">
-                                                <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path>
-                                            </svg>  
-                                        
-                                    </button>
-                                
-                                    
-                            
-                        </li>
-                    <ul id="databases" class="hidden py-1  ">
-                            <li>
-                            <a href="<?php echo URLROOT;?>/homepage/dashboard"  class="flex items-center hover:opacity-100 py-4 pl-12 nav-item text-white <?php if (strpos($url, 'oracle')){ echo 'active-nav-link ';}else{echo 'opacity-75';}?>">
-                                <i class="fas fa-database mr-3"></i>
-                            ORACLE
-                            </a>
-                            </li>
-                            <li>
-                                <a href="<?php echo URLROOT;?>/homepage/dashboard"  class="flex items-center hover:opacity-100 py-4 pl-12 nav-item text-white <?php if (strpos($url, 'mssql')){ echo 'active-nav-link ';}else{echo 'opacity-75';}?>">
-                                    <i class="fas fa-database mr-3"></i>
-                                MSSQL
-                                </a>
-                            </li>
-                            <li>
-                                <a href="<?php echo URLROOT;?>/homepage/dashboard"  class="flex items-center hover:opacity-100 py-4 pl-12 nav-item text-white <?php if (strpos($url, 'mariadb')){ echo 'active-nav-link ';}else{echo 'opacity-75';}?>">
-                                    <i class="fas fa-database mr-3"></i>
-                                    MARIA DB
-                                </a>
-                            </li>  
-                        </ul>
-
 
                     <li>
                         <a href="<?php echo URLROOT;?>/users/show"  class="flex items-center hover:opacity-100 py-4 pl-6 nav-item text-white <?php if (strpos($url, 'show')){ echo 'active-nav-link ';}else{echo 'opacity-75';}?>">
@@ -116,7 +86,7 @@
     </div>
 
     <!--Time & Date-->
-    <div class="left-0 widgets transition ease-in-out delay-150 bg-gradient-to-br from-blue-500 to-indigo-900 rounded-lg">
+    <div class="left-0 widgets transition ease-in-out delay-150 bg-gradient-to-br from-gray-500 to-gray-900 rounded-lg">
         <div class="w-9/10 justify-center px-1 mt-1">
             <div id="swtClock" class="bg-gradient-to-r from-pink-100 to-blue-100 rounded-t-lg" style="text-align: center;"></div>
             <script type="text/javascript" src="https://www.superwebtricks.com/wp-content/uploads/clock.js.txt"></script>
@@ -132,17 +102,44 @@
 </aside>
     <div class="w-full flex flex-col h-screen overflow-y-auto scrollbar-hide">
         <!-- Desktop Header -->
-        <header class="w-full items-center bg-gray-600 py-2 px-6 hidden sm:flex border-b-2 border-gray-800 top-nav">
+        <header class="w-full items-center bg-gray-600 py-2 px-6 hidden sm:flex">
             <!--TOP NAVBAR-->
-            <div class="w-3/4 ">
-                <div>
+            <div class="w-full">
+                    <!--Oracle Databases-->
+                    <button id="dropdownDefault" data-dropdown-toggle="dropdown-monitor" class="text-white bg-gray-600 hover:bg-gray-400 hover:text-black focus:ring-4 focus:outline-none focus:ring-gray-800 font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800
+                            <!--THIS BELOW CHANGE URL-->
+                            <?php echo strpos($url, 'dashboard')? 'block focus:bg-gray-400 focus:text-black': 'hidden';?>
+                            " type="button">Databases<svg class="ml-2 w-4 h-4" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></button>
+                            <!-- Dropdown menu -->
+                            <div id="dropdown-monitor" class="hidden z-10 w-44 bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700">
+                                <ul class="py-1 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefault">
+                                <li>
+                                    <a href="#" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">RMS</a>
+                                </li>
+                                <li>
+                                    <a href="#" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">RDW</a>
+                                </li>
+                                <li>
+                                    <a href="#" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">OFIN</a>
+                                </li>
+                                <li>
+                                    <a href="#" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">WMS 192.168.33.57</a>
+                                </li>
+                                <li>
+                                    <a href="#" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">WMS  192.168.33.60</a>
+                                </li>
+                                </ul>
+                            </div>
+                    <!--Oracle Databases-->
+                <div class="md:ml-6 md:px-6 md:py-2 md:border-l-2 md:border-gray-900 inline-flex">
+                    <!-- Oracle Tools -->
                     <!--MONITOR-->
-                    <button id="dropdownDefault" data-dropdown-toggle="dropdown-monitor" class="text-white bg-gray-600 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800
+                    <button id="dropdownDefault" data-dropdown-toggle="dropdown-monitor" class="mx-1 text-white bg-gray-600 hover:bg-gray-400 hover:text-black focus:ring-4 focus:outline-none focus:ring-gray-800 font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800
                     <!--THIS BELOW CHANGE URL-->
-                    <?php echo strpos($url, 'dashboard')? 'block focus:bg-blue-800': 'hidden';?>
+                    <?php echo strpos($url, 'dashboard')? 'block focus:bg-gray-400 hover:text-black': 'hidden';?>
                     " type="button">MONITOR<svg class="ml-2 w-4 h-4" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></button>
                     <!-- Dropdown menu -->
-                    <div id="dropdown-monitor" class="hidden z-10 w-44 bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700">
+                    <div id="dropdown-monitor" class="hidden absolute z-10 w-44 bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700">
                         <ul class="py-1 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefault">
                         <li>
                             <a href="#" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">User Sessions</a>
@@ -166,8 +163,8 @@
                     </div>
 
                     <!--PERFORMANCE-->
-                    <button id="dropdownDefault" data-dropdown-toggle="dropdown-performance" class="text-white bg-gray-600 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800
-                    <?php echo strpos($url, 'dashboard')? 'block focus:bg-blue-800':'hidden';?>
+                    <button id="dropdownDefault" data-dropdown-toggle="dropdown-performance" class="mx-1 text-white bg-gray-600 hover:bg-gray-400 hover:text-black focus:ring-4 focus:outline-none focus:ring-gray-800 font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800
+                    <?php echo strpos($url, 'dashboard')? 'block focus:bg-gray-400 hover:text-black':'hidden';?>
                     " type="button">PERFORMANCE<svg class="ml-2 w-4 h-4" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></button>
                     <!-- Dropdown menu -->
                     <div id="dropdown-performance" class="hidden z-10 w-44 bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700">
@@ -191,8 +188,8 @@
                     </div>
 
                     <!--SECURITY-->
-                    <button id="dropdownDefault" data-dropdown-toggle="dropdown-security" class="text-white bg-gray-600 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800
-                    <?php echo strpos($url, 'dashboard')? 'block focus:bg-blue-800':'hidden';?>
+                    <button id="dropdownDefault" data-dropdown-toggle="dropdown-security" class="mx-1 text-white bg-gray-600 hover:bg-gray-400 hover:text-black focus:ring-4 focus:outline-none focus:ring-gray-800 font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800
+                    <?php echo strpos($url, 'dashboard')? 'block focus:bg-gray-400 hover:text-black':'hidden';?>
                     " type="button">SECURITY<svg class="ml-2 w-4 h-4" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></button>
                     <!-- Dropdown menu -->
                     <div id="dropdown-security" class="hidden z-10 w-44 bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700">
@@ -212,9 +209,9 @@
                         </ul>
                     </div>
 
-                    <!---->
-                    <button id="dropdownDefault" data-dropdown-toggle="dropdown-storage" class="text-white bg-gray-600 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800
-                    <?php echo strpos($url, 'dashboard')? 'block focus:bg-blue-800':'hidden';?>
+                    <!--OBJECTS-->
+                    <button id="dropdownDefault" data-dropdown-toggle="dropdown-storage" class="mx-1 text-white bg-gray-600 hover:bg-gray-400 hover:text-black focus:ring-4 focus:outline-none focus:ring-gray-800 font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800
+                    <?php echo strpos($url, 'dashboard')? 'block focus:bg-gray-400 hover:text-black':'hidden';?>
                     " type="button">STORAGE & OBJECTS<svg class="ml-2 w-4 h-4" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></button>
                     <!-- Dropdown menu -->
                     <div id="dropdown-storage" class="hidden z-10 w-44 bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700">
@@ -236,10 +233,12 @@
                         </li>
                         </ul>
                     </div>
-
-                    <!--Database Disk-->
-                    <button id="dropdownDefault" data-dropdown-toggle="dropdown-disk" class="text-white bg-gray-600 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800
-                    <?php echo strpos($url, 'diskstorage')? 'block focus:bg-blue-800':'hidden';?>
+                    <!-- Oracle Tools -->
+                </div>     
+                
+                <!--Database Disk-->
+                <button id="dropdownDefault" data-dropdown-toggle="dropdown-disk" class="text-white bg-gray-600 hover:bg-gray-400 hover:text-black focus:ring-4 focus:outline-none focus:ring-gray-800 font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800
+                    <?php echo strpos($url, 'diskstorage')? 'block focus:bg-gray-400 focus:text-black':'hidden';?>
                     " type="button">Database<svg class="ml-2 w-4 h-4" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></button>
                     <!-- Dropdown menu -->
                     <div id="dropdown-disk" class="whitespace-normal hidden z-10 w-fit bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700">
@@ -282,13 +281,39 @@
                                 </li>
                             </ul>
                     </div>
-                </div>
+                    <!--Database Disk-->
+
+                    <!--Database Manage User-->
+                    <button id="dropdownDefault" data-dropdown-toggle="dropdown-user" class="text-white bg-gray-600 hover:bg-gray-400 hover:text-black focus:ring-4 focus:outline-none focus:ring-gray-800 font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800
+                        <?php echo strpos($url, 'show')? 'block focus:bg-gray-400 focus:text-black':'hidden';?>
+                        " type="button">Database<svg class="ml-2 w-4 h-4" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></button>
+                        <!-- Dropdown menu -->
+                        <div id="dropdown-user" class="whitespace-normal hidden z-10 w-fit bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700">
+
+                                <ul class="py-1 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefault">
+                                    <li>
+                                    <a href="<?php echo URLROOT;?>#">
+                                            <button type="button" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
+                                                192.168.32.184 - RMSPRD
+                                            </button>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="<?php echo URLROOT;?>#">
+                                            <button type="submit" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
+                                                192.168.32.198 - RDWPRD
+                                            </button>
+                                        </a>
+                                    </li>
+                                </ul>
+                        </div>
+                    <!--Database Manage User-->
             </div>
             <!--TOP NAVBAR-->
             <div x-data="{ isOpen: false }" class="relative w-1/2 flex justify-end">
-            <?php if(isset($_SESSION['username'])){ ?>
-                <h4 class="py-1 px-2 text-white"><b><?php echo greetings($_SESSION['username']); ?></b></h4>
-            <?php }?>
+            <?php if(isset($_SESSION['username'])): ?>
+                <h4 class="py-1 px-2 text-white"><?php echo  '<b>'.$_SESSION['username'].'</b>' ?></h4>
+            <?php endif; ?>
                 <button @click="isOpen = !isOpen" class="realtive z-10 w-12 h-12 rounded-full overflow-hidden border-4 border-gray-400 hover:border-gray-300 focus:border-gray-300 focus:outline-none">
                     <img src="<?php echo URLROOT; ?>/public/img/user.png">
                 </button>

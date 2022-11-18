@@ -3,7 +3,7 @@ $title = 'Manage Users';
 require APPROOT . '/views/inc/header.php';
 require APPROOT . '/views/inc/sidebar.php'; 
 
-//>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> components for pagination 
+// components for pagination 
 
 $users = $data;
 
@@ -32,8 +32,7 @@ if ($first_user_displayed === $last_user_displayed) {
 } else {
     $range = $first_user_displayed . ' - ' . $last_user_displayed . ' of ' . $total_users . ' Users ';
 }
-
-//<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< components for pagination 
+// components for pagination 
 ?>
 
 <h1 class="text-3xl text-black pb-6 text-white"><b>Manage Users</b></h1>
@@ -94,7 +93,6 @@ if ($first_user_displayed === $last_user_displayed) {
                         </thead>
                         <tbody class="bg-gray-500">
                             <?php
-
                             $users = array_slice($users, $offset, $limit);
 
                             foreach ($users as $column_title => $value) {
@@ -141,47 +139,44 @@ if ($first_user_displayed === $last_user_displayed) {
                     ?>
                 </p>
             </div>
-                            
+
             <?php
 
 if ($total_pages > 1) { ?>
 
-    <nav class="rounded-md shadow-sm absolute right-0 bottom-2" aria-label="Pagination">
-        <ul class="pagination inline-flex items-center -space-x-px">
+        <nav class="rounded-md shadow-sm absolute right-0 bottom-2" aria-label="Pagination">
+                <ul class="pagination inline-flex items-center -space-x-px">
 
-                <?php
-                if ($current_page > 1) { ?>
+                        <?php
+                        if ($current_page > 1) { ?>
 
-                    <li class="page-item"><a class="page-link block px-3 py-2 ml-0 leading-tight text-gray-500 bg-white border border-gray-300 rounded-l-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white" href="<?php echo '?page=1' ; ?>">First</a></li>
+                            <li class="page-item"><a class="page-link block px-3 py-2 ml-0 leading-tight text-gray-500 bg-white border border-gray-300 rounded-l-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white" href="<?php echo '?page=1' ; ?>">First</a></li>
 
-                    <?php
-                }
+                            <?php
+                        }
+                        for ($page_in_loop = 1; $page_in_loop <= $total_pages; $page_in_loop++) {
+                            if ($total_pages > 3) {
+                                if (($page_in_loop >= $current_page - 5 && $page_in_loop <= $current_page)  || ($page_in_loop <= $current_page + 5 && $page_in_loop >= $current_page)) {  ?>
 
-                for ($page_in_loop = 1; $page_in_loop <= $total_pages; $page_in_loop++) {
+                                    <li class="page-item <?php echo $page_in_loop == $current_page ? 'active disabled' : ''; ?>">
+                                        <a class="page-link px-3 py-2 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white" href="<?php echo '?page=' . $page_in_loop ; ?> "><?php echo $page_in_loop; ?></a>
+                                    </li>
 
-                    if ($total_pages > 3) {
-                        if (($page_in_loop >= $current_page - 5 && $page_in_loop <= $current_page)  || ($page_in_loop <= $current_page + 5 && $page_in_loop >= $current_page)) {  ?>
+                                <?php }
+                            }
+                            else { ?>
 
-                            <li class="page-item <?php echo $page_in_loop == $current_page ? 'active disabled' : ''; ?>">
-                                <a class="page-link px-3 py-2 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white" href="<?php echo '?page=' . $page_in_loop ; ?> "><?php echo $page_in_loop; ?></a>
-                            </li>
+                                <li class="page-item <?php echo $page_in_loop == $current_page ? 'active disabled' : ''; ?>">
+                                    <a class="page-link px-3 py-2 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white" href="<?php echo '?page=' . $page_in_loop ; ?> "><?php echo $page_in_loop; ?></a>
+                                </li>
 
-                        <?php }
-                    }
-                    else { ?>
+                            <?php } 
+                            ?>
+                        <?php } 
 
-                        <li class="page-item <?php echo $page_in_loop == $current_page ? 'active disabled' : ''; ?>">
-                            <a class="page-link px-3 py-2 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white" href="<?php echo '?page=' . $page_in_loop ; ?> "><?php echo $page_in_loop; ?></a>
-                        </li>
+                        if ($current_page < $total_pages) { ?>
 
-                    <?php } 
-                    ?>
-
-                <?php } 
-
-                if ($current_page < $total_pages) { ?>
-
-                    <li class="page-item"><a class="page-link block px-3 py-2 leading-tight text-gray-500 bg-white border border-gray-300 rounded-r-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white" href="<?php echo '?page=' . $total_pages ; ?>">Last</a></li>
+                            <li class="page-item"><a class="page-link block px-3 py-2 leading-tight text-gray-500 bg-white border border-gray-300 rounded-r-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white" href="<?php echo '?page=' . $total_pages ; ?>">Last</a></li>
 
                 <?php } ?>
             </ul>
@@ -189,6 +184,9 @@ if ($total_pages > 1) { ?>
 
     <?php } 
     ?>
+            <div>
+
+            </div>
         </div>
 <?php
             } else {
