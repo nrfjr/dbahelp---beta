@@ -92,13 +92,13 @@ footer{
     border-left: none;
 }
 
-.cardb p{
+.cardb,.card p{
     font-size: small;
     text-align: start;
     color: #2c2f33;
 }
 
-.cardb h1{
+.cardb,.card h1{
     font-size: large;
     font-weight: bold;
     text-align: center;
