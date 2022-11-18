@@ -131,7 +131,7 @@
                                 </ul>
                             </div>
                     <!--Oracle Databases-->
-                <div class="md:ml-6 md:px-6 md:py-2 md:border-l-2 md:border-gray-900 inline-flex">
+                <div class="md:ml-6 md:px-6 md:py-2 md:border-l-2 md:border-gray-900 inline-flex <?php echo strpos($url, 'dashboard')? 'block': 'hidden';?>">
                     <!-- Oracle Tools -->
                     <!--MONITOR-->
                     <button id="dropdownDefault" data-dropdown-toggle="dropdown-monitor" class="mx-1 text-white bg-gray-600 hover:bg-gray-400 hover:text-black focus:ring-4 focus:outline-none focus:ring-gray-800 font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800
