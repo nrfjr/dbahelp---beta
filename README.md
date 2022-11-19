@@ -1,3 +1,4 @@
+![](https://media0.giphy.com/media/zOvBKUUEERdNm/giphy.webp?cid=6c09b952998dee96b0b43f700ce58dba4902217ae6c8e626&rid=giphy.webp&ct=g) 
 <h1>Oracle Database Monitoring Project - DBAHelp.</h1>
 <p>
 <b>Confidentiality Warning:</b>
