@@ -5,7 +5,7 @@ require APPROOT . '/views/inc/header.php';
 <?php require APPROOT . '/views/inc/sidebar.php'; ?>
 
 <h1 class="text-3xl text-black pb-2 text-white"><b>Dashboard</b></h1>
-<div class=" object-contain grid grid-cols-1 md:grid-cols-3 gap-4">
+<div class=" object-contain grid grid-cols-1 lg:grid-cols-3 gap-4 cardz">
     
     <?php 
 
@@ -79,7 +79,7 @@ require APPROOT . '/views/inc/header.php';
               chart: {
               foreColor: '#fff',
               toolbar: {
-                  show: false
+                  show: true
               },
               },
               colors: ['#0099ff'], //line colors palette; Multiple Series
@@ -333,7 +333,7 @@ require APPROOT . '/views/inc/header.php';
     </script>
 
     
-    <div class="grid grid-cols-1 md:grid-rows-2 gap-2 justify-center col-span-1">
+    <div class="grid grid-cols-1 lg:grid-rows-2 gap-2 justify-center col-span-1">
       <!--Donuts-->
       <!--Must rename for duplicating: chartDonut1,myChart1, sampleChart1, config1-->
       <!-- <?php foreach ($FRA as $db => $fras) {
@@ -343,12 +343,12 @@ require APPROOT . '/views/inc/header.php';
             <canvas id="chartDonut<?php echo $db; ?>" class="col-span-2 z-10"></canvas>
             <div class="grid grid-rows-2 h-2/3 col-span-1">
               <div class="card">
-                <h1 class="font-bold underline">Free</h1>
-                <p class="text-xl"><?php echo $total[0]; ?>%</p>
+                <p class="font-bold">Free</p>
+                <h1 class="text-xl"><?php echo $total[1]; ?>%</h1>
               </div>
               <div class="card">
-                <h1 class="font-bold underline">Used</h1>
-                <p class="text-xl"><?php echo $total[1]; ?> %</p>
+                <p class="font-bold">Used</p>
+                <h1 class="text-xl"><?php echo $total[0]; ?> %</h1>
               </div>
             </div>
           </div>
@@ -366,7 +366,7 @@ require APPROOT . '/views/inc/header.php';
                 datasets: [{
                   label: 'My First Dataset',
                   //Free, Used
-                  data: [<?php echo $total[0]; ?>, <?php echo $total[1]; ?>],
+                  data: [<?php echo $total[1]; ?>, <?php echo $total[0]; ?>],
                   backgroundColor: [
                     '#66ff33',
                     '#339933'

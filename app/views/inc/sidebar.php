@@ -102,7 +102,7 @@
 </aside>
     <div class="w-full flex flex-col h-screen overflow-y-auto scrollbar-hide">
         <!-- Desktop Header -->
-        <header class="w-full items-center bg-gray-600 py-2 px-6 hidden sm:flex">
+        <header class="w-full items-center bg-gray-600 py-2 px-6 sm:flex">
             <!--TOP NAVBAR-->
             <div class="w-full">
                     <!--Oracle Databases-->
@@ -131,7 +131,7 @@
                                 </ul>
                             </div>
                     <!--Oracle Databases-->
-                <div class="md:ml-6 md:px-6 md:py-2 md:border-l-2 md:border-gray-900 inline-flex <?php echo strpos($url, 'dashboard')? 'block': 'hidden';?>">
+                <div class="lg:ml-6 lg:px-6 lg:py-2 lg:border-l-2 lg:border-gray-900 inline-flex dash hidden md:flex <?php echo strpos($url, 'dashboard')? 'block': 'hidden';?>">
                     <!-- Oracle Tools -->
                     <!--MONITOR-->
                     <button id="dropdownDefault" data-dropdown-toggle="dropdown-monitor" class="mx-1 text-white bg-gray-600 hover:bg-gray-400 hover:text-black focus:ring-4 focus:outline-none focus:ring-gray-800 font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800
