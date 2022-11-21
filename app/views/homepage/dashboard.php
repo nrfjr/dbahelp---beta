@@ -340,13 +340,13 @@ require APPROOT . '/views/inc/header.php';
         $total = explode('/', $fras); ?> -->
         <div class="w-full box rounded-lg">
           <div class="grid grid-cols-3 place-center">
-            <canvas id="chartDonut<?php echo $db; ?>" class="col-span-2 z-10"></canvas>
-            <div class="grid grid-rows-2 h-2/3 col-span-1">
-              <div class="card">
+            <canvas id="chartDonut<?php echo $db; ?>" class="col-span-2"></canvas>
+            <div class="grid grid-rows-2 h-2/3 col-span-1 z-10 gap-y-6 ">
+              <div class="sm-card">
                 <p class="font-bold">Free</p>
                 <h1 class="text-xl"><?php echo $total[1]; ?>%</h1>
               </div>
-              <div class="card">
+              <div class="sm-card">
                 <p class="font-bold">Used</p>
                 <h1 class="text-xl"><?php echo $total[0]; ?> %</h1>
               </div>
