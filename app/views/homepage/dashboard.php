@@ -236,7 +236,7 @@ require APPROOT . '/views/inc/header.php';
               }
               },
               title: {
-              text: '192.168.32.184 Sessions',
+              text: '<?php echo $DBInfo['IP Address']; ?> Sessions',
               align: 'left',
               style: {
                   fontSize: '12px'
