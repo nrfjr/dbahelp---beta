@@ -116,6 +116,7 @@ footer{
     font-weight: bold;
     text-align: center;
     color: #000000;
+    overflow-wrap: break-word;
 }
 
 .db-stat table{
@@ -191,5 +192,38 @@ footer{
 @media screen and (min-height: 900px){
     .maxh{
         max-height: 28rem;
+    }
+}
+
+@media screen and (min-width: 1280px){
+    .sm-card{
+        box-shadow: rgba(73, 84, 100, 0.4) 5px 5px, rgba(187, 191, 202, 0.3) 10px 10px, rgba(232, 232, 232, 0.2) 15px 15px;
+        padding: 15px 15px;
+        border-radius: 10px;
+        background-color: #8f99a6;
+        font-size: 100%;
+        text-align: center;
+    }
+}
+
+@media (min-width: 1536px) {
+    .sm-card{
+        box-shadow: rgba(73, 84, 100, 0.4) 5px 5px;
+        padding: 15px 15px;
+        border-radius: 10px;
+        background-color: #8f99a6;
+        font-size: 100%;
+        text-align: center;
+    }
+}
+
+@media (min-width: 640px) {
+    .sm-card{
+        box-shadow: rgba(73, 84, 100, 0.4) 5px 5px;
+        padding: 15px 15px;
+        border-radius: 10px;
+        background-color: #8f99a6;
+        font-size: 100%;
+        text-align: center;
     }
 }
