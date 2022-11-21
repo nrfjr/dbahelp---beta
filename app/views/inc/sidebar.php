@@ -3,9 +3,9 @@
 ?>
 
 
-<aside class="relative h-screen w-64 hidden sm:block overflow-y-auto scrollbar-hide transition ease-in-out delay-150">
+<aside class="relative h-screen w-64 sm:block overflow-y-auto scrollbar-hide transition ease-in-out delay-150">
     <div>
-        <div class="p-6">
+        <div class="pt-6 px-6 pb-3 logo">
             <a href="<?php echo URLROOT;?>/homepage/dashboard" class="text-white text-3xl font-semibold hover:text-gray-300"><?php echo SITENAME?></a>
         </div>
         <nav class="text-white text-base font-semibold py-2 overflow-y-auto scrollbar-hide maxh">
@@ -131,10 +131,11 @@
                                 </ul>
                             </div>
                     <!--Oracle Databases-->
-                <div class="lg:ml-6 lg:px-6 lg:py-2 lg:border-l-2 lg:border-gray-900 inline-flex dash hidden md:flex <?php echo strpos($url, 'dashboard')? 'block': 'hidden';?>">
+                <div class="hidden xl:inline-flex" >
+                    <div class="lg:ml-6 lg:px-6 lg:py-2 lg:border-l-2 lg:border-gray-900 inline-flex <?php echo strpos($url, 'dashboard')? 'block': 'hidden';?>">
                     <!-- Oracle Tools -->
                     <!--MONITOR-->
-                    <button id="dropdownDefault" data-dropdown-toggle="dropdown-monitor" class="mx-1 text-white bg-gray-600 hover:bg-gray-400 hover:text-black focus:ring-4 focus:outline-none focus:ring-gray-800 font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800
+                    <button id="dropdownDefault" data-dropdown-toggle="dropdown-monitor" class="mx-1 text-white bg-gray-600 hover:bg-gray-400 hover:text-black focus:ring-4 focus:outline-none focus:ring-gray-800 font-extralight lg:font-medium rounded-lg text-sm px-2 lg:px-4 py-0 lg:py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800
                     <!--THIS BELOW CHANGE URL-->
                     <?php echo strpos($url, 'dashboard')? 'block focus:bg-gray-400 hover:text-black': 'hidden';?>
                     " type="button">MONITOR<svg class="ml-2 w-4 h-4" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></button>
@@ -161,6 +162,7 @@
                         </li>
                         </ul>
                     </div>
+                    <!--MONITOR-->
 
                     <!--PERFORMANCE-->
                     <button id="dropdownDefault" data-dropdown-toggle="dropdown-performance" class="mx-1 text-white bg-gray-600 hover:bg-gray-400 hover:text-black focus:ring-4 focus:outline-none focus:ring-gray-800 font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800
@@ -186,6 +188,7 @@
                         </li>
                         </ul>
                     </div>
+                    <!--PERFORMANCE-->
 
                     <!--SECURITY-->
                     <button id="dropdownDefault" data-dropdown-toggle="dropdown-security" class="mx-1 text-white bg-gray-600 hover:bg-gray-400 hover:text-black focus:ring-4 focus:outline-none focus:ring-gray-800 font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800
@@ -208,6 +211,7 @@
                         </li>
                         </ul>
                     </div>
+                    <!--SECURITY-->
 
                     <!--OBJECTS-->
                     <button id="dropdownDefault" data-dropdown-toggle="dropdown-storage" class="mx-1 text-white bg-gray-600 hover:bg-gray-400 hover:text-black focus:ring-4 focus:outline-none focus:ring-gray-800 font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800
@@ -233,9 +237,134 @@
                         </li>
                         </ul>
                     </div>
+                    <!--OBJECTS-->
                     <!-- Oracle Tools -->
-                </div>     
+                </div>
                 
+                </div>     
+                <!-- Small Screen Tool Drop Down -->
+                <div class="inline-flex xl:hidden">
+                    <!-- Container -->
+                    <button id="dropdownDefault" data-dropdown-toggle="dropdown-tools" class="mx-1 text-white bg-gray-700 hover:bg-gray-400 hover:text-black focus:ring-4 focus:outline-none focus:ring-gray-800 font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800
+                    <?php echo strpos($url, 'dashboard')? 'block focus:bg-gray-400 hover:text-black':'hidden';?>
+                    " type="button"><i class="fas fa-wrench"></i></button>
+                    <!-- Dropdown menu -->
+                    <div id="dropdown-tools" class="hidden z-10 w-44 bg-gray-600 rounded divide-y divide-gray-100 shadow dark:bg-gray-700 ">
+                        <ul class="py-1 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefault">
+                        <li>
+                            <!--MONITOR-->
+                            <button id="dropdownDefault" data-dropdown-toggle="dropdown-sm-monitor" data-dropdown-placement="right-start" class="mb-1 text-white bg-gray-600 hover:bg-gray-400 hover:text-black focus:ring-4 focus:outline-none focus:ring-gray-800 font-medium rounded-lg text-sm px-4 py-2.5 text-center flex justify-between items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 w-full
+                            <!--THIS BELOW CHANGE URL-->
+                            <?php echo strpos($url, 'dashboard')? 'block focus:bg-gray-400 hover:text-black': 'hidden';?>
+                            " type="button">MONITOR<i class="fas fa-regular fa-chevron-right"></i></button>
+                            <!-- Dropdown menu -->
+                            <div id="dropdown-sm-monitor" class="hidden absolute z-10 w-44 bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700 left-0">
+                                <ul class="py-1 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefault">
+                                <li>
+                                    <a href="#" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">User Sessions</a>
+                                </li>
+                                <li>
+                                    <a href="#" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Locked Sessions</a>
+                                </li>
+                                <li>
+                                    <a href="#" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">RMAN Backup Reports</a>
+                                </li>
+                                <li>
+                                    <a href="#" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Redo Log File Switches</a>
+                                </li>
+                                <li>
+                                    <a href="#" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Redo Generation Per Day</a>
+                                </li>
+                                <li>
+                                    <a href="#" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Top SQL Running Processes</a>
+                                </li>
+                                </ul>
+                            </div>
+                            <!--MONITOR-->
+                        </li>
+                        <li>
+                            <!--PERFORMANCE-->
+                            <button id="dropdownDefault" data-dropdown-toggle="dropdown-sm-performance" data-dropdown-placement="right-start" class="mb-1 text-white bg-gray-600 hover:bg-gray-400 hover:text-black focus:ring-4 focus:outline-none focus:ring-gray-800 font-medium rounded-lg text-sm px-4 py-2.5 text-center flex justify-between items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 w-full
+                            <?php echo strpos($url, 'dashboard')? 'block focus:bg-gray-400 hover:text-black':'hidden';?>
+                            " type="button">PERFORMANCE<i class="fas fa-regular fa-chevron-right"></i></button>
+                            <!-- Dropdown menu -->
+                            <div id="dropdown-sm-performance" class="hidden z-10 w-44 bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700">
+                                <ul class="py-1 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefault">
+                                <li>
+                                    <a href="#" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">PGA Target Advisor</a>
+                                </li>
+                                <li>
+                                    <a href="#" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">SGA Target Advisor</a>
+                                </li>
+                                <li>
+                                    <a href="#" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Buffer Cache Advisor</a>
+                                </li>
+                                <li>
+                                    <a href="#" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Hit Ratio - Quick Checks</a>
+                                </li>
+                                <li>
+                                    <a href="#" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Table Statistics Status</a>
+                                </li>
+                                </ul>
+                            </div>
+                            <!--PERFORMANCE-->
+                        </li>
+                        <li>
+                            <!--SECURITY-->
+                            <button id="dropdownDefault" data-dropdown-toggle="dropdown-sm-security" data-dropdown-placement="right-start" class="mb-1 text-white bg-gray-600 hover:bg-gray-400 hover:text-black focus:ring-4 focus:outline-none focus:ring-gray-800 font-medium rounded-lg text-sm px-4 py-2.5 text-center flex justify-between items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 w-full
+                            <?php echo strpos($url, 'dashboard')? 'block focus:bg-gray-400 hover:text-black':'hidden';?>
+                            " type="button">SECURITY<i class="fas fa-regular fa-chevron-right"></i></button>
+                            <!-- Dropdown menu -->
+                            <div id="dropdown-sm-security" class="hidden z-10 w-44 bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700">
+                                <ul class="py-1 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefault">
+                                <li>
+                                    <a href="#" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">List All DB Users</a>
+                                </li>
+                                <li>
+                                    <a href="#" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">DB Role Priviledge</a>
+                                </li>
+                                <li>
+                                    <a href="#" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Create LDIF Files For SSO</a>
+                                </li>
+                                <li>
+                                    <a href="#" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Oracle Retail User Management</a>
+                                </li>
+                                </ul>
+                            </div>
+                            <!--SECURITY-->
+                        </li>
+                        <li>
+                            <!--OBJECTS-->
+                            <button id="dropdownDefault" data-dropdown-toggle="dropdown-sm-storage" data-dropdown-placement="right-start" class="text-white bg-gray-600 hover:bg-gray-400 hover:text-black focus:ring-4 focus:outline-none focus:ring-gray-800 font-medium rounded-lg text-sm px-4 py-2.5 text-center flex justify-between items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 w-full
+                            <?php echo strpos($url, 'dashboard')? 'block focus:bg-gray-400 hover:text-black':'hidden';?>
+                            " type="button">STORAGE<i class="fas fa-regular fa-chevron-right"></i></button>
+                            <!-- Dropdown menu -->
+                            <div id="dropdown-sm-storage" class="hidden z-10 w-44 bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700">
+                                <ul class="py-1 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefault">
+                                <li>
+                                    <a href="#" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Database File Layout</a>
+                                </li>
+                                <li>
+                                    <a href="#" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Invalid Objects</a>
+                                </li>
+                                <li>
+                                    <a href="#" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Table Space Usage</a>
+                                </li>
+                                <li>
+                                    <a href="#" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Table Monitoring</a>
+                                </li>
+                                <li>
+                                    <a href="#" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Table Indexes</a>
+                                </li>
+                                </ul>
+                            </div>
+                            <!--OBJECTS-->
+                        </li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- Small Screen Tool Drop Down -->
+
                 <!--Database Disk-->
                 <button id="dropdownDefault" data-dropdown-toggle="dropdown-disk" class="text-white bg-gray-600 hover:bg-gray-400 hover:text-black focus:ring-4 focus:outline-none focus:ring-gray-800 font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800
                     <?php echo strpos($url, 'diskstorage')? 'block focus:bg-gray-400 focus:text-black':'hidden';?>
@@ -310,7 +439,7 @@
                     <!--Database Manage User-->
             </div>
             <!--TOP NAVBAR-->
-            <div x-data="{ isOpen: false }" class="relative w-1/2 flex justify-end">
+            <div x-data="{ isOpen: false }" class="relative w-1/2 md:w-1/4 flex justify-end">
             <?php if(isset($_SESSION['username'])): ?>
                 <h4 class="py-1 px-2 text-white"><?php echo  '<b>'.$_SESSION['username'].'</b>' ?></h4>
             <?php endif; ?>
@@ -318,8 +447,8 @@
                     <img src="<?php echo URLROOT; ?>/public/img/user.png">
                 </button>
                 <button x-show="isOpen" @click="isOpen = false" class="h-full w-full fixed inset-0 cursor-default"></button>
-                <div x-show="isOpen" class="absolute w-32 justify-center bg-gray-600 rounded-lg shadow-lg py-2 mt-16">
-                    <a href="<?php echo URLROOT; ?>/users/logout" class="block text-white  text-center px-4 py-2  hover:bg-gray-600">Sign Out</a>
+                <div x-show="isOpen" class="absolute w-32 justify-center bg-gray-600 rounded-lg shadow-lg px-4 py-2 mt-16">
+                    <a href="<?php echo URLROOT; ?>/users/logout" class="block text-white  text-center  py-2 rounded-lg hover:bg-gray-400 hover:text-black">Sign Out</a>
                 </div>
             </div>
         </header>
