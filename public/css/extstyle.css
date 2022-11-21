@@ -151,16 +151,10 @@ footer{
     box-shadow: rgba(40, 40, 80, 0.25) 0px 4px 8px -2px, rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
 }
 
-@media only screen and (min-height: 800px){
-    .widgets{
-        position: absolute;
-        bottom: 0.5rem;
-    }
-    .maxh{
-        max-height: 26rem;
-    }
-}
-@media only screen and (max-height: 768px){
+
+
+
+@media screen and (min-height: 600px){
     .maxh{
         max-height: 20rem;
     }
@@ -169,19 +163,33 @@ footer{
         bottom: 0.5rem;
     }
 }
-@media only screen and (max-height: 700px){
+@media screen and (min-height: 700px){
     .maxh{
-        max-height: 15rem;
+        max-height: 24rem;
     }
     
 }
-@media only screen and (max-height: 600px){
+@media screen and (min-height: 768px){
     .maxh{
-        max-height: 10rem;
+        max-height: 28rem;
+    }
+    .widgets{
+        position: absolute;
+        bottom: 0.5rem;
     }
 }
-@media only screen and (min-height: 900px){
+
+@media screen and (min-height: 800px){
+    .widgets{
+        position: absolute;
+        bottom: 0.5rem;
+    }
     .maxh{
-        max-height: 25rem;
+        max-height: 28rem;
+    }
+}
+@media screen and (min-height: 900px){
+    .maxh{
+        max-height: 28rem;
     }
 }
