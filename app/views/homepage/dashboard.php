@@ -5,7 +5,7 @@ require APPROOT . '/views/inc/header.php';
 <?php require APPROOT . '/views/inc/sidebar.php'; ?>
 
 <h1 class="text-3xl text-black pb-2 text-white"><b>Dashboard</b></h1>
-<div class=" object-contain grid grid-cols-1 lg:grid-cols-3 gap-4 cardz">
+<div class=" object-contain grid grid-cols-1 xl:grid-cols-3 lg:grid-cols-2 gap-4 cardz">
     
     <?php 
 
@@ -21,7 +21,7 @@ require APPROOT . '/views/inc/header.php';
       <div class="hidden" id="DBInfoArray"><?php foreach($DBInfo as $i){echo $i.'/'; } ?></div>
 
     <!--RealLine-->
-    <div class="col-span-2">
+    <div class="xl:col-span-2 lg:col-span-1">
       
       <!--Rename for duplicate: chart1, options1-->
       <div class="w-full h-full p-5 rounded-lg mb-2 box">
