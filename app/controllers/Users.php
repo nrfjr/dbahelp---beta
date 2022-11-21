@@ -1,6 +1,8 @@
 <?php
     class Users extends Controller{
 
+        private $db;
+
         public function __construct(){
             $this->userModel = $this->model('User');
 
@@ -16,22 +18,6 @@
         
             // Displaying the address 
             return $localIP[1];
-        }
-
-        // Redirects to Index Page
-        public function users() {
-            $link   = URLROOT.$_SERVER['REQUEST_URI'];
-            $pieces = explode("/", $link);
-            $last   = array_pop($pieces);
-
-            $pagination = $this->userModel->pagination();
-
-
-            $data = [
-                'link'          => $last,
-                'pagination'    => $pagination
-            ];
-            $this->view('users/users', $data);
         }
 
         // verify user login to the system
@@ -142,18 +128,28 @@
         }
 
         // gets list of users
-        public function show()
+        public function show($DB)
         {
             $search=[':search' => ''];
 
             if($_SERVER['REQUEST_METHOD'] == 'POST'){
                 $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+                $search = [':search' => trim(empty($_POST['search'])?'':$_POST['search'])];
+            }
+            
+            $_SESSION['UserDB'] = $DB;
 
-                $search = [':search' => trim($_POST['search'])];
+            if(isset($_SESSION['UserDB'])){
+                $this->db = $_SESSION['UserDB'];
             }
 
-            $result = $this->userModel->getUserList($search);
-            $data = $result;
+            if($result = $this->userModel->getUserList($search, $this->db)){
+                $data = $result;
+            }
+            else{
+                $data=[];
+            }
+            
             $this->view('users/show', $data);
         }
 

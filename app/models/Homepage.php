@@ -2,37 +2,28 @@
 
     class Homepage{
 
-        private $rmsdb,$rdwdb,$ofindb,$fm;
+        private $db,$fm;
 
         public function __construct(){
-            $this->rmsdb = new RMS_Database;
-            $this->rdwdb = new RDW_Database;
-            $this->ofindb = new OFIN_Database;
+
             $this->fm = new FileManager;
 
-
         }
 
-        public function getSession()
+        public function getSession($db)
         {
+            $this->db = new OracleDatabase($db);
+
             $query = $this->fm->loadSQL('get_TotalSessions');
 
-            $this->rmsdb->query($query);
+            $this->db->query($query);
 
-            $this->rdwdb->query($query);
+            $result = $this->db->single();
 
-            $this->ofindb->query($query);
-
-            $result_rms = $this->rmsdb->single();
-            $result_rdw = $this->rdwdb->single();
-            $result_ofin = $this->ofindb->single();
-
-            if(!empty($result_rms)&&!empty($result_rdw)&&!empty($result_ofin)){
+            if(!empty($result)){
 
                 $data = [
-                    'RMSSession' => $result_rms['Total Sessions'],
-                    'RDWSession' => $result_rdw['Total Sessions'],
-                    'OFINSession' => $result_ofin['Total Sessions']
+                    'Session' => $result['Total Sessions']
                 ];
 
                 return $data;
@@ -40,24 +31,20 @@
             return false;
         }
 
-        public function getFRA()
+        public function getFRA($db)
         {
+            $this->db = new OracleDatabase($db);
+
             $query = $this->fm->loadSQL('get_FRA');
 
-            $this->rmsdb->query($query);
-            $this->rdwdb->query($query);
-            $this->ofindb->query($query);
+            $this->db->query($query);
 
-            $result_rms = $this->rmsdb->single();
-            $result_rdw = $this->rdwdb->single();
-            $result_ofin = $this->ofindb->single();
+            $result = $this->db->single();
 
-            if(!empty($result_rms)&&!empty($result_rdw)&&!empty($result_ofin)){
+            if(!empty($result)){
 
                 $data = [
-                    'RMS_FRA' => $result_rms['USED/FREE'],
-                    'RDW_FRA' => $result_rdw['USED/FREE'],
-                    'OFIN_FRA' => $result_ofin['USED/FREE']
+                    'FRA' => $result['USED/FREE']
                 ];
 
                 return $data;
@@ -65,24 +52,21 @@
             return false;
         }
 
-        public function getDBStatus()
+        public function getDBStatus($db)
         {
+
+            $this->db = new OracleDatabase($db);
+
             $query = $this->fm->loadSQL('get_DBStatus');
 
-            $this->rmsdb->query($query);
-            $this->rdwdb->query($query);
-            $this->ofindb->query($query);
+            $this->db->query($query);
 
-            $result_rms = $this->rmsdb->single();
-            $result_rdw = $this->rdwdb->single();
-            $result_ofin = $this->ofindb->single();
+            $result = $this->db->single();
 
-            if(!empty($result_rms)&&!empty($result_rdw)&&!empty($result_ofin)){
+            if(!empty($result)){
 
                 $data = [
-                    'RMS_DBSTATUS' => $result_rms['DB STATUS'],
-                    'RDW_DBSTATUS' => $result_rdw['DB STATUS'],
-                    'OFIN_DBSTATUS' => $result_ofin['DB STATUS']
+                    'DBSTATUS' => $result['DB STATUS']
                 ];
 
                 return $data;
@@ -90,17 +74,20 @@
             return false;
         }
 
-        public function getDBInfoSummary()
+        public function getDBInfoSummary($db)
         {
+
+            $this->db = new OracleDatabase($db);
+
             $query = $this->fm->loadSQL('get_DBInfoSummary');
 
-            $this->rmsdb->query($query);
+            $this->db->query($query);
 
-            $result_rms = $this->rmsdb->single();
+            $result = $this->db->single();
 
-            if(!empty($result_rms)){
+            if(!empty($result)){
 
-                return $result_rms;
+                return $result;
             }
             return false;
         }

@@ -16,8 +16,8 @@ require APPROOT . '/views/inc/header.php';
 
     ?>
 
-      <div class="hidden" id="RMSSessions"><?php echo $Sessions['RMSSessions']; ?></div>
-      <div class="hidden" id="RMSDBStatus"><?php echo $DBStatus['RMS_DBSTATUS']; ?></div>
+      <div class="hidden" id="Sessions"><?php echo $Sessions; ?></div>
+      <div class="hidden" id="DBStatus"><?php echo $DBStatus; ?></div>
       <div class="hidden" id="DBInfoArray"><?php foreach($DBInfo as $i){echo $i.'/'; } ?></div>
 
     <!--RealLine-->
@@ -275,12 +275,12 @@ require APPROOT . '/views/inc/header.php';
               iteration++;
 
               //For Multiple Series
-              if(RMS_Sessions != null){
+              if(Sessions != null){
                 chartLine.updateSeries([{
                 data: [...chartLine.w.config.series[0].data,
                     [
                     chartLine.w.globals.maxX + 1000,
-                    RMS_Sessions
+                    Sessions
                     ]
                 ]
                 }])
@@ -294,17 +294,17 @@ require APPROOT . '/views/inc/header.php';
     <!--RealLine-->
 
     <script>
-      var RMS_Sessions, RMS_DBStatus, DBInfo, Hostname, IP, Size, TotalSes, InactiveSes, SystemSes;
-      var DBInfo;
+      var Sessions, DBStatus, DBInfo, Hostname, IP, Size, TotalSes, InactiveSes, SystemSes;
+      var DBInfoArray;
 
             setInterval(() => {
               $.ajax({ 
-                url: '../app/controllers/Homepage/getRMSSessions',
+                url: '../app/controllers/Homepage',
                 dataType: 'html', 
                 success: function(response) { 
-                  RMS_Sessions = jQuery(response).find('#RMSSessions').html();
+                  Sessions = jQuery(response).find('#Sessions').html();
 
-                  RMS_DBStatus = jQuery(response).find('#RMSDBStatus').html();
+                  DBStatus = jQuery(response).find('#DBStatus').html();
 
                   DBInfoArray = jQuery(response).find('#DBInfoArray').html();
 
@@ -317,9 +317,10 @@ require APPROOT . '/views/inc/header.php';
                   InactiveSes = DBInfo[4];
                   SystemSes = DBInfo[5];
 
-                  document.getElementById('RMS_DBSTATUS').innerHTML = RMS_DBStatus;
-                  document.getElementById('Active_Num').innerHTML = RMS_Sessions===null?'Fetching...': RMS_Sessions;
+                  document.getElementById('DBSTATUS').innerHTML = DBStatus;
+                  document.getElementById('Active_Num').innerHTML = Sessions===null?'Fetching...': Sessions;
                   document.getElementById('Hostname').innerHTML = Hostname;
+                  document.getElementById('DBStatusTitle').innerHTML = Hostname;
                   document.getElementById('IP').innerHTML = IP;
                   document.getElementById('Size').innerHTML = Size;
                   document.getElementById('TotalSes').innerHTML = TotalSes;
@@ -336,11 +337,11 @@ require APPROOT . '/views/inc/header.php';
     <div class="grid grid-cols-1 lg:grid-rows-2 gap-2 justify-center col-span-1">
       <!--Donuts-->
       <!--Must rename for duplicating: chartDonut1,myChart1, sampleChart1, config1-->
-      <!-- <?php foreach ($FRA as $db => $fras) {
-        $total = explode('/', $fras); ?> -->
+      <!-- <?php
+        $total = explode('/', $FRA); ?> -->
         <div class="w-full box rounded-lg">
           <div class="grid grid-cols-3 place-center">
-            <canvas id="chartDonut<?php echo $db; ?>" class="col-span-2"></canvas>
+            <canvas id="chartDonut" class="col-span-2"></canvas>
             <div class="grid grid-rows-2 h-2/3 col-span-1 z-10 gap-y-6 ">
               <div class="sm-card xl:card">
                 <p class="font-bold">Free</p>
@@ -354,9 +355,9 @@ require APPROOT . '/views/inc/header.php';
           </div>
 
           <script>
-            let myChart<?php echo $db; ?> = document.getElementById('chartDonut<?php echo $db; ?>').getContext('2d');
+            let myChartDonut = document.getElementById('chartDonut').getContext('2d');
 
-            new Chart(myChart<?php echo $db; ?>, {
+            new Chart(myChartDonut, {
               type: 'doughnut',
               data: {
                 labels: [
@@ -404,7 +405,7 @@ require APPROOT . '/views/inc/header.php';
                   },
                   title: {
                     display: true,
-                    text: '<?php echo str_replace('_FRA', '', $db); ?> Flash Recovery Area Usage',
+                    text: 'Flash Recovery Area Usage',
                     align: 'start',
                     color: 'white',
                     position: 'top',
@@ -428,22 +429,18 @@ require APPROOT . '/views/inc/header.php';
               }
             });
 
-            const config<?php echo $db; ?> = {
+            const configDonut = {
               type: 'doughnut',
               data: data
             };
           </script>
 
         </div>
-      <?php  } ?>
       <!--Donuts-->
 
       <!-- DB Statuses -->
-      <?php 
-      foreach ($DBStatus as $key => $value) {
-      ?>
         <div class="w-full box rounded-lg text-md justify-center items-center db-stat">
-          <h5 class="text-white font-bold">Hostname: <span class="underline">oradb1prd.kccmalls.com</span></h5>
+          <h5 class="text-white font-bold">Hostname: <span id="DBStatusTitle" class="underline">Fetching...</span></h5>
           <table>
             <tr>
               <th>FRA Size: </th>
@@ -475,13 +472,10 @@ require APPROOT . '/views/inc/header.php';
             </tr>
             <tr>
               <th>DB Status: </th>
-              <td class="text-red-500" id="<?php echo $key; ?>"><span><?php echo $value; ?></span></td>
+              <td class="text-red-500" id="DBSTATUS"><span><?php echo $DBStatus; ?></span></td>
             </tr>
           </table>
         </div>
-        <?php 
-            }
-      ?>
       <!-- DB Statuses -->
       </div>
 

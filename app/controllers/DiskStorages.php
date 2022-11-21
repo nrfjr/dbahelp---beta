@@ -51,12 +51,12 @@ class DiskStorages extends Controller{
         }
         catch( \Exception $e ){
 
-            $this->view('error/error', $data=['link' => '/disktorages/disktorage/null']);
+            $this->view('error/error', $data=['link' => '/disktorages/disktorage/default']);
 
         }
         catch( \Error $e ){
 
-            $this->view('error/error', $data=['link' => '/disktorages/disktorage/null']);
+            $this->view('error/error', $data=['link' => '/disktorages/disktorage/default']);
             
         }
     }

@@ -1,7 +1,7 @@
 <?php
 $title = 'Manage Users';
 require APPROOT . '/views/inc/header.php';
-require APPROOT . '/views/inc/sidebar.php'; 
+require APPROOT . '/views/inc/sidebar.php';
 
 // components for pagination 
 
@@ -56,138 +56,167 @@ if ($first_user_displayed === $last_user_displayed) {
                 </svg>
             </div>
             <form action="<?php echo URLROOT; ?>/users/show" method="POST">
-            <div class="flex justify-auto">
-                <input type="text" id="search" name="search" class="block mr-4 p-2 pl-10 w-80 text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Search for users">
-                <button id="dropdownRadioButton" class="inline-flex items-center text-black bg-blue-200 focus:outline-none hover:bg-blue-700 hover:text-white focus:ring-4 focus:ring-gray-200 font-medium rounded-lg text-sm px-3 py-1.5 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700" type="submit">
-                    Search
-                </button>
-            </div>
+                <div class="flex justify-auto">
+                    <input type="text" id="search" name="search" class="block mr-4 p-2 pl-10 w-80 text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Search for users">
+                    <button id="dropdownRadioButton" class="inline-flex items-center text-black bg-blue-200 focus:outline-none hover:bg-blue-700 hover:text-white focus:ring-4 focus:ring-gray-200 font-medium rounded-lg text-sm px-3 py-1.5 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700" type="submit">
+                        Search
+                    </button>
+                </div>
             </form>
         </div>
     </div>
     <div style="height: 68vh; overflow: clip;">
         <div class="flex w-full shadow-md overflow-auto sm:rounded-lg" style="max-height: 80%; min-height: 100%;">
-                <?php
-                if (!empty($users)) {
+            <?php
+            if (!empty($users)) {
 
-                    //Separates Column title from result set
-                    foreach ($data as $outer_key => $array) {
+                //Separates Column title from result set
+                foreach ($data as $outer_key => $array) {
 
-                        foreach ($array as $inner_key => $value) {
-                            $column_names[] = $inner_key;
-                        }
+                    foreach ($array as $inner_key => $value) {
+                        $column_names[] = $inner_key;
                     }
-                ?>
-                    <table class="w-full text-sm text-left text-white dark:text-gray-400">
-                        <thead class="text-xs text-black bg-indigo-200 dark:bg-gray-700 dark:text-gray-400">
-                            <tr>
-                                <?php for ($title = 0; $title <= count($array) - 1; $title++) { ?>
+                }
+            ?>
+                <table class="w-full text-sm text-left text-white dark:text-gray-400">
+                    <thead class="text-xs text-black bg-indigo-200 dark:bg-gray-700 dark:text-gray-400">
+                        <tr>
+                            <?php for ($title = 0; $title <= count($array) - 1; $title++) { ?>
                                 <th scope="col" class="py-2 px-6">
                                     <?php echo $column_names[$title]; ?>
                                 </th>
-                                <?php }?>
-                                <th scope="col" class="py-2 px-6">
-                                    Action
-                                </th>
-                            </tr>
-                        </thead>
-                        <tbody class="bg-gray-500">
-                            <?php
-                            $users = array_slice($users, $offset, $limit);
+                            <?php } ?>
+                            <th scope="col" class="py-2 px-6">
+                                Action
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody class="bg-gray-500">
+                        <?php
+                        $users = array_slice($users, $offset, $limit);
 
-                            foreach ($users as $column_title => $value) {
-                            ?>
-                                    <tr>
-                                        <?php
-                                        foreach($value as $user){
-                                        ?>
-                                            <td class="py-4 px-6">
-                                                <?php echo $user; ?>
-                                            </td>
-                                        <?php
-                                        }
-                                        ?>
-                                        <td class="py-4 px-6 text-center">
-                                        <form action="<?php echo URLROOT; ?>/users/edit/<?php echo $value['ID']?>" method="POST">
-                                            <button type="submit" alt="Edit" class="px-2">
-                                                <font color="#005eff" title="Edit User">
-                                                    <i class="fas mt-1 fa-pen ml-2 hover:bg-blue-200 rounded-lg w-6 h-6"></i>
-                                                </font> 
-                                            </button>
-                                        </form>
-                                        <form action="<?php echo URLROOT; ?>/users/delete/<?php echo $value['USERNAME']?>" method="POST">
-                                            <button type="submit" alt="Delete" class="border-blue-500 md:border-green-500">
+                        foreach ($users as $column_title => $value) {
+                        ?>
+                            <tr>
+                                <?php
+                                foreach ($value as $user) {
+                                ?>
+                                    <td class="py-4 px-6">
+                                        <?php echo $user; ?>
+                                    </td>
+                                <?php
+                                }
+                                ?>
+                                <td class="py-4 px-6 text-center">
+                                    <form action="<?php echo URLROOT; ?>/users/edit/<?php echo $value['ID'] ?>" method="POST">
+                                        <button type="submit" alt="Edit" class="px-2">
+                                            <font color="#005eff" title="Edit User">
+                                                <i class="fas mt-1 fa-pen ml-2 hover:bg-blue-200 rounded-lg w-6 h-6"></i>
+                                            </font>
+                                        </button>
+                                    </form>
+                                        <div x-data="{toSubmit: false}">
+                                            <button @click="toSubmit = true" alt="Delete" class="border-blue-500 md:border-green-500">
                                                 <font color="#b00020" title="Delete User">
                                                     <i class="fas mt-1 fa-trash ml-2 hover:bg-red-200 rounded-lg w-6 h-6"></i>
                                                 </font>
                                             </button>
-                                        </form>
-                                        </td>
-                                    </tr>
-                            <?php
-                            }
-                            ?>
-                        </tbody>
-                    </table>
+                                            <button x-show="toSubmit" @click="toSubmit = false" alt="Delete" class="border-blue-500 md:border-green-500">
+                                                <font color="#b00020" title="Delete User">
+                                                    <i class="fas mt-1 fa-trash ml-2 hover:bg-red-200 rounded-lg w-6 h-6"></i>
+                                                </font>
+                                            </button>
+                                            <div x-show="toSubmit" class="flex justify-center z-10" aria-labelledby="modal-title" role="dialog" aria-modal="true">
+                                                <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"></div>
+                                                <div class="modal fixed fade justify-center mr-48 top-72 w-5/12 h-full outline-none overflow-x-hidden overflow-y-auto" id="ModalCenteredScrollable" tabindex="-1" aria-labelledby="ModalCenteredScrollable" aria-modal="true" role="dialog">
+                                                    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable relative pointer-events-none w-auto">
+
+                                                        <div class="modal-content border-none shadow-lg relative flex flex-col w-full pointer-events-auto bg-white bg-clip-padding rounded-md outline-none text-current">
+                                                            <div class="modal-header flex flex-shrink-0 items-center justify-between p-4 border-b border-gray-200 rounded-t-md">
+                                                                <h5 class="text-xl font-medium leading-normal text-gray-800" id="exampleModalCenteredScrollableLabel">
+                                                                    <b>Confirm User Deletion</b>
+                                                                </h5>
+                                                                <button type="button" @click="toSubmit = false" class="btn-close box-content w-4 h-4 p-1 text-black border-none rounded-none opacity-50 focus:shadow-none focus:outline-none focus:opacity-100 hover:text-black hover:opacity-75 hover:no-underline" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                            </div>
+                                                            <div class="modal-body relative p-4">
+                                                                <?php echo 'Are you sure to delete '.$value['USERNAME'].'?' ?>
+                                                            </div>
+                                                            <div class="modal-footer flex flex-shrink-0 flex-wrap items-center justify-end p-4 border-t border-gray-200 rounded-b-md">
+                                                            <form action="<?php echo URLROOT; ?>/users/delete/<?php echo $value['USERNAME'] ?>" method="POST">
+                                                                <button type="button" class="inline-flex w-full justify-center rounded-md border border-transparent bg-red-700 px-4 py-2 text-base font-medium text-white shadow-sm focus:outline-none focus:ring-2  focus:ring-offset-2 sm:ml-3 sm:w-auto sm:text-sm">Delete</button>
+                                                                </form>
+                                                                <button type="button" @click="toSubmit = false" class="mt-3 inline-flex w-full justify-center rounded-md border border-gray-300 bg-white px-4 py-2 text-base font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm">Close</button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                </td>
+                            </tr>
+                        <?php
+                        }
+                        ?>
+                    </tbody>
+                </table>
         </div>
     </div>
     <div class="sm:flex sm:flex-1 sm:justify-between py-4 relative">
-            <div>
-                <p class="text-sm text-white pl-2">
-                    Showing <?php
-                    echo $range;
-                    ?>
-                </p>
-            </div>
+        <div>
+            <p class="text-sm text-white pl-2">
+                Showing <?php
+                        echo $range;
+                        ?>
+            </p>
+        </div>
 
-            <?php
+        <?php
 
-if ($total_pages > 1) { ?>
+                if ($total_pages > 1) { ?>
 
-        <nav class="rounded-md shadow-sm absolute right-0 bottom-2" aria-label="Pagination">
+            <nav class="rounded-md shadow-sm absolute right-0 bottom-2" aria-label="Pagination">
                 <ul class="pagination inline-flex items-center -space-x-px">
 
+                    <?php
+                    if ($current_page > 1) { ?>
+
+                        <li class="page-item"><a class="page-link block px-3 py-2 ml-0 leading-tight text-gray-500 bg-white border border-gray-300 rounded-l-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white" href="<?php echo '?page=1'; ?>">First</a></li>
+
                         <?php
-                        if ($current_page > 1) { ?>
-
-                            <li class="page-item"><a class="page-link block px-3 py-2 ml-0 leading-tight text-gray-500 bg-white border border-gray-300 rounded-l-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white" href="<?php echo '?page=1' ; ?>">First</a></li>
-
-                            <?php
-                        }
-                        for ($page_in_loop = 1; $page_in_loop <= $total_pages; $page_in_loop++) {
-                            if ($total_pages > 3) {
-                                if (($page_in_loop >= $current_page - 5 && $page_in_loop <= $current_page)  || ($page_in_loop <= $current_page + 5 && $page_in_loop >= $current_page)) {  ?>
-
-                                    <li class="page-item <?php echo $page_in_loop == $current_page ? 'active disabled' : ''; ?>">
-                                        <a class="page-link px-3 py-2 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white" href="<?php echo '?page=' . $page_in_loop ; ?> "><?php echo $page_in_loop; ?></a>
-                                    </li>
-
-                                <?php }
-                            }
-                            else { ?>
+                    }
+                    for ($page_in_loop = 1; $page_in_loop <= $total_pages; $page_in_loop++) {
+                        if ($total_pages > 3) {
+                            if (($page_in_loop >= $current_page - 5 && $page_in_loop <= $current_page)  || ($page_in_loop <= $current_page + 5 && $page_in_loop >= $current_page)) {  ?>
 
                                 <li class="page-item <?php echo $page_in_loop == $current_page ? 'active disabled' : ''; ?>">
-                                    <a class="page-link px-3 py-2 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white" href="<?php echo '?page=' . $page_in_loop ; ?> "><?php echo $page_in_loop; ?></a>
+                                    <a class="page-link px-3 py-2 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white" href="<?php echo '?page=' . $page_in_loop; ?> "><?php echo $page_in_loop; ?></a>
                                 </li>
 
-                            <?php } 
-                            ?>
-                        <?php } 
+                            <?php }
+                        } else { ?>
 
-                        if ($current_page < $total_pages) { ?>
+                            <li class="page-item <?php echo $page_in_loop == $current_page ? 'active disabled' : ''; ?>">
+                                <a class="page-link px-3 py-2 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white" href="<?php echo '?page=' . $page_in_loop; ?> "><?php echo $page_in_loop; ?></a>
+                            </li>
 
-                            <li class="page-item"><a class="page-link block px-3 py-2 leading-tight text-gray-500 bg-white border border-gray-300 rounded-r-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white" href="<?php echo '?page=' . $total_pages ; ?>">Last</a></li>
+                        <?php }
+                        ?>
+                    <?php }
 
-                <?php } ?>
-            </ul>
-        </nav>
+                    if ($current_page < $total_pages) { ?>
 
-    <?php } 
-    ?>
-            <div>
+                        <li class="page-item"><a class="page-link block px-3 py-2 leading-tight text-gray-500 bg-white border border-gray-300 rounded-r-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white" href="<?php echo '?page=' . $total_pages; ?>">Last</a></li>
 
-            </div>
+                    <?php } ?>
+                </ul>
+            </nav>
+
+        <?php }
+        ?>
+        <div>
+
         </div>
+    </div>
 <?php
             } else {
 ?>

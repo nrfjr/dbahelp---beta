@@ -1,25 +1,27 @@
 <?php
     class User {
-        private $rmsdb, $fm;
+        private $db, $fm;
         private $total_records_per_page = 9;
 
         public function __construct(){
-            $this->rmsdb = new RMS_Database;
+
             $this->fm = new FileManager;
         }
 
         //makes sure that username and password connect and exist in the database
         public function login($username, $password){
 
-            $query = $this->fm->loadSQL('getUsername');
+            $this->db = new OracleDatabase('RMSPRD');
+
+            $query = $this->fm->loadSQL('get_Username');
             $param = [
                 ':username' => $username
              ];
 
-             $this->rmsdb->queryWithParam($query, $param);
-             $row = $this->rmsdb->single();
+             $this->db->queryWithParam($query, $param);
+             $row = $this->db->single();
 
-             $result = $this->rmsdb->test_connection($username, $password, 'RMS');
+             $result = $this->db->test_connection($username, $password);
 
             if($result){
                 if($row['USERNAME']==$username){
@@ -35,13 +37,15 @@
         }
 
         //create user by provided username and password
-        public function createUser($username, $password){
+        public function createUser($username, $password, $db){
+
+            $this->db = new OracleDatabase($db);
 
             $query = str_replace(array(":username", ":password"), array($username, $password), $this->fm->loadSQL('RMS_createUser'));
 
-            $this->rmsdb->query($query);
+            $this->db->query($query);
 
-            $result = $this->rmsdb->execute();
+            $result = $this->db->execute();
 
             if(!empty($result)){
 
@@ -52,15 +56,16 @@
         }
 
         //gets userlist from usermaster 
-        public function getUserList($search)
-        {       
-           $query=$this->fm->loadSQL('getUser_MasterList');
+        public function getUserList($search, $db)
+        {     
+            $this->db = new OracleDatabase($db);  
+           $query=$this->fm->loadSQL('get_UserMasterList');
            $param = [
                         ':search' => $search[':search']
                     ];
-            $this->rmsdb->queryWithParam($query,$param);
+            $this->db->queryWithParam($query,$param);
 
-            $result = $this->rmsdb->resultSet($query);
+            $result = $this->db->resultSet($query);
            
            if($result){
                 return $result;
@@ -69,8 +74,10 @@
            return false;
         }
 
-        public function insertToUserMaster($data)
+        public function insertToUserMaster($data, $db)
         {
+            $this->db = new OracleDatabase($db); 
+
             $query=$this->fm->loadSQL('insertToUserMaster');
 
             $param = [
@@ -84,11 +91,13 @@
                         ':remarks' => $data['remarks']
                     ];
             
-            $this->rmsdb->queryWithParam($query, $param);
-            $this->rmsdb->execute();
+            $this->db->queryWithParam($query, $param);
+            $this->db->execute();
         }
 
-        public function insertToUserAttrib($data){
+        public function insertToUserAttrib($data, $db){
+
+            $this->db = new OracleDatabase($db); 
 
             $query=$this->fm->loadSQL('insertToUserAttrib');
 
@@ -96,13 +105,15 @@
                         ':username' => $data['username']
                     ];
 
-            $this->rmsdb->queryWithParam($query, $param);
+            $this->db->queryWithParam($query, $param);
 
-            $this->rmsdb->execute();
+            $this->db->execute();
 
         }
 
-        public function insertToUserAccounts($data){
+        public function insertToUserAccounts($data, $db){
+
+            $this->db = new OracleDatabase($db); 
 
             $query=$this->fm->loadSQL('insertToUserAccount');
 
@@ -116,16 +127,12 @@
                         ':status' => $data['status']
                     ];
 
-            $this->rmsdb->queryWithParam($query, $param);
+            $this->db->queryWithParam($query, $param);
 
-            $this->rmsdb->execute();
+            $this->db->execute();
 
         }
 
-        public function pagination()
-        {
-            
-        }
         
         public function grantUserRoleRMS($username)
         {

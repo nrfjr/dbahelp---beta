@@ -5,11 +5,6 @@
     require_once 'helpers/url_helper.php';
     require_once 'helpers/session_helper.php';
 
-    // Load Databases
-    require_once 'databases/RMS_Database.php';
-    require_once 'databases/RDW_Database.php';
-    require_once 'databases/OFIn_Database.php';
-
     // Autoload Core Libraries
     spl_autoload_register(function($className) {
         require_once 'libs/' .$className. '.php';
