@@ -188,15 +188,6 @@
             // Check for POST
             if($_SERVER['REQUEST_METHOD'] == 'POST'){
             
-            $data = [
-                        'action_title' => 'Confirm User Deletion',
-                        'action_message' => 'Are you sure to delete '.$username.' ?',
-                        'action_color' => 'bg-red-400',
-                        'action_name' => 'Delete',
-                        'close_link' => '/users/show'
-            ];
-
-            $this->view('modal/confirm', $data);
 
             }
 

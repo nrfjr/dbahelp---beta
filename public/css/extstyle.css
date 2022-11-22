@@ -118,6 +118,11 @@ footer{
     color: #000000;
     overflow-wrap: break-word;
 }
+.chartDonut{
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+}
 
 .db-stat table{
     justify-content: center;

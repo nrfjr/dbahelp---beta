@@ -88,7 +88,7 @@ require APPROOT . '/views/inc/header.php';
                       }
                   },
                   tooltip:{
-                    intersect: 'true',
+                    position: 'custom',
                     callbacks: {
                       label: function(context){
                         var label = context.label,

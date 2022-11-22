@@ -65,7 +65,7 @@
                     ];
             $this->db->queryWithParam($query,$param);
 
-            $result = $this->db->resultSet($query);
+            $result = $this->db->resultSet();
            
            if($result){
                 return $result;
