@@ -133,22 +133,22 @@ $url = 'http://' . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
                 </svg></button>
             <!-- Dropdown menu -->
-            <div id="dropdown-oracle" class="hidden z-10 w-44 bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700">
+            <div id="dropdown-oracle" class="hidden absolute z-10 w-44 bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700">
                 <ul class="py-1 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefault">
                     <li>
-                        <form action="<?php echo URLROOT; ?>/homepages/index/RMSPRD" method="POST"><button type="submit" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">RMS</button></form>
+                        <form action="<?php echo URLROOT; ?>/homepages/index/RMSPRD" method="POST"><button type="submit" class="block w-full py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">RMS</button></form>
                     </li>
                     <li>
-                        <form action="<?php echo URLROOT; ?>/homepages/index/RDWPRD" method="POST"><button type="submit" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">RDW</button></form>
+                        <form action="<?php echo URLROOT; ?>/homepages/index/RDWPRD" method="POST"><button type="submit" class="block py-2 w-full px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">RDW</button></form>
                     </li>
                     <li>
-                        <form action="<?php echo URLROOT; ?>/homepages/index/OFINDB" method="POST"><button type="submit" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">OFIN</button></form>
+                        <form action="<?php echo URLROOT; ?>/homepages/index/OFINDB" method="POST"><button type="submit" class="block py-2 w-full px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">OFIN</button></form>
                     </li>
                     <li>
-                        <a href="#" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">WMS 192.168.33.57</a>
+                        <a href="#" class="block py-2 w-full px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">WMS 192.168.33.57</a>
                     </li>
                     <li>
-                        <a href="#" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">WMS 192.168.33.60</a>
+                        <a href="#" class="block py-2 w-full px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">WMS 192.168.33.60</a>
                     </li>
                 </ul>
             </div>
