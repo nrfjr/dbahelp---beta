@@ -6,6 +6,11 @@
         public function __construct(){
             $this->userModel = $this->model('User');
 
+            
+            if(!isset($_SESSION['username'])) {
+                redirect('users/login');
+            }
+
         }
 
         public function getIP(){

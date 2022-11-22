@@ -79,7 +79,7 @@ $url = 'http://' . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
                         </a>
                     </li>
                     <li>
-                        <a href="<?php echo URLROOT; ?>/homepage/flashrecovery" class="flex items-center py-4 pl-6 nav-item text-white <?php if (strpos($url, 'flashrecovery')) {
+                        <a href="<?php echo URLROOT; ?>/flashrecoveryareas/fra" class="flex items-center py-4 pl-6 nav-item text-white <?php if (strpos($url, 'flashrecovery')) {
                                                                                                                                             echo 'active-nav-link';
                                                                                                                                         } else {
                                                                                                                                             echo ' opacity-75';

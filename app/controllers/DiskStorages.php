@@ -13,7 +13,7 @@ class DiskStorages extends Controller{
         $data = [
                     'df' => $this->getDF($this->getDFSource($host))
         ];
-        $this->view('homepage/diskstorage', $data);
+        $this->view('diskstorage/diskstorage', $data);
     }
 
     public function getDFSource($hostname)
