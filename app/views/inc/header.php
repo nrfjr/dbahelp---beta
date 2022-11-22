@@ -78,6 +78,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.0/jquery.min.js"></script>
+    <!-- Custom Tooltip Position -->
+    <script type="text/javascript" src="<?php echo URLROOT.'/public/js/customtooltip.js'?>"></script>
 </head>
 
 <body class="bg-gray-100 font-family-lexend flex">
