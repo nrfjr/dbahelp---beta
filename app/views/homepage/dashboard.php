@@ -345,11 +345,11 @@ require APPROOT . '/views/inc/header.php';
             <div class="grid grid-rows-2 h-2/3 col-span-1 z-10 gap-y-6 ">
               <div class="sm-card xl:card">
                 <p class="font-bold">Free</p>
-                <h1 class="text-xl"><?php echo $total[1]; ?>%</h1>
+                <h1 class="text-xl"><?php echo $total[0]; ?>%</h1>
               </div>
               <div class="sm-card xl:card">
                 <p class="font-bold">Used</p>
-                <h1 class="text-xl"><?php echo $total[0]; ?> %</h1>
+                <h1 class="text-xl"><?php echo $total[1]; ?> %</h1>
               </div>
             </div>
           </div>
@@ -367,7 +367,7 @@ require APPROOT . '/views/inc/header.php';
                 datasets: [{
                   label: 'My First Dataset',
                   //Free, Used
-                  data: [<?php echo $total[1]; ?>, <?php echo $total[0]; ?>],
+                  data: [<?php echo $total[0]; ?>, <?php echo $total[1]; ?>],
                   backgroundColor: [
                     '#66ff33',
                     '#339933'
