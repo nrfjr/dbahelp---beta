@@ -125,8 +125,8 @@ if ($first_user_displayed === $last_user_displayed) {
                                                 <font color="#b00020" title="Delete User">
                                                     <i class="fas mt-1 fa-trash ml-2 hover:bg-red-200 rounded-lg w-6 h-6"></i>
                                                 </font>
-                                            </button>
-                                            <div x-show="toSubmit" class="flex justify-center z-10" aria-labelledby="modal-title" role="dialog" aria-modal="true">
+                                            </button> 
+                                            <div x-show="toSubmit" class="border-double border-2 border-red-500 absolute left-1/4 top-1/2 z-10" aria-labelledby="modal-title" role="dialog" aria-modal="true">
                                                 <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"></div>
                                                 <div class="modal fixed fade justify-center mr-48 top-72 w-5/12 h-full outline-none overflow-x-hidden overflow-y-auto" id="ModalCenteredScrollable" tabindex="-1" aria-labelledby="ModalCenteredScrollable" aria-modal="true" role="dialog">
                                                     <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable relative pointer-events-none w-auto">
