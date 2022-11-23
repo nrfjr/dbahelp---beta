@@ -6,10 +6,13 @@
         public function __construct(){
             $this->userModel = $this->model('User');
 
+            /*** Causes Redirection Loop
             
             if(!isset($_SESSION['username'])) {
                 redirect('users/login');
             }
+            
+            ***/
 
         }
 
