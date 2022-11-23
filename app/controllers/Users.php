@@ -5,15 +5,6 @@
 
         public function __construct(){
             $this->userModel = $this->model('User');
-
-            /*** Causes Redirection Loop
-            
-            if(!isset($_SESSION['username'])) {
-                redirect('users/login');
-            }
-            
-            ***/
-
         }
 
         public function getIP(){
@@ -195,8 +186,12 @@
 
             // Check for POST
             if($_SERVER['REQUEST_METHOD'] == 'POST'){
-            
+                
+                //deactivate
 
+                //lock user
+
+                $this->view('users/show', []);
             }
 
         }
@@ -206,7 +201,10 @@
         // Check for POST
             if($_SERVER['REQUEST_METHOD'] == 'POST'){
 
-                $data=['sample' => $id];
+                //get specific details and pass to view
+                $result = $this->userModel->getUserDetails($id, $this->db);
+
+                $data = $result;
 
                 $this->view('users/create', $data);
 

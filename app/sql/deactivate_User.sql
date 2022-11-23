@@ -1,0 +1,1 @@
+UPDATE dbadmins.user_master SET status = 'INACTIVE' WHERE username = (SELECT username FROM dbadmins.user_master WHERE ID = :id)

@@ -55,6 +55,24 @@
 
         }
 
+        // get user details specific to given id
+        public function getUserDetails($id, $db)
+        {
+            $this->db = new OracleDatabase($db);  
+            $query=$this->fm->loadSQL('RMS_getUserDetails');
+            $param = [
+                         ':userid' => $id
+                     ];
+             $this->db->queryWithParam($query,$param);
+ 
+             $result = $this->db->single();
+            
+            if($result){
+                 return $result;
+            }
+            return false;
+        }
+
         //gets userlist from usermaster 
         public function getUserList($search, $db)
         {     
@@ -133,41 +151,48 @@
 
         }
 
+        public function deactivateUser($username, $db)
+        {
+            $this->db = new OracleDatabase($db);
+
+            $query = $this->fm->loadSQL('deactivate_User');
+
+            $param = [
+                        ':username' => $username
+            ];
+
+            $this->db->queryWithParam($query, $param);
+
+            if($this->db->execute()){
+                return 1;
+            }else{
+                return 0;
+            }
+        }
+
+        public function lockUser($username, $db)
+        {
+            $this->db = new OracleDatabase($db);
+
+            $query = $this->fm->loadSQL('lock_User');
+
+            $param = [
+                        ':username' => $username
+            ];
+
+            $this->db->queryWithParam($query, $param);
+
+            if($this->db->execute()){
+                return 1;
+            }else{
+                return 0;
+            }
+        }
+
         
         public function grantUserRoleRMS($username)
         {
-        $RMS = array("GRANT CREATE SESSION TO ", 
-                "GRANT CREATE TABLE TO", 
-                "GRANT CREATE PROCEDURE TO ", 
-                "GRANT CREATE VIEW TO ", 
-                "GRANT DELETE ANY TABLE TO ", 
-                "GRANT INSERT ANY TABLE TO ",
-                "GRANT SELECT ANY TABLE TO ",
-                "GRANT UPDATE ANY TABLE TO ",
-                "GRANT SELECT ANY SEQUENCE TO ",
-                "GRANT EXECUTE ANY PROCEDURE TO ",
-                "GRANT CREATE ANY PROCEDURE TO ",
-                "GRANT DROP ANY PROCEDURE TO ",
-                "GRANT EXECUTE ANY PROCEDURE TO ",
-                "GRANT CREATE ANY TABLE TO ",
-                "GRANT DROP ANY TABLE TO ",
-                "GRANT SELECT ANY TABLE TO ",
-                "GRANT CREATE ANY CONTEXT TO ",
-                "GRANT ALTER SESSION TO ",
-                "GRANT ANALYZE ANY TO ",
-                "GRANT CREATE ANY SYNONYM TO ",
-                "GRANT CREATE ANY TYPE TO ",
-                "GRANT CREATE DATABASE LINK TO ",
-                "GRANT CREATE LIBRARY TO ", 
-                "GRANT CREATE MATERIALIZED VIEW TO ",
-                "GRANT CREATE PUBLIC DATABASE LINK TO ",
-                "GRANT CREATE PUBLIC SYNONYM TO ",
-                "GRANT CREATE SEQUENCE TO ",
-                "GRANT CREATE SYNONYM TO ",
-                "GRANT CREATE TRIGGER TO ",
-                "GRANT DROP ANY SYNONYM TO ",
-                "GRANT EXECUTE ANY TYPE TO ",
-                "GRANT QUERY REWRITE TO ");
+        //$RMS = array();
 
         }
 

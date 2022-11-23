@@ -4,7 +4,7 @@ require APPROOT . '/views/inc/header.php';
 ?>
 <?php require APPROOT . '/views/inc/sidebar.php'; ?>
 
-<h1 class="text-3xl text-black pb-6 text-white"><b><?php echo $data==null? 'Create User' : 'Edit User'; ?></b></h1>
+<h1 class="text-3xl text-black pb-6 text-white"><b><?php echo $data == null ? 'Create User' : 'Edit User'; ?></b></h1>
 <!-- <label for="database" class="absolute right-0 text-sm font-medium text-gray-700">Database</label>
       <select id="database" name="database" autocomplete="database" class="mr-6 absolute right-0 block w-64 rounded-md border border-gray-300 bg-white py-2 px-2 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm" required>
         <option>RMSPRD</option>
@@ -21,7 +21,7 @@ require APPROOT . '/views/inc/header.php';
   <div class="md:grid md:grid-cols-3 md:gap-6">
     <div class="md:col-span-1">
       <div class="px-4 sm:px-0">
-        <h3 class="text-lg font-medium leading-6 text-gray-300">Employee Information</h3>
+        <h3 class="text-lg font-medium leading-6 text-gray-300">Employee Information<?php print_r($data);?></h3>
         <p class="mt-1 text-sm text-gray-500"><em>Include remarks to notice user access.</em></p>
       </div>
     </div>
@@ -32,37 +32,52 @@ require APPROOT . '/views/inc/header.php';
             <div class="grid mt-10 grid-cols-6 gap-16">
               <div class="col-span-6 sm:col-span-2">
                 <label for="first-name" class="block text-sm font-medium text-gray-700">Firstname</label>
-                <input type="text" name="first-name" id="first-name" autocomplete="given-name" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm " placeholder="John">
+                <input type="text" name="first-name" id="first-name" autocomplete="given-name" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm " placeholder="John" value="<?php echo $data!=null? $data['Firstname']:'';?>">
               </div>
 
               <div class="col-span-6 sm:col-span-2">
                 <label for="middle-name" class="block text-sm font-medium text-gray-700">Middlename (Optional)</label>
-                <input type="text" name="middle-name" id="middle-name" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
+                <input type="text" name="middle-name" id="middle-name" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" value="<?php echo $data!=null? $data['Middlename']:'';?>">
               </div>
 
               <div class="col-span-6 sm:col-span-2">
                 <label for="last-name" class="block text-sm font-medium text-gray-700">Lastname</label>
-                <input type="text" name="last-name" id="last-name" autocomplete="family-name" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm " placeholder="Doe">
+                <input type="text" name="last-name" id="last-name" autocomplete="family-name" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm " placeholder="Doe" value="<?php echo $data!=null? $data['Lastname']:'';?>">
               </div>
 
               <div class="col-span-6 sm:col-span-2">
                 <label for="Id" class="block text-sm font-medium text-gray-700">Employee ID</label>
-                <input type="number" name="Id" id="Id" autocomplete="Id" class="mt-1 block w-64 rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm " placeholder="1234567890">
+                <input type="number" name="Id" id="Id" autocomplete="Id" class="mt-1 block w-64 rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm " placeholder="1234567890" value="<?php echo $data!=null? $data['User Id']:'';?>">
               </div>
 
               <div class="col-span-6 sm:col-span-4">
                 <label for="requestor" class="block text-sm font-medium text-gray-700">Requested By</label>
-                <input type="text" name="requestor" id="requestor" autocomplete="requestor" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm " placeholder="John Doe">
+                <input type="text" name="requestor" id="requestor" autocomplete="requestor" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm " placeholder="John Doe" value="<?php echo $data!=null? $data['Requestor']:'';?>">
               </div>
 
               <div class="col-span-6 sm:col-span-3">
                 <label for="application" class="block text-sm font-medium text-gray-700">Application</label>
-                <select id="application" name="application" autocomplete="application" class="mt-1 block w-full rounded-md border border-gray-300 bg-white py-2 px-3 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm">
-                  <option>ORMS</option>
-                  <option>OREIM</option>
-                  <option>ORPM</option>
-                  <option>KCS RETAIL</option>
-                  <option>CUSTOM APP (OTHERS)</option>
+                <select id="application" name="application" autocomplete="application" class="mt-1 block w-full rounded-md border border-gray-300 bg-white py-2 px-3 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm" value="<?php echo $data!=null? $data['Application']:'';?>">
+                  <?php
+                  $options = [
+                    'RMS' => array('ORMS', 'OREIM', 'ORPM', 'KCS RETAIL', 'CUSTOM APP (OTHERS)'),
+                    'RDW' => array('KCS RETAIL', 'CUSTOM APP (OTHERS)')
+                  ];
+
+                  if ($_SESSION['UserDB'] == 'RMSPRD' || $_SESSION['UserDB'] == 'default') {
+
+                    foreach ($options['RMS'] as $option) {
+
+                  ?>
+                      <option><?php echo $option; ?></option>
+                    <?php
+                    }
+                  } else {
+                    foreach ($options['RDW'] as $option) {
+                    ?>
+                      <option><?php echo $option; ?></option>
+                  <?php }
+                  } ?>
                 </select>
               </div>
             </div>
@@ -70,7 +85,7 @@ require APPROOT . '/views/inc/header.php';
             <div>
               <label for="remarks" class="block text-sm font-medium text-gray-700">Remarks</label>
               <div class="mt-1">
-                <textarea id="remarks" name="remarks" rows="3" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm " placeholder="Enter Remarks"></textarea>
+                <textarea id="remarks" name="remarks" rows="3" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm " placeholder="Enter Remarks" value="<?php echo $data!=null? $data['Remarks']:'';?>"></textarea>
               </div>
               <p class="mt-2 text-sm text-gray-500"><em>User account remarks (ie: Access).</em></p>
             </div>
