@@ -37,10 +37,10 @@ require APPROOT . '/views/inc/header.php';
                         <h1 class="text-xl">234 MB</h1>
                     </div>
                     <div>
-                        <button class="rounded-lg w-full lg:w-1/2 xl:w-full 2xl:w-1/2 bg-gray-100 border-1 border-solid border-gray-900 text-center p-4">Resize RFA</button>
+                        <button class="rounded-lg w-full lg:w-1/2 xl:w-full 2xl:w-1/2 bg-gray-100 border-1 border-solid border-gray-900 text-center px-4 py-2">Resize RFA</button>
                     </div>
                     <div>
-                        <button class="rounded-lg w-full lg:w-1/2 xl:w-full 2xl:w-1/2 bg-gray-100 border-1 border-solid border-gray-900 text-center p-4">Log Switches</button>
+                        <button class="rounded-lg w-full lg:w-1/2 xl:w-full 2xl:w-1/2 bg-gray-100 border-1 border-solid border-gray-900 text-center px-4 py-2">Log Switches</button>
                     </div>
                 </div>
               </div>
@@ -156,10 +156,10 @@ require APPROOT . '/views/inc/header.php';
                         <h1 class="text-xl">234 MB</h1>
                     </div>
                     <div>
-                        <button class="rounded-lg w-full lg:w-1/2 xl:w-full 2xl:w-1/2 bg-gray-100 border-1 border-solid border-gray-900 text-center p-4">Resize RFA</button>
+                        <button class="rounded-lg w-full lg:w-1/2 xl:w-full 2xl:w-1/2 bg-gray-100 border-1 border-solid border-gray-900 text-center px-4 py-2">Resize RFA</button>
                     </div>
                     <div>
-                        <button class="rounded-lg w-full lg:w-1/2 xl:w-full 2xl:w-1/2 bg-gray-100 border-1 border-solid border-gray-900 text-center p-4">Log Switches</button>
+                        <button class="rounded-lg w-full lg:w-1/2 xl:w-full 2xl:w-1/2 bg-gray-100 border-1 border-solid border-gray-900 text-center px-4 py-2">Log Switches</button>
                     </div>
                 </div>
               </div>
@@ -275,10 +275,10 @@ require APPROOT . '/views/inc/header.php';
                         <h1 class="text-xl">234 MB</h1>
                     </div>
                     <div>
-                        <button class="rounded-lg w-full lg:w-1/2 xl:w-full 2xl:w-1/2 bg-gray-100 border-1 border-solid border-gray-900 text-center p-4">Resize RFA</button>
+                        <button class="rounded-lg w-full lg:w-1/2 xl:w-full 2xl:w-1/2 bg-gray-100 border-1 border-solid border-gray-900 text-center px-4 py-2">Resize RFA</button>
                     </div>
                     <div>
-                        <button class="rounded-lg w-full lg:w-1/2 xl:w-full 2xl:w-1/2 bg-gray-100 border-1 border-solid border-gray-900 text-center p-4">Log Switches</button>
+                        <button class="rounded-lg w-full lg:w-1/2 xl:w-full 2xl:w-1/2 bg-gray-100 border-1 border-solid border-gray-900 text-center px-4 py-2">Log Switches</button>
                     </div>
                 </div>
               </div>
@@ -394,10 +394,10 @@ require APPROOT . '/views/inc/header.php';
                         <h1 class="text-xl">234 MB</h1>
                     </div>
                     <div>
-                        <button class="rounded-lg w-full lg:w-1/2 xl:w-full 2xl:w-1/2 bg-gray-100 border-1 border-solid border-gray-900 text-center p-4">Resize RFA</button>
+                        <button class="rounded-lg w-full lg:w-1/2 xl:w-full 2xl:w-1/2 bg-gray-100 border-1 border-solid border-gray-900 text-center px-4 py-2">Resize RFA</button>
                     </div>
                     <div>
-                        <button class="rounded-lg w-full lg:w-1/2 xl:w-full 2xl:w-1/2 bg-gray-100 border-1 border-solid border-gray-900 text-center p-4">Log Switches</button>
+                        <button class="rounded-lg w-full lg:w-1/2 xl:w-full 2xl:w-1/2 bg-gray-100 border-1 border-solid border-gray-900 text-center px-4 py-2">Log Switches</button>
                     </div>
                 </div>
               </div>
