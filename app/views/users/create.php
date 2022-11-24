@@ -18,18 +18,18 @@ require APPROOT . '/views/inc/header.php';
   </div>
 </div>
 <div class="mt-10 sm:mt-0">
-  <div class="md:grid md:grid-cols-3 md:gap-6">
+  <div class="xl:grid xl:grid-cols-3 xl:gap-6">
     <div class="md:col-span-1">
       <div class="px-4 sm:px-0">
         <h3 class="text-lg font-medium leading-6 text-gray-300">Employee Information<?php print_r($data);?></h3>
         <p class="mt-1 text-sm text-gray-500"><em>Include remarks to notice user access.</em></p>
       </div>
     </div>
-    <div class="mt-5 md:col-span-2 md:mt-0">
+    <div class="mt-5 xl:col-span-2 md:mt-0 justify-evenly">
       <div class="bg-white overflow-hidden shadow sm:rounded-md pb-44 relative">
         <form action="<?php echo URLROOT; ?>/users/create" method="POST">
           <div class="bg-white px-4 py-5 sm:p-6">
-            <div class="grid mt-10 grid-cols-6 gap-16">
+            <div class="grid mt-10 grid-cols-6 gap-16 border">
               <div class="col-span-6 sm:col-span-2">
                 <label for="first-name" class="block text-sm font-medium text-gray-700">Firstname</label>
                 <input type="text" name="first-name" id="first-name" autocomplete="given-name" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm " placeholder="John" value="<?php echo $data!=null? $data['Firstname']:'';?>">
