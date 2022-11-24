@@ -3,7 +3,7 @@ $url = 'http://' . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
 ?>
 
 
-<aside id="myNav" class="hidden md:relative h-screen w-64 md:block overflow-y-auto scrollbar-hide transition ease-in-out delay-150">
+<aside id="myNav" class="hidden fixed md:relative h-screen w-64 md:block overflow-y-auto scrollbar-hide transition ease-in-out delay-150">
     <div>
         <div class="pt-6 px-6 pb-3 logo">
             <a href="<?php echo URLROOT; ?>/homepage/dashboard" class="text-white text-3xl font-semibold hover:text-gray-300"><?php echo SITENAME ?></a>
@@ -469,7 +469,7 @@ $url = 'http://' . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
         </div>
         
         <!--TOP NAVBAR-->
-        <div x-data="{ isOpen: false }" class="relative w-1/2 sm:w-1/2 md:w-1/4 inline-flex justify-end right-5">
+        <div x-data="{ isOpen: false }" class="relative w-1/4 sm:w-1/4 md:w-1/4 inline-flex justify-end right-5">
             <?php if (isset($_SESSION['username'])) : ?>
                 <h4 class="py-1 px-2 text-white hidden md:inline-flex"><?php echo  '<b>' . $_SESSION['username'] . '</b>' ?></h4>
             <?php endif; ?>
