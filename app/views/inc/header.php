@@ -80,6 +80,8 @@
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.0/jquery.min.js"></script>
     <!-- Custom Tooltip Position -->
     <script type="text/javascript" src="<?php echo URLROOT.'/public/js/customtooltip.js'?>"></script>
+    <!-- SideNavHideFunc -->
+    <script type="text/javascript" src="<?php echo URLROOT.'/public/js/sideNav.js'?>"></script>
 </head>
 
 <body class="bg-gray-100 font-family-lexend flex">

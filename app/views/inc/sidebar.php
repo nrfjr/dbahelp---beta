@@ -3,7 +3,7 @@ $url = 'http://' . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
 ?>
 
 
-<aside class="relative h-screen w-64 sm:block overflow-y-auto scrollbar-hide transition ease-in-out delay-150">
+<aside id="myNav" class="hidden relative h-screen w-64 md:block overflow-y-auto scrollbar-hide transition ease-in-out delay-150">
     <div>
         <div class="pt-6 px-6 pb-3 logo">
             <a href="<?php echo URLROOT; ?>/homepage/dashboard" class="text-white text-3xl font-semibold hover:text-gray-300"><?php echo SITENAME ?></a>
@@ -125,6 +125,9 @@ $url = 'http://' . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
     <header class="w-full items-center bg-gray-600 py-2 px-6 sm:flex">
         <!--TOP NAVBAR-->
         <div class="w-full">
+                <button class="justify-center md:hidden mx-2 p-4 hover:bg-gray-400 rounded-full" onclick="navToggle()">
+                    <i class="fas fa-regular fa-bars"></i>
+                </button>
             <!--Oracle Databases-->
             <button id="dropdownDefault" data-dropdown-toggle="dropdown-oracle" class="text-white bg-gray-600 hover:bg-gray-400 hover:text-black focus:ring-4 focus:outline-none focus:ring-gray-800 font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800
                             <!--THIS BELOW CHANGE URL-->
@@ -464,10 +467,11 @@ $url = 'http://' . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
             </div>
             <!--Database Manage User-->
         </div>
+        
         <!--TOP NAVBAR-->
-        <div x-data="{ isOpen: false }" class="relative w-1/2 md:w-1/4 flex justify-end">
+        <div x-data="{ isOpen: false }" class="relative w-1/2 sm:w-1/2 md:w-1/4 inline-flex justify-end right-5">
             <?php if (isset($_SESSION['username'])) : ?>
-                <h4 class="py-1 px-2 text-white"><?php echo  '<b>' . $_SESSION['username'] . '</b>' ?></h4>
+                <h4 class="py-1 px-2 text-white hidden md:inline-flex"><?php echo  '<b>' . $_SESSION['username'] . '</b>' ?></h4>
             <?php endif; ?>
             <button @click="isOpen = !isOpen" class="realtive z-10 w-12 h-12 rounded-full overflow-hidden border-4 border-gray-400 hover:border-gray-300 focus:border-gray-300 focus:outline-none">
                 <img src="<?php echo URLROOT; ?>/public/img/user.png">
