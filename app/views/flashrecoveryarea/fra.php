@@ -37,10 +37,10 @@ require APPROOT . '/views/inc/header.php';
                         <h1 class="text-xl">234 MB</h1>
                     </div>
                     <div>
-                        <button class="rounded-lg w-full lg:w-1/2 xl:w-full 2xl:w-1/2 bg-gray-100 border-1 border-solid border-gray-900 text-center px-4 py-2">Resize RFA</button>
+                        <button class="rounded-lg w-full lg:w-1/2 xl:w-full 2xl:w-1/2 bg-gray-100 hover:bg-gray-500 border-1 border-solid border-gray-900 text-center px-4 py-2">Resize RFA</button>
                     </div>
                     <div>
-                        <button class="rounded-lg w-full lg:w-1/2 xl:w-full 2xl:w-1/2 bg-gray-100 border-1 border-solid border-gray-900 text-center px-4 py-2">Log Switches</button>
+                        <button class="rounded-lg w-full lg:w-1/2 xl:w-full 2xl:w-1/2 bg-gray-100 hover:bg-gray-500 border-1 border-solid border-gray-900 text-center px-4 py-2">Log Switches</button>
                     </div>
                 </div>
               </div>
@@ -69,8 +69,7 @@ require APPROOT . '/views/inc/header.php';
                       '#66ff33'
                     ],
       
-                    hoverOffset: 20,
-                    borderWidht: 4,
+                    hoverOffset: [15,20]
                   }]
                 },
                 options: { //this is where i do changes for chart options, ref: https://www.chartjs.org/docs/latest/configuration/title.html
@@ -107,7 +106,7 @@ require APPROOT . '/views/inc/header.php';
                       }
                     },
                     tooltip: {
-                      position: 'average',
+                      position: 'custom',
                       callbacks: {
                         label: function(context) {
                           var label = context.label,
@@ -226,7 +225,7 @@ require APPROOT . '/views/inc/header.php';
                       }
                     },
                     tooltip: {
-                      position: 'average',
+                      position: 'custom',
                       callbacks: {
                         label: function(context) {
                           var label = context.label,
@@ -345,7 +344,7 @@ require APPROOT . '/views/inc/header.php';
                       }
                     },
                     tooltip: {
-                      position: 'average',
+                      position: 'custom',
                       callbacks: {
                         label: function(context) {
                           var label = context.label,
@@ -464,7 +463,7 @@ require APPROOT . '/views/inc/header.php';
                       }
                     },
                     tooltip: {
-                      position: 'average',
+                      position: 'custom',
                       callbacks: {
                         label: function(context) {
                           var label = context.label,
