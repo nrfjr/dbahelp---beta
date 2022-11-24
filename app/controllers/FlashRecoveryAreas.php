@@ -1,11 +1,11 @@
 <?php
     class FlashRecoveryAreas extends Controller{
 
-        private $db;
+        private $fraModel;
 
         public function __construct()
         {
-            $this->userModel = $this->model('FlashRecoveryArea');
+            $this->fraModel = $this->model('FlashRecoveryArea');
 
             if(!isset($_SESSION['username'])) {
                 redirect('users/login');
@@ -16,7 +16,13 @@
         {
             self::__construct();
 
-            $this->view('flashrecoveryarea/fra', []);
+            $data = [
+                        'RMS' => $this->fraModel->getFRA('RMSPRD'),
+                        'RDW' => $this->fraModel->getFRA('RDWPRD'),
+                        'OFIN' => $this->fraModel->getFRA('OFINDB')
+            ];
+
+            $this->view('flashrecoveryarea/fra', $data);
         }
 
     }

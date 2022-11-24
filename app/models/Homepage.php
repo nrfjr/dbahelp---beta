@@ -57,7 +57,9 @@
                 $data = [
                     'FRA Size' => $result['FRA SIZE'],
                     'FRA Usage' => $result['FRA USAGE'],
-                    'FRA Percentage' => $result['FREE / USED']
+                    'FRA Percentage' => $result['FREE / USED'],
+                    'FRA Location' => $result['Location'],
+                    'FRA Reclaimable' => $result['Reclaimable']
                 ];
 
                 return $data;

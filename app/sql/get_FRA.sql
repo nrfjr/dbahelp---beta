@@ -1,7 +1,8 @@
-                   
 SELECT      
             b.TOTAL AS "FRA SIZE",
             b.USED AS "FRA USAGE",
+            b.NAME AS "Location",
+            b.SPACE_RECLAIMABLE AS "Reclaimable",
 			CONCAT(
                 CONCAT(
                         (CASE WHEN a.PERCENT_USED> 100 THEN 0 ELSE (100-a.PERCENT_USED) END), ' / '), a.PERCENT_USED) AS "FREE / USED"
@@ -33,5 +34,5 @@ SELECT
             TO_CHAR(SPACE_USED/POWER(2,30),'fm999999') || ' GB'
             else
             TO_CHAR(SPACE_USED/POWER(2,40),'fm999999') || ' TB' 
-            END) AS "USED"
+            END) AS "USED", NAME, SPACE_RECLAIMABLE
                    from     V$RECOVERY_FILE_DEST) b
