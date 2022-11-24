@@ -3,7 +3,7 @@ $url = 'http://' . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
 ?>
 
 
-<aside id="myNav" class="hidden relative h-screen w-64 md:block overflow-y-auto scrollbar-hide transition ease-in-out delay-150">
+<aside id="myNav" class="hidden md:relative h-screen w-64 md:block overflow-y-auto scrollbar-hide transition ease-in-out delay-150">
     <div>
         <div class="pt-6 px-6 pb-3 logo">
             <a href="<?php echo URLROOT; ?>/homepage/dashboard" class="text-white text-3xl font-semibold hover:text-gray-300"><?php echo SITENAME ?></a>
