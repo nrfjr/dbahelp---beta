@@ -309,6 +309,7 @@ require APPROOT . '/views/inc/header.php';
         url: '../app/controllers/Homepage',
         dataType: 'html',
         success: function(response) {
+          
           Sessions = jQuery(response).find('#Sessions').html();
 
           DBStatus = jQuery(response).find('#DBStatus').html();

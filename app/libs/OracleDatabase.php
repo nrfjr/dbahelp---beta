@@ -18,16 +18,27 @@
             
             try{
 
-                    if($dbname === 'RDWPRD'){
+                    if($dbname === 'RDWPRD')
+                    {
                         return new PDO("oci:dbname=" . $this->getTNS(RDW_HOST, DEFAULT_PORT, RDW_SID). ";charset=utf8", RDW_USERNAME, RDW_PASSWORD, $this->getOption());
-                    }else if ($dbname === 'OFINDB'){
+                    }
+                    else if ($dbname === 'OFINDB')
+                    {
                         return new PDO("oci:dbname=" . $this->getTNS(OFIN_HOST, DEFAULT_PORT, OFIN_SID). ";charset=utf8", OFIN_USERNAME, OFIN_PASSWORD, $this->getOption());
-                    }else{
+                    }
+                    else if($dbname === 'USERS'){
+
+                        return new PDO("oci:dbname=" . $this->getTNS(RMS_HOST, DEFAULT_PORT, RMS_SID). ";charset=utf8", RMS_USERNAME, RMS_PASSWORD, $this->getOption());
+                    }
+                    else
+                    {
                         return new PDO("oci:dbname=" . $this->getTNS(RMS_HOST, DEFAULT_PORT, RMS_SID). ";charset=utf8", ADMIN_USERNAME, ADMIN_PASSWORD, $this->getOption());
                     }
                     
                 } catch(PDOException $e){
+
                     redirect('errors/void');
+
             }
         }
 

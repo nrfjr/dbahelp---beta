@@ -13,6 +13,7 @@
             // address getHostName() gets the name
             // of the local machine getHostByName()
             // gets the corresponding IP
+            
             $localIP = getHostByNamel(getHostName());
         
             // Displaying the address 
@@ -135,7 +136,7 @@
                 $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
                 $search = [':search' => trim(empty($_POST['search'])?'':$_POST['search'])];
             }
-            
+
             $_SESSION['UserDB'] = $DB;
 
             if(isset($_SESSION['UserDB'])){
@@ -202,7 +203,7 @@
             if($_SERVER['REQUEST_METHOD'] == 'POST'){
 
                 //get specific details and pass to view
-                $result = $this->userModel->getUserDetails($id, $this->db);
+                $result = $this->userModel->getUserDetails($id);
 
                 $data = $result;
 
