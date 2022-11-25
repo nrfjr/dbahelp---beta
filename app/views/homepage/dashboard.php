@@ -370,12 +370,12 @@ require APPROOT . '/views/inc/header.php';
               //Free, Used
               data: [<?php echo $total[0]; ?>, <?php echo $total[1]; ?>],
               backgroundColor: [
-                '#66ff33',
-                '#339933'
+                '#339933',
+                '#66ff33'
               ],
               borderColor: [
-                '#66ff33',
-                '#339933'
+                '#339933',
+                '#66ff33'
               ],
 
               hoverOffset: 20,
