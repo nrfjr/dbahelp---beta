@@ -27,7 +27,7 @@
                     <input type="hidden" name="remember" value="true">
                     <div class="-space-y-px rounded-md shadow-sm">
                         <div>
-                            <label for="username" class="sr-only" >Username</label>
+                            <label for="username" class="sr-only">Username</label>
                             <input id="username" name="username" type="text" onkeyup="this.value = this.value.toUpperCase();" required class="relative block w-full appearance-none rounded-none rounded-t-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm" placeholder="USERNAME">
                         </div>
                         <div>
@@ -52,10 +52,10 @@
                     </div>
                     <div class="flex items-center justify-center text-sm">
                         <a href="#" class="font-medium text-indigo-600 hover:text-indigo-500">Forgot your password?</a>
-                        </div>
                     </div>
-                </form>
             </div>
+            </form>
+        </div>
         </div>
 
         <footer class="fixed bottom-0 left-0 w-full flex items-center justify-start font-bold bg-indigo-500 text-white h-10 mt-24 opacity-90 md:justify-center">
