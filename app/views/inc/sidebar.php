@@ -471,8 +471,9 @@ $url = 'http://' . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
                 <img src="<?php echo URLROOT; ?>/public/img/user.png">
             </button>
             <button x-show="isOpen" @click="isOpen = false" class="h-full w-full fixed inset-0 cursor-default"></button>
-            <div x-show="isOpen" class="absolute w-32 justify-center bg-gray-600 rounded-lg shadow-lg px-4 py-2 mt-16">
-                <a href="<?php echo URLROOT; ?>/users/logout" class="block text-white  text-center  py-2 rounded-lg hover:bg-gray-400 hover:text-black">Sign Out</a>
+            <div x-show="isOpen" class="absolute w-32 justify-center bg-gray-900 rounded-lg shadow-lg px-4 py-2 mt-16">
+            <div class="absolute top-0 left-3/4 transform -translate-x-1/2 -translate-y-1/2 rotate-45 w-4 h-4 bg-gray-900"></div>
+                <a href="<?php echo URLROOT; ?>/users/logout" class="block text-gray-300  text-center  py-2 mt-2 rounded-lg hover:bg-red-600 hover:text-white">Sign Out</a>
             </div>
         </div>
     </header>
