@@ -7,11 +7,11 @@ require APPROOT . '/views/inc/sidebar.php'; ?>
     <a href="<?php echo URLROOT; ?>/homepage/dashboard" class="no-underline hover:underline">Monitor</a> > <b>Redo Log Generation</b>
 </h1>
 
-<div class="grid grid-rows-2 gap-2" style="height: 80vh; overflow: clip;">
+<div class="grid grid-cols-1 gap-2" style="height: 80vh; overflow: clip;">
     <div class="box">
         <div id="redochart" class="bg-gray-300 rounded-md"></div>
     </div>
-    <div class="flex  justify-center w-full shadow-md overflow-auto sm:rounded-lg" style="max-height: 93%;">
+    <div class="flex justify-center h-full w-full shadow-md overflow-auto sm:rounded-lg lg:max-h-80 xl:max-h-96" >
         <table class="w-full text-sm text-center text-white dark:text-gray-400">
             <thead class="text-md text-black bg-indigo-200 dark:bg-gray-700 dark:text-gray-400">
                 <tr>
@@ -56,6 +56,41 @@ require APPROOT . '/views/inc/sidebar.php'; ?>
                     <td class="py-4 px-6" title="show query">89</td>
                     <td class="py-4 px-6" title="show query">15290</td>
                 </tr>
+                <tr>
+                    <td class="py-4 px-6" title="show query">21-JUL-12</td>
+                    <td class="py-4 px-6" title="show query">89</td>
+                    <td class="py-4 px-6" title="show query">15290</td>
+                </tr>
+                <tr>
+                    <td class="py-4 px-6" title="show query">21-JUL-12</td>
+                    <td class="py-4 px-6" title="show query">89</td>
+                    <td class="py-4 px-6" title="show query">15290</td>
+                </tr>
+                <tr>
+                    <td class="py-4 px-6" title="show query">21-JUL-12</td>
+                    <td class="py-4 px-6" title="show query">89</td>
+                    <td class="py-4 px-6" title="show query">15290</td>
+                </tr>
+                <tr>
+                    <td class="py-4 px-6" title="show query">21-JUL-12</td>
+                    <td class="py-4 px-6" title="show query">89</td>
+                    <td class="py-4 px-6" title="show query">15290</td>
+                </tr>
+                <tr>
+                    <td class="py-4 px-6" title="show query">21-JUL-12</td>
+                    <td class="py-4 px-6" title="show query">89</td>
+                    <td class="py-4 px-6" title="show query">15290</td>
+                </tr>
+                <tr>
+                    <td class="py-4 px-6" title="show query">21-JUL-12</td>
+                    <td class="py-4 px-6" title="show query">89</td>
+                    <td class="py-4 px-6" title="show query">15290</td>
+                </tr>
+                <tr>
+                    <td class="py-4 px-6" title="show query">21-JUL-12</td>
+                    <td class="py-4 px-6" title="show query">89</td>
+                    <td class="py-4 px-6" title="show query">15290</td>
+                </tr>
             </tbody>
         </table>
     </div>
@@ -65,7 +100,7 @@ require APPROOT . '/views/inc/sidebar.php'; ?>
     var options = {
           series: [{
             name: "Desktops",
-            data: [10, 41, 35, 51, 49, 62, 69, 91, 148]
+            data: [89, 109, 146, 116, 123, 151, 45, 126, 132]
         }],
           chart: {
           height: '100%',

@@ -65,8 +65,8 @@ if ($first_user_displayed === $last_user_displayed) {
             </form>
         </div>
     </div>
-    <div style="height: 68vh; overflow: clip;">
-        <div class="flex w-full shadow-md overflow-auto sm:rounded-lg" style="max-height: 80%; min-height: 100%;">
+    <div style="height: 65vh; overflow: clip;">
+        <div class="flex w-full shadow-md overflow-auto sm:rounded-lg" style="max-height: 98%;">
             <?php
             if (!empty($users)) {
 

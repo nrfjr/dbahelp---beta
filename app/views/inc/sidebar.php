@@ -19,7 +19,7 @@ $url = 'http://' . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
                         </a>
 
                         <button type="button" class="flex-auto items-center py-4 hover:bg-gray-300 text-white" aria-expanded="<?php
-                                                                                                                                if (preg_match('/dashboard|index/', $url)) {
+                                                                                                                                if (preg_match('/dashboard|index|monitor|object|performance|security|storage/', $url)) {
                                                                                                                                     echo 'true';
                                                                                                                                 } else {
                                                                                                                                     echo ' false';
@@ -37,7 +37,7 @@ $url = 'http://' . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
                     </li>
                     <ul id="databases" class="hidden py-1  ">
                         <li>
-                            <a href="<?php echo URLROOT; ?>/homepage/dashboard" class="flex items-center hover:opacity-100 py-4 pl-12 nav-item text-white <?php if (preg_match('/dashboard|index/', $url)) {
+                            <a href="<?php echo URLROOT; ?>/homepage/dashboard" class="flex items-center hover:opacity-100 py-4 pl-12 nav-item text-white <?php if (preg_match('/dashboard|index|monitor|object|performance|security|storage/', $url)) {
                                                                                                                                                                 echo 'active-nav-link ';
                                                                                                                                                             } else {
                                                                                                                                                                 echo 'opacity-75';
@@ -288,22 +288,22 @@ $url = 'http://' . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
                             <div id="dropdown-sm-monitor" class="hidden absolute z-10 w-44 bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700 left-0">
                                 <ul class="py-1 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefault">
                                     <li>
-                                        <a href="#" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">User Sessions</a>
+                                        <a href="<?php echo URLROOT; ?>/monitors/usersessions" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">User Sessions</a>
                                     </li>
                                     <li>
-                                        <a href="#" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Locked Sessions</a>
+                                        <a href="<?php echo URLROOT; ?>/monitors/lockedsessions" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Locked Sessions</a>
                                     </li>
                                     <li>
-                                        <a href="#" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">RMAN Backup Reports</a>
+                                        <a href="<?php echo URLROOT; ?>/monitors/rmanbackupreports" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">RMAN Backup Reports</a>
                                     </li>
                                     <li>
-                                        <a href="#" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Redo Log File Switches</a>
+                                        <a href="<?php echo URLROOT; ?>/monitors/redologswitches" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Redo Log File Switches</a>
                                     </li>
                                     <li>
-                                        <a href="#" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Redo Generation Per Day</a>
+                                        <a href="<?php echo URLROOT; ?>/monitors/redologgenerations" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Redo Generation Per Day</a>
                                     </li>
                                     <li>
-                                        <a href="#" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Top SQL Running Processes</a>
+                                        <a href="<?php echo URLROOT; ?>/monitors/topsql" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Top SQL Running Processes</a>
                                     </li>
                                 </ul>
                             </div>
@@ -318,19 +318,19 @@ $url = 'http://' . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
                             <div id="dropdown-sm-performance" class="hidden z-10 w-44 bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700">
                                 <ul class="py-1 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefault">
                                     <li>
-                                        <a href="#" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">PGA Target Advisor</a>
+                                        <a href="<?php echo URLROOT; ?>/performances/pgatargetadvisor" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">PGA Target Advisor</a>
                                     </li>
                                     <li>
-                                        <a href="#" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">SGA Target Advisor</a>
+                                        <a href="<?php echo URLROOT; ?>/performances/sgatargetadvisor" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">SGA Target Advisor</a>
                                     </li>
                                     <li>
-                                        <a href="#" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Buffer Cache Advisor</a>
+                                        <a href="<?php echo URLROOT; ?>/performances/buffercacheadvisor" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Buffer Cache Advisor</a>
                                     </li>
                                     <li>
-                                        <a href="#" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Hit Ratio - Quick Checks</a>
+                                        <a href="<?php echo URLROOT; ?>/performances/hitratio" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Hit Ratio - Quick Checks</a>
                                     </li>
                                     <li>
-                                        <a href="#" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Table Statistics Status</a>
+                                        <a href="<?php echo URLROOT; ?>/performances/tablestatistics" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Table Statistics Status</a>
                                     </li>
                                 </ul>
                             </div>
@@ -345,16 +345,10 @@ $url = 'http://' . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
                             <div id="dropdown-sm-security" class="hidden z-10 w-44 bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700">
                                 <ul class="py-1 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefault">
                                     <li>
-                                        <a href="#" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">List All DB Users</a>
+                                        <a href="<?php echo URLROOT; ?>/securities/roleprivilege" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">DB Role Priviledge</a>
                                     </li>
                                     <li>
-                                        <a href="#" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">DB Role Priviledge</a>
-                                    </li>
-                                    <li>
-                                        <a href="#" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Create LDIF Files For SSO</a>
-                                    </li>
-                                    <li>
-                                        <a href="#" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Oracle Retail User Management</a>
+                                        <a href="<?php echo URLROOT; ?>/securities/ldifforsso" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Create LDIF Files For SSO</a>
                                     </li>
                                 </ul>
                             </div>
@@ -369,19 +363,19 @@ $url = 'http://' . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
                             <div id="dropdown-sm-storage" class="hidden z-10 w-44 bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700">
                                 <ul class="py-1 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefault">
                                     <li>
-                                        <a href="#" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Database File Layout</a>
+                                        <a href="<?php echo URLROOT; ?>/storages/dbfilelayout" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Database File Layout</a>
                                     </li>
                                     <li>
-                                        <a href="#" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Invalid Objects</a>
+                                        <a href="<?php echo URLROOT; ?>/objects/invalidobjects" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Invalid Objects</a>
                                     </li>
                                     <li>
-                                        <a href="#" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Table Space Usage</a>
+                                        <a href="<?php echo URLROOT; ?>/storages/tablespaceusage" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Table Space Usage</a>
                                     </li>
                                     <li>
-                                        <a href="#" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Table Monitoring</a>
+                                        <a href="<?php echo URLROOT; ?>/storages/tablemonitoring" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Table Monitoring</a>
                                     </li>
                                     <li>
-                                        <a href="#" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Table Indexes</a>
+                                        <a href="<?php echo URLROOT; ?>/storages/tableindexes" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Table Indexes</a>
                                     </li>
                                 </ul>
                             </div>

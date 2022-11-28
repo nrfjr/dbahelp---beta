@@ -7,8 +7,8 @@ require APPROOT . '/views/inc/sidebar.php'; ?>
     <a href="<?php echo URLROOT; ?>/homepage/dashboard" class="no-underline hover:underline">Monitor</a> > <b>Redo Log File Switches</b>
 </h1>
 
-<div class="flex grid grid-rows-2 gap-y-4 w-fit" style="height: 80vh; overflow: clip;">
-    <div class="row-span-1">
+<div class="flex grid grid-cols-1 gap-y-4" >
+    <div class="h-auto xl:h-72 overflow-hidden">
         <h1 class="text-white">Morning Log File Switches Within a Week</h1>
         <div class="flex  justify-center w-full shadow-md overflow-auto sm:rounded-lg" style="max-height: 93%;">
             <table class="w-full text-sm text-center text-white dark:text-gray-400">
@@ -60,72 +60,13 @@ require APPROOT . '/views/inc/sidebar.php'; ?>
                         <td class="py-4 px-6" title="show query">001</td>
                         <td class="py-4 px-6" title="show query">001</td>
                     </tr>
-                    <tr>
-                        <td class="py-4 px-6" title="show query">17/JUL</td>
-                        <td class="py-4 px-6" title="show query">002</td>
-                        <td class="py-4 px-6" title="show query">002</td>
-                        <td class="py-4 px-6" title="show query">002</td>
-                        <td class="py-4 px-6" title="show query">002</td>
-                        <td class="py-4 px-6" title="show query">002</td>
-                        <td class="py-4 px-6" title="show query">002</td>
-                        <td class="py-4 px-6" title="show query">002</td>
-                        <td class="py-4 px-6" title="show query">002</td>
-                        <td class="py-4 px-6" title="show query">002</td>
-                        <td class="py-4 px-6" title="show query">002</td>
-                        <td class="py-4 px-6" title="show query">002</td>
-                        <td class="py-4 px-6" title="show query">002</td>
-                    </tr>
-                    <tr>
-                        <td class="py-4 px-6" title="show query">18/JUL</td>
-                        <td class="py-4 px-6" title="show query">003</td>
-                        <td class="py-4 px-6" title="show query">003</td>
-                        <td class="py-4 px-6" title="show query">003</td>
-                        <td class="py-4 px-6" title="show query">003</td>
-                        <td class="py-4 px-6" title="show query">003</td>
-                        <td class="py-4 px-6" title="show query">003</td>
-                        <td class="py-4 px-6" title="show query">003</td>
-                        <td class="py-4 px-6" title="show query">003</td>
-                        <td class="py-4 px-6" title="show query">003</td>
-                        <td class="py-4 px-6" title="show query">003</td>
-                        <td class="py-4 px-6" title="show query">003</td>
-                        <td class="py-4 px-6" title="show query">003</td>
-                    </tr>
-                    <tr>
-                        <td class="py-4 px-6" title="show query">18/JUL</td>
-                        <td class="py-4 px-6" title="show query">003</td>
-                        <td class="py-4 px-6" title="show query">003</td>
-                        <td class="py-4 px-6" title="show query">003</td>
-                        <td class="py-4 px-6" title="show query">003</td>
-                        <td class="py-4 px-6" title="show query">003</td>
-                        <td class="py-4 px-6" title="show query">003</td>
-                        <td class="py-4 px-6" title="show query">003</td>
-                        <td class="py-4 px-6" title="show query">003</td>
-                        <td class="py-4 px-6" title="show query">003</td>
-                        <td class="py-4 px-6" title="show query">003</td>
-                        <td class="py-4 px-6" title="show query">003</td>
-                        <td class="py-4 px-6" title="show query">003</td>
-                    </tr>
-                    <tr>
-                        <td class="py-4 px-6" title="show query">18/JUL</td>
-                        <td class="py-4 px-6" title="show query">003</td>
-                        <td class="py-4 px-6" title="show query">003</td>
-                        <td class="py-4 px-6" title="show query">003</td>
-                        <td class="py-4 px-6" title="show query">003</td>
-                        <td class="py-4 px-6" title="show query">003</td>
-                        <td class="py-4 px-6" title="show query">003</td>
-                        <td class="py-4 px-6" title="show query">003</td>
-                        <td class="py-4 px-6" title="show query">003</td>
-                        <td class="py-4 px-6" title="show query">003</td>
-                        <td class="py-4 px-6" title="show query">003</td>
-                        <td class="py-4 px-6" title="show query">003</td>
-                        <td class="py-4 px-6" title="show query">003</td>
-                    </tr>
+                
                 </tbody>
             </table>
         </div>
     </div>
 
-    <div class="row-span-1">
+    <div class="h-auto xl:h-72 overflow-hidden">
         <h1 class="text-white">Evening Log File Switches Within a Week</h1>
         <div class="flex  justify-center w-full shadow-md overflow-auto sm:rounded-lg" style="max-height: 93%;">
             <table class="w-full text-sm text-center text-white dark:text-gray-400">
