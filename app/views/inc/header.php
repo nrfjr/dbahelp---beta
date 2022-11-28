@@ -9,11 +9,13 @@
     <link rel="icon" href="<?php echo URLROOT; ?>/public/img/kcc.png" />
 
     <link rel="stylesheet" href="<?php echo URLROOT.'/public/css/extstyle.css'?>">
+    
     <!-- Tailwind -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
     <!--Flowbite-->
     <!-- <link rel="stylesheet" href="https://unpkg.com/flowbite@1.5.3/dist/flowbite.min.css" /> -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lexend:400,700&display=swap">
+    <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
     
 
     
