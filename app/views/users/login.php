@@ -8,18 +8,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" href="<?php echo URLROOT; ?>/public/img/kcc.png" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="<?php echo URLROOT.'/public/css/loginanimatebg.css'?>">
+
     <script src="//unpkg.com/alpinejs" defer></script>
     <script src="https://cdn.tailwindcss.com"></script>
     <title><?php echo SITENAME ?> | Signin</title>
 
 </head>
 
-<body class="h-auto bg-gradient-to-r from-cyan-500 to-indigo-500">
+<body class="h-screen w-full bg-gradient-to-r from-cyan-500 to-indigo-500 overflow-hidden">
+        <div class="box">
+           <div></div>
+           <div></div> 
+           <div></div> 
+           <div></div> 
+           <div></div>
+           <div></div>
+           <div></div> 
+           <div></div> 
+           <div></div> 
+           <div></div>  
+        </div>
     <div id="login" class="flex justify-center m-auto pb-40 h-screen items-center justify-center">
-        <div class="w-1/2 p-6 mx-auto bg-white rounded-md shadow-lg dark:bg-gray-700 mt-20">
+        <div class="w-1/2 p-6 z-10 mx-auto bg-white rounded-md shadow-lg dark:bg-gray-700 mt-20">
             <div class="grid grid-rows-1 grid-flow-col h-fit">
                 <form class=" space-y-6" action="<?php echo URLROOT; ?>/users/login" method="POST">
-                    <div class="grid grid-rows-1 gap-4 ">
+                    <div class="grid grid-rows-1 gap-4">
                         <div class="text-center text-white text-xl m-auto"><b>ようこそ !</b></div>
                         <div>
                             <div class="pb-1">
