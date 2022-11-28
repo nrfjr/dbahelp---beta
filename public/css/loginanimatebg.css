@@ -3,8 +3,15 @@
     width: 100px;
     height: 100px;
     background-color: transparent;
-    border: 6px solid #fff;
+    /* border: 6px solid #fff; */
 }
+.box div:nth-child(even){
+    background-color: #0AA1DD;
+}
+.box div:nth-child(odd){
+    background-color: #242F9B;
+}
+
 .box div:nth-child(1){
     top: 12%;
     left: 42%;
