@@ -1,7 +1,7 @@
 <?php
     class Users extends Controller{
 
-        private $db;
+        private $db, $search;
 
         public function __construct(){
             $this->userModel = $this->model('User');
@@ -130,20 +130,24 @@
         // gets list of users
         public function show($DB)
         {
-            $search=[':search' => ''];
+            $data=[':search' => $_SESSION['Search']];
 
             if($_SERVER['REQUEST_METHOD'] == 'POST'){
                 $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
-                $search = [':search' => trim(empty($_POST['search'])?'':$_POST['search'])];
+                $data = [':search' => trim(empty($_POST['search'])?'':$_POST['search'])];
             }
-
+            $_SESSION['Search'] = $data[':search'];
             $_SESSION['UserDB'] = $DB;
 
             if(isset($_SESSION['UserDB'])){
                 $this->db = $_SESSION['UserDB'];
             }
 
-            if($result = $this->userModel->getUserList($search, $this->db)){
+            if(isset($_SESSION['Search']) && $_SESSION['Search'] !=null || $_SESSION['Search'] != '' ){
+                $this->search = $_SESSION['Search'];
+            }
+
+            if($result = $this->userModel->getUserList($this->search, $this->db)){
                 $data = $result;
             }
             else{

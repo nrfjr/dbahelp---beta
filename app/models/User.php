@@ -79,7 +79,7 @@
             $this->db = new OracleDatabase($db);  
            $query=$this->fm->loadSQL('get_UserMasterList');
            $param = [
-                        ':search' => $search[':search']
+                        ':search' => $search
                     ];
             $this->db->queryWithParam($query,$param);
 
