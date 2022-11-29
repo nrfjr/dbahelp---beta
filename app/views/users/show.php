@@ -41,12 +41,25 @@ if ($first_user_displayed === $last_user_displayed) {
 <div class="overflow-x-auto relative shadow-md sm:rounded-lg">
     <div class="flex justify-between items-center pb-4 bg-gray-600 dark:bg-gray-900">
         <div>
-            <a href="<?php echo URLROOT; ?>/users/create">
-                <button id="dropdownRadioButton" class="inline-flex items-center text-black bg-green-300 focus:outline-none hover:bg-green-700 focus:ring-4 focus:ring-gray-200 font-medium rounded-lg text-sm px-3 py-1.5 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700 hover:text-white" type="button">
+            
+                <button id="dropdownDefault" data-dropdown-toggle="dropdown-createuser" class="inline-flex items-center text-black bg-green-300 focus:outline-none hover:bg-green-700 focus:ring-4 focus:ring-gray-200 font-medium rounded-lg text-sm px-3 py-1.5 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700 hover:text-white" type="button">
                     Create
-                    <i class="fas fa-plus ml-2"></i>
+                    <i class="fas fa-chevron-down ml-2"></i>
                 </button>
-            </a>
+                <div id="dropdown-createuser" class="whitespace-normal hidden z-10 w-fit bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700">
+                        <ul class="p-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefault">
+                            <li class="block py-2 px-4 hover:bg-gray-300 rounded-lg dark:hover:bg-gray-600 dark:hover:text-white">
+                                <a href="<?php echo URLROOT; ?>/users/create">RMSPRD</a>
+                            </li>
+                            <li class="block py-2 px-4 hover:bg-gray-300 rounded-lg dark:hover:bg-gray-600 dark:hover:text-white">
+                                <a href="<?php echo URLROOT; ?>/users/create">RDWPRD</a>
+                            </li>
+                            <li class="block py-2 px-4 hover:bg-gray-300 rounded-lg dark:hover:bg-gray-600 dark:hover:text-white">
+                                <a href="<?php echo URLROOT; ?>/users/create">BSPIKCON</a>
+                            </li>
+                        </ul>
+                </div>
+            
         </div>
         <label for="table-search" class="sr-only">Search</label>
         <div class="relative absolute">
@@ -123,6 +136,7 @@ if ($first_user_displayed === $last_user_displayed) {
                                         </button>
                                         <button x-show="toSubmit" @click="toSubmit = false" alt="Delete" class="border-blue-500 md:border-green-500">
                                         </button>
+                                        <!-- Delete User Modal -->
                                         <div x-show="toSubmit" class="border-double border-2 border-red-500 absolute left-1/4 top-1/2 z-10" aria-labelledby="modal-title" role="dialog" aria-modal="true">
                                             <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"></div>
                                             <div class="modal fixed fade justify-center mr-48 top-72 w-5/12 h-full outline-none overflow-x-hidden overflow-y-auto" id="ModalCenteredScrollable" tabindex="-1" aria-labelledby="ModalCenteredScrollable" aria-modal="true" role="dialog">
@@ -148,6 +162,7 @@ if ($first_user_displayed === $last_user_displayed) {
                                                 </div>
                                             </div>
                                         </div>
+                                        <!-- Delete User Modal -->
                                     </div>
                                 </td>
                             </tr>
