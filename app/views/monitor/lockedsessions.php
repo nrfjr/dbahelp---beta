@@ -10,16 +10,19 @@ require APPROOT . '/views/inc/sidebar.php'; ?>
 <div class="overflow-x-auto relative shadow-md">
 
     <div class="rounded-lg flex justify-between items-center p-2 bg-gray-300 dark:bg-gray-900 mb-4">
-        <div class="inline-flex">
+        <div class="inline-flex w-1/2">
             <p class="m-2">Locked Monitor:</p>
             <b class="m-2">23</b>
         </div>
         <div class="inline-flex">
-            <p class="m-2">SID: </p>
+            <p class="m-2">Search by SID: </p>
             <input class="m-2" type="text">
+            <button class="px-4 py-2 rounded-lg bg-gray-300 hover:bg-gray-500 shadow-inner shadow-xl">
+                <i class="las la-search"></i>
+            </button>
         </div>
         <div class="inline-flex">
-            <button class="px-4 py-2 rounded-lg bg-gray-400 hover:bg-gray-500">
+            <button class="px-4 py-2 rounded-lg bg-gray-300 hover:bg-gray-500 shadow-inner shadow-xl">
                 Refresh Data
             </button>
         </div>
