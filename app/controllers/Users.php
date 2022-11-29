@@ -26,14 +26,10 @@
             if($_SERVER['REQUEST_METHOD'] == 'POST'){
                 // Process form
 
-                // Sanitize POST data
-                $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
-
                 $data = [
-                    'username' => trim($_POST['username']),
-                    'password' => trim($_POST['password'])
+                    'username' => trim(SANITIZE_INPUT_STRING($_POST['username'])),
+                    'password' => trim(SANITIZE_INPUT_STRING($_POST['password']))
                 ];
-
 
                 $loggedInUser = $this->userModel->login($data['username'], $data['password']);
 
@@ -41,7 +37,6 @@
                     // Create Session
                     $this->createUserSession($loggedInUser);
                 } else {
-
                     echo '<script>alert("Invalid username/password, Please try again.")</script>';
                     $this->view('users/login', $data);
                 }
@@ -81,18 +76,19 @@
         public function create()
         {
             if($_SERVER['REQUEST_METHOD'] == 'POST'){
-                 $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
 
                 $data = [
-                    'fname'=> trim($_POST['first-name']),
-                    'mname'=> trim($_POST['middle-name']),
-                    'lname'=> trim($_POST['last-name']),
-                    'ID'=> trim($_POST['Id']),
-                    'app'=> trim($_POST['application']),
+                    'fname'=> trim(SANITIZE_INPUT_STRING($_POST['first-name'])),
+                    'mname'=> trim(SANITIZE_INPUT_STRING($_POST['middle-name'])),
+                    'lname'=> trim(SANITIZE_INPUT_STRING($_POST['last-name'])),
+                    'ID'=> trim(SANITIZE_INPUT_STRING($_POST['Id'])),
+                    'app'=> trim(SANITIZE_INPUT_STRING($_POST['application'])),
                     'ip' => $this->getIP(),
-                    'requestor'=> trim($_POST['requestor']),
-                    'remarks'=> trim($_POST['remarks'])
+                    'requestor'=> trim(SANITIZE_INPUT_STRING($_POST['requestor'])),
+                    'remarks'=> trim(SANITIZE_INPUT_STRING($_POST['remarks']))
                 ];
+
+                $db = trim($_POST['db']);
 
             
                 $username = $this->generateUsername($data['fname'], $data['mname'], $data['lname'], $data['ID']);
@@ -123,7 +119,7 @@
                 }
 
             } else {
-               $this->view('users/create', $data=[]);
+               $this->view('users/create', []);
             }
         }
 
@@ -133,8 +129,7 @@
             $data=[':search' => $_SESSION['Search']];
 
             if($_SERVER['REQUEST_METHOD'] == 'POST'){
-                $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
-                $data = [':search' => trim(empty($_POST['search'])?'':$_POST['search'])];
+                $data = [':search' => trim(SANITIZE_INPUT_STRING(empty($_POST['search'])?'':$_POST['search']))];
             }
             $_SESSION['Search'] = $data[':search'];
             $_SESSION['UserDB'] = $DB;
