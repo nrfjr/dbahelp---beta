@@ -57,7 +57,7 @@ require APPROOT . '/views/inc/header.php';
                                                         </div>
                                                         <div class="modal-body relative p-4">
                                                             <font color="black">Enter a value to resize FRA:</font>
-                                                            <input class="ml-4 bg-gray-400 text-black" placeholder="number only" type="number">
+                                                            <input class="ml-4 bg-gray-200 text-black px-2" placeholder="number only" type="number">
                                                         </div>
                                                         <div class="modal-footer flex flex-shrink-0 flex-wrap items-center justify-end p-4 border-t border-gray-200 rounded-b-md">
                                                             <form action="" method="POST">
