@@ -4,7 +4,7 @@ class DiskStorages extends Controller{
 
     public function __construct(){
 
-        $this->userModel = $this->model('DiskStorage');
+        $this->disksModel = $this->model('DiskStorage');
 
     }
 

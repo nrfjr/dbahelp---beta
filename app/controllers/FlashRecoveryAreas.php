@@ -59,16 +59,5 @@
                 }
             }
         }
-        public function logswitch($DB)
-        {
-            // $data = [
-            //             'modal_title' => 'Log Switch',
-            //             'success_title'=>'Successfully clicked log switches',
-            //             'success_message'=>'Congratulations! '.$DB,
-            //             'close_link'=>'/flashrecoveryareas/fra'
-            //         ];
-
-            // $this->view('/modal/success', $data);
-        }
 
     }

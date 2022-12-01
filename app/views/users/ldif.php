@@ -18,8 +18,11 @@ require APPROOT . '/views/inc/sidebar.php'; ?>
         <div class="modal-body relative p-4">
           <?php
           foreach (new SplFileObject($data['ldif']) as $line) {
-            echo '<p class="text-sm text-black">' . $line . '</p>';
-          } ?>
+          ?>
+            <p class="text-sm text-black"> <?php echo $line ?></p>
+          <?php
+          }
+          ?>
           <input class="hidden" name="ldiffile" id="ldiffile" value="<?php echo $data['ldif']; ?>">
         </div>
         <div class="modal-footer flex flex-shrink-0 flex-wrap items-center justify-end p-4 border-t border-gray-200 rounded-b-md">

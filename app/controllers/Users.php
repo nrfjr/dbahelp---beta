@@ -130,7 +130,6 @@ class Users extends Controller
 
                         $this->dialog->SUCCESS('Update User', $DB.' User updated successfully', $msg, '/users/show/default');
 
-
                     }
                     else
                     {
@@ -147,6 +146,9 @@ class Users extends Controller
                 $resultUsername = $this->userModel->getUsername($username, $DB);
 
                 if($resultUsername){
+
+                    $resultCreatedUser = $this->userModel->createUser($username, $password, $DB);
+                    $resultGrantUser = $this->userModel->grantUserRole($username, $password, $DB);
 
                     $msg = strtoupper($data['ID'].' '.$data['fname'].' '.$data['mname'].' '.$data['lname']).'<br>Username: '.$username.'<br>Password: '.$password;
                     $this->dialog->SUCCESS('Update User', $DB.' User has been updated successfully', $msg, '/users/create/RDWPRD');
@@ -295,9 +297,6 @@ class Users extends Controller
     public function download_ldif()
     {
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-
-            // Sanitize POST data
-            $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
 
             $file = [
                 'ldif' => trim($_POST['ldiffile'])

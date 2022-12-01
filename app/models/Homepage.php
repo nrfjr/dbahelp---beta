@@ -17,14 +17,14 @@
             $query = $this->fm->loadSQL('get_TotalSessions');
 
             $param = [
-                        ':p1' => 'SYSMAN',
-                        ':p2' => 'TAFRHOSP',
-                        ':p3' => 'DBSNMP',
-                        ':p4' => 'APEX_PUBLIC_USER',
-                        ':p5' => 'ALLOC13PRD',
-                        ':p6' => 'SYS',
-                        ':p7' => 'SYSTEM',
-                        ':status' => 'ACTIVE'
+                        'p1' => 'SYSMAN',
+                        'p2' => 'TAFRHOSP',
+                        'p3' => 'DBSNMP',
+                        'p4' => 'APEX_PUBLIC_USER',
+                        'p5' => 'ALLOC13PRD',
+                        'p6' => 'SYS',
+                        'p7' => 'SYSTEM',
+                        'status' => 'ACTIVE'
             ];
 
             $this->db->queryWithParam($query,$param);
@@ -114,7 +114,7 @@
             $query = $this->fm->loadSQL('get_LockedCount');
 
             $param = [
-                        ':type' => 'TX',
+                        'type' => 'TX',
             ];
 
             $this->db->queryWithParam($query,$param);
