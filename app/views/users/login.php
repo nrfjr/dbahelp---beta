@@ -42,7 +42,7 @@
                                     </b>
                                 </label>
                             </div>
-                            <input id="username" name="username" type="text" onkeyup="this.value = this.value.toUpperCase();" class="relative block w-full appearance-none rounded-sm px-3 py-2 bg-gray-900 text-white placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm" required>
+                            <input id="username" name="username" type="text" onkeyup="this.value = this.value.toUpperCase();" class="relative block w-full appearance-none rounded-sm px-3 py-2 bg-gray-900 text-white placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm" required value="<?php echo $data==null?'':$data['username'];?>">
                         </div>
                         <div>
                             <div class="pb-1">

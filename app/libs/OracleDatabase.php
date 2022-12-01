@@ -82,7 +82,13 @@
             $this->stmt = $this->conn->prepare($sql);
 
             foreach($param as $bindTarget => $ParamValue){
-                $this->stmt->bindParam($bindTarget, $ParamValue);
+
+                if(is_int($ParamValue)){
+                    $this->stmt->bindValue($bindTarget, $param[$bindTarget]);
+                }
+                else{
+                    $this->stmt->bindValue($bindTarget, $ParamValue);
+                }
             }
         }
         // Execute the prepared statement
@@ -108,5 +114,10 @@
         // Get row count
         public function rowCount(){
             return $this->stmt->rowCount();
+        }
+
+        public function setProcedure($procedure)
+        {
+            return 'BEGIN '.$procedure.'; END;';
         }
     }

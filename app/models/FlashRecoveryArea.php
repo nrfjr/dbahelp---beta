@@ -42,7 +42,7 @@ class FlashRecoveryArea{
                 ];
         $this->db->queryWithParam($query,$param);
 
-        $result = $this->db->resultSet();
+        $result = $this->db->execute();
        
        if($result){
             return 1;

@@ -7,6 +7,8 @@
         {
             $this->fraModel = $this->model('FlashRecoveryArea');
 
+            $this->dialog = $this->dialog('Dialog');
+
             if(!isset($_SESSION['username'])) {
                 redirect('users/login');
             }
@@ -36,23 +38,37 @@
 
                 if($result == 1){
 
+                    $this->dialog->SUCCESS(
+                                            'FRA Resize',
+                                            'Resized Successfully',
+                                            $db.' FRA resized by: '.$size,
+                                            '/flashrecoveryareas/fra'
+                                            );
+
                 }
                 else
                 {
+                    $this->dialog->FAILED(
+                        'FRA Resize',
+                        'Failed to Resized FRA',
+                        $db.' FRA resized by: '.$size.' failed.',
+                        '/flashrecoveryareas/fra'
+                        );
+                        
 
                 }
             }
         }
         public function logswitch($DB)
         {
-            $data = [
-                        'modal_title' => 'Log Switch',
-                        'success_title'=>'Successfully clicked log switches',
-                        'success_message'=>'Congratulations! '.$DB,
-                        'close_link'=>'/flashrecoveryareas/fra'
-                    ];
+            // $data = [
+            //             'modal_title' => 'Log Switch',
+            //             'success_title'=>'Successfully clicked log switches',
+            //             'success_message'=>'Congratulations! '.$DB,
+            //             'close_link'=>'/flashrecoveryareas/fra'
+            //         ];
 
-            $this->view('/modal/success', $data);
+            // $this->view('/modal/success', $data);
         }
 
     }
