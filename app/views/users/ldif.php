@@ -1,12 +1,11 @@
 <?php
 $title = 'LDIF';
 require APPROOT . '/views/inc/header.php';
-?>
-<?php require APPROOT . '/views/inc/sidebar.php'; ?>
+require APPROOT . '/views/inc/sidebar.php'; ?>
 
-<div class="flex justify-center z-10" aria-labelledby="modal-title" role="dialog" aria-modal="true">
+<div class="relative justify-center z-10" aria-labelledby="modal-title" role="dialog" aria-modal="true">
   <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"></div>
-  <div class="modal fade block justify-center top-8 w-5/12 h-full outline-none overflow-x-hidden overflow-y-auto" id="ModalCenteredScrollable" tabindex="-1" aria-labelledby="ModalCenteredScrollable" aria-modal="true" role="dialog">
+  <div class="modal fade fixed justify-center top-4 w-5/12 h-full outline-none overflow-x-hidden overflow-y-auto" id="ModalCenteredScrollable" tabindex="-1" aria-labelledby="ModalCenteredScrollable" aria-modal="true" role="dialog">
     <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable relative w-auto pointer-events-none">
       <div class="modal-content border-none shadow-lg relative flex flex-col w-full pointer-events-auto bg-white bg-clip-padding rounded-md outline-none text-current">
       <form action="<?php echo URLROOT; ?>/users/download_ldif" method="POST">
@@ -26,7 +25,7 @@ require APPROOT . '/views/inc/header.php';
         <div class="modal-footer flex flex-shrink-0 flex-wrap items-center justify-end p-4 border-t border-gray-200 rounded-b-md">
               <button type="submit" value="submit" class="inline-flex w-full justify-center rounded-md border border-transparent bg-green-400 px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 sm:ml-3 sm:w-auto sm:text-sm">Download</button>
           </form>
-          <a href="<?php echo URLROOT; ?>/users/create"><button type="button" class="mt-3 inline-flex w-full justify-center rounded-md border border-gray-300 bg-white px-4 py-2 text-base font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm">Close</button>
+          <a href="<?php echo URLROOT; ?>/users/show/default"><button type="button" class="mt-3 inline-flex w-full justify-center rounded-md border border-gray-300 bg-white px-4 py-2 text-base font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm">Close</button>
         </div>
       </div>
     </div>

@@ -49,13 +49,13 @@ if ($first_user_displayed === $last_user_displayed) {
                 <div id="dropdown-createuser" class="whitespace-normal hidden z-10 w-fit bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700">
                         <ul class="p-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefault">
                             <li class="block py-2 px-4 hover:bg-gray-300 rounded-lg dark:hover:bg-gray-600 dark:hover:text-white">
-                                <a href="<?php echo URLROOT; ?>/users/create">RMSPRD</a>
+                                <a href="<?php echo URLROOT; ?>/users/create/RMSPRD">RMSPRD</a>
                             </li>
                             <li class="block py-2 px-4 hover:bg-gray-300 rounded-lg dark:hover:bg-gray-600 dark:hover:text-white">
-                                <a href="<?php echo URLROOT; ?>/users/create">RDWPRD</a>
+                                <a href="<?php echo URLROOT; ?>/users/create/RDWPRD">RDWPRD</a>
                             </li>
                             <li class="block py-2 px-4 hover:bg-gray-300 rounded-lg dark:hover:bg-gray-600 dark:hover:text-white">
-                                <a href="<?php echo URLROOT; ?>/users/create">BSPIKCON</a>
+                                <a href="#">BSPIKCON</a>
                             </li>
                         </ul>
                 </div>
@@ -79,7 +79,7 @@ if ($first_user_displayed === $last_user_displayed) {
         </div>
     </div>
     <div style="height: 65vh; overflow: clip;">
-        <div class="block w-full shadow-md overflow-auto sm:rounded-lg" style="max-height: 98%;">
+        <div class="flex w-full shadow-md overflow-auto sm:rounded-lg" style="max-height: 98%;">
             <?php
             if (!empty($users)) {
 
@@ -122,6 +122,7 @@ if ($first_user_displayed === $last_user_displayed) {
                                 ?>
                                 <td class="py-4 px-6 text-center">
                                     <form action="<?php echo URLROOT; ?>/users/edit/<?php echo $value['ID'] ?>" method="POST">
+                                        <input id="edit_db" name="edit_db" value="<?php echo $value['DB_NAME'] ?>" class="hidden">
                                         <button type="submit" alt="Edit" class="px-2">
                                             <font color="#005eff" title="Edit User">
                                                 <i class="fas mt-1 fa-pen ml-2 hover:bg-blue-200 rounded-lg w-6 h-6"></i>
@@ -154,7 +155,8 @@ if ($first_user_displayed === $last_user_displayed) {
                                                         </div>
                                                         <div class="modal-footer flex flex-shrink-0 flex-wrap items-center justify-end p-4 border-t border-gray-200 rounded-b-md">
                                                             <form action="<?php echo URLROOT; ?>/users/delete/<?php echo $value['USERNAME'] ?>" method="POST">
-                                                                <button type="button" class="inline-flex w-full justify-center rounded-md border border-transparent bg-red-700 px-4 py-2 text-base font-medium text-white shadow-sm focus:outline-none focus:ring-2  focus:ring-offset-2 sm:ml-3 sm:w-auto sm:text-sm">Delete</button>
+                                                                <input id="delete_db" name="delete_db" value="<?php echo $value['DB_NAME'] ?>" class="hidden">
+                                                                <button type="submit" class="inline-flex w-full justify-center rounded-md border border-transparent bg-red-700 px-4 py-2 text-base font-medium text-white shadow-sm focus:outline-none focus:ring-2  focus:ring-offset-2 sm:ml-3 sm:w-auto sm:text-sm">Delete</button>
                                                             </form>
                                                             <button type="button" @click="toSubmit = false" class="mt-3 inline-flex w-full justify-center rounded-md border border-gray-300 bg-white px-4 py-2 text-base font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm">Close</button>
                                                         </div>

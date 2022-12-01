@@ -12,30 +12,29 @@
 
     <script src="//unpkg.com/alpinejs" defer></script>
     <script src="https://cdn.tailwindcss.com"></script>
-    <script text="text/javascript" src="<?php echo URLROOT.'/public/js/logingreet.js'?>"></script>
     <title><?php echo SITENAME ?> | Signin</title>
 
 </head>
 
-<body onload="typeWriter()" class="h-screen w-full bg-gradient-to-r from-cyan-500 to-indigo-500 overflow-hidden relative">
-    <div class="box z-10">
-        <div></div>
-        <div></div> 
-        <div></div> 
-        <div></div> 
-        <div></div>
-        <div></div>
-        <div></div> 
-        <div></div> 
-        <div></div> 
-        <div></div>  
-    </div>
-    <div id="login" class="flex justify-center m-auto pb-20 h-screen items-center">
-        <div class="w-1/2 p-6 z-20 mx-auto bg-white rounded-md shadow-lg dark:bg-gray-700 mt-20">
+<body class="h-screen w-full bg-gradient-to-r from-cyan-500 to-indigo-500 overflow-hidden">
+        <div class="box">
+           <div></div>
+           <div></div> 
+           <div></div> 
+           <div></div> 
+           <div></div>
+           <div></div>
+           <div></div> 
+           <div></div> 
+           <div></div> 
+           <div></div>  
+        </div>
+    <div id="login" class="flex justify-center m-auto pb-40 h-screen items-center justify-center">
+        <div class="w-1/2 p-6 z-10 mx-auto bg-white rounded-md shadow-lg dark:bg-gray-700 mt-20">
             <div class="grid grid-rows-1 grid-flow-col h-fit">
                 <form class=" space-y-6" action="<?php echo URLROOT; ?>/users/login" method="POST">
                     <div class="grid grid-rows-1 gap-4">
-                        <div class="text-center text-white text-xl m-auto"><strong id="greet" class="font-bold text-center text-white drop-shadow-2xl"></strong></div>
+                        <div class="text-center text-white text-xl m-auto"><b>ようこそ !</b></div>
                         <div>
                             <div class="pb-1">
                                 <label for="username" class="text-start text-gray-400"><b>
@@ -43,7 +42,7 @@
                                     </b>
                                 </label>
                             </div>
-                            <input id="username" name="username" type="text" onkeyup="this.value = this.value.toUpperCase();" class="relative block w-full appearance-none rounded-sm px-3 py-2 bg-gray-900 text-white placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm" required>
+                            <input id="username" name="username" type="text" onkeyup="this.value = this.value.toUpperCase();" class="relative block w-full appearance-none rounded-sm px-3 py-2 bg-gray-900 text-white placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm" required value="<?php echo $data==null?'':$data['username'];?>">
                         </div>
                         <div>
                             <div class="pb-1">
