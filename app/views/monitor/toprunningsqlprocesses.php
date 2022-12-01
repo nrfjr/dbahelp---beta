@@ -8,7 +8,7 @@ require APPROOT . '/views/inc/sidebar.php'; ?>
 </h1>
 
 <div class="overflow-x-auto relative shadow-md sm:rounded-lg">
-    <div class=" flex justify-between items-center p-2 bg-gray-400 dark:bg-gray-900 mb-4">
+    <div class=" block justify-between items-center p-2 bg-gray-400 dark:bg-gray-900 mb-4">
         <div class="inline-flex">
             <p class="m-2">Username:</p>
             <b class="m-2">Hatsus</b>
@@ -32,7 +32,7 @@ require APPROOT . '/views/inc/sidebar.php'; ?>
     </div>
 
     <div style="height: 68vh; overflow: clip;" class="">
-        <div class="flex  justify-center w-full shadow-md overflow-auto sm:rounded-lg" style="max-height: 100%;">
+        <div class="block  justify-center w-full shadow-md overflow-auto sm:rounded-lg" style="max-height: 100%;">
             <table class="w-full text-sm text-center text-white dark:text-gray-400">
                 <thead class="text-md text-black bg-indigo-200 dark:bg-gray-700 dark:text-gray-400">
                     <tr>

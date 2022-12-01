@@ -10,7 +10,7 @@ require APPROOT . '/views/inc/sidebar.php'; ?>
 <div class="flex grid grid-cols-1 gap-y-4" >
     <div class="h-auto xl:h-72 overflow-hidden">
         <h1 class="text-white">Morning Log File Switches Within a Week</h1>
-        <div class="flex  justify-center w-full shadow-md overflow-auto sm:rounded-lg" style="max-height: 93%;">
+        <div class="block  justify-center w-full shadow-md overflow-auto sm:rounded-lg" style="max-height: 93%;">
             <table class="w-full text-sm text-center text-white dark:text-gray-400">
                 <thead class="text-md text-black bg-indigo-200 dark:bg-gray-700 dark:text-gray-400">
                     <tr>
@@ -68,7 +68,7 @@ require APPROOT . '/views/inc/sidebar.php'; ?>
 
     <div class="h-auto xl:h-72 overflow-hidden">
         <h1 class="text-white">Evening Log File Switches Within a Week</h1>
-        <div class="flex  justify-center w-full shadow-md overflow-auto sm:rounded-lg" style="max-height: 93%;">
+        <div class="block  justify-center w-full shadow-md overflow-auto sm:rounded-lg" style="max-height: 93%;">
             <table class="w-full text-sm text-center text-white dark:text-gray-400">
             <thead class="text-md text-black bg-indigo-200 dark:bg-gray-700 dark:text-gray-400">
                     <tr>
