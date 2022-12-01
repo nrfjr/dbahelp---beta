@@ -29,7 +29,7 @@ require APPROOT . '/views/inc/header.php';
       <div class="bg-white overflow-hidden shadow sm:rounded-md pb-44 relative">
         <form action="<?php echo URLROOT; ?>/users/create/<?php echo $_SESSION['CreateUserDB']; ?>" method="POST">
           <div class="bg-white px-4 py-5 sm:p-6">
-            <div class="grid mt-10 grid-cols-6 gap-16 border">
+            <div class="grid mt-10 grid-cols-6 gap-16">
               <div class="col-span-6 sm:col-span-2">
                 <label for="first-name" class="block text-sm font-medium text-gray-700">Firstname</label>
                 <input type="text" name="first-name" id="first-name" autocomplete="given-name" class="mt-1 block w-full rounded-md border-gray-300 bg-gray-100 p-2 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm " placeholder="John" value="<?php echo $data!=null? $data['Firstname']:'';?>">
