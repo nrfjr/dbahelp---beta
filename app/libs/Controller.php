@@ -22,4 +22,12 @@
             }
         }
 
+        public function dialog($dialog) {
+            // Require model file
+            require_once '../app/dialog/' . $dialog . '.php';
+
+            // Instatiate model
+            return new $dialog();
+        }
+
     }
