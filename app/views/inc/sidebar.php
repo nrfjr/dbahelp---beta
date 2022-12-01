@@ -19,7 +19,7 @@ $url = 'http://' . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
                         </a>
 
                         <button type="button" class="flex-auto items-center py-4 hover:bg-gray-300 text-white" aria-expanded="<?php
-                                                                                                                                if (preg_match('/dashboard|index/', $url)) {
+                                                                                                                                if (preg_match('/dashboard|index|monitor|object|performance|security/', $url)) {
                                                                                                                                     echo 'true';
                                                                                                                                 } else {
                                                                                                                                     echo ' false';
@@ -433,6 +433,7 @@ $url = 'http://' . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
                     </li>
                 </ul>
             </div>
+            <!--Database Disk-->
         </div>
         
         <!--TOP NAVBAR-->
