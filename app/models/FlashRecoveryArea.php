@@ -38,7 +38,7 @@ class FlashRecoveryArea{
         $this->db = new OracleDatabase($db);  
         $query=$this->db->setProcedure('resizeRFA(:size)');
         $param = [
-                     ':size' => $size
+                     'size' => $size
                  ];
          $this->db->queryWithParam($query,$param);
  

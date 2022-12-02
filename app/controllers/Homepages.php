@@ -17,11 +17,9 @@
         public function index($DB) {
 
             self::__construct();
-
-            if($_SERVER['REQUEST_METHOD'] == 'POST'){
-                
-                $_SESSION['HomepageDB'] = $DB;
-            }
+  
+            $_SESSION['HomepageDB'] = $DB;
+         
 
             if(isset($_SESSION['HomepageDB'])){
                 $this->db = $_SESSION['HomepageDB'];

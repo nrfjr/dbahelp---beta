@@ -1,64 +1,111 @@
 <?php
-$title = 'User Sessions';
+$title = 'Users Sessions';
 require APPROOT . '/views/inc/header.php';
-require APPROOT . '/views/inc/sidebar.php'; ?>
+require APPROOT . '/views/inc/sidebar.php';
+
+// components for pagination 
+
+$usersessions = $data;
+
+$filtered_users = array();
+
+$total_sessions = count($usersessions);
+
+$current_page = isset($_GET['page']) ? $_GET['page'] : 1;
+
+$limit = 12;
+
+if (!empty($current_page) && $current_page > 1) {
+    $offset = ($current_page * $limit) - $limit;
+} else {
+    $offset = 0;
+}
+
+$total_pages = ceil($total_sessions / $limit);
+
+$first_user_displayed = $offset + 1;
+
+$last_user_displayed = $total_sessions >= ($offset * $limit) + $limit ? $offset + $limit : $total_sessions;
+
+if ($first_user_displayed === $last_user_displayed) {
+    $range = 'the Last of ' . $total_sessions . ' User Sessions';
+} else {
+    $range = $first_user_displayed . ' - ' . $last_user_displayed . ' of ' . $total_sessions . ' User Sessions ';
+}
+// components for pagination 
+?>
 
 <h1 class="text-3xl text-black pb-2 text-white">
-    <a href="<?php echo URLROOT; ?>/homepage/dashboard" class="no-underline hover:underline">Monitor</a> > <b>User Sessions</b>
+    <a href="<?php echo URLROOT; ?>/homepages/index/<?php echo $_SESSION['UserSessionsDB']; ?>" class="no-underline hover:underline">Monitor</a> > <b>User Sessions</b>
 </h1>
 
-<div class="overflow-x-auto relative shadow-md">
 
-    <div class="rounded-lg flex justify-between items-center p-2 bg-gray-300 dark:bg-gray-900 mb-4">
+<div class="overflow-x-auto relative shadow-md sm:rounded-lg">
+    <form class="rounded-lg flex justify-between items-center p-2 bg-gray-300 dark:bg-gray-900 mb-4" action="<?php echo URLROOT; ?>/monitors/usersessions/<?php echo $_SESSION['UserSessionsDB']; ?>" method="POST">
         <div class="inline-flex">
             <p class="m-2">Search: </p>
-            <input class="m-2" type="text">
-            <button class="px-4 py-2 rounded-lg bg-gray-300 hover:bg-gray-500 shadow-inner shadow-xl">
+            <input id="search" name="search" class="m-2" type="text">
+            <button type="submit" class="px-4 py-2 rounded-lg bg-gray-300 hover:bg-gray-500 shadow-inner shadow-xl">
                 <i class="las la-search"></i>
             </button>
         </div>
         <div class="inline-flex">
-            <p class="m-2">Rows Selected:</p>
-            <b class="m-2">388</b>
+            <p class="m-2">Total Sessions:</p>
+            <b class="m-2"><?php echo $total_sessions?></b>
         </div>
         <div class="inline-flex">
-            <b>RMS ACTIVE RUNNING ORACLE SESSIONS</b>
+            <b><?php echo $_SESSION['UserSessionsDB']; ?> ACTIVE RUNNING SESSIONS</b>
         </div>
         <div class="inline-flex">
-            <button class="px-4 py-2 rounded-lg bg-gray-300 hover:bg-gray-500 shadow-inner shadow-xl">
+            <button type="submit" class="px-4 py-2 rounded-lg bg-gray-300 hover:bg-gray-500 shadow-inner shadow-xl">
                 Refresh Data
             </button>
         </div>
-    </div>
+    </form>
+    <div style="height: 65vh; overflow: clip;">
+        <div class="block w-full shadow-md overflow-auto sm:rounded-lg" style="max-height: 98%;">
+            <?php
+            if (!empty($usersessions)) {
 
-    <div style="height: 70vh; overflow: clip;" class="">
-        <div class="block  justify-center w-full shadow-md overflow-auto sm:rounded-lg" style="max-height: 100%;">
-            <table class="w-full text-sm text-center text-white dark:text-gray-400">
-                <thead class="text-md text-black bg-indigo-200 dark:bg-gray-700 dark:text-gray-400">
-                    <tr>
-                        <th class="py-2 px-6">USERNAME</th>
-                        <th class="py-2 px-6">LOGON TIME</th>
-                        <th class="py-2 px-6">SID</th> 
-                        <th class="py-2 px-6">RUN TIME</th> 
-                        <th class="py-2 px-6">SERIAL #</th> 
-                        <th class="py-2 px-6">OS USER</th> 
-                        <th class="py-2 px-6">SYS PID</th> 
-                        <th class="py-2 px-6">PROG EVENT</th>  
-                        <th class="py-2 px-6">ACTION</th> 
-                    </tr>
-                </thead>
-                <tbody class="bg-gray-500">
-                    <tr>
-                        <td class="py-4 px-6" title="show query"></td>
-                        <td class="py-4 px-6" title="show query">28-NOV-2022 4:54 PM</td>
-                        <td class="py-4 px-6" title="show query">12805</td>
-                        <td class="py-4 px-6" title="show query">0:52:53</td>
-                        <td class="py-4 px-6" title="show query">1525</td>
-                        <td class="py-4 px-6" title="show query">oracle</td>
-                        <td class="py-4 px-6" title="show query">55557221</td>
-                        <td class="py-4 px-6" title="show query">firmweb@orapp1prd(TNS V1-V3)</td>
-                        <td class="py-2 px-6" title="show query">
-                            <div x-data="{toSubmit: false}" >
+                //Separates Column title from result set
+                foreach ($data as $outer_key => $array) {
+
+                    foreach ($array as $inner_key => $value) {
+                        $column_names[] = $inner_key;
+                    }
+                }
+            ?>
+                <table class="w-full text-sm text-left text-white dark:text-gray-400">
+                    <thead class="text-xs text-black bg-indigo-200 dark:bg-gray-700 dark:text-gray-400">
+                        <tr>
+                            <?php for ($title = 0; $title <= count($array) - 1; $title++) { ?>
+                                <th scope="col" class="py-2 px-6">
+                                    <?php echo $column_names[$title]; ?>
+                                </th>
+                            <?php } ?>
+                            <th scope="col" class="py-2 px-6">
+                                Action
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody class="bg-gray-500">
+                        <?php
+                        $usersessions = array_slice($usersessions, $offset, $limit);
+
+                        foreach ($usersessions as $column_title => $value) {
+                        ?>
+                            <tr>
+                                <?php
+                                foreach ($value as $user) {
+                                ?>
+                                    <td class="py-4 px-6">
+                                        <?php echo $user; ?>
+                                    </td>
+                                <?php
+                                }
+                                ?>
+                                <td class="py-4 px-6 text-center">
+                                <div x-data="{toSubmit: false}" >
                                 <button @click="toSubmit = true" alt="Kill" class="w-2/4 h-3/4 rounded-full hover:bg-red-200 border-blue-500 md:border-green-500">
                                     <font color="#b00020" title="Kill Session">
                                         <i class="lar la-times-circle transform scale-150"></i>
@@ -80,10 +127,10 @@ require APPROOT . '/views/inc/sidebar.php'; ?>
                                                     <button type="button" @click="toSubmit = false" class="btn-close box-content w-4 h-4 p-1 text-black border-none rounded-none opacity-50 focus:shadow-none focus:outline-none focus:opacity-100 hover:text-black hover:opacity-75 hover:no-underline" data-bs-dismiss="modal" aria-label="Close"></button>
                                                 </div>
                                                 <div class="modal-body relative p-4">
-                                                    <font color="black">Are you sure to kill Session <b>12805</b>?</font>
+                                                    <font color="black">Are you sure to kill Session <b><?php echo $value['SYSPID']?></b>?</font>
                                                 </div>
                                                 <div class="modal-footer flex flex-shrink-0 flex-wrap items-center justify-end p-4 border-t border-gray-200 rounded-b-md">
-                                                    <form action="<?php echo URLROOT; ?>/users/delete/<?php echo $value['USERNAME'] ?>" method="POST">
+                                                    <form action="#" method="POST">
                                                         <button type="button" class="inline-flex w-full justify-center rounded-md border border-transparent bg-red-700 px-4 py-2 text-base font-medium text-white shadow-sm focus:outline-none focus:ring-2  focus:ring-offset-2 sm:ml-3 sm:w-auto sm:text-sm">Kill</button>
                                                     </form>
                                                     <button type="button" @click="toSubmit = false" class="mt-3 inline-flex w-full justify-center rounded-md border border-gray-300 bg-white px-4 py-2 text-base font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm">Cancel</button>
@@ -94,14 +141,81 @@ require APPROOT . '/views/inc/sidebar.php'; ?>
                                 </div>
                                 <!-- Delete User Modal -->
                             </div>
-                        </td>
-                    </tr>
-                    
-                </tbody>
-            </table>
+                                </td>
+                            </tr>
+                        <?php
+                        }
+                        ?>
+                    </tbody>
+                </table>
         </div>
     </div>
-    
+    <div class="sm:flex sm:flex-1 sm:justify-between py-4 relative">
+        <div>
+            <p class="text-sm text-white pl-2">
+                Showing <?php
+                        echo $range;
+                        ?>
+            </p>
+        </div>
+
+        <?php
+
+                if ($total_pages > 1) { ?>
+
+            <nav class="rounded-md shadow-sm absolute right-0 bottom-2" aria-label="Pagination">
+                <ul class="pagination inline-flex items-center -space-x-px">
+
+                    <?php
+                    if ($current_page > 1) { ?>
+
+                        <li class="page-item"><a class="page-link block px-3 py-2 ml-0 leading-tight text-gray-500 bg-white border border-gray-300 rounded-l-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white" href="<?php echo '?page=1'; ?>">First</a></li>
+
+                        <?php
+                    }
+                    for ($page_in_loop = 1; $page_in_loop <= $total_pages; $page_in_loop++) {
+                        if ($total_pages > 3) {
+                            if (($page_in_loop >= $current_page - 5 && $page_in_loop <= $current_page)  || ($page_in_loop <= $current_page + 5 && $page_in_loop >= $current_page)) {  ?>
+
+                                <li class="page-item <?php echo $page_in_loop == $current_page ? 'active disabled' : ''; ?>">
+                                    <a class="page-link px-3 py-2 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white" href="<?php echo '?page=' . $page_in_loop; ?> "><?php echo $page_in_loop; ?></a>
+                                </li>
+
+                            <?php }
+                        } else { ?>
+
+                            <li class="page-item <?php echo $page_in_loop == $current_page ? 'active disabled' : ''; ?>">
+                                <a class="page-link px-3 py-2 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white" href="<?php echo '?page=' . $page_in_loop; ?> "><?php echo $page_in_loop; ?></a>
+                            </li>
+
+                        <?php }
+                        ?>
+                    <?php }
+
+                    if ($current_page < $total_pages) { ?>
+
+                        <li class="page-item"><a class="page-link block px-3 py-2 leading-tight text-gray-500 bg-white border border-gray-300 rounded-r-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white" href="<?php echo '?page=' . $total_pages; ?>">Last</a></li>
+
+                    <?php } ?>
+                </ul>
+            </nav>
+
+        <?php }
+        ?>
+        <div>
+
+        </div>
+    </div>
+<?php
+            } else {
+?>
+    <div class="flex w-full shadow-md overflow-auto sm:rounded-lg bg-gray-500" style="max-height: 80%; min-height: 100%;">
+        <h1 class="text-white m-auto "><b>No Sessions Found.</b></h1>
+    </div>
+<?php
+            }
+?>
 </div>
+
 
 <?php require APPROOT . '/views/inc/footer.php'; ?>

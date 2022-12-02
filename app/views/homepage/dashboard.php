@@ -1,8 +1,8 @@
 <?php
 $title = 'Dashboard';
 require APPROOT . '/views/inc/header.php';
+require APPROOT . '/views/inc/sidebar.php'; 
 ?>
-<?php require APPROOT . '/views/inc/sidebar.php'; ?>
 
 <h1 class="text-3xl text-black pb-2 text-white"><b>Dashboard</b></h1>
 <div class=" object-contain grid grid-cols-1 2xl:grid-cols-3 xl:grid-cols-2 lg:grid-cols-2 gap-4 cardz place-content-evenly">
