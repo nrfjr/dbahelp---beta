@@ -63,7 +63,7 @@ require APPROOT . '/views/inc/sidebar.php'; ?>
                         <?php
                         foreach ($topsql as $column_title => $value) {
                         ?>
-                            <tr title="<?php echo $value['SQLTEXT']; ?>">
+                            <tr class="focus:hover:bg-gray-700 hover:bg-gray-700" title="<?php echo str_replace('"', "&quot;",$value['SQLTEXT']); ?>">
                                 <?php
                                 array_splice($value, 9);
                                 foreach ($value as $k => $v) {
