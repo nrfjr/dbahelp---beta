@@ -14,9 +14,23 @@ class Monitors extends Controller
         }
     }
 
-    public function lockedsessions()
+    public function lockedsessions($DB)
     {
-        $this->view('monitor/lockedsessions', []);
+        $_SESSION['MonitorDB'] = $DB;
+
+        if(isset($_SESSION['MonitorDB'])){
+            $this->db = $_SESSION['MonitorDB'];
+        }
+
+        $result = $this->monitorModel->getLockedSessions($this->db);
+
+        if($result){
+            $data = $result;
+        }else{
+            $data = [];
+        }
+
+        $this->view('monitor/lockedsessions', $data);
     }
 
     public function usersessions($DB)
@@ -29,10 +43,10 @@ class Monitors extends Controller
         }
 
         $_SESSION['SessionSearch'] = $data['SessionSearch'];
-        $_SESSION['UserSessionsDB'] = $DB;
+        $_SESSION['MonitorDB'] = $DB;
 
-        if (isset($_SESSION['UserSessionsDB'])) {
-            $this->db = $_SESSION['UserSessionsDB'];
+        if (isset($_SESSION['MonitorDB'])) {
+            $this->db = $_SESSION['MonitorDB'];
         }
 
         if (isset($_SESSION['SessionSearch']) && $_SESSION['SessionSearch'] != null || $_SESSION['SessionSearch'] != '') {
@@ -55,18 +69,46 @@ class Monitors extends Controller
         $this->view('monitor/redogenerations', []);
     }
 
-    public function redologswitches()
+    public function redologswitches($DB)
     {
-        $this->view('monitor/redologfileswitches', []);
+        $_SESSION['MonitorDB'] = $DB;
+
+        if(isset($_SESSION['MonitorDB'])){
+            $this->db = $_SESSION['MonitorDB'];
+        }
+
+        $query = array('get_AM_RedoLogSwitches','get_PM_RedoLogSwitches');
+
+        $result = [ 
+                    'AM' => $this->monitorModel->getRedoLogSwitches($query[0], $this->db),
+                    'PM' => $this->monitorModel->getRedoLogSwitches($query[1], $this->db)
+                  ];
+
+        if($result){
+            $data = $result;
+        }else{
+            $data = [];
+        }
+
+        $this->view('monitor/redologfileswitches', $data);
     }
 
-    public function rmanbackupreports()
+    public function topsql($DB)
     {
-        $this->view('monitor/rmanbackupreports', []);
-    }
+        $_SESSION['MonitorDB'] = $DB;
 
-    public function topsql()
-    {
-        $this->view('monitor/toprunningsqlprocesses', []);
+        if(isset($_SESSION['MonitorDB'])){
+            $this->db = $_SESSION['MonitorDB'];
+        }
+
+        $result = $this->monitorModel->getTopRunningSql($this->db);
+
+        if($result){
+            $data = $result;
+        }else{
+            $data = [];
+        }
+
+        $this->view('monitor/toprunningsqlprocesses', $data);
     }
 }

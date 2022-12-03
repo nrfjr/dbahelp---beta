@@ -4,7 +4,7 @@ require APPROOT . '/views/inc/header.php';
 require APPROOT . '/views/inc/sidebar.php'; ?>
 
 <h1 class="text-3xl text-black pb-2 text-white">
-    <a href="<?php echo URLROOT; ?>/homepage/dashboard" class="no-underline hover:underline">Monitor</a> > <b>Top Running SQL Processes</b>
+    <a href="<?php echo URLROOT; ?>/homepages/index/<?php echo $_SESSION['MonitorDB']; ?>" class="no-underline hover:underline">Monitor</a> > <b>Top Running SQL Processes</b>
 </h1>
 
 <div class="overflow-x-auto relative shadow-md sm:rounded-lg">
@@ -33,165 +33,66 @@ require APPROOT . '/views/inc/sidebar.php'; ?>
 
     <div style="height: 68vh; overflow: clip;" class="">
         <div class="block  justify-center w-full shadow-md overflow-auto sm:rounded-lg" style="max-height: 100%;">
-            <table class="w-full text-sm text-center text-white dark:text-gray-400">
-                <thead class="text-md text-black bg-indigo-200 dark:bg-gray-700 dark:text-gray-400">
-                    <tr>
-                        <th class="py-2 px-6">SID</th>
-                        <th class="py-2 px-6">SERIAL #</th>
-                        <th class="py-2 px-6">SPID</th> 
-                        <th class="py-2 px-6">MACHINE</th> 
-                        <th class="py-2 px-6">USERNAME</th> 
-                        <th class="py-2 px-6">OS USER</th> 
-                        <th class="py-2 px-6">PROGRAM</th> 
-                        <th class="py-2 px-6">ELAPSED TIME</th>  
-                    </tr>
-                </thead>
-                <tbody class="bg-gray-500">
-                    <tr>
-                        <td class="py-4 px-6" title="show query">60689</td>
-                        <td class="py-4 px-6" title="show query">13164</td>
-                        <td class="py-4 px-6" title="show query">52616251</td>
-                        <td class="py-4 px-6" title="show query">WORKGROUP/ME</td>
-                        <td class="py-4 px-6" title="show query">RMS13PRD</td>
-                        <td class="py-4 px-6" title="show query">SYSTEM</td>
-                        <td class="py-4 px-6" title="show query">httpd.exe</td>
-                        <td class="py-4 px-6" title="show query">125125123</td>
-                    </tr>
-                    <tr>
-                        <td class="py-4 px-6" title="show query">60689</td>
-                        <td class="py-4 px-6" title="show query">13164</td>
-                        <td class="py-4 px-6" title="show query">52616251</td>
-                        <td class="py-4 px-6" title="show query">WORKGROUP/ME</td>
-                        <td class="py-4 px-6" title="show query">RMS13PRD</td>
-                        <td class="py-4 px-6" title="show query">SYSTEM</td>
-                        <td class="py-4 px-6" title="show query">httpd.exe</td>
-                        <td class="py-4 px-6" title="show query">125125123</td>
-                    </tr>
-                    <tr>
-                        <td class="py-4 px-6" title="show query">60689</td>
-                        <td class="py-4 px-6" title="show query">13164</td>
-                        <td class="py-4 px-6" title="show query">52616251</td>
-                        <td class="py-4 px-6" title="show query">WORKGROUP/ME</td>
-                        <td class="py-4 px-6" title="show query">RMS13PRD</td>
-                        <td class="py-4 px-6" title="show query">SYSTEM</td>
-                        <td class="py-4 px-6" title="show query">httpd.exe</td>
-                        <td class="py-4 px-6" title="show query">125125123</td>
-                    </tr>
-                    <tr>
-                        <td class="py-4 px-6" title="show query">60689</td>
-                        <td class="py-4 px-6" title="show query">13164</td>
-                        <td class="py-4 px-6" title="show query">52616251</td>
-                        <td class="py-4 px-6" title="show query">WORKGROUP/ME</td>
-                        <td class="py-4 px-6" title="show query">RMS13PRD</td>
-                        <td class="py-4 px-6" title="show query">SYSTEM</td>
-                        <td class="py-4 px-6" title="show query">httpd.exe</td>
-                        <td class="py-4 px-6" title="show query">125125123</td>
-                    </tr>
-                    <tr>
-                        <td class="py-4 px-6" title="show query">60689</td>
-                        <td class="py-4 px-6" title="show query">13164</td>
-                        <td class="py-4 px-6" title="show query">52616251</td>
-                        <td class="py-4 px-6" title="show query">WORKGROUP/ME</td>
-                        <td class="py-4 px-6" title="show query">RMS13PRD</td>
-                        <td class="py-4 px-6" title="show query">SYSTEM</td>
-                        <td class="py-4 px-6" title="show query">httpd.exe</td>
-                        <td class="py-4 px-6" title="show query">125125123</td>
-                    </tr>
-                    <tr>
-                        <td class="py-4 px-6" title="show query">60689</td>
-                        <td class="py-4 px-6" title="show query">13164</td>
-                        <td class="py-4 px-6" title="show query">52616251</td>
-                        <td class="py-4 px-6" title="show query">WORKGROUP/ME</td>
-                        <td class="py-4 px-6" title="show query">RMS13PRD</td>
-                        <td class="py-4 px-6" title="show query">SYSTEM</td>
-                        <td class="py-4 px-6" title="show query">httpd.exe</td>
-                        <td class="py-4 px-6" title="show query">125125123</td>
-                    </tr>
-                    <tr>
-                        <td class="py-4 px-6" title="show query">60689</td>
-                        <td class="py-4 px-6" title="show query">13164</td>
-                        <td class="py-4 px-6" title="show query">52616251</td>
-                        <td class="py-4 px-6" title="show query">WORKGROUP/ME</td>
-                        <td class="py-4 px-6" title="show query">RMS13PRD</td>
-                        <td class="py-4 px-6" title="show query">SYSTEM</td>
-                        <td class="py-4 px-6" title="show query">httpd.exe</td>
-                        <td class="py-4 px-6" title="show query">125125123</td>
-                    </tr>
-                    <tr>
-                        <td class="py-4 px-6" title="show query">60689</td>
-                        <td class="py-4 px-6" title="show query">13164</td>
-                        <td class="py-4 px-6" title="show query">52616251</td>
-                        <td class="py-4 px-6" title="show query">WORKGROUP/ME</td>
-                        <td class="py-4 px-6" title="show query">RMS13PRD</td>
-                        <td class="py-4 px-6" title="show query">SYSTEM</td>
-                        <td class="py-4 px-6" title="show query">httpd.exe</td>
-                        <td class="py-4 px-6" title="show query">125125123</td>
-                    </tr>
-                    <tr>
-                        <td class="py-4 px-6" title="show query">60689</td>
-                        <td class="py-4 px-6" title="show query">13164</td>
-                        <td class="py-4 px-6" title="show query">52616251</td>
-                        <td class="py-4 px-6" title="show query">WORKGROUP/ME</td>
-                        <td class="py-4 px-6" title="show query">RMS13PRD</td>
-                        <td class="py-4 px-6" title="show query">SYSTEM</td>
-                        <td class="py-4 px-6" title="show query">httpd.exe</td>
-                        <td class="py-4 px-6" title="show query">125125123</td>
-                    </tr>
-                    <tr>
-                        <td class="py-4 px-6" title="show query">60689</td>
-                        <td class="py-4 px-6" title="show query">13164</td>
-                        <td class="py-4 px-6" title="show query">52616251</td>
-                        <td class="py-4 px-6" title="show query">WORKGROUP/ME</td>
-                        <td class="py-4 px-6" title="show query">RMS13PRD</td>
-                        <td class="py-4 px-6" title="show query">SYSTEM</td>
-                        <td class="py-4 px-6" title="show query">httpd.exe</td>
-                        <td class="py-4 px-6" title="show query">125125123</td>
-                    </tr>
-                    <tr>
-                        <td class="py-4 px-6" title="show query">60689</td>
-                        <td class="py-4 px-6" title="show query">13164</td>
-                        <td class="py-4 px-6" title="show query">52616251</td>
-                        <td class="py-4 px-6" title="show query">WORKGROUP/ME</td>
-                        <td class="py-4 px-6" title="show query">RMS13PRD</td>
-                        <td class="py-4 px-6" title="show query">SYSTEM</td>
-                        <td class="py-4 px-6" title="show query">httpd.exe</td>
-                        <td class="py-4 px-6" title="show query">125125123</td>
-                    </tr>
-                    <tr>
-                        <td class="py-4 px-6" title="show query">60689</td>
-                        <td class="py-4 px-6" title="show query">13164</td>
-                        <td class="py-4 px-6" title="show query">52616251</td>
-                        <td class="py-4 px-6" title="show query">WORKGROUP/ME</td>
-                        <td class="py-4 px-6" title="show query">RMS13PRD</td>
-                        <td class="py-4 px-6" title="show query">SYSTEM</td>
-                        <td class="py-4 px-6" title="show query">httpd.exe</td>
-                        <td class="py-4 px-6" title="show query">125125123</td>
-                    </tr>
-                    <tr>
-                        <td class="py-4 px-6" title="show query">60689</td>
-                        <td class="py-4 px-6" title="show query">13164</td>
-                        <td class="py-4 px-6" title="show query">52616251</td>
-                        <td class="py-4 px-6" title="show query">WORKGROUP/ME</td>
-                        <td class="py-4 px-6" title="show query">RMS13PRD</td>
-                        <td class="py-4 px-6" title="show query">SYSTEM</td>
-                        <td class="py-4 px-6" title="show query">httpd.exe</td>
-                        <td class="py-4 px-6" title="show query">125125123</td>
-                    </tr>
-                    <tr>
-                        <td class="py-4 px-6" title="show query">60689</td>
-                        <td class="py-4 px-6" title="show query">13164</td>
-                        <td class="py-4 px-6" title="show query">52616251</td>
-                        <td class="py-4 px-6" title="show query">WORKGROUP/ME</td>
-                        <td class="py-4 px-6" title="show query">RMS13PRD</td>
-                        <td class="py-4 px-6" title="show query">SYSTEM</td>
-                        <td class="py-4 px-6" title="show query">httpd.exe</td>
-                        <td class="py-4 px-6" title="show query">125125123</td>
-                    </tr>
-                </tbody>
-            </table>
+            <?php
+
+            $topsql = $data;
+
+            if (!empty($topsql)) {
+
+                //Separates Column title from result set
+                foreach ($topsql as $outer_key => $array) {
+
+                    foreach ($array as $inner_key => $value) {
+                        $column_names[] = $inner_key;
+                    }
+                }
+            ?>
+                <table class="w-full text-sm text-center text-white dark:text-gray-400">
+                    <thead class="text-md text-black bg-indigo-200 dark:bg-gray-700 dark:text-gray-400">
+                        <tr>
+                            <?php for ($title = 0; $title <= count($array) - 2; $title++) { ?>
+                                <th scope="col" class="py-2 px-6">
+                                    <?php if ($column_names[$title] != 'SQLTEXT') {
+                                        echo $column_names[$title];
+                                    } ?>
+                                </th>
+                            <?php } ?>
+                        </tr>
+                    </thead>
+                    <tbody class="bg-gray-500">
+                        <?php
+                        foreach ($topsql as $column_title => $value) {
+                        ?>
+                            <tr title="<?php echo $value['SQLTEXT']; ?>">
+                                <?php
+                                array_splice($value, 9);
+                                foreach ($value as $k => $v) {
+                                ?>
+                                        <td class="py-4 px-6">
+                                            <?php echo $v; ?>
+                                        </td>
+                                <?php
+                                }
+                                ?>
+                            </tr>
+                        <?php
+
+                        }
+                        ?>
+                    </tbody>
+                </table>
+            <?php
+            } else {
+            ?>
+                <div class="flex w-full shadow-md overflow-auto sm:rounded-lg bg-gray-500" style="max-height: 80%; min-height: 100%;">
+                    <h1 class="text-white m-auto "><b>No Top Running SQL Process Found.</b></h1>
+                </div>
+            <?php
+            }
+            ?>
         </div>
     </div>
-    
+
 </div>
 
 <?php require APPROOT . '/views/inc/footer.php'; ?>

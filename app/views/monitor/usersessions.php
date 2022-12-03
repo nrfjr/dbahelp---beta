@@ -36,12 +36,12 @@ if ($first_user_displayed === $last_user_displayed) {
 ?>
 
 <h1 class="text-3xl text-black pb-2 text-white">
-    <a href="<?php echo URLROOT; ?>/homepages/index/<?php echo $_SESSION['UserSessionsDB']; ?>" class="no-underline hover:underline">Monitor</a> > <b>User Sessions</b>
+    <a href="<?php echo URLROOT; ?>/homepages/index/<?php echo $_SESSION['MonitorDB']; ?>" class="no-underline hover:underline">Monitor</a> > <b>User Sessions</b>
 </h1>
 
 
 <div class="overflow-x-auto relative shadow-md sm:rounded-lg">
-    <form class="rounded-lg flex justify-between items-center p-2 bg-gray-300 dark:bg-gray-900 mb-4" action="<?php echo URLROOT; ?>/monitors/usersessions/<?php echo $_SESSION['UserSessionsDB']; ?>" method="POST">
+    <form class="rounded-lg flex justify-between items-center p-2 bg-gray-300 dark:bg-gray-900 mb-4" action="<?php echo URLROOT; ?>/monitors/usersessions/<?php echo $_SESSION['MonitorDB']; ?>" method="POST">
         <div class="inline-flex">
             <p class="m-2">Search: </p>
             <input id="search" name="search" class="m-2" type="text">
@@ -54,7 +54,7 @@ if ($first_user_displayed === $last_user_displayed) {
             <b class="m-2"><?php echo $total_sessions?></b>
         </div>
         <div class="inline-flex">
-            <b><?php echo $_SESSION['UserSessionsDB']; ?> ACTIVE RUNNING SESSIONS</b>
+            <b><?php echo $_SESSION['MonitorDB']; ?> ACTIVE RUNNING SESSIONS</b>
         </div>
         <div class="inline-flex">
             <button type="submit" class="px-4 py-2 rounded-lg bg-gray-300 hover:bg-gray-500 shadow-inner shadow-xl">

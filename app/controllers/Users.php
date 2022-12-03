@@ -188,12 +188,12 @@ class Users extends Controller
     // gets list of users
     public function show($DB)
     {
-        $data = [':search' => isset($_SESSION['Search'])?$_SESSION['Search']:''];
+        $data = ['search' => isset($_SESSION['Search'])?$_SESSION['Search']:''];
 
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-            $data = [':search' => trim(SANITIZE_INPUT_STRING(empty($_POST['search']) ? '' : $_POST['search']))];
+            $data = ['search' => trim(SANITIZE_INPUT_STRING(empty($_POST['searchuser']) ? '' : $_POST['searchuser']))];
         }
-        $_SESSION['Search'] = $data[':search'];
+        $_SESSION['Search'] = $data['search'];
         $_SESSION['UserDB'] = $DB;
 
         if (isset($_SESSION['UserDB'])) {

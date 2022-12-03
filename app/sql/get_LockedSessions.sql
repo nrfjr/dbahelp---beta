@@ -1,12 +1,13 @@
 SELECT   /*+ ORDERED */
-			    l.sid as SID,
-			    l.lmode as LOCK_MODE,
-			    TRUNC(l.ctime/ 60) MIN_BLOCKED,
-			    u.name||'.'||o.NAME BLOCKED_OBJ
+              ROWNUM AS "No.",
+		l.sid AS SID,
+		l.lmode AS "Lock Mode",
+		TRUNC(l.ctime/ :p_time) AS "Minutes Blocked",
+		u.name || '.' || o.NAME AS "Blocked Object"
 
 	    FROM    (select *
                 from   v$lock
-                where  type = 'TM'
+                where  type = :p_type
                 and    sid in (select sid
                               from   v$lock
                               where  block!=0)) l,

@@ -173,19 +173,16 @@ $url = 'http://' . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
                                 <a href="<?php echo URLROOT; ?>/monitors/usersessions/<?php echo $_SESSION['HomepageDB']?>" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">User Sessions</a>
                             </li>
                             <li>
-                                <a href="<?php echo URLROOT; ?>/monitors/lockedsessions" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Locked Sessions</a>
+                                <a href="<?php echo URLROOT; ?>/monitors/lockedsessions/<?php echo $_SESSION['HomepageDB']?>" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Locked Sessions</a>
                             </li>
                             <li>
-                                <a href="<?php echo URLROOT; ?>/monitors/rmanbackupreports" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">RMAN Backup Reports</a>
-                            </li>
-                            <li>
-                                <a href="<?php echo URLROOT; ?>/monitors/redologswitches" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Redo Log File Switches</a>
+                                <a href="<?php echo URLROOT; ?>/monitors/redologswitches/<?php echo $_SESSION['HomepageDB']?>" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Redo Log File Switches</a>
                             </li>
                             <li>
                                 <a href="<?php echo URLROOT; ?>/monitors/redologgenerations" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Redo Generation Per Day</a>
                             </li>
                             <li>
-                                <a href="<?php echo URLROOT; ?>/monitors/topsql" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Top SQL Running Processes</a>
+                                <a href="<?php echo URLROOT; ?>/monitors/topsql/<?php echo $_SESSION['HomepageDB']?>" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Top SQL Running Processes</a>
                             </li>
                         </ul>
                     </div>
