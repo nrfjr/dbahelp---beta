@@ -1,5 +1,10 @@
 ![](https://media0.giphy.com/media/zOvBKUUEERdNm/giphy.webp?cid=6c09b952998dee96b0b43f700ce58dba4902217ae6c8e626&rid=giphy.webp&ct=g) 
 <h1>Oracle Database Monitoring Project - DBAHelp.</h1>
+<p float="left">
+  <img src="https://www.mememaker.net/static/images/memes/4768488.jpg" height="95"/> 
+  <img src="https://miro.medium.com/max/1400/1*rdgDuig_XRNw0xzvQqeBew.png" height="95"/> 
+  <img src="https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png" height="95"/> 
+</p>
 <p>
 <b>Confidentiality Warning:</b>
 <em>This project contains information intended only for the use of the author and its subordinates.
