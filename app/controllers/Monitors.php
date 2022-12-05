@@ -64,9 +64,23 @@ class Monitors extends Controller
         $this->view('monitor/usersessions', $data);
     }
 
-    public function redologgenerations()
+    public function redologgenerations($DB)
     {
-        $this->view('monitor/redogenerations', []);
+        $_SESSION['MonitorDB'] = $DB;
+
+        if(isset($_SESSION['MonitorDB'])){
+            $this->db = $_SESSION['MonitorDB'];
+        }
+
+        $result = $this->monitorModel->getRedoLogGeneration($this->db);
+
+        if($result){
+            $data = $result;
+        }else{
+            $data = [];
+        }
+
+        $this->view('monitor/redogenerations', $data);
     }
 
     public function redologswitches($DB)

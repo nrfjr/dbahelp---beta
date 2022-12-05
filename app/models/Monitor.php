@@ -89,4 +89,19 @@ class Monitor{
         }
         
     }
+
+    public function getRedoLogGeneration($db)
+    {
+        $this->db = new OracleDatabase($db);
+        $query = $this->fm->loadSQL('get_RedoLogGeneration');
+        $this->db->query($query);
+
+        $result = $this->db->resultSet();
+
+        if ($result) {
+            return $result;
+        } else {
+            return false;
+        }
+    }
 }
