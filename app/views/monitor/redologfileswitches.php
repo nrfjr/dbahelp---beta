@@ -7,8 +7,8 @@ require APPROOT . '/views/inc/sidebar.php'; ?>
     <a href="<?php echo URLROOT; ?>/homepages/index/<?php echo $_SESSION['MonitorDB']; ?>" class="no-underline hover:underline">Monitor</a> > <b>Redo Log File Switches</b>
 </h1>
 
-<div class="flex grid grid-cols-1 gap-y-4">
-    <div class="h-auto xl:h-72 overflow-hidden">
+<div class="flex flex-col justify-evenly xl:h-5/6">
+    <div class="h-auto overflow-hidden">
         <h1 class="text-white">Morning Log File Switches Within a Week</h1>
         <div class="block  justify-center w-full shadow-md overflow-auto sm:rounded-lg" style="max-height: 93%;">
             <?php
@@ -67,7 +67,7 @@ require APPROOT . '/views/inc/sidebar.php'; ?>
         </div>
     </div>
 
-    <div class="h-auto xl:h-72 overflow-hidden">
+    <div class="h-auto overflow-hidden">
         <h1 class="text-white">Evening Log File Switches Within a Week</h1>
         <div class="block  justify-center w-full shadow-md overflow-auto sm:rounded-lg" style="max-height: 93%;">
             <?php
