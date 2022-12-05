@@ -120,7 +120,7 @@ $url = 'http://' . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
 
 
 </aside>
-<div class="w-full flex flex-col h-screen overflow-y-auto scrollbar-hide">
+<div class="w-full flex flex-col h-screen overflow-y-hidden scrollbar-hide">
     <!-- Desktop Header -->
     <header class="w-full items-center bg-gray-600 py-2 px-6 sm:flex">
         <!--TOP NAVBAR-->
@@ -448,4 +448,4 @@ $url = 'http://' . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
             </div>
         </div>
     </header>
-    <main class="w-full flex-grow p-6 bg-gray-600">
+    <main class="w-full flex-grow p-6 bg-gray-600 overflow-y-auto scrollbar-hide">
