@@ -127,7 +127,7 @@ if ($first_user_displayed === $last_user_displayed) {
                                                     <button type="button" @click="toSubmit = false" class="btn-close box-content w-4 h-4 p-1 text-black border-none rounded-none opacity-50 focus:shadow-none focus:outline-none focus:opacity-100 hover:text-black hover:opacity-75 hover:no-underline" data-bs-dismiss="modal" aria-label="Close"></button>
                                                 </div>
                                                 <div class="modal-body relative p-4">
-                                                    <font color="black">Are you sure to kill Session <b><?php echo $value['SYSPID']?></b>?</font>
+                                                    <font color="black">Are you sure to kill Session <b><?php echo $value['SPID']?></b>?</font>
                                                 </div>
                                                 <div class="modal-footer flex flex-shrink-0 flex-wrap items-center justify-end p-4 border-t border-gray-200 rounded-b-md">
                                                     <form action="#" method="POST">

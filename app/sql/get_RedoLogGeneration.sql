@@ -1,5 +1,5 @@
 SELECT    
-        TRUNC(COMPLETION_TIME) AS "Run Date",
+        TRUNC(COMPLETION_TIME) AS "Date Generated",
         COUNT(*)  "Switch Count",
         ROUND((SUM(BLOCKS*BLOCK_SIZE)/1024/1024)) "Redo Log/s Per Day"
 	FROM      
