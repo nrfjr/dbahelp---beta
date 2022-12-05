@@ -35,7 +35,7 @@ if ($first_user_displayed === $last_user_displayed) {
 // components for pagination 
 ?>
 
-<h1 class="text-3xl text-black pb-2 text-white">
+<h1 class="text-3xl text-black mb-5 text-white">
     <a href="<?php echo URLROOT; ?>/homepages/index/<?php echo $_SESSION['MonitorDB']; ?>" class="no-underline hover:underline">Monitor</a> > <b>User Sessions</b>
 </h1>
 
@@ -94,7 +94,7 @@ if ($first_user_displayed === $last_user_displayed) {
 
                         foreach ($usersessions as $column_title => $value) {
                         ?>
-                            <tr>
+                            <tr class="focus:hover:bg-gray-700 hover:bg-gray-700" >
                                 <?php
                                 foreach ($value as $user) {
                                 ?>

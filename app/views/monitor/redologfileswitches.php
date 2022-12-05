@@ -3,7 +3,7 @@ $title = 'Redo Log File Switches';
 require APPROOT . '/views/inc/header.php';
 require APPROOT . '/views/inc/sidebar.php'; ?>
 
-<h1 class="text-3xl text-black pb-2 text-white">
+<h1 class="text-3xl text-black mb-5 text-white">
     <a href="<?php echo URLROOT; ?>/homepages/index/<?php echo $_SESSION['MonitorDB']; ?>" class="no-underline hover:underline">Monitor</a> > <b>Redo Log File Switches</b>
 </h1>
 
@@ -39,7 +39,7 @@ require APPROOT . '/views/inc/sidebar.php'; ?>
                         <?php
                         foreach ($am_redologfile as $am_column_title => $am_value) {
                         ?>
-                            <tr>
+                            <tr class="focus:hover:bg-gray-700 hover:bg-gray-700">
                                 <?php
                                 foreach ($am_value as $am_logfile) {
                                 ?>
@@ -98,7 +98,7 @@ require APPROOT . '/views/inc/sidebar.php'; ?>
                         <?php
                         foreach ($pm_redologfile as $pm_column_title => $pm_value) {
                         ?>
-                            <tr>
+                            <tr class="focus:hover:bg-gray-700 hover:bg-gray-700">
                                 <?php
                                 foreach ($pm_value as $pm_logfile) {
                                 ?>

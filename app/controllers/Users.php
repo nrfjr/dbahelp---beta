@@ -97,90 +97,91 @@ class Users extends Controller
                 'remarks' => trim(SANITIZE_INPUT_STRING_EXCEPT_SPACE($_POST['remarks'])),
             ];
 
-            $username = $this->generateUsername($data['fname'], $data['mname'], $data['lname'], $data['ID']);
-            $password = $this->generatePassword();
+            try {
 
-            $data += [
-                'username' => $username,
-                'password' => $password,
-                'db_name' => $DB
-            ];
+                if (!empty($data['fname']) && !empty($data['mname']) && !empty($data['lname']) && !empty($data['ID']) && !empty($data['requestor']) && !empty($data['remarks'])) {
 
-            try{
+                    $username = $this->generateUsername($data['fname'], $data['mname'], $data['lname'], $data['ID']);
+                    $password = $this->generatePassword();
+        
+                    $data += [
+                        'username' => $username,
+                        'password' => $password,
+                        'db_name' => $DB
+                    ];
 
-            if ($DB == 'RMSPRD') {
+                    if ($DB == 'RMSPRD') {
 
-                $resultUsername = $this->userModel->getUsername($username, $DB);
-                $resultCreatedUser = $this->userModel->createUser($username, $password, $DB);
-                $resultAttribTable = $this->userModel->insertToUserAttrib($username, $DB);
-                $resultAccountsTable = $this->userModel->insertToUserAccounts($data, $DB);
-                $resultSecUserGroup = $this->userModel->insertToSecUserGroup($username, $DB);
-                $resultGrantUser = $this->userModel->grantUserRole($username, $password, $DB);
-                
-                if($data['app'] == 'OREIM'){
-                    $this->userModel->insertIntoBusinessRoleMember($username, $DB);
-                    $this->userModel->insertIntoIMUserAuth($data, $DB);
-                }
+                        $resultUsername = $this->userModel->getUsername($username, $DB);
+                        $resultCreatedUser = $this->userModel->createUser($username, $password, $DB);
+                        $resultAttribTable = $this->userModel->insertToUserAttrib($username, $DB);
+                        $resultAccountsTable = $this->userModel->insertToUserAccounts($data, $DB);
+                        $resultSecUserGroup = $this->userModel->insertToSecUserGroup($username, $DB);
+                        $resultGrantUser = $this->userModel->grantUserRole($username, $password, $DB);
 
-                if ($resultCreatedUser && $resultAttribTable && $resultAccountsTable && $resultSecUserGroup && $resultGrantUser){
+                        if ($data['app'] == 'OREIM') {
+                            $this->userModel->insertIntoBusinessRoleMember($username, $DB);
+                            $this->userModel->insertIntoIMUserAuth($data, $DB);
+                        }
 
-                    if($resultUsername){
+                        if ($resultCreatedUser && $resultAttribTable && $resultAccountsTable && $resultSecUserGroup && $resultGrantUser) {
 
-                        $msg = strtoupper($data['ID'].' '.$data['fname'].' '.$data['mname'].' '.$data['lname']).'<br>Username: '.$username.'<br>Password: '.$password;
+                            if ($resultUsername) {
 
-                        $this->dialog->SUCCESS('Update User', $DB.' User updated successfully', $msg, '/users/show/default');
+                                $msg = strtoupper($data['ID'] . ' ' . $data['fname'] . ' ' . $data['mname'] . ' ' . $data['lname']) . '<br>Username: ' . $username . '<br>Password: ' . $password;
 
+                                $this->dialog->SUCCESS('Update User', $DB . ' User updated successfully', $msg, '/users/show/default');
+                            } else {
+                                if ($data['app'] == 'ORMS' || $data['app'] == 'OREIM') {
+                                    //Generate LDIF File after user is created.
+                                    $ldiffile = $this->generateLDIF($data['fname'], $data['lname'], $data['ID'], $username, $password);
+
+                                    //Shows the viewer of file contents.
+                                    $this->view('users/ldif', $data += ['ldif' => $ldiffile]);
+                                } else {
+
+                                    $msg = strtoupper($data['ID'] . ' ' . $data['fname'] . ' ' . $data['mname'] . ' ' . $data['lname']) . '<br>Username: ' . $username . '<br>Password: ' . $password;
+
+                                    $this->dialog->SUCCESS('Update User', $DB . ' User created successfully', $msg, '/users/show/default');
+                                }
+                            }
+                        }
+                    } else {
+
+                        $resultUsername = $this->userModel->getUsername($username, $DB);
+
+                        if ($resultUsername) {
+
+                            $resultCreatedUser = $this->userModel->createUser($username, $password, $DB);
+                            $resultGrantUser = $this->userModel->grantUserRole($username, $password, $DB);
+
+                            $msg = strtoupper($data['ID'] . ' ' . $data['fname'] . ' ' . $data['mname'] . ' ' . $data['lname']) . '<br>Username: ' . $username . '<br>Password: ' . $password;
+                            $this->dialog->SUCCESS('Update User', $DB . ' User has been updated successfully', $msg, '/users/create/RDWPRD');
+                        } else {
+
+                            $resultCreatedUser = $this->userModel->createUser($username, $password, $DB);
+                            $resultGrantUser = $this->userModel->grantUserRole($username, $password, $DB);
+
+                            if ($resultCreatedUser && $resultGrantUser) {
+
+                                $msg = strtoupper($data['ID'] . ' ' . $data['fname'] . ' ' . $data['mname'] . ' ' . $data['lname']) . '<br>Username: ' . $username . '<br>Password: ' . $password;
+                                $this->dialog->SUCCESS('Create User', $DB . ' User created successfully', $msg, '/users/create/RDWPRD');
+                            } else {
+                                $this->dialog->FAILED('Create User', $DB . 'User creation failed', 'Unable to create user.', '/users/show/default');
+                            }
+                        }
                     }
-                    else
-                    {
-                    //Generate LDIF File after user is created.
-                    $ldiffile = $this->generateLDIF($data['fname'], $data['lname'], $data['ID'], $username, $password);
 
-                    //Shows the viewer of file contents.
-                    $this->view('users/ldif', $data += ['ldif' => $ldiffile]);
-                    }
-                }
+                    $this->userModel->insertToUserMaster($data, 'RMSPRD');
 
-            } else {
-
-                $resultUsername = $this->userModel->getUsername($username, $DB);
-
-                if($resultUsername){
-
-                    $resultCreatedUser = $this->userModel->createUser($username, $password, $DB);
-                    $resultGrantUser = $this->userModel->grantUserRole($username, $password, $DB);
-
-                    $msg = strtoupper($data['ID'].' '.$data['fname'].' '.$data['mname'].' '.$data['lname']).'<br>Username: '.$username.'<br>Password: '.$password;
-                    $this->dialog->SUCCESS('Update User', $DB.' User has been updated successfully', $msg, '/users/create/RDWPRD');
-
+                    $data = [];
                 }else{
-
-                    $resultCreatedUser = $this->userModel->createUser($username, $password, $DB);
-                    $resultGrantUser = $this->userModel->grantUserRole($username, $password, $DB);
-
-                    if($resultCreatedUser && $resultGrantUser){
-
-                        $msg = strtoupper($data['ID'].' '.$data['fname'].' '.$data['mname'].' '.$data['lname']).'<br>Username: '.$username.'<br>Password: '.$password;
-                        $this->dialog->SUCCESS('Create User', $DB.' User created successfully', $msg, '/users/create/RDWPRD');
-
-                    }else{
-                        $this->dialog->FAILED('Create User', $DB.'User creation failed', 'Unable to create user.', '/users/show/default');
-                    }
-
+                    $this->dialog->FAILED('Create User', 'User creation failed', 'Invalid / Missing Input, Please try again!', '/users/create/'.$_SESSION['CreateUserDB']);
+                    $data = [];
                 }
-                
+            } catch (\Exception $e) {
+                $this->dialog->FAILED('Create User', 'User creation failed', $e->getMessage(), '/users/show/default');
             }
-
-            $this->userModel->insertToUserMaster($data, 'RMSPRD');
-
-            $data=[];
-
-        }
-        catch(\Exception $e)
-        {
-            $this->dialog->FAILED('Create User', 'User creation failed', $e->getMessage(), '/users/show/default');
-        }
-
         } else {
             $this->view('users/create', []);
         }
@@ -188,7 +189,7 @@ class Users extends Controller
     // gets list of users
     public function show($DB)
     {
-        $data = ['search' => isset($_SESSION['Search'])?$_SESSION['Search']:''];
+        $data = ['search' => isset($_SESSION['Search']) ? $_SESSION['Search'] : ''];
 
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $data = ['search' => trim(SANITIZE_INPUT_STRING(empty($_POST['searchuser']) ? '' : $_POST['searchuser']))];
@@ -251,27 +252,21 @@ class Users extends Controller
 
             $db = trim(SANITIZE_INPUT_STRING($_POST['delete_db']));
 
-            try{
+            try {
 
                 $db = trim(SANITIZE_INPUT_STRING($_POST['delete_db']));
 
                 $resultDeactivate = $this->userModel->deactivateUser($username, $db);
 
-                if($resultDeactivate){
+                if ($resultDeactivate) {
 
-                    $this->dialog->SUCCESS('Delete User', ' User deletion/deactivation successful', $username.' has been deleted/deactivated.', '/users/show/default');
+                    $this->dialog->SUCCESS('Delete User', ' User deletion/deactivation successful', $username . ' has been deleted/deactivated.', '/users/show/default');
+                } else {
+                    $this->dialog->FAILED('Delete User', 'User deletion/deactivation failed', 'Unable to delete/deactivate ' . $username, '/users/show/default');
                 }
-                else{
-                    $this->dialog->FAILED('Delete User', 'User deletion/deactivation failed', 'Unable to delete/deactivate '.$username, '/users/show/default');
-                }
-
-            }
-            catch(\Exception $e)
-            {
+            } catch (\Exception $e) {
                 $this->dialog->FAILED('Delete User', 'User deletion/deactivation failed', $e->getMessage(), '/users/show/default');
             }
-
-            
         }
     }
 
@@ -319,5 +314,4 @@ class Users extends Controller
             }
         }
     }
-
 }

@@ -1,14 +1,16 @@
 SELECT * FROM
-		(SELECT sesion.sid SID,
-				sesion.serial# SERIALNO,
-				process.spid SPID,
-				sesion.machine MACHINE,
-				sesion.username USERNAME,
-				sesion.osuser OSUSER,
-				sesion.program PROGRAM,
-				cpu_time CPUTIME,
-				elapsed_time ELAPSEDTIME,
-				Substr(sqlarea.sql_text,1,300) SQLTEXT
+		(SELECT
+        ROWNUM AS "No.",
+		sesion.sid AS "SID",
+		sesion.serial# AS "Serial No.",
+		process.spid AS "SPID",
+		sesion.machine AS "Machine",
+		sesion.username AS "Username",
+		sesion.osuser AS "OS User",
+		sesion.program AS "Program",
+		cpu_time AS "CPU Time",
+		elapsed_time "Elapsed Time",
+		Substr(sqlarea.sql_text,1,300) AS "SQLTEXT"
 		FROM   	v$sqlarea sqlarea
 				,v$session sesion
 				,v$process process
