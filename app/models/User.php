@@ -18,7 +18,7 @@ class User
         $result = $this->db->test_connection($username, $password);
 
         if ($result) {
-            if ($this->getUsername($username,'RMSPRD') == $username) {
+            if ($this->getUsername($username, 'get_Username', 'RMSPRD') == $username) {
                 $data = [
                     'username' => $username,
                     'password' => $password
@@ -30,11 +30,11 @@ class User
         }
     }
 
-    public function getUsername($username, $db)
+    public function getUsername($username, $query, $db)
     {
         $this->db = new OracleDatabase('RMSPRD');
 
-        $query = $this->fm->loadSQL('get_Username');
+        $query = $this->fm->loadSQL($query);
         $param = [
             'username' => $username
         ];
