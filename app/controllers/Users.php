@@ -103,7 +103,7 @@ class Users extends Controller
 
                     $username = $this->generateUsername($data['fname'], $data['mname'], $data['lname'], $data['ID']);
                     $password = $this->generatePassword();
-        
+
                     $data += [
                         'username' => $username,
                         'password' => $password,
@@ -112,7 +112,7 @@ class Users extends Controller
 
                     if ($DB == 'RMSPRD') {
 
-                        $resultUsername = $this->userModel->getUsername($username, $DB);
+                        $resultUsername = $this->userModel->getUsername($username, 'get_Username', $DB);
                         $resultCreatedUser = $this->userModel->createUser($username, $password, $DB);
                         $resultAttribTable = $this->userModel->insertToUserAttrib($username, $DB);
                         $resultAccountsTable = $this->userModel->insertToUserAccounts($data, $DB);
@@ -132,23 +132,34 @@ class Users extends Controller
 
                                 $this->dialog->SUCCESS('Update User', $DB . ' User updated successfully', $msg, '/users/show/default');
                             } else {
-                                if ($data['app'] == 'ORMS' || $data['app'] == 'OREIM') {
-                                    //Generate LDIF File after user is created.
-                                    $ldiffile = $this->generateLDIF($data['fname'], $data['lname'], $data['ID'], $username, $password);
 
-                                    //Shows the viewer of file contents.
-                                    $this->view('users/ldif', $data += ['ldif' => $ldiffile]);
+                                $resultInRetail = $this->userModel->getUsername($username, 'get_UsernameExistsInRetail', $DB);
+
+                                if ($data['app'] == 'ORMS' || $data['app'] == 'OREIM' || $data['app'] == 'ORPM') {
+
+                                    if ($resultInRetail) {
+
+                                        $msg = strtoupper($data['ID'] . ' ' . $data['fname'] . ' ' . $data['mname'] . ' ' . $data['lname']) . '<br>Username: ' . $username . '<br>Password: ' . $password;
+
+                                        $this->dialog->SUCCESS('Create User', $DB . ' User created successfully', $msg, '/users/show/default');
+                                    } else {
+                                        //Generate LDIF File after user is created.
+                                        $ldiffile = $this->generateLDIF($data['fname'], $data['lname'], $data['ID'], $username, $password);
+
+                                        //Shows the viewer of file contents.
+                                        $this->view('users/ldif', $data += ['ldif' => $ldiffile]);
+                                    }
                                 } else {
 
                                     $msg = strtoupper($data['ID'] . ' ' . $data['fname'] . ' ' . $data['mname'] . ' ' . $data['lname']) . '<br>Username: ' . $username . '<br>Password: ' . $password;
 
-                                    $this->dialog->SUCCESS('Update User', $DB . ' User created successfully', $msg, '/users/show/default');
+                                    $this->dialog->SUCCESS('Create User', $DB . ' User created successfully', $msg, '/users/show/default');
                                 }
                             }
                         }
                     } else {
 
-                        $resultUsername = $this->userModel->getUsername($username, $DB);
+                        $resultUsername = $this->userModel->getUsername($username, 'get_Username', $DB);
 
                         if ($resultUsername) {
 
@@ -175,8 +186,8 @@ class Users extends Controller
                     $this->userModel->insertToUserMaster($data, 'RMSPRD');
 
                     $data = [];
-                }else{
-                    $this->dialog->FAILED('Create User', 'User creation failed', 'Invalid / Missing Input, Please try again!', '/users/create/'.$_SESSION['CreateUserDB']);
+                } else {
+                    $this->dialog->FAILED('Create User', 'User creation failed', 'Invalid / Missing Input, Please try again!', '/users/create/' . $_SESSION['CreateUserDB']);
                     $data = [];
                 }
             } catch (\Exception $e) {
