@@ -78,7 +78,7 @@ require APPROOT . '/views/inc/header.php';
           </div>
 
           <div>
-            <button class="rounded-lg w-full lg:w-1/2 xl:w-full 2xl:w-1/2 bg-gray-100 hover:bg-gray-500 border-1 border-solid border-gray-900 text-center px-4 py-2"><a href="<?php echo URLROOT; ?>/monitors/redologswitches">Log Switches</a></button>
+            <button class="rounded-lg w-full lg:w-1/2 xl:w-full 2xl:w-1/2 bg-gray-100 hover:bg-gray-500 border-1 border-solid border-gray-900 text-center px-4 py-2"><a href="<?php echo URLROOT; ?>/monitors/redologswitches/<?php echo $titles[$count]=='OFIN'? $titles[$count].'DB': $titles[$count].'PRD'; ?>">Log Switches</a></button>
           </div>
         </div>
       </div>
