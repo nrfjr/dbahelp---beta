@@ -110,7 +110,7 @@ if ($first_user_displayed === $last_user_displayed) {
 
                         foreach ($users as $column_title => $value) {
                         ?>
-                            <tr>
+                            <tr class="focus:hover:bg-gray-700 hover:bg-gray-700">
                                 <?php
                                 foreach ($value as $user) {
                                 ?>
