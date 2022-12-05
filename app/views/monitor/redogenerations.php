@@ -14,10 +14,7 @@ require APPROOT . '/views/inc/sidebar.php'; ?>
 
 <div class="flex flex-col justify-between h-full gap-y-1" style="max-height:93% ;">
     <div class="flex flex-col gap-y-1">
-        
-            
-        
-        <div id="redochart" class="bg-gray-300 rounded-md h-fit"></div>
+        <div id="redochart" class="bg-gray-300 rounded-md h-fit boxx"></div>
     </div>
     <div class="block justify-center lg:h-full w-full shadow-md overflow-auto sm:rounded-lg lg:max-h-80 xl:max-h-96">
         <?php
@@ -78,12 +75,13 @@ require APPROOT . '/views/inc/sidebar.php'; ?>
 
 <script>
     var options = {
+        colors: ['#00ff00', '#1aff1a', '#33ff33', '#4dff4d'],
         series: [{
             name: '',
             data: [1086, 624, 1540, 1498, 1634, 1138, 1448, 1894, 1288, 1208, 842]
         }],
         chart: {
-            height: '300px',
+            height: 350,
             type: 'area',
             zoom: {
                 enabled: false
@@ -93,20 +91,42 @@ require APPROOT . '/views/inc/sidebar.php'; ?>
             enabled: false
         },
         stroke: {
-            curve: 'smooth'
+            curve: 'smooth',
+            
         },
         title: {
             text: '<?php echo $_SESSION['MonitorDB']; ?> Redo Log Generation per Day',
-            align: 'left'
+            align: 'left',
+            style:{
+                color: 'white'
+            }
         },
         grid: {
             row: {
-                colors: ['#8c8c8c', 'transparent'], // takes an array which will be repeated on columns
+                colors: ['#8c8c8c', '#2c2f33'], // takes an array which will be repeated on columns
                 opacity: 0.5
             },
         },
         xaxis: {
             categories: ['19-NOV-22', '20-NOV-22', '21-NOV-22', '22-NOV-22', '23-NOV-22', '24-NOV-22', '25-NOV-22', '26-NOV-22', '27-NOV-22', '28-NOV-22', '29-NOV-22'],
+            labels:{
+                style:{
+                    colors: 'white'
+                },
+            },
+            axisBorder:{
+                color: 'white'
+            }
+        },
+        yaxis:{
+            axisBorder:{
+                color: 'white'
+            },
+            labels:{
+                style:{
+                    colors: 'white'
+                }
+            }
         }
     };
 
