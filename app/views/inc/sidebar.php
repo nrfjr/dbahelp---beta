@@ -179,7 +179,7 @@ $url = 'http://' . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
                                 <a href="<?php echo URLROOT; ?>/monitors/redologswitches/<?php echo $_SESSION['HomepageDB']?>" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Redo Log File Switches</a>
                             </li>
                             <li>
-                                <a href="<?php echo URLROOT; ?>/monitors/redologgenerations" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Redo Generation Per Day</a>
+                                <a href="<?php echo URLROOT; ?>/monitors/redologgenerations/<?php echo $_SESSION['HomepageDB']?>" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Redo Generation Per Day</a>
                             </li>
                             <li>
                                 <a href="<?php echo URLROOT; ?>/monitors/topsql/<?php echo $_SESSION['HomepageDB']?>" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Top SQL Running Processes</a>
