@@ -3,17 +3,20 @@ $title = 'Redo Log Generation';
 require APPROOT . '/views/inc/header.php';
 require APPROOT . '/views/inc/sidebar.php'; ?>
 
-<h1 class="text-3xl text-black mb-5 text-white">
-    <a href="<?php echo URLROOT; ?>/homepages/index/<?php echo $_SESSION['MonitorDB']; ?>" class="no-underline hover:underline">Monitor</a> > <b>Redo Log Generation</b>
-</h1>
-
-<div class="grid grid-cols-1 gap-2 h-full" style=" overflow: clip;">
-    <div class="flex flex-col box">
-        <div class="flex justify-end">
-            <button type="submit" class="px-4 py-2 mb-4 rounded-lg bg-gray-300 hover:bg-gray-500 shadow-inner shadow-xl">
+<div class="flex justify-between mb-2">
+    <h1 class="text-3xl text-black text-white">
+        <a href="<?php echo URLROOT; ?>/homepages/index/<?php echo $_SESSION['MonitorDB']; ?>" class="no-underline hover:underline">Monitor</a> > <b>Redo Log Generation</b>
+    </h1>
+    <button type="submit" class="px-4 py-2 rounded-lg bg-gray-300 hover:bg-gray-500 shadow-inner shadow-xl">
                 Refresh Data
             </button>
-        </div>
+</div>
+
+<div class="flex flex-col justify-between h-full gap-y-1" style="max-height:93% ;">
+    <div class="flex flex-col gap-y-1">
+        
+            
+        
         <div id="redochart" class="bg-gray-300 rounded-md h-fit"></div>
     </div>
     <div class="block justify-center lg:h-full w-full shadow-md overflow-auto sm:rounded-lg lg:max-h-80 xl:max-h-96">
@@ -80,7 +83,7 @@ require APPROOT . '/views/inc/sidebar.php'; ?>
             data: [1086, 624, 1540, 1498, 1634, 1138, 1448, 1894, 1288, 1208, 842]
         }],
         chart: {
-            height: 200,
+            height: '300px',
             type: 'area',
             zoom: {
                 enabled: false
