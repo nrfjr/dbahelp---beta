@@ -8,7 +8,12 @@ require APPROOT . '/views/inc/sidebar.php'; ?>
 </h1>
 
 <div class="grid grid-cols-1 gap-2 h-full" style=" overflow: clip;">
-    <div class="box">
+    <div class="flex flex-col box">
+        <div class="flex justify-end">
+            <button type="submit" class="px-4 py-2 rounded-lg bg-gray-300 hover:bg-gray-500 shadow-inner shadow-xl">
+                Refresh Data
+            </button>
+        </div>
         <div id="redochart" class="bg-gray-300 rounded-md"></div>
     </div>
     <div class="block justify-center lg:h-full w-full shadow-md overflow-auto sm:rounded-lg lg:max-h-80 xl:max-h-96" >
