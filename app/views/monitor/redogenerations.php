@@ -33,7 +33,7 @@ $filterPHParray = function ($array, $key) {
 
 <div class="flex flex-col justify-between h-full gap-y-1" style="max-height:93% ;">
     <div class="flex flex-col">
-        <div id="redochart" class="bg-gray-300 rounded-md h-fit">
+        <div id="redochart" class="bg-gray-300 rounded-md h-fit boxx">
         </div>
     </div>
     <div class="block justify-center lg:h-full w-full shadow-md overflow-auto sm:rounded-lg lg:max-h-80 xl:max-h-96">
@@ -95,6 +95,7 @@ $filterPHParray = function ($array, $key) {
 
 <script>
     var options = {
+        colors: ['#00e600'],
         series: [{
             name: '',
             data: [<?php $filterPHParray($data, 'Switch Count'); ?>]
@@ -114,16 +115,37 @@ $filterPHParray = function ($array, $key) {
         },
         title: {
             text: '<?php echo $_SESSION['MonitorDB']; ?> Redo Log Generation per Day',
-            align: 'left'
+            align: 'left',
+            style:{
+                color: 'white'
+            }
         },
         grid: {
             row: {
-                colors: ['#8c8c8c', 'transparent'], // takes an array which will be repeated on columns
+                colors: ['#8c8c8c', '#2c2f33'], // takes an array which will be repeated on columns
                 opacity: 0.5
             },
         },
         xaxis: {
             categories: [<?php $filterPHParray($data, 'Date Generated'); ?>],
+            labels:{
+                style:{
+                    colors: 'white'
+                },
+            },
+            axisBorder:{
+                color: 'white'
+            }
+        },
+        yaxis:{
+            axisBorder:{
+                color: 'white'
+            },
+            labels:{
+                style:{
+                    colors: 'white'
+                }
+            }
         }
     };
 
