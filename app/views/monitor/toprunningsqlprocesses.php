@@ -3,20 +3,17 @@ $title = 'Top SQL';
 require APPROOT . '/views/inc/header.php';
 require APPROOT . '/views/inc/sidebar.php'; ?>
 
-<h1 class="text-3xl text-black mb-5 text-white">
-    <a href="<?php echo URLROOT; ?>/homepages/index/<?php echo $_SESSION['MonitorDB']; ?>" class="no-underline hover:underline">Monitor</a> > <b>Top Running SQL Processes</b>
-</h1>
-
-<div class="overflow-x-auto relative shadow-md sm:rounded-lg">
-    <div class=" block justify-between items-center p-2 bg-gray-400 dark:bg-gray-900 mb-4">
-        <div class="flex justify-end">
-            <a href="<?php echo URLROOT; ?>/monitors/topsql/<?php echo $_SESSION['MonitorDB']?>"><button class="px-4 py-2 rounded-lg bg-gray-200 hover:bg-gray-500"> Refresh
+<div class="flex justify-between mb-5">
+    <h1 class="text-3xl text-black text-white">
+        <a href="<?php echo URLROOT; ?>/homepages/index/<?php echo $_SESSION['MonitorDB']; ?>" class="no-underline hover:underline">Monitor</a> > <b>Top Running SQL Processes</b>
+    </h1>
+    <a href="<?php echo URLROOT; ?>/monitors/topsql/<?php echo $_SESSION['MonitorDB']?>"><button class="px-4 py-2 rounded-lg bg-gray-200 hover:bg-gray-500"> Refresh
                 <i class="las la-redo-alt"></i>
             </button>
-</a>
-        </div>
-    </div>
+            </a>
+</div>
 
+<div class="overflow-x-auto relative shadow-md sm:rounded-lg">
     <div style="height: 68vh; overflow: clip;" class="">
         <div class="block  justify-center w-full shadow-md overflow-auto sm:rounded-lg" style="max-height: 100%;">
             <?php
@@ -52,7 +49,7 @@ require APPROOT . '/views/inc/sidebar.php'; ?>
                         ?>
                             <tr class="focus:hover:bg-gray-700 hover:bg-gray-700" title="<?php echo str_replace('"', "&quot;",$value['SQLTEXT']); ?>">
                                 <?php
-                                array_splice($value, 10);
+                                array_splice($value, 9);
                                 foreach ($value as $k => $v) {
                                 ?>
                                         <td class="py-4 px-6">

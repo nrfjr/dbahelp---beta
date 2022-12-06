@@ -1,171 +1,116 @@
 <?php
 $title = 'Hit Ratio';
 require APPROOT . '/views/inc/header.php';
-require APPROOT . '/views/inc/sidebar.php'; ?>
+require APPROOT . '/views/inc/sidebar.php';
 
-<h1 class="text-3xl text-black pb-2 text-white">
-    <a href="<?php echo URLROOT; ?>/homepage/dashboard" class="no-underline hover:underline">Performance</a> > <b>Hit Ratio</b>
-</h1>
+$current_tab = isset($_GET['tab']) ? $_GET['tab'] : 1;
 
+$setTabSelected = function ($tabIndex, $current_tab) {
+
+    if ($current_tab == $tabIndex) {
+        echo 'true';
+    } else {
+        echo 'false';
+    }
+};
+
+?>
+
+<div class="flex justify-between mb-5">
+    <h1 class="text-3xl text-black text-white">
+        <a href="<?php echo URLROOT; ?>/homepages/index/<?php echo $_SESSION['PerformanceDB']; ?>" class="no-underline hover:underline">Performance</a> > <b>Hit Ratio</b>
+    </h1>
+    <a href="<?php echo URLROOT; ?>/performances/hitratio/<?php echo $_SESSION['PerformanceDB'] ?>?tab=<?php echo $current_tab; ?>"><button class="px-4 py-2 rounded-lg bg-gray-200 hover:bg-gray-500"> Refresh
+            <i class="las la-redo-alt"></i>
+        </button>
+    </a>
+</div>
 <!--NEWTABBED-->
 <div class="overflow-x-auto relative shadow-md ">
 
-    
-<div class=" border-b border-gray-200 dark:border-gray-700">
-    <ul class="flex flex-wrap -mb-px text-sm font-medium text-center bg-gray-200 rounded-t-lg" id="myTab" data-tabs-toggle="#myTabContent" role="tablist">
-        <li class="mr-2" role="presentation">
-            <button class="inline-block p-4 rounded-t-lg border-b-2 hover:bg-gray-400" id="profile-tab" data-tabs-target="#profile" type="button" role="tab" aria-controls="profile" aria-selected="false">Data Files Location</button>
-        </li>
-        <li class="mr-2" role="presentation">
-            <button class="inline-block p-4 rounded-t-lg border-b-2 border-transparent hover:bg-gray-400 hover:border-gray-300 dark:hover:text-gray-300" id="dashboard-tab" data-tabs-target="#dashboard" type="button" role="tab" aria-controls="dashboard" aria-selected="false">Redo Log Files Location</button>
-        </li>
-        <li class="mr-2" role="presentation">
-            <button class="inline-block p-4 rounded-t-lg border-b-2 border-transparent hover:bg-gray-400 hover:border-gray-300 dark:hover:text-gray-300" id="settings-tab" data-tabs-target="#settings" type="button" role="tab" aria-controls="settings" aria-selected="false">Control File Location</button>
-        </li>
-    </ul>
-</div>
-<div id="myTabContent">
-    <div class="hidden p-4 bg-gray-50 rounded-b-lg dark:bg-gray-800 max-h-screen overflow-auto h-full " id="profile" role="tabpanel" aria-labelledby="profile-tab">
-        <div class="">
-            <div class="block  justify-center w-full shadow-md overflow-auto sm:rounded-lg" style="max-height: 100%;">
-                <table class="w-full text-sm text-center text-white dark:text-gray-400">
-                    <thead class="text-md text-black bg-indigo-200 dark:bg-gray-700 dark:text-gray-400">
-                        <tr>
-                            <th class="py-2 px-6">CONSIS_GETS</th>
-                            <th class="py-2 px-6">DB_BLK_GETS</th>
-                            <th class="py-2 px-6">PHYS_READS</th>
-                            <th class="py-2 px-6">HIT_RATIO</th>
-                        </tr>
-                    </thead>
-                    <tbody class="bg-gray-500">
-                        <tr>
-                            <td class="py-4 px-6" title="show query">15/JUL</td>
-                            <td class="py-4 px-6" title="show query">000</td>
-                            <td class="py-4 px-6" title="show query">000</td>
-                            <td class="py-4 px-6" title="show query">000</td>
-                        </tr>
-                        <tr>
-                            <td class="py-4 px-6" title="show query">15/JUL</td>
-                            <td class="py-4 px-6" title="show query">000</td>
-                            <td class="py-4 px-6" title="show query">000</td>
-                            <td class="py-4 px-6" title="show query">000</td>
-                        </tr>
-                        <tr>
-                            <td class="py-4 px-6" title="show query">15/JUL</td>
-                            <td class="py-4 px-6" title="show query">000</td>
-                            <td class="py-4 px-6" title="show query">000</td>
-                            <td class="py-4 px-6" title="show query">000</td>
-                        </tr>
-                        <tr>
-                            <td class="py-4 px-6" title="show query">15/JUL</td>
-                            <td class="py-4 px-6" title="show query">000</td>
-                            <td class="py-4 px-6" title="show query">000</td>
-                            <td class="py-4 px-6" title="show query">000</td>
-                        </tr>
-                        <tr>
-                            <td class="py-4 px-6" title="show query">15/JUL</td>
-                            <td class="py-4 px-6" title="show query">000</td>
-                            <td class="py-4 px-6" title="show query">000</td>
-                            <td class="py-4 px-6" title="show query">000</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
+
+    <div class=" border-b border-gray-200 dark:border-gray-700">
+        <ul class="flex flex-wrap -mb-px text-sm font-medium text-center bg-gray-200 rounded-t-lg" id="myTab" data-tabs-toggle="#myTabContent" role="tablist">
+            <li class="mr-2" role="presentation">
+                <a href="?tab=1"><button class="inline-block p-4 rounded-t-lg border-b-2 hover:bg-gray-400" id="buffer-tab" data-tabs-target="#buffer" type="button" role="tab" aria-controls="buffer" aria-selected="<?php $setTabSelected(1, $current_tab) ?>">Buffer Cache Hit Ratio</button></a>
+            </li>
+            <li class="mr-2" role="presentation">
+                <a href="?tab=2"><button class="inline-block p-4 rounded-t-lg border-b-2 border-transparent hover:bg-gray-400 hover:border-gray-300 dark:hover:text-gray-300" id="dictionary-tab" data-tabs-target="#dictionary" type="button" role="tab" aria-controls="dictionary" aria-selected="<?php $setTabSelected(2, $current_tab) ?>">Dictionary Hit Ratio</button></a>
+            </li>
+            <li class="mr-2" role="presentation">
+                <a href="?tab=3"><button class="inline-block p-4 rounded-t-lg border-b-2 border-transparent hover:bg-gray-400 hover:border-gray-300 dark:hover:text-gray-300" id="library-tab" data-tabs-target="#library" type="button" role="tab" aria-controls="library" aria-selected="<?php $setTabSelected(3, $current_tab) ?>">Library Miss Ratio</button></a>
+            </li>
+            <li class="mr-2" role="presentation">
+                <a href="?tab=4"><button class="inline-block p-4 rounded-t-lg border-b-2 border-transparent hover:bg-gray-400 hover:border-gray-300 dark:hover:text-gray-300" id="latch-tab" data-tabs-target="#latch" type="button" role="tab" aria-controls="latch" aria-selected="<?php $setTabSelected(4, $current_tab) ?>">Latch Miss Ratio</button></a>
+            </li>
+        </ul>
     </div>
-    <div class="hidden p-4 bg-gray-50 rounded-b-lg dark:bg-gray-800 max-h-screen overflow-auto h-full " id="dashboard" role="tabpanel" aria-labelledby="dashboard-tab">
-    <div class="">
-            <div class="block  justify-center w-full shadow-md overflow-auto sm:rounded-lg" style="max-height: 100%;">
-                <table class="w-full text-sm text-center text-white dark:text-gray-400">
-                    <thead class="text-md text-black bg-indigo-200 dark:bg-gray-700 dark:text-gray-400">
-                        <tr>
-                            <th class="py-2 px-6">DATA_DICT_GETS</th>
-                            <th class="py-2 px-6">CACHE_MISSES</th>
-                            <th class="py-2 px-6">DICT_HIT_RATIO</th>
-                        </tr>
-                    </thead>
-                    <tbody class="bg-gray-500">
-                        <tr>
-                            <td class="py-4 px-6" title="show query">380386201</td>
-                            <td class="py-4 px-6" title="show query">320278</td>
-                            <td class="py-4 px-6" title="show query">99</td>
-                        </tr>
-                        <tr>
-                            <td class="py-4 px-6" title="show query">380386201</td>
-                            <td class="py-4 px-6" title="show query">320278</td>
-                            <td class="py-4 px-6" title="show query">99</td>
-                        </tr>
-                        <tr>
-                            <td class="py-4 px-6" title="show query">380386201</td>
-                            <td class="py-4 px-6" title="show query">320278</td>
-                            <td class="py-4 px-6" title="show query">99</td>
-                        </tr>
-                        <tr>
-                            <td class="py-4 px-6" title="show query">380386201</td>
-                            <td class="py-4 px-6" title="show query">320278</td>
-                            <td class="py-4 px-6" title="show query">99</td>
-                        </tr>
-                        <tr>
-                            <td class="py-4 px-6" title="show query">380386201</td>
-                            <td class="py-4 px-6" title="show query">320278</td>
-                            <td class="py-4 px-6" title="show query">99</td>
-                        </tr>
-                    </tbody>
-                </table>
+    <div id="myTabContent">
+        <?php
+        foreach ($data as $title => $array) {
+        ?>
+            <div class="hidden p-4 bg-gray-50 rounded-b-lg dark:bg-gray-800 max-h-screen overflow-auto h-full " id="<?php echo $title; ?>" role="tabpanel" aria-labelledby="<?php echo $title; ?>-tab">
+                <div class="">
+                    <div class="block  justify-center w-full shadow-md overflow-auto sm:rounded-lg" style="max-height: 100%;">
+                        <?php
+
+                        if (!empty($array)) {
+
+                            //Separates Column title from result set
+                            foreach ($array as $outer_key => $inner_array) {
+
+                                foreach ($inner_array as $inner_key => $value) {
+                                    $column_names[] = $inner_key;
+                                }
+                            }
+                        ?>
+                            <table class="w-full text-sm text-center text-white dark:text-gray-400">
+                                <thead class="text-md text-black bg-indigo-200 dark:bg-gray-700 dark:text-gray-400">
+                                    <tr>
+                                        <?php for ($title = 0; $title <= count($inner_array) - 1; $title++) { ?>
+                                            <th scope="col" class="py-2 px-6">
+                                                <?php echo $column_names[$title]; ?>
+                                            </th>
+                                        <?php } ?>
+                                    </tr>
+                                </thead>
+                                <tbody class="bg-gray-500">
+                                    <?php
+                                    foreach ($array as $column_title => $values) {
+                                    ?>
+                                        <tr class="focus:hover:bg-gray-700 hover:bg-gray-700">
+                                            <?php
+                                            foreach ($values as $ratios) {
+                                            ?>
+                                                <td class="py-4 px-6">
+                                                    <?php echo $ratios; ?>
+                                                </td>
+                                            <?php
+                                            }
+                                            ?>
+                                        </tr>
+                                    <?php
+                                    }
+                                    ?>
+                                </tbody>
+                            </table>
+                        <?php
+                        } else {
+                        ?>
+                            <div class="flex w-full shadow-md overflow-auto sm:rounded-lg bg-gray-500" style="max-height: 80%; min-height: 100%;">
+                                <h1 class="text-white m-auto "><b>No Ratio Data Found.</b></h1>
+                            </div>
+                        <?php
+                        }
+                        ?>
+                    </div>
+                </div>
             </div>
-        </div>
-    </div>
-    <div class="hidden p-4 bg-gray-50 rounded-b-lg dark:bg-gray-800 max-h-screen overflow-auto h-full " id="settings" role="tabpanel" aria-labelledby="settings-tab">
-    <div class="">
-            <div class="block  justify-center w-full shadow-md overflow-auto sm:rounded-lg" style="max-height: 100%;">
-                <table class="w-full text-sm text-center text-white dark:text-gray-400">
-                    <thead class="text-md text-black bg-indigo-200 dark:bg-gray-700 dark:text-gray-400">
-                        <tr>
-                            <th class="py-2 px-6">EXECUTIONS</th>
-                            <th class="py-2 px-6">CACHE_MISS</th>
-                            <th class="py-2 px-6">MISS_RATIO</th>
-                        </tr>
-                    </thead>
-                    <tbody class="bg-gray-500">
-                        <tr>
-                            <td class="py-4 px-6" title="show query">221353526</td>
-                            <td class="py-4 px-6" title="show query">210284</td>
-                            <td class="py-4 px-6" title="show query">0.0009</td>
-                        </tr>
-                        <tr>
-                            <td class="py-4 px-6" title="show query">221353526</td>
-                            <td class="py-4 px-6" title="show query">210284</td>
-                            <td class="py-4 px-6" title="show query">0.0009</td>
-                        </tr>
-                        <tr>
-                            <td class="py-4 px-6" title="show query">221353526</td>
-                            <td class="py-4 px-6" title="show query">210284</td>
-                            <td class="py-4 px-6" title="show query">0.0009</td>
-                        </tr>
-                        <tr>
-                            <td class="py-4 px-6" title="show query">221353526</td>
-                            <td class="py-4 px-6" title="show query">210284</td>
-                            <td class="py-4 px-6" title="show query">0.0009</td>
-                        </tr>
-                        <tr>
-                            <td class="py-4 px-6" title="show query">221353526</td>
-                            <td class="py-4 px-6" title="show query">210284</td>
-                            <td class="py-4 px-6" title="show query">0.0009</td>
-                        </tr>
-                        <tr>
-                            <td class="py-4 px-6" title="show query">221353526</td>
-                            <td class="py-4 px-6" title="show query">210284</td>
-                            <td class="py-4 px-6" title="show query">0.0009</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
+        <?php
+        }
+        ?>
     </div>
 </div>
 
-    
-</div>
-<!--NEWTABBED-->
 
 <?php require APPROOT . '/views/inc/footer.php'; ?>

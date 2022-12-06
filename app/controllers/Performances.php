@@ -2,6 +2,7 @@
 
 class Performances extends Controller{
 
+    private $db;
     
     public function __construct(){
         $this->performanceModel = $this->model('Performance');
@@ -11,30 +12,105 @@ class Performances extends Controller{
         }
     }
 
-    public function pgatargetadvisor()
+    public function pgatargetadvisor($DB)
     {
-        $this->view('performance/pgatargetadvisor',[]);
+        $_SESSION['PerformanceDB'] = $DB;
+
+        if(isset($_SESSION['PerformanceDB'])){
+            $this->db = $_SESSION['PerformanceDB'];
+        }
+
+        $result = $this->performanceModel->getPGATarget($this->db);
+
+        if($result){
+            $data = $result;
+        }else{
+            $data = [];
+        }
+
+        $this->view('performance/pgatargetadvisor',$data);
     }
 
-    public function sgatargetadvisor()
+    public function sgatargetadvisor($DB)
     {
-        $this->view('performance/sgatargetadvisor',[]);
+        $_SESSION['PerformanceDB'] = $DB;
+
+        if(isset($_SESSION['PerformanceDB'])){
+            $this->db = $_SESSION['PerformanceDB'];
+        }
+
+        $result = $this->performanceModel->getSGATarget($this->db);
+
+        if($result){
+            $data = $result;
+        }else{
+            $data = [];
+        }
+
+        $this->view('performance/sgatargetadvisor',$data);
+
     }
 
-    public function buffercacheadvisor()
+    public function buffercacheadvisor($DB)
     {
-        $this->view('performance/buffercacheadvisor',[]);
+        $_SESSION['PerformanceDB'] = $DB;
+
+        if(isset($_SESSION['PerformanceDB'])){
+            $this->db = $_SESSION['PerformanceDB'];
+        }
+
+        $result = $this->performanceModel->getBufferCache($this->db);
+
+        if($result){
+            $data = $result;
+        }else{
+            $data = [];
+        }
+
+        $this->view('performance/buffercacheadvisor',$data);
     }
 
-    public function hitratio()
+    public function hitratio($DB)
     {
-        $this->view('performance/hitratio',[]);
+        $_SESSION['PerformanceDB'] = $DB;
+
+        if(isset($_SESSION['PerformanceDB'])){
+            $this->db = $_SESSION['PerformanceDB'];
+        }
+
+        $buffer_hr = $this->performanceModel->getBufferCacheHR($this->db);
+        $dictionary_hr = $this->performanceModel->getDictionaryHR($this->db);
+        $library_mr = $this->performanceModel->getLibraryMR($this->db);
+        $latch_mr = $this->performanceModel->getLatchMR($this->db);
+
+        $data = [
+                    'buffer' => ($buffer_hr)?$buffer_hr:[],
+                    'dictionary' => ($dictionary_hr)?$dictionary_hr:[],
+                    'library' => ($library_mr)?$library_mr:[],
+                    'latch' => ($latch_mr)?$latch_mr:[]
+                  ];
+        
+        $this->view('performance/hitratio', $data);
     }
 
-    public function tablestatistics()
+    public function tablestatistics($DB)
     {
-        $this->view('performance/tablestatistics',[]);
-    }
 
+        $_SESSION['PerformanceDB'] = $DB;
+
+        if(isset($_SESSION['PerformanceDB'])){
+            $this->db = $_SESSION['PerformanceDB'];
+        }
+
+        $result = $this->performanceModel->getTableStatistics($this->db);
+
+        if($result){
+            $data = $result;
+        }else{
+            $data = [];
+        }
+
+        $this->view('performance/tablestatistics', $data);
+    }
     
 }

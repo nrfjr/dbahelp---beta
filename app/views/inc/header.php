@@ -59,11 +59,6 @@
             border-radius: 5px;
             background-color: #2c2f33;
         }
-        .boxx{
-            box-shadow: rgba(0, 0, 0, 1) 0px 1px 3px, rgba(0, 0, 0, 1) 0px 1px 2px;
-            border-radius: 5px;
-            background-color: #2c2f33;
-        }
 
         .top-nav{
             box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;

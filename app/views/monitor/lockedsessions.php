@@ -7,7 +7,7 @@ require APPROOT . '/views/inc/sidebar.php';
 
 $lockedsessions = $data;
 
-$filtered_users = array();
+$filtered_locks = array();
 
 $total_sessions = count($lockedsessions);
 
@@ -23,22 +23,27 @@ if (!empty($current_page) && $current_page > 1) {
 
 $total_pages = ceil($total_sessions / $limit);
 
-$first_user_displayed = $offset + 1;
+$first_locked_displayed = $offset + 1;
 
-$last_user_displayed = $total_sessions >= ($offset * $limit) + $limit ? $offset + $limit : $total_sessions;
+$last_locked_displayed = $total_sessions >= ($offset * $limit) + $limit ? $offset + $limit : $total_sessions;
 
-if ($first_user_displayed === $last_user_displayed) {
+if ($first_locked_displayed === $last_locked_displayed) {
     $range = 'the Last of ' . $total_sessions . ' Locked Sessions';
 } else {
-    $range = $first_user_displayed . ' - ' . $last_user_displayed . ' of ' . $total_sessions . ' Locked Sessions ';
+    $range = $first_locked_displayed . ' - ' . $last_locked_displayed . ' of ' . $total_sessions . ' Locked Sessions ';
 }
 // components for pagination 
 ?>
 
-<h1 class="text-3xl text-black mb-5 text-white">
-    <a href="<?php echo URLROOT; ?>/homepages/index/<?php echo $_SESSION['MonitorDB']; ?>" class="no-underline hover:underline">Monitor</a> > <b>Locked Sessions</b>
-</h1>
-
+<div class="flex justify-between mb-5">
+    <h1 class="text-3xl text-black text-white">
+        <a href="<?php echo URLROOT; ?>/homepages/index/<?php echo $_SESSION['MonitorDB']; ?>" class="no-underline hover:underline">Monitor</a> > <b>Locked Sessions</b>
+    </h1>
+    <a href="<?php echo URLROOT; ?>/monitors/lockedsessions/<?php echo $_SESSION['MonitorDB']; ?>"><button class="px-4 py-2 rounded-lg bg-gray-200 hover:bg-gray-500"> Refresh
+                <i class="las la-redo-alt"></i>
+            </button>
+            </a>
+</div>
 <div class="overflow-x-auto relative shadow-md">
 
     <div class="rounded-lg flex justify-between items-center p-2 bg-gray-300 dark:bg-gray-900 mb-4">
@@ -46,13 +51,6 @@ if ($first_user_displayed === $last_user_displayed) {
             <p class="m-2">Locked Sessions Total:</p>
             <b class="m-2"><?php echo $total_sessions?></b>
         </div>
-        <form action="<?php echo URLROOT; ?>/monitors/lockedsessions/<?php echo $_SESSION['MonitorDB']; ?>" method="POST">
-        <div class="inline-flex">
-            <button type="submit" class="px-4 py-2 rounded-lg bg-gray-300 hover:bg-gray-500 shadow-inner shadow-xl">
-                Refresh Data
-            </button>
-        </div>
-        </form>
     </div>
 
     <div style="height: 65vh; overflow: clip;">

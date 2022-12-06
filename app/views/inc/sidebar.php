@@ -198,19 +198,19 @@ $url = 'http://' . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
                     <div id="dropdown-performance" class="hidden z-10 w-44 bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700">
                         <ul class="py-1 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefault">
                             <li>
-                                <a href="<?php echo URLROOT; ?>/performances/pgatargetadvisor" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">PGA Target Advisor</a>
+                                <a href="<?php echo URLROOT; ?>/performances/pgatargetadvisor/<?php echo $_SESSION['HomepageDB']?>" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">PGA Target Advisor</a>
                             </li>
                             <li>
-                                <a href="<?php echo URLROOT; ?>/performances/sgatargetadvisor" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">SGA Target Advisor</a>
+                                <a href="<?php echo URLROOT; ?>/performances/sgatargetadvisor/<?php echo $_SESSION['HomepageDB']?>" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">SGA Target Advisor</a>
                             </li>
                             <li>
-                                <a href="<?php echo URLROOT; ?>/performances/buffercacheadvisor" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Buffer Cache Advisor</a>
+                                <a href="<?php echo URLROOT; ?>/performances/buffercacheadvisor/<?php echo $_SESSION['HomepageDB']?>" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Buffer Cache Advisor</a>
                             </li>
                             <li>
-                                <a href="<?php echo URLROOT; ?>/performances/hitratio" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Hit Ratio - Quick Checks</a>
+                                <a href="<?php echo URLROOT; ?>/performances/hitratio/<?php echo $_SESSION['HomepageDB']?>" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Hit Ratio - Quick Checks</a>
                             </li>
                             <li>
-                                <a href="<?php echo URLROOT; ?>/performances/tablestatistics" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Table Statistics Status</a>
+                                <a href="<?php echo URLROOT; ?>/performances/tablestatistics/<?php echo $_SESSION['HomepageDB']?>" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Table Statistics Status</a>
                             </li>
                         </ul>
                     </div>

@@ -3,11 +3,17 @@ $title = 'Redo Log File Switches';
 require APPROOT . '/views/inc/header.php';
 require APPROOT . '/views/inc/sidebar.php'; ?>
 
-<h1 class="text-3xl text-black mb-5 text-white">
-    <a href="<?php echo URLROOT; ?>/homepages/index/<?php echo $_SESSION['MonitorDB']; ?>" class="no-underline hover:underline">Monitor</a> > <b>Redo Log File Switches</b>
-</h1>
+<div class="flex justify-between mb-3">
+    <h1 class="text-3xl text-black text-white">
+        <a href="<?php echo URLROOT; ?>/homepages/index/<?php echo $_SESSION['MonitorDB']; ?>" class="no-underline hover:underline">Monitor</a> > <b>Redo Log File Switches</b>
+    </h1>
+    <a href="<?php echo URLROOT; ?>/monitors/redologswitches/<?php echo $_SESSION['MonitorDB']?>"><button class="px-4 py-2 rounded-lg bg-gray-200 hover:bg-gray-500"> Refresh
+                <i class="las la-redo-alt"></i>
+            </button>
+            </a>
+</div>
 
-<div class="flex flex-col justify-evenly xl:h-5/6">
+<div class="flex flex-col justify-evenly gap-y-2 xl:h-5/3">
     <div class="h-auto overflow-hidden">
         <h1 class="text-white">Morning Log File Switches Within a Week</h1>
         <div class="block  justify-center w-full shadow-md overflow-auto sm:rounded-lg" style="max-height: 93%;">
