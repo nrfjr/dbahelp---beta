@@ -2,6 +2,7 @@
 
 class Storages extends Controller{
 
+    private $db;
     
     public function __construct(){
         $this->storageModel = $this->model('Storage');
@@ -11,9 +12,25 @@ class Storages extends Controller{
         }
     }
 
-    public function dbfilelayout()
+    public function dbfilelayout($DB)
     {
-        $this->view('storage/dbfilelayout',[]);
+        $_SESSION['StorageDB'] = $DB;
+
+        if(isset($_SESSION['StorageDB'])){
+            $this->db = $_SESSION['StorageDB'];
+        }
+
+        $datafiles = $this->storageModel->getDatafiles($this->db);
+        $logfiles = $this->storageModel->getLogfiles($this->db);
+        $controlfiles = $this->storageModel->getControlfiles($this->db);
+
+        $data = [
+                    'datafiles' => ($datafiles)?$datafiles:[],
+                    'logfiles' => ($logfiles)?$logfiles:[],
+                    'controlfiles' => ($controlfiles)?$controlfiles:[]
+                  ];
+
+        $this->view('storage/dbfilelayout',$data);
     }
 
     public function tableindexes()  

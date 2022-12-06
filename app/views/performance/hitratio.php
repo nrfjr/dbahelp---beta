@@ -71,7 +71,10 @@ $setTabSelected = function ($tabIndex, $current_tab) {
                                             <th scope="col" class="py-2 px-6">
                                                 <?php echo $column_names[$title]; ?>
                                             </th>
-                                        <?php } ?>
+                                        <?php 
+                                        } 
+                                        $column_names = [];
+                                        ?>
                                     </tr>
                                 </thead>
                                 <tbody class="bg-gray-500">
@@ -98,7 +101,7 @@ $setTabSelected = function ($tabIndex, $current_tab) {
                         } else {
                         ?>
                             <div class="flex w-full shadow-md overflow-auto sm:rounded-lg bg-gray-500" style="max-height: 80%; min-height: 100%;">
-                                <h1 class="text-white m-auto "><b>No Ratio Data Found.</b></h1>
+                                <h1 class="text-white m-auto "><b>No <?php echo strtoupper($title[0]).substr($title,1); ?> Found.</b></h1>
                             </div>
                         <?php
                         }

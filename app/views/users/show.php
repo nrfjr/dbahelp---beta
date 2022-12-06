@@ -42,7 +42,7 @@ if ($first_user_displayed === $last_user_displayed) {
     <div class="flex justify-between items-center pb-4 bg-gray-600 dark:bg-gray-900">
         <div>
             
-                <button id="dropdownDefault" data-dropdown-toggle="dropdown-createuser" class="inline-flex items-center text-black bg-green-300 focus:outline-none hover:bg-green-700 focus:ring-4 focus:ring-gray-200 font-medium rounded-lg text-sm px-3 py-1.5 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700 hover:text-white" type="button">
+                <button id="dropdownDefault" data-dropdown-toggle="dropdown-createuser" class="inline-flex items-center text-black bg-green-300 focus:outline-none hover:bg-green-700  font-medium rounded-lg text-sm px-3 py-2  hover:text-white" type="button">
                     Create
                     <i class="fas fa-chevron-down ml-2"></i>
                 </button>
