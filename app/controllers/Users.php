@@ -1,4 +1,7 @@
 <?php
+
+// Always check if-else degree, only 2nd to 3rd are allowed.
+
 class Users extends Controller
 {
 
@@ -84,20 +87,20 @@ class Users extends Controller
     {
         $_SESSION['CreateUserDB'] = $DB;
 
-        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+        try {
 
-            $data = [
-                'fname' => trim(SANITIZE_INPUT_STRING_EXCEPT_SPACE($_POST['first-name'])),
-                'mname' => trim(SANITIZE_INPUT_STRING($_POST['middle-name'])),
-                'lname' => trim(SANITIZE_INPUT_STRING_EXCEPT_SPACE($_POST['last-name'])),
-                'ID' => trim(SANITIZE_INPUT_STRING($_POST['Id'])),
-                'app' => trim(SANITIZE_INPUT_STRING_EXCEPT_SPACE($_POST['application'])),
-                'ip' => $this->getIP(),
-                'requestor' => trim(SANITIZE_INPUT_STRING_EXCEPT_SPACE($_POST['requestor'])),
-                'remarks' => trim(SANITIZE_INPUT_STRING_EXCEPT_SPACE($_POST['remarks'])),
-            ];
+            if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
-            try {
+                $data = [
+                    'fname' => trim(SANITIZE_INPUT_STRING_EXCEPT_SPACE($_POST['first-name'])),
+                    'mname' => trim(SANITIZE_INPUT_STRING($_POST['middle-name'])),
+                    'lname' => trim(SANITIZE_INPUT_STRING_EXCEPT_SPACE($_POST['last-name'])),
+                    'ID' => trim(SANITIZE_INPUT_STRING($_POST['Id'])),
+                    'app' => trim(SANITIZE_INPUT_STRING_EXCEPT_SPACE($_POST['application'])),
+                    'ip' => $this->getIP(),
+                    'requestor' => trim(SANITIZE_INPUT_STRING_EXCEPT_SPACE($_POST['requestor'])),
+                    'remarks' => trim(SANITIZE_INPUT_STRING_EXCEPT_SPACE($_POST['remarks'])),
+                ];
 
                 if (!empty($data['fname']) && !empty($data['mname']) && !empty($data['lname']) && !empty($data['ID']) && !empty($data['requestor']) && !empty($data['remarks'])) {
 
@@ -107,96 +110,134 @@ class Users extends Controller
                     $data += [
                         'username' => $username,
                         'password' => $password,
-                        'db_name' => $DB
+                        'db_name' => $this->db
                     ];
 
-                    if ($DB == 'RMSPRD') {
-
-                        $resultUsername = $this->userModel->getUsername($username, 'get_Username', $DB);
-                        $resultCreatedUser = $this->userModel->createUser($username, $password, $DB);
-                        $resultAttribTable = $this->userModel->insertToUserAttrib($username, $DB);
-                        $resultAccountsTable = $this->userModel->insertToUserAccounts($data, $DB);
-                        $resultSecUserGroup = $this->userModel->insertToSecUserGroup($username, $DB);
-                        $resultGrantUser = $this->userModel->grantUserRole($username, $password, $DB);
-
-                        if ($data['app'] == 'OREIM') {
-                            $this->userModel->insertIntoBusinessRoleMember($username, $DB);
-                            $this->userModel->insertIntoIMUserAuth($data, $DB);
-                        }
-
-                        if ($resultCreatedUser && $resultAttribTable && $resultAccountsTable && $resultSecUserGroup && $resultGrantUser) {
-
-                            if ($resultUsername) {
-
-                                $msg = strtoupper($data['ID'] . ' ' . $data['fname'] . ' ' . $data['mname'] . ' ' . $data['lname']) . '<br>Username: ' . $username . '<br>Password: ' . $password;
-
-                                $this->dialog->SUCCESS('Update User', $DB . ' User updated successfully', $msg, '/users/show/default');
-                            } else {
-
-                                $resultInRetail = $this->userModel->getUsername($username, 'get_UsernameExistsInRetail', $DB);
-
-                                if ($data['app'] == 'ORMS' || $data['app'] == 'OREIM' || $data['app'] == 'ORPM') {
-
-                                    if ($resultInRetail) {
-
-                                        $msg = strtoupper($data['ID'] . ' ' . $data['fname'] . ' ' . $data['mname'] . ' ' . $data['lname']) . '<br>Username: ' . $username . '<br>Password: ' . $password;
-
-                                        $this->dialog->SUCCESS('Create User', $DB . ' User created successfully', $msg, '/users/show/default');
-                                    } else {
-                                        //Generate LDIF File after user is created.
-                                        $ldiffile = $this->generateLDIF($data['fname'], $data['lname'], $data['ID'], $username, $password);
-
-                                        //Shows the viewer of file contents.
-                                        $this->view('users/ldif', $data += ['ldif' => $ldiffile]);
-                                    }
-                                } else {
-
-                                    $msg = strtoupper($data['ID'] . ' ' . $data['fname'] . ' ' . $data['mname'] . ' ' . $data['lname']) . '<br>Username: ' . $username . '<br>Password: ' . $password;
-
-                                    $this->dialog->SUCCESS('Create User', $DB . ' User created successfully', $msg, '/users/show/default');
-                                }
-                            }
-                        }
-                    } else {
-
-                        $resultUsername = $this->userModel->getUsername($username, 'get_Username', $DB);
-
-                        if ($resultUsername) {
-
-                            $resultCreatedUser = $this->userModel->createUser($username, $password, $DB);
-                            $resultGrantUser = $this->userModel->grantUserRole($username, $password, $DB);
-
-                            $msg = strtoupper($data['ID'] . ' ' . $data['fname'] . ' ' . $data['mname'] . ' ' . $data['lname']) . '<br>Username: ' . $username . '<br>Password: ' . $password;
-                            $this->dialog->SUCCESS('Update User', $DB . ' User has been updated successfully', $msg, '/users/create/RDWPRD');
-                        } else {
-
-                            $resultCreatedUser = $this->userModel->createUser($username, $password, $DB);
-                            $resultGrantUser = $this->userModel->grantUserRole($username, $password, $DB);
-
-                            if ($resultCreatedUser && $resultGrantUser) {
-
-                                $msg = strtoupper($data['ID'] . ' ' . $data['fname'] . ' ' . $data['mname'] . ' ' . $data['lname']) . '<br>Username: ' . $username . '<br>Password: ' . $password;
-                                $this->dialog->SUCCESS('Create User', $DB . ' User created successfully', $msg, '/users/create/RDWPRD');
-                            } else {
-                                $this->dialog->FAILED('Create User', $DB . 'User creation failed', 'Unable to create user.', '/users/show/default');
-                            }
-                        }
-                    }
+                    $this->passUserDetailsToModel($data, $this->db);
 
                     $this->userModel->insertToUserMaster($data, 'RMSPRD');
 
                     $data = [];
                 } else {
                     $this->dialog->FAILED('Create User', 'User creation failed', 'Invalid / Missing Input, Please try again!', '/users/create/' . $_SESSION['CreateUserDB']);
-                    $data = [];
                 }
-            } catch (\Exception $e) {
-                $this->dialog->FAILED('Create User', 'User creation failed', $e->getMessage(), '/users/show/default');
+            } else {
+
+                $this->view('users/create', []);
             }
-        } else {
-            $this->view('users/create', []);
+        } catch (\Exception $e) {
+            $this->dialog->FAILED('Create User', 'User creation failed', $e->getMessage(), '/users/show/default');
         }
     }
+
+
+    //  This method passes details to our User Model
+    //  for Database Operations
+
+    public function passUserDetailsToModel($data, $DB)
+    {
+        $resultUsername = $this->userModel->getUsername($data['username'], 'get_Username', $DB);
+
+        if ($DB == 'RMSPRD') {
+
+            $resultCreatedUser = $this->userModel->createUser($data['username'], $data['password'], $DB);
+            $resultAttribTable = $this->userModel->insertToUserAttrib($data['username'], $DB);
+            $resultAccountsTable = $this->userModel->insertToUserAccounts($data, $DB);
+            $resultSecUserGroup = $this->userModel->insertToSecUserGroup($data['username'], $DB);
+            $resultGrantUser = $this->userModel->grantUserRole($data['username'], $data['password'], $DB);
+
+            if ($data['app'] == 'OREIM') {
+
+                $this->userModel->insertIntoBusinessRoleMember($data['username'], $DB);
+                $this->userModel->insertIntoIMUserAuth($data, $DB);
+            }
+
+            if ($resultCreatedUser && $resultAttribTable && $resultAccountsTable && $resultSecUserGroup && $resultGrantUser) {
+
+                //if all the model operation is successful or not,
+                //it will proceed on displaying the result of
+                //user creation.
+
+                $this->printCreatedRetailUser($data, $DB, $resultUsername);
+
+            }else {
+                $this->dialog->FAILED('Create User', $DB . 'User creation failed', 'Unable to create user.', '/users/show/default');
+            }
+
+        }else{
+
+            $resultCreatedUser = $this->userModel->createUser($data['username'], $data['password'], $DB);
+            $resultGrantUser = $this->userModel->grantUserRole($data['username'], $data['password'], $DB);
+
+            if ($resultCreatedUser && $resultGrantUser) {
+
+                $this->printCreatedRDWUser($data, $DB, $resultUsername);
+
+            }else {
+                $this->dialog->FAILED('Create User', $DB . 'User creation failed', 'Unable to create user.', '/users/show/default');
+            }
+        }
+    }
+
+
+    // This method is responsible for printing output
+    // from database operation of RDW users.
+
+    public function printCreatedRDWUser($data, $DB, $isExist)
+    {
+        if ($isExist) {
+
+            $msg = strtoupper($data['ID'] . ' ' . $data['fname'] . ' ' . $data['mname'] . ' ' . $data['lname']) . '<br>Username: ' . $data['username'] . '<br>Password: ' . $data['password'];
+            $this->dialog->SUCCESS('Update User', $DB . ' User has been updated successfully', $msg, '/users/create/RDWPRD');
+
+        } else {
+
+            $resultCreatedUser = $this->userModel->createUser($data['username'], $data['password'], $DB);
+            $resultGrantUser = $this->userModel->grantUserRole($data['username'], $data['password'], $DB);
+
+            if ($resultCreatedUser && $resultGrantUser) {
+
+                $msg = strtoupper($data['ID'] . ' ' . $data['fname'] . ' ' . $data['mname'] . ' ' . $data['lname']) . '<br>Username: ' . $data['username'] . '<br>Password: ' . $data['password'];
+                $this->dialog->SUCCESS('Create User', $DB . ' User created successfully', $msg, '/users/create/RDWPRD');
+            } else {
+                $this->dialog->FAILED('Create User', $DB . 'User creation failed', 'Unable to create user.', '/users/show/default');
+            }
+        }
+    }
+
+
+    // This method is responsible for printing output
+    // from database operation of Retail users.
+
+    public function printCreatedRetailUser($data, $DB, $isExist)
+    {
+        $resultInRetail = $this->userModel->getUsername($data['username'], 'get_UsernameExistsInRetail', $DB);
+
+
+        if ($data['app'] == 'ORMS' || $data['app'] == 'OREIM' || $data['app'] == 'ORPM') {
+
+
+            if ($resultInRetail) {
+
+                $msg = strtoupper($data['ID'] . ' ' . $data['fname'] . ' ' . $data['mname'] . ' ' . $data['lname']) . '<br>Username: ' . $data['username'] . '<br>Password: ' . $data['password'];
+
+                $this->dialog->SUCCESS('Update User', $DB . ' User updated successfully', $msg, '/users/show/default');
+            } else {
+
+                //Generate LDIF File after user is created.
+                $ldiffile = $this->generateLDif($data['fname'], $data['lname'], $data['ID'], $data['username'], $data['password']);
+
+                //Shows the viewer of file contents.
+                $this->view('users/ldif', $data += ['ldif' => $ldiffile]);
+            }
+        } else {
+
+            $msg = strtoupper($data['ID'] . ' ' . $data['fname'] . ' ' . $data['mname'] . ' ' . $data['lname']) . '<br>Username: ' . $data['username'] . '<br>Password: ' . $data['password'];
+
+            $this->dialog->SUCCESS('Create User', $DB . ' User created successfully', $msg, '/users/show/default');
+        }
+    }
+
     // gets list of users
     public function show($DB)
     {
@@ -205,6 +246,7 @@ class Users extends Controller
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $data = ['search' => trim(SANITIZE_INPUT_STRING(empty($_POST['searchuser']) ? '' : $_POST['searchuser']))];
         }
+
         $_SESSION['Search'] = $data['search'];
         $_SESSION['UserDB'] = $DB;
 
@@ -238,7 +280,7 @@ class Users extends Controller
     }
 
     // Generate LDIF file function
-    public function generateLDIF($fname, $lname, $ID, $username, $password)
+    public function generateLDif($fname, $lname, $ID, $username, $password)
     {
         $givenName = strtoupper($fname);
         $surName = strtoupper($lname);
@@ -246,7 +288,46 @@ class Users extends Controller
         $uid = $username;
         $mail = $username . "@kccmalls.com";
         $employeeNum = $ID;
-        $LDIF = "dn: cn=$username,cn=Users,dc=kccmalls,dc=com\nobjectclass: top\nobjectclass: organizationalperson\nobjectclass: person\nobjectclass: inetorgperson\nobjectclass: KCCOBJ\nobjectclass: rsimUser\ngivenname: $givenName\nsn: $surName\ncn: $cn\nuid: $uid\nemployeenumber: $employeeNum\nmail: $mail\ndescription: Department Store\ndisplayname: $cn\npreferredlanguage: en\nuserstore: rsimStoreId=2,cn=rsimStores,cn=RSIM,dc=kccmalls,dc=com\nuserstore: rsimStoreId=1,cn=rsimStores,cn=RSIM,dc=kccmalls,dc=com\nuserstore: rsimStoreId=3,cn=rsimStores,cn=RSIM,dc=kccmalls,dc=com\nuserstore: rsimStoreId=4,cn=rsimStores,cn=RSIM,dc=kccmalls,dc=com\nuserstore: rsimStoreId=5,cn=rsimStores,cn=RSIM,dc=kccmalls,dc=com\nuserstore: rsimStoreId=6,cn=rsimStores,cn=RSIM,dc=kccmalls,dc=com\nuserstore: rsimStoreId=7,cn=rsimStores,cn=RSIM,dc=kccmalls,dc=com\nuserstore: rsimStoreId=8,cn=rsimStores,cn=RSIM,dc=kccmalls,dc=com\nuserstore: rsimStoreId=9,cn=rsimStores,cn=RSIM,dc=kccmalls,dc=com\nuserstore: rsimStoreId=41,cn=rsimStores,cn=RSIM,dc=kccmalls,dc=com\nuserstore: rsimStoreId=42,cn=rsimStores,cn=RSIM,dc=kccmalls,dc=com\nuserstore: rsimStoreId=43,cn=rsimStores,cn=RSIM,dc=kccmalls,dc=com\nuserstore: rsimStoreId=45,cn=rsimStores,cn=RSIM,dc=kccmalls,dc=com\nuserstore: rsimStoreId=46,cn=rsimStores,cn=RSIM,dc=kccmalls,dc=com\nuserstore: rsimStoreId=44,cn=rsimStores,cn=RSIM,dc=kccmalls,dc=com\nuserstore: rsimStoreId=47,cn=rsimStores,cn=RSIM,dc=kccmalls,dc=com\nuserstore: rsimStoreId=48,cn=rsimStores,cn=RSIM,dc=kccmalls,dc=com\nuserstore: rsimStoreId=49,cn=rsimStores,cn=RSIM,dc=kccmalls,dc=com\nemploymentstatus: 0\nssn: 123456789\npreferredcountry: US\nuserrole: rsimRoleName=KCC Admin,cn=rsimRoles,cn=RSIM,dc=kccmalls,dc=com\nhomestore: rsimStoreId=2,cn=rsimStores,cn=RSIM,dc=kccmalls,dc=com\nuserpassword: $password";
+        $LDIF = "dn: cn=$username,cn=Users,dc=kccmalls,dc=com\n
+                 objectclass: top\n
+                 objectclass: organizationalperson\n
+                 objectclass: person\n
+                 objectclass: inetorgperson\n
+                 objectclass: KCCOBJ\n
+                 objectclass: rsimUser\n
+                 givenname: $givenName\n
+                 sn: $surName\n
+                 cn: $cn\n
+                 uid: $uid\n
+                 employeenumber: $employeeNum\n
+                 mail: $mail\n
+                 description: Department Store\n
+                 displayname: $cn\n
+                 preferredlanguage: en\n
+                 userstore: rsimStoreId=2,cn=rsimStores,cn=RSIM,dc=kccmalls,dc=com\n
+                 userstore: rsimStoreId=1,cn=rsimStores,cn=RSIM,dc=kccmalls,dc=com\n
+                 userstore: rsimStoreId=3,cn=rsimStores,cn=RSIM,dc=kccmalls,dc=com\n
+                 userstore: rsimStoreId=4,cn=rsimStores,cn=RSIM,dc=kccmalls,dc=com\n
+                 userstore: rsimStoreId=5,cn=rsimStores,cn=RSIM,dc=kccmalls,dc=com\n
+                 userstore: rsimStoreId=6,cn=rsimStores,cn=RSIM,dc=kccmalls,dc=com\n
+                 userstore: rsimStoreId=7,cn=rsimStores,cn=RSIM,dc=kccmalls,dc=com\n
+                 userstore: rsimStoreId=8,cn=rsimStores,cn=RSIM,dc=kccmalls,dc=com\n
+                 userstore: rsimStoreId=9,cn=rsimStores,cn=RSIM,dc=kccmalls,dc=com\n
+                 userstore: rsimStoreId=41,cn=rsimStores,cn=RSIM,dc=kccmalls,dc=com\n
+                 userstore: rsimStoreId=42,cn=rsimStores,cn=RSIM,dc=kccmalls,dc=com\n
+                 userstore: rsimStoreId=43,cn=rsimStores,cn=RSIM,dc=kccmalls,dc=com\n
+                 userstore: rsimStoreId=45,cn=rsimStores,cn=RSIM,dc=kccmalls,dc=com\n
+                 userstore: rsimStoreId=46,cn=rsimStores,cn=RSIM,dc=kccmalls,dc=com\n
+                 userstore: rsimStoreId=44,cn=rsimStores,cn=RSIM,dc=kccmalls,dc=com\n
+                 userstore: rsimStoreId=47,cn=rsimStores,cn=RSIM,dc=kccmalls,dc=com\n
+                 userstore: rsimStoreId=48,cn=rsimStores,cn=RSIM,dc=kccmalls,dc=com\n
+                 userstore: rsimStoreId=49,cn=rsimStores,cn=RSIM,dc=kccmalls,dc=com\n
+                 employmentstatus: 0\n
+                 ssn: 123456789\n
+                 preferredcountry: US\n
+                 userrole: rsimRoleName=KCC Admin,cn=rsimRoles,cn=RSIM,dc=kccmalls,dc=com\n
+                 homestore: rsimStoreId=2,cn=rsimStores,cn=RSIM,dc=kccmalls,dc=com\n
+                 userpassword: $password";
 
         $file = fopen("$username.ldif", "w") or die("Unable to open file!");
         fwrite($file, $LDIF);
@@ -255,6 +336,7 @@ class Users extends Controller
         exit();
     }
 
+    // Method for user deletion.
     public function delete($username)
     {
 
@@ -281,6 +363,7 @@ class Users extends Controller
         }
     }
 
+    // Method for user editing
     public function edit($id)
     {
 
@@ -300,6 +383,7 @@ class Users extends Controller
         }
     }
 
+    // Method for downloading LDIF Generated Files
     public function download_ldif()
     {
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
