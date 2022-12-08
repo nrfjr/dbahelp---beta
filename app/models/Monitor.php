@@ -1,10 +1,12 @@
 <?php
 
-class Monitor{
+class Monitor
+{
 
     private $db, $fm;
 
-    public function __construct(){
+    public function __construct()
+    {
         $this->fm = new FileManager;
     }
 
@@ -50,7 +52,6 @@ class Monitor{
         } else {
             return false;
         }
-        
     }
 
     public function getRedoLogSwitches($query, $db)
@@ -58,10 +59,10 @@ class Monitor{
         $this->db = new OracleDatabase($db);
         $query = $this->fm->loadSQL($query);
         $param = [
-                    'A' => 1,
-                    'B' => 0,
-                    'p_week' => 7
-                ];
+            'A' => 1,
+            'B' => 0,
+            'p_week' => 7
+        ];
         $this->db->queryWithParam($query, $param);
 
         $result = $this->db->resultSet();
@@ -71,7 +72,6 @@ class Monitor{
         } else {
             return false;
         }
-        
     }
 
     public function getTopRunningSql($db)
@@ -87,7 +87,6 @@ class Monitor{
         } else {
             return false;
         }
-        
     }
 
     public function getRedoLogGeneration($db)
@@ -104,4 +103,28 @@ class Monitor{
             return false;
         }
     }
+
+    public function killUserSession($sid, $serial, $db)   
+    {
+        $this->db = new OracleDatabase($db);
+        $query = $this->db->setProcedure('killUserSession(:sid, :serial)');
+
+        $param = [
+
+                    'sid' => $sid,
+                    'serial' => $serial
+
+                ];
+
+        $this->db->queryWithParam($query, $param);
+
+        $result = $this->db->execute();
+
+        if ($result) {
+            return $result;
+        } else {
+            return false;
+        }
+    }
+
 }

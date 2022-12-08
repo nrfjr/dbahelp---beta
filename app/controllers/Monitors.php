@@ -8,6 +8,7 @@ class Monitors extends Controller
     public function __construct()
     {
         $this->monitorModel = $this->model('Monitor');
+        $this->dialog = $this->dialog('Dialog');
 
         if (!isset($_SESSION['username'])) {
             redirect('users/login');
@@ -124,5 +125,31 @@ class Monitors extends Controller
         }
 
         $this->view('monitor/toprunningsqlprocesses', $data);
+    }
+
+    public function killuser($DB)
+    {
+        // Check for POST
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+
+            $sid = trim(SANITIZE_INPUT_STRING($_POST['sid']));
+            $serial = trim(SANITIZE_INPUT_STRING($_POST['serial']));
+            $this->db = $DB;
+
+            try {
+
+                $killResult = $this->monitorModel->killUserSession($sid, $serial, $this->db);
+
+                if ($killResult) {
+
+                    $this->dialog->SUCCESS('Kill User Session', 'User Session terminated successfully', 'SID: '.$sid .'<br>Serail No.: '.$serial. '<br>Terminated.', '/monitors/usersessions/'.$this->db);
+                } else {
+                    $this->dialog->FAILED('Kill User Session', 'User Session termination failed', 'Unable to terminate the following details: <br>SID: '.$sid .'<br>Serail No.: '.$serial, '/monitors/usersessions/'.$this->db);
+                }
+
+            } catch (\Exception $e) {
+                $this->dialog->FAILED('Kill User Session', 'User Session termination failed', $e->getMessage(), '/monitors/usersessions/'.$this->db);
+            }
+        }
     }
 }

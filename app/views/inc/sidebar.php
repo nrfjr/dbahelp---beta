@@ -17,7 +17,7 @@ $url = 'http://' . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
                             <i class="fas fa-warehouse mr-3"></i>
                             Databases
                         </a>
-                        <button id="sidenavbtn" onclick="getAria()" type="button" class="flex-auto items-center py-4 hover:bg-gray-300 text-white" aria-expanded="<?php
+                        <button type="button" class="flex-auto items-center py-4 hover:bg-gray-300 text-white" aria-expanded="<?php
                                                                                                                                 if (preg_match('/dashboard|index|monitor|object|performance|security/', $url)) {
                                                                                                                                     echo 'true';
                                                                                                                                 } else {
@@ -25,7 +25,7 @@ $url = 'http://' . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
                                                                                                                                 } ?>" aria-controls="databases" data-accordion-target="#databases" data-collapse-toggle="databases">
                             <!--Code above is needed for collapse open while select-->
                             <!--Change here for control variables-->
-                            <i id="chevron" class="fas fa-regular fa-chevron-up"></i>                                                                                         
+                            <i class="fas fa-regular fa-chevron-down"></i>                                                                                         
                         </button>
                     </li>
                     <ul id="databases" class="hidden py-1  ">

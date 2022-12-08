@@ -130,10 +130,10 @@ if ($first_user_displayed === $last_user_displayed) {
                                                             <font color="black">Are you sure to kill Session <b><?php echo $value['SPID'] ?></b>?</font>
                                                         </div>
                                                         <div class="modal-footer flex flex-shrink-0 flex-wrap items-center justify-end p-4 border-t border-gray-200 rounded-b-md">
-                                                            <form action="#" method="POST">
+                                                            <form action="<?php echo URLROOT; ?>/monitors/killuser/<?php echo $_SESSION['MonitorDB']; ?>" method="POST">
                                                                 <input id="sid" name="sid" value="<?php echo $value['SID'] ?>" class="hidden">
                                                                 <input id="serial" name="serial" value="<?php echo $value['Serial No.'] ?>" class="hidden">
-                                                                <button type="button" class="inline-flex w-full justify-center rounded-md border border-transparent bg-red-700 px-4 py-2 text-base font-medium text-white shadow-sm focus:outline-none focus:ring-2  focus:ring-offset-2 sm:ml-3 sm:w-auto sm:text-sm">Kill</button>
+                                                                <button type="submit" class="inline-flex w-full justify-center rounded-md border border-transparent bg-red-700 px-4 py-2 text-base font-medium text-white shadow-sm focus:outline-none focus:ring-2  focus:ring-offset-2 sm:ml-3 sm:w-auto sm:text-sm">Kill</button>
                                                             </form>
                                                             <button type="button" @click="toSubmit = false" class="mt-3 inline-flex w-full justify-center rounded-md border border-gray-300 bg-white px-4 py-2 text-base font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm">Cancel</button>
                                                         </div>

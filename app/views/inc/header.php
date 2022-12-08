@@ -84,8 +84,6 @@
     <script type="text/javascript" src="<?php echo URLROOT.'/public/js/customtooltip.js'?>"></script>
     <!-- SideNavHideFunc -->
     <script type="text/javascript" src="<?php echo URLROOT.'/public/js/sideNav.js'?>"></script>
-    <!-- SideNavBtnFunc -->
-    <script type="text/javascript" src="<?php echo URLROOT.'/public/js/sidebar-toggle-btn.js'?>"></script>
 </head>
 
 <body class="bg-gray-100 font-family-lexend flex">
