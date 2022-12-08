@@ -104,10 +104,10 @@ class Monitor
         }
     }
 
-    public function killUserSession($sid, $serial, $db)   
+    public function killSession($sid, $serial, $db)   
     {
         $this->db = new OracleDatabase($db);
-        $query = $this->db->setProcedure('killUserSession(:sid, :serial)');
+        $query = $this->db->setProcedure('killSession(:sid, :serial)');
 
         $param = [
 

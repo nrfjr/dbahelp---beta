@@ -243,7 +243,7 @@ require APPROOT . '/views/inc/sidebar.php';
           }
         },
         title: {
-          text: '<?php echo $DBInfo['IP Address']; ?> Sessions',
+          text: '<?php echo $DBInfo['IP Address']; ?> Active Sessions',
           align: 'left',
           style: {
             fontSize: '12px'

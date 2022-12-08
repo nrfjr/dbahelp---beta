@@ -39,23 +39,33 @@ $url = 'http://' . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
                                 ORACLE
                             </a>
                         <li>
-                            <a href="<?php echo URLROOT; ?>/homepage/dashboard" class="flex items-center hover:opacity-100 py-4 pl-12 nav-item text-white <?php if (strpos($url, 'mssql')) {
+                            <a href="#" class="flex items-center hover:opacity-100 py-4 pl-12 nav-item text-white <?php if (strpos($url, 'mssql')) {
                                                                                                                                                                 echo 'active-nav-link ';
                                                                                                                                                             } else {
                                                                                                                                                                 echo 'opacity-75';
                                                                                                                                                             } ?>">
                                 <i class="fas fa-database mr-3"></i>
-                                MSSQL
+                                SSMS
                             </a>
                         </li>
                         <li>
-                            <a href="<?php echo URLROOT; ?>/homepage/dashboard" class="flex items-center hover:opacity-100 py-4 pl-12 nav-item text-white <?php if (strpos($url, 'mariadb')) {
+                            <a href="#" class="flex items-center hover:opacity-100 py-4 pl-12 nav-item text-white <?php if (strpos($url, 'mariadb')) {
                                                                                                                                                                 echo 'active-nav-link ';
                                                                                                                                                             } else {
                                                                                                                                                                 echo 'opacity-75';
                                                                                                                                                             } ?>">
                                 <i class="fas fa-database mr-3"></i>
                                 MARIA DB
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="flex items-center hover:opacity-100 py-4 pl-12 nav-item text-white <?php if (strpos($url, 'mariadb')) {
+                                                                                                                                                                echo 'active-nav-link ';
+                                                                                                                                                            } else {
+                                                                                                                                                                echo 'opacity-75';
+                                                                                                                                                            } ?>">
+                                <i class="fas fa-database mr-3"></i>
+                                MYSQL
                             </a>
                         </li>
                     </ul>

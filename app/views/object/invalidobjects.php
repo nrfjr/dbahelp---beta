@@ -15,7 +15,7 @@ require APPROOT . '/views/inc/sidebar.php'; ?>
 
 <div class="overflow-x-auto relative shadow-md">
     <div style="height: auto; overflow: clip;" class="">
-        <div class="block  justify-center w-full shadow-md overflow-auto sm:rounded-lg" style="max-height: 70vh;">
+        <div class="block  justify-center w-full shadow-md overflow-auto sm:rounded-lg" style="max-height: 75vh;">
             <?php
 
             $invalidobj = $data;

@@ -127,28 +127,29 @@ class Monitors extends Controller
         $this->view('monitor/toprunningsqlprocesses', $data);
     }
 
-    public function killuser($DB)
+    public function kill($DB)
     {
         // Check for POST
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
+            $base = trim(SANITIZE_INPUT_STRING($_POST['base']));
             $sid = trim(SANITIZE_INPUT_STRING($_POST['sid']));
             $serial = trim(SANITIZE_INPUT_STRING($_POST['serial']));
             $this->db = $DB;
 
             try {
 
-                $killResult = $this->monitorModel->killUserSession($sid, $serial, $this->db);
+                $killResult = $this->monitorModel->killSession($sid, $serial, $this->db);
 
                 if ($killResult) {
 
-                    $this->dialog->SUCCESS('Kill User Session', 'User Session terminated successfully', 'SID: '.$sid .'<br>Serail No.: '.$serial. '<br>Terminated.', '/monitors/usersessions/'.$this->db);
+                    $this->dialog->SUCCESS('Kill Session', 'Session terminated successfully', 'SID: '.$sid .'<br>Serial No.: '.$serial. '<br>Terminated.', '/monitors'.'/'.$base.'/'.$this->db);
                 } else {
-                    $this->dialog->FAILED('Kill User Session', 'User Session termination failed', 'Unable to terminate the following details: <br>SID: '.$sid .'<br>Serail No.: '.$serial, '/monitors/usersessions/'.$this->db);
+                    $this->dialog->FAILED('Kill Session', 'Session termination failed', 'Unable to terminate the following details: <br>SID: '.$sid .'<br>Serial No.: '.$serial, '/monitors'.'/'.$base.'/'.$this->db);
                 }
 
             } catch (\Exception $e) {
-                $this->dialog->FAILED('Kill User Session', 'User Session termination failed', $e->getMessage(), '/monitors/usersessions/'.$this->db);
+                $this->dialog->FAILED('Kill Session', 'Session termination failed', $e->getMessage(), '/monitors'.'/'.$base.'/'.$this->db);
             }
         }
     }

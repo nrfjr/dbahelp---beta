@@ -92,7 +92,7 @@ if ($first_user_displayed === $last_user_displayed) {
                 }
             ?>
                 <table class="w-full text-sm text-left text-white dark:text-gray-400">
-                    <thead class="text-xs text-black bg-indigo-200 dark:bg-gray-700 dark:text-gray-400">
+                    <thead class="text-xs text-black bg-indigo-200 dark:bg-gray-700 dark:text-gray-400 sticky top-0">
                         <tr>
                             <?php for ($title = 0; $title <= count($array) - 1; $title++) { ?>
                                 <th scope="col" class="py-2 px-6">

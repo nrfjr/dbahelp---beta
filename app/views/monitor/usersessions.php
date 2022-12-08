@@ -76,7 +76,7 @@ if ($first_user_displayed === $last_user_displayed) {
                 }
             ?>
                 <table class="w-full text-sm text-left text-white dark:text-gray-400">
-                    <thead class="text-xs text-black bg-indigo-200 dark:bg-gray-700 dark:text-gray-400 sticky top-0">
+                    <thead class="text-xs text-black bg-indigo-200 dark:bg-gray-700 dark:text-gray-400 sticky top-0 z-10">
                         <tr>
                             <?php for ($title = 0; $title <= count($array) - 1; $title++) { ?>
                                 <th scope="col" class="py-2 px-6">
@@ -131,6 +131,7 @@ if ($first_user_displayed === $last_user_displayed) {
                                                         </div>
                                                         <div class="modal-footer flex flex-shrink-0 flex-wrap items-center justify-end p-4 border-t border-gray-200 rounded-b-md">
                                                             <form action="<?php echo URLROOT; ?>/monitors/killuser/<?php echo $_SESSION['MonitorDB']; ?>" method="POST">
+                                                                <input id="base" name="base" value="usersessions" class="hidden">
                                                                 <input id="sid" name="sid" value="<?php echo $value['SID'] ?>" class="hidden">
                                                                 <input id="serial" name="serial" value="<?php echo $value['Serial No.'] ?>" class="hidden">
                                                                 <button type="submit" class="inline-flex w-full justify-center rounded-md border border-transparent bg-red-700 px-4 py-2 text-base font-medium text-white shadow-sm focus:outline-none focus:ring-2  focus:ring-offset-2 sm:ml-3 sm:w-auto sm:text-sm">Kill</button>
