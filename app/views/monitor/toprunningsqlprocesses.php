@@ -14,8 +14,8 @@ require APPROOT . '/views/inc/sidebar.php'; ?>
 </div>
 
 <div class="overflow-x-auto relative shadow-md sm:rounded-lg">
-    <div style="height: 68vh; overflow: clip;" class="">
-        <div class="block  justify-center w-full shadow-md overflow-auto sm:rounded-lg" style="max-height: 100%;">
+    <div style="height: auto; overflow: clip;" class="">
+        <div class="block  justify-center w-full shadow-md overflow-auto sm:rounded-lg" style="max-height: 75vh;">
             <?php
 
             $topsql = $data;
@@ -31,7 +31,7 @@ require APPROOT . '/views/inc/sidebar.php'; ?>
                 }
             ?>
                 <table class="w-full text-sm text-center text-white dark:text-gray-400">
-                    <thead class="text-md text-black bg-indigo-200 dark:bg-gray-700 dark:text-gray-400">
+                    <thead class="text-md text-black bg-indigo-200 dark:bg-gray-700 dark:text-gray-400 sticky top-0 z-10">
                         <tr>
                             <?php for ($title = 0; $title <= count($array) - 2; $title++) { ?>
                                 <th scope="col" class="py-2 px-6">

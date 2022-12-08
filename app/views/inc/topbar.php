@@ -125,9 +125,6 @@
                         <a href="<?php echo URLROOT; ?>/objects/invalidobjects/<?php echo $_SESSION['HomepageDB'] ?>" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Invalid Objects</a>
                     </li>
                     <li>
-                        <a href="<?php echo URLROOT; ?>/storages/tablespaceusage/<?php echo $_SESSION['HomepageDB'] ?>" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Tablespace Usage</a>
-                    </li>
-                    <li>
                         <a href="<?php echo URLROOT; ?>/storages/tablemonitoring/<?php echo $_SESSION['HomepageDB'] ?>" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Table Monitoring</a>
                     </li>
                     <li>
@@ -237,9 +234,6 @@
                                 <a href="<?php echo URLROOT; ?>/objects/invalidobjects/<?php echo $_SESSION['HomepageDB'] ?>" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Invalid Objects</a>
                             </li>
                             <li>
-                                <a href="<?php echo URLROOT; ?>/storages/tablespaceusage/<?php echo $_SESSION['HomepageDB'] ?>" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Table Space Usage</a>
-                            </li>
-                            <li>
                                 <a href="<?php echo URLROOT; ?>/storages/tablemonitoring/<?php echo $_SESSION['HomepageDB'] ?>" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Table Monitoring</a>
                             </li>
                             <li>
@@ -305,7 +299,7 @@
 </div>
 
 <!--TOP NAVBAR-->
-<div x-data="{ isOpen: false }" class="relative w-1/4 sm:w-1/4 md:w-1/4 inline-flex justify-end right-5">
+<div x-data="{ isOpen: false }" class="relative w-1/4 sm:w-1/4 md:w-1/4 inline-flex justify-end">
     <?php if (isset($_SESSION['username'])) : ?>
         <h4 class="py-1 px-2 text-white hidden md:inline-flex"><?php echo  '<b>' . $_SESSION['username'] . '</b>' ?></h4>
     <?php endif; ?>

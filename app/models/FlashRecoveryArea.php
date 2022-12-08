@@ -18,7 +18,7 @@ class FlashRecoveryArea{
 
         $result = $this->db->single();
 
-        if(!empty($result)){
+        if (!empty($result)){
 
             $data = [
                 'FRA Size' => $result['FRA SIZE'],
@@ -44,7 +44,7 @@ class FlashRecoveryArea{
  
          $result = $this->db->execute();
         
-        if($result){
+        if ($result){
              return true;
         }
  

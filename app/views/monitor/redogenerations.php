@@ -11,7 +11,7 @@ $filterPHParray = function ($array, $key) {
     
     $last = end($Selected);
     foreach($Selected as $log){
-        if($last == $log){
+        if ($last == $log){
             echo '\''.$log.'\'';
         }else{
             echo '\''.$log.'\', ';
@@ -52,7 +52,7 @@ $filterPHParray = function ($array, $key) {
             }
         ?>
             <table class="w-full text-sm text-center text-white dark:text-gray-400">
-                <thead class="text-md text-black bg-indigo-200 dark:bg-gray-700 dark:text-gray-400">
+                <thead class="text-md text-black bg-indigo-200 dark:bg-gray-700 dark:text-gray-400 sticky top-0">
                     <tr>
                         <?php for ($title = 0; $title <= count($array) - 1; $title++) { ?>
                             <th scope="col" class="py-2 px-6">

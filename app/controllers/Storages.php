@@ -7,7 +7,7 @@ class Storages extends Controller{
     public function __construct(){
         $this->storageModel = $this->model('Storage');
 
-        if(!isset($_SESSION['username'])){
+        if (!isset($_SESSION['username'])){
             redirect('users/login');
         }
     }
@@ -16,7 +16,7 @@ class Storages extends Controller{
     {
         $_SESSION['StorageDB'] = $DB;
 
-        if(isset($_SESSION['StorageDB'])){
+        if (isset($_SESSION['StorageDB'])){
             $this->db = $_SESSION['StorageDB'];
         }
 
@@ -33,19 +33,27 @@ class Storages extends Controller{
         $this->view('storage/dbfilelayout',$data);
     }
 
-    public function tableindexes()  
+    public function tableindexes($DB)  
     {
+        $_SESSION['StorageDB'] = $DB;
+
+        if (isset($_SESSION['StorageDB'])){
+            $this->db = $_SESSION['StorageDB'];
+        }
+
         $this->view('storage/tableindexes',[]);
     }
 
-    public function tablemonitoring()  
+    public function tablemonitoring($DB)  
     {
-        $this->view('storage/tablemonitoring',[]);
-    }
 
-    public function tablespaceusage()  
-    {
-        $this->view('storage/tablespaceusage',[]);
+        $_SESSION['StorageDB'] = $DB;
+
+        if (isset($_SESSION['StorageDB'])){
+            $this->db = $_SESSION['StorageDB'];
+        }
+
+        $this->view('storage/tablemonitoring',[]);
     }
     
 }

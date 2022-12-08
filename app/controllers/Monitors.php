@@ -18,13 +18,13 @@ class Monitors extends Controller
     {
         $_SESSION['MonitorDB'] = $DB;
 
-        if(isset($_SESSION['MonitorDB'])){
+        if (isset($_SESSION['MonitorDB'])){
             $this->db = $_SESSION['MonitorDB'];
         }
 
         $result = $this->monitorModel->getLockedSessions($this->db);
 
-        if($result){
+        if ($result){
             $data = $result;
         }else{
             $data = [];
@@ -68,13 +68,13 @@ class Monitors extends Controller
     {
         $_SESSION['MonitorDB'] = $DB;
 
-        if(isset($_SESSION['MonitorDB'])){
+        if (isset($_SESSION['MonitorDB'])){
             $this->db = $_SESSION['MonitorDB'];
         }
 
         $result = $this->monitorModel->getRedoLogGeneration($this->db);
 
-        if($result){
+        if ($result){
             $data = $result;
         }else{
             $data = [];
@@ -87,7 +87,7 @@ class Monitors extends Controller
     {
         $_SESSION['MonitorDB'] = $DB;
 
-        if(isset($_SESSION['MonitorDB'])){
+        if (isset($_SESSION['MonitorDB'])){
             $this->db = $_SESSION['MonitorDB'];
         }
 
@@ -98,7 +98,7 @@ class Monitors extends Controller
                     'PM' => $this->monitorModel->getRedoLogSwitches($query[1], $this->db)
                   ];
 
-        if($result){
+        if ($result){
             $data = $result;
         }else{
             $data = [];
@@ -111,13 +111,13 @@ class Monitors extends Controller
     {
         $_SESSION['MonitorDB'] = $DB;
 
-        if(isset($_SESSION['MonitorDB'])){
+        if (isset($_SESSION['MonitorDB'])){
             $this->db = $_SESSION['MonitorDB'];
         }
 
         $result = $this->monitorModel->getTopRunningSql($this->db);
 
-        if($result){
+        if ($result){
             $data = $result;
         }else{
             $data = [];

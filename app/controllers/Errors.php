@@ -8,7 +8,9 @@
         }
 
         public function void(){
+
             $this->view('error/error', $data = ['link'=>'/users/login']);
+            
         }
 
     }

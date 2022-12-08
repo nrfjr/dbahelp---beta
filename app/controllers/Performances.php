@@ -7,7 +7,7 @@ class Performances extends Controller{
     public function __construct(){
         $this->performanceModel = $this->model('Performance');
 
-        if(!isset($_SESSION['username'])){
+        if (!isset($_SESSION['username'])){
             redirect('users/login');
         }
     }
@@ -16,13 +16,13 @@ class Performances extends Controller{
     {
         $_SESSION['PerformanceDB'] = $DB;
 
-        if(isset($_SESSION['PerformanceDB'])){
+        if (isset($_SESSION['PerformanceDB'])){
             $this->db = $_SESSION['PerformanceDB'];
         }
 
         $result = $this->performanceModel->getPGATarget($this->db);
 
-        if($result){
+        if ($result){
             $data = $result;
         }else{
             $data = [];
@@ -35,13 +35,13 @@ class Performances extends Controller{
     {
         $_SESSION['PerformanceDB'] = $DB;
 
-        if(isset($_SESSION['PerformanceDB'])){
+        if (isset($_SESSION['PerformanceDB'])){
             $this->db = $_SESSION['PerformanceDB'];
         }
 
         $result = $this->performanceModel->getSGATarget($this->db);
 
-        if($result){
+        if ($result){
             $data = $result;
         }else{
             $data = [];
@@ -55,13 +55,13 @@ class Performances extends Controller{
     {
         $_SESSION['PerformanceDB'] = $DB;
 
-        if(isset($_SESSION['PerformanceDB'])){
+        if (isset($_SESSION['PerformanceDB'])){
             $this->db = $_SESSION['PerformanceDB'];
         }
 
         $result = $this->performanceModel->getBufferCache($this->db);
 
-        if($result){
+        if ($result){
             $data = $result;
         }else{
             $data = [];
@@ -74,7 +74,7 @@ class Performances extends Controller{
     {
         $_SESSION['PerformanceDB'] = $DB;
 
-        if(isset($_SESSION['PerformanceDB'])){
+        if (isset($_SESSION['PerformanceDB'])){
             $this->db = $_SESSION['PerformanceDB'];
         }
 
@@ -98,13 +98,13 @@ class Performances extends Controller{
 
         $_SESSION['PerformanceDB'] = $DB;
 
-        if(isset($_SESSION['PerformanceDB'])){
+        if (isset($_SESSION['PerformanceDB'])){
             $this->db = $_SESSION['PerformanceDB'];
         }
 
         $result = $this->performanceModel->getTableStatistics($this->db);
 
-        if($result){
+        if ($result){
             $data = $result;
         }else{
             $data = [];

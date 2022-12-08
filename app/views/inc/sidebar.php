@@ -17,7 +17,6 @@ $url = 'http://' . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
                             <i class="fas fa-warehouse mr-3"></i>
                             Databases
                         </a>
-
                         <button type="button" class="flex-auto items-center py-4 hover:bg-gray-300 text-white" aria-expanded="<?php
                                                                                                                                 if (preg_match('/dashboard|index|monitor|object|performance|security/', $url)) {
                                                                                                                                     echo 'true';
@@ -26,14 +25,8 @@ $url = 'http://' . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
                                                                                                                                 } ?>" aria-controls="databases" data-accordion-target="#databases" data-collapse-toggle="databases">
                             <!--Code above is needed for collapse open while select-->
                             <!--Change here for control variables-->
-                            <svg sidebar-toggle-item class="w-6 h-8" fill="currentColor" viewBox="0 -5 12 28" xmlns="http://www.w3.org/2000/svg">
-                                <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path>
-                            </svg>
-
+                            <i class="fas fa-regular fa-chevron-down"></i>                                                                                         
                         </button>
-
-
-
                     </li>
                     <ul id="databases" class="hidden py-1  ">
                         <li>
@@ -70,20 +63,20 @@ $url = 'http://' . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
 
                     <li>
                         <a href="<?php echo URLROOT; ?>/diskstorages/diskstorage/default" class="flex items-center py-4 pl-6 nav-item text-white <?php if (strpos($url, 'diskstorage')) {
-                                                                                                                                                    echo 'active-nav-link';
-                                                                                                                                                } else {
-                                                                                                                                                    echo ' opacity-75';
-                                                                                                                                                } ?>">
+                                                                                                                                                        echo 'active-nav-link';
+                                                                                                                                                    } else {
+                                                                                                                                                        echo ' opacity-75';
+                                                                                                                                                    } ?>">
                             <i class="fas fa-compact-disc mr-3"></i>
                             Disk Storage
                         </a>
                     </li>
                     <li>
                         <a href="<?php echo URLROOT; ?>/flashrecoveryareas/charts" class="flex items-center py-4 pl-6 nav-item text-white <?php if (strpos($url, 'flashrecovery')) {
-                                                                                                                                            echo 'active-nav-link';
-                                                                                                                                        } else {
-                                                                                                                                            echo ' opacity-75';
-                                                                                                                                        } ?>">
+                                                                                                                                                echo 'active-nav-link';
+                                                                                                                                            } else {
+                                                                                                                                                echo ' opacity-75';
+                                                                                                                                            } ?>">
                             <i class="fas fa-compact-disc mr-3"></i>
                             Flash Recovery
                         </a>
@@ -91,10 +84,10 @@ $url = 'http://' . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
 
                     <li>
                         <a href="<?php echo URLROOT; ?>/users/show/default" class="flex items-center hover:opacity-100 py-4 pl-6 nav-item text-white <?php if (strpos($url, 'show')) {
-                                                                                                                                                echo 'active-nav-link ';
-                                                                                                                                            } else {
-                                                                                                                                                echo 'opacity-75';
-                                                                                                                                            } ?>">
+                                                                                                                                                            echo 'active-nav-link ';
+                                                                                                                                                        } else {
+                                                                                                                                                            echo 'opacity-75';
+                                                                                                                                                        } ?>">
                             <i class="fas fa-user-cog mr-3"></i>
                             Manage Users
                         </a>
@@ -112,15 +105,21 @@ $url = 'http://' . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
 
     ?>
 
+
+
 </aside>
 <div class="w-full flex flex-col h-screen overflow-y-hidden scrollbar-hide">
+    
     <!-- Desktop Header -->
     <header class="w-full items-center bg-gray-600 py-2 px-6 sm:flex">
+
         <!--TOP NAVBAR-->
         <?php
 
             include_once 'topbar.php';
 
         ?>
+
+
     </header>
     <main class="w-full flex-grow p-6 bg-gray-600 overflow-y-auto scrollbar-hide">

@@ -18,15 +18,15 @@
             
             try{
 
-                    if($dbname === 'RDWPRD')
+                    if ($dbname === 'RDWPRD')
                     {
                         return new PDO("oci:dbname=" . $this->getTNS(RDW_HOST, DEFAULT_PORT, RDW_SID). ";charset=utf8", RDW_USERNAME, RDW_PASSWORD, $this->getOption());
                     }
-                    else if ($dbname === 'OFINDB')
+                    elseif ($dbname === 'OFINDB')
                     {
                         return new PDO("oci:dbname=" . $this->getTNS(OFIN_HOST, DEFAULT_PORT, OFIN_SID). ";charset=utf8", OFIN_USERNAME, OFIN_PASSWORD, $this->getOption());
                     }
-                    else if($dbname === 'USERS'){
+                    elseif ($dbname === 'USERS'){
 
                         return new PDO("oci:dbname=" . $this->getTNS(RMS_HOST, DEFAULT_PORT, RMS_SID). ";charset=utf8", RMS_USERNAME, RMS_PASSWORD, $this->getOption());
                     }
@@ -63,10 +63,13 @@
 
             try{
 
-            if(new PDO("oci:dbname=" . $this->getTNS(RMS_HOST, DEFAULT_PORT, RMS_SID). ";charset=utf8", $username, $password, $this->getOption())){
-                return true;
-            }
+                if (new PDO("oci:dbname=" . $this->getTNS(RMS_HOST, DEFAULT_PORT, RMS_SID). ";charset=utf8", $username, $password, $this->getOption())){
+                    return true;
+                }
+                return false;
+
             }catch(\Exception $e){
+
                 return false;
             }
 
@@ -76,14 +79,14 @@
         public function query($sql){
             $this->stmt = $this->conn->prepare($sql);
         }
-        // Prepare statement with query with parameters
+        // Prepare statement with query and parameters
         public function queryWithParam($sql, $param = []){
 
             $this->stmt = $this->conn->prepare($sql);
 
             foreach($param as $bindTarget => $ParamValue){
 
-                if(is_int($ParamValue)){
+                if (is_int($ParamValue)){
                     $this->stmt->bindValue($bindTarget, $param[$bindTarget]);
                 }
                 else{
@@ -94,7 +97,9 @@
         // Execute the prepared statement
         public function execute(){
             try{
+
                 return $this->stmt->execute();
+
             }catch(\Exception $e){
                 return false;
             }
@@ -102,19 +107,28 @@
 
         // Get result set as array of objects
         public function resultSet(){
+
             $this->execute();
+
             return $this->stmt->fetchAll();
+
         }
 
         // Get single record as object
         public function single(){
+
             $this->execute();
+
             return $this->stmt->fetch(PDO::FETCH_ASSOC);
+
         }
+        
         // Get row count
-        public function rowCount(){
-            return $this->stmt->rowCount();
-        }
+        // public function rowCount(){
+
+        //     return $this->stmt->rowCount();
+
+        // }
 
         public function setProcedure($procedure)
         {

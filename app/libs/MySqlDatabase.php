@@ -49,7 +49,7 @@ This is library class for MySql Database Connections. any my sql statement shoul
 
             // try{
 
-            // if(){
+            // if (){
             //     return true;
             // }
             // }catch(\Exception $e){

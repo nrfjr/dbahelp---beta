@@ -70,7 +70,7 @@ This is library class for MS Database Connections. any ms sql statement should b
 
             // try{
 
-            // if(){
+            // if (){
             //     return true;
             // }
             // }catch(\Exception $e){

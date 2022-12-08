@@ -18,7 +18,7 @@ class DiskStorages extends Controller{
 
     public function getDFSource($hostname)
     {
-        if($hostname == 'RMSPRD'){
+        if ($hostname == 'RMSPRD'){
             return RMSPRD;
         }
         else if ($hostname == 'RDWPRD'){

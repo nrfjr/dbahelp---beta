@@ -6,7 +6,7 @@ class Securities extends Controller{
     public function __construct(){
         $this->securityModel = $this->model('Security');
 
-        if(!isset($_SESSION['username'])){
+        if (!isset($_SESSION['username'])){
             redirect('users/login');
         }
     }

@@ -31,7 +31,7 @@
 
             $result = $this->db->single();
 
-            if(!empty($result)){
+            if (!empty($result)){
 
                 $data = [
                     'Session' => $result['Total Sessions']
@@ -52,7 +52,7 @@
 
             $result = $this->db->single();
 
-            if(!empty($result)){
+            if (!empty($result)){
 
                 $data = [
                     'FRA Size' => $result['FRA SIZE'],
@@ -78,7 +78,7 @@
 
             $result = $this->db->single();
 
-            if(!empty($result)){
+            if (!empty($result)){
 
                 $data = [
                     'DBSTATUS' => $result['DB STATUS']
@@ -100,7 +100,7 @@
 
             $result = $this->db->single();
 
-            if(!empty($result)){
+            if (!empty($result)){
 
                 return $result;
             }
@@ -121,7 +121,7 @@
 
             $result = $this->db->single();
 
-            if(!empty($result)){
+            if (!empty($result)){
 
                 return $result['LOCK COUNT'];
             }
@@ -132,7 +132,7 @@
         {
             $this->db = new OracleDatabase($db);
 
-            if($db==='OFINDB'){
+            if ($db==='OFINDB'){
                 $query = $this->fm->loadSQL('OFIN_get_TempTSInfo');
             }
             else{
@@ -143,7 +143,7 @@
 
             $result = $this->db->resultSet();
 
-            if(!empty($result)){
+            if (!empty($result)){
 
                 return $result;
             }

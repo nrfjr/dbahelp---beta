@@ -4,7 +4,7 @@ require APPROOT . '/views/inc/header.php';
 require APPROOT . '/views/inc/sidebar.php'; 
 ?>
 
-<h1 class="text-3xl text-black pb-2 text-white"><b>Dashboard</b></h1>
+<h1 class="text-3xl text-black mb-5 text-white"><b>Dashboard</b></h1>
 <div class=" object-contain grid grid-cols-1 2xl:grid-cols-3 xl:grid-cols-2 lg:grid-cols-2 gap-4 cardz place-content-evenly">
 
   <?php
@@ -40,15 +40,15 @@ require APPROOT . '/views/inc/sidebar.php';
           <div class="grid grid-cols-3 cardp">
             <div class="cardb">
               <p>Hostname</p>
-              <h1 id="Hostname"><?php echo $DBInfo['Hostname']; ?></h1>
+              <h1 id="Hostname" title="Hostname"><?php echo $DBInfo['Hostname']; ?></h1>
             </div>
             <div class="cardb">
               <p>IP Address</p>
-              <h1 id="IP"><?php echo $DBInfo['IP Address']; ?></h1>
+              <h1 id="IP" title="IP Address"><?php echo $DBInfo['IP Address']; ?></h1>
             </div>
             <div class="cardb">
               <p>DB Size</p>
-              <h1 id="Size"><?php echo $DBInfo['DB SIZE']; ?></h1>
+              <h1 id="Size" title="Database Size"><?php echo $DBInfo['DB SIZE']; ?></h1>
             </div>
           </div>
         </div>
@@ -57,19 +57,19 @@ require APPROOT . '/views/inc/sidebar.php';
           <div class="grid grid-cols-4 cardp">
             <div class="cardb">
               <p>Total Sessions</p>
-              <h1 id="TotalSes">Fetching...</h1>
+              <h1 id="TotalSes" title="Total Sessions">Fetching...</h1>
             </div>
             <div class="cardb">
               <p>Inactive Sessions</p>
-              <h1 id="InactiveSes">Fetching...</h1>
+              <h1 id="InactiveSes" title="Total Inactive Sessions">Fetching...</h1>
             </div>
             <div class="cardb">
               <p>Active Sessions</p>
-              <h1 id="Active_Num">Fetching...</h1>
+              <h1 id="Active_Num" title="Total Active Sessions">Fetching...</h1>
             </div>
             <div class="cardb">
               <p>System Sessions</p>
-              <h1 id="SystemSes">Fetching...</h1>
+              <h1 id="SystemSes" title="Total System Sessions">Fetching...</h1>
             </div>
           </div>
         </div>
@@ -442,15 +442,15 @@ require APPROOT . '/views/inc/sidebar.php';
     <div class="w-full box rounded-lg text-md justify-center items-center db-stat">
       <h5 class="text-white font-bold">Hostname: <span id="DBStatusTitle" class="underline"><?php echo $DBInfo['Hostname']; ?></span></h5>
       <table>
-        <tr>
+        <tr title="Flash Recovery Area Size">
           <th>FRA Size: </th>
           <td><span><?php echo $FRA_Size; ?></span></td>
         </tr>
-        <tr>
+        <tr title="Flash Recovery Area Usage">
           <th>FRA Usage: </th>
           <td><span><?php echo $FRA_Usage; ?></span></td>
         </tr>
-        <tr>
+        <tr title="Temp Tablespace Free Size">
           <th>Temp TS Free: </th>
           <td>
             <?php foreach ($TempTS as $tsarray => $tsfree) { ?>
@@ -459,7 +459,7 @@ require APPROOT . '/views/inc/sidebar.php';
             <?php } ?>
           </td>
         </tr>
-        <tr>
+        <tr title="Temp Tablespace Usage Size">
           <th>Temp TS Usage: </th>
           <td>
             <?php foreach ($TempTS as $tsarray => $tsused) { ?>
@@ -468,12 +468,12 @@ require APPROOT . '/views/inc/sidebar.php';
             <?php } ?>
           </td>
         </tr>
-        <tr>
+        <tr title="Total Locked Sessions">
           <th>Locked Session: </th>
           <td><span><?php echo $LockedSessions; ?></span></td>
         </tr>
-        <tr>
-          <th>DB Status: </th>
+        <tr title="Database Performance">
+          <th>DB Performance Status: </th>
           <td class="text-red-500"><span id="DBSTATUS"><?php echo $DBStatus; ?></span></td>
         </tr>
       </table>

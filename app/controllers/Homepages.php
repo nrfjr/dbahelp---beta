@@ -7,7 +7,7 @@
 
             $this->homepageModel = $this->model('Homepage');
 
-            if(!isset($_SESSION['username'])) {
+            if (!isset($_SESSION['username'])) {
                 redirect('users/login');
             }
             
@@ -21,7 +21,7 @@
             $_SESSION['HomepageDB'] = $DB;
          
 
-            if(isset($_SESSION['HomepageDB'])){
+            if (isset($_SESSION['HomepageDB'])){
                 $this->db = $_SESSION['HomepageDB'];
             }
 

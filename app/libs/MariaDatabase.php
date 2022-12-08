@@ -64,7 +64,7 @@ This is library class for Maria Database Connections. any maria sql statement sh
 
             // try{
 
-            // if(){
+            // if (){
             //     return true;
             // }
             // }catch(\Exception $e){

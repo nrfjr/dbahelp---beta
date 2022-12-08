@@ -18,9 +18,8 @@ class Storage{
 
         if ($result) {
             return $result;
-        } else {
-            return false;
         }
+        return false;
     }
 
     public function getLogfiles($db)
@@ -33,9 +32,8 @@ class Storage{
 
         if ($result) {
             return $result;
-        } else {
-            return false;
         }
+        return false;
     }
 
     public function getControlfiles($db)
@@ -48,8 +46,8 @@ class Storage{
 
         if ($result) {
             return $result;
-        } else {
-            return false;
         }
+        return false;
+
     }
 }
