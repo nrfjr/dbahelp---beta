@@ -4,7 +4,7 @@ function navToggle() {
     if (x.style.display === "none") {
       x.style.display = "block";
       if(window.matchMedia("(min-width: 768px)")){
-        x.style.position = "relative;"
+        x.style.position = "relative";
       }else{
         x.style.position = "fixed";
       }
