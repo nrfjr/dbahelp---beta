@@ -100,6 +100,7 @@ class Users extends Controller
                     'ip' => $this->getIP(),
                     'requestor' => trim(SANITIZE_INPUT_STRING_EXCEPT_SPACE($_POST['requestor'])),
                     'remarks' => trim(SANITIZE_INPUT_STRING_EXCEPT_SPACE($_POST['remarks'])),
+                    'access' => trim(SANITIZE_INPUT_STRING_EXCEPT_SPACE($_POST['access'])),
                 ];
 
                 if (!empty($data['fname']) && !empty($data['mname']) && !empty($data['lname']) && !empty($data['ID']) && !empty($data['requestor']) && !empty($data['remarks'])) {
@@ -113,11 +114,14 @@ class Users extends Controller
                         'db_name' => $DB
                     ];
 
+                    
+
                     $this->passUserDetailsToModel($data, $DB);
 
                     $this->userModel->insertToUserMaster($data, 'RMSPRD');
 
                     $data = [];
+
                 } else {
                     $this->dialog->FAILED('Create User', 'User creation failed', 'Invalid / Missing Input, Please try again!', '/users/create/' . $_SESSION['CreateUserDB']);
                 }
@@ -138,6 +142,10 @@ class Users extends Controller
     {
         $resultUsername = $this->userModel->getUsername($data['username'], 'get_Username', $DB);
 
+        if(!empty($data['access'])){
+            $this->userModel->grantSameAccess($data['username'], $data['access'], $DB);
+        }
+
         if ($DB == 'RMSPRD') {
 
             $resultCreatedUser = $this->userModel->createUser($data['username'], $data['password'], $DB);
@@ -154,14 +162,16 @@ class Users extends Controller
 
             if ($resultCreatedUser && $resultAttribTable && $resultAccountsTable && $resultSecUserGroup && $resultGrantUser) {
 
-                //if all the model operation is successful or not,
+                //if all the model operation is successful,
                 //it will proceed on displaying the result of
                 //user creation.
 
                 $this->printCreatedRetailUser($data, $DB);
+
             } else {
                 $this->dialog->FAILED('Create User', $DB . 'User creation failed', 'Unable to create user.', '/users/show/default');
             }
+            
         } else {
 
             $resultCreatedUser = $this->userModel->createUser($data['username'], $data['password'], $DB);
@@ -214,7 +224,7 @@ class Users extends Controller
         // otherwise it will produce LDIF for the new user.
         // this also verify if a user is from other application like
         // KCS Retail and Custom Apps that needs RMS Account.
-        
+
         if ($data['app'] == 'ORMS' || $data['app'] == 'OREIM' || $data['app'] == 'ORPM') {
 
 

@@ -214,6 +214,24 @@ class User
         }
     }
 
+    public function grantSameAccess($username, $ref_username, $db)
+    {
+        $this->db = new OracleDatabase($db);
+
+        $query = $this->db->setProcedure('grantSameAccess(:reference, :username)');
+
+        $param = [
+            'reference' => $ref_username,
+            'username' => $username
+        ];
+
+        $this->db->queryWithParam($query, $param);
+        if ($this->db->execute()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 
 
     public function insertToUserAccounts($data, $db)

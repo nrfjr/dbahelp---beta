@@ -56,8 +56,8 @@ require APPROOT . '/views/inc/header.php';
               </div>
 
               <div class="col-span-6 sm:col-span-2">
-                <label for="same-access" class="block text-sm font-medium text-gray-700">Same Access (Optional)</label>
-                <input type="text" name="same-access" id="same-access" autocomplete="on" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" value="<?php echo $data != null ? $data['Sameaccess'] : ''; ?>">
+                <label for="access" class="block text-sm font-medium text-gray-700">Same Access (Optional)</label>
+                <input type="text" name="access" id="access" autocomplete="on" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
               </div>
 
               <div class="col-span-6 sm:col-span-3">
