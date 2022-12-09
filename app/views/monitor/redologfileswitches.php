@@ -182,8 +182,8 @@ require APPROOT . '/views/inc/sidebar.php'; ?>
       align: 'left'
     },
     legend: {
-      tooltipHoverFormatter: function(val, opts) {
-        return val + ' - ' + opts.w.globals.series[opts.seriesIndex][opts.dataPointIndex] + ''
+      tooltipHoverFormatter: function(val) {
+        return val
       }
     },
     markers: {
@@ -255,8 +255,8 @@ require APPROOT . '/views/inc/sidebar.php'; ?>
       }
     },
     legend: {
-      tooltipHoverFormatter: function(val, opts) {
-        return val + ' - ' + opts.w.globals.series[opts.seriesIndex][opts.dataPointIndex] + ''
+      tooltipHoverFormatter: function(val) {
+        return val
       },
       labels: {
         colors: 'white'
