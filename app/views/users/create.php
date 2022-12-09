@@ -52,12 +52,12 @@ require APPROOT . '/views/inc/header.php';
 
               <div class="col-span-6 sm:col-span-2">
                 <label for="requestor" class="block text-sm font-medium text-gray-700">Requested By</label>
-                <input type="text" name="requestor" id="requestor" autocomplete="requestor" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm " placeholder="John Doe" value="<?php echo $data != null ? $data['Requestor'] : ''; ?>" >
+                <input type="text" name="requestor" id="requestor" autocomplete="on" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm " placeholder="John Doe" value="<?php echo $data != null ? $data['Requestor'] : ''; ?>" >
               </div>
-                  
+
               <div class="col-span-6 sm:col-span-2">
                 <label for="same-access" class="block text-sm font-medium text-gray-700">Same Access (Optional)</label>
-                <input type="text" name="same-access" id="same-access" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" value="<?php echo $data != null ? $data['Sameaccess'] : ''; ?>">
+                <input type="text" name="same-access" id="same-access" autocomplete="on" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" value="<?php echo $data != null ? $data['Sameaccess'] : ''; ?>">
               </div>
 
               <div class="col-span-6 sm:col-span-3">
@@ -91,7 +91,7 @@ require APPROOT . '/views/inc/header.php';
             <div>
               <label for="remarks" class="block text-sm font-medium text-gray-700">Remarks</label>
               <div class="mt-1">
-                <textarea id="remarks" autocomplete="remarks" name="remarks" rows="3" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm " placeholder="Enter Remarks" ><?php echo $data != null ? $data['Remarks'] : ''; ?></textarea>
+                <input id="remarks" autocomplete="on" name="remarks" rows="3" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm " placeholder="Enter Remarks" ><?php echo $data != null ? $data['Remarks'] : ''; ?></input>
               </div>
               <p class="mt-2 text-sm text-gray-500"><em>User account remarks (ie: Access).</em></p>
             </div>
