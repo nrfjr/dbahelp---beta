@@ -21,12 +21,6 @@
             <li>
                 <form action="<?php echo URLROOT; ?>/homepages/index/OFINDB" method="POST"><button type="submit" class="block py-2 w-full px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">OFIN</button></form>
             </li>
-            <li>
-                <a href="#" class="block py-2 w-full px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">WMS 192.168.33.57</a>
-            </li>
-            <li>
-                <a href="#" class="block py-2 w-full px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">WMS 192.168.33.60</a>
-            </li>
         </ul>
     </div>
     <!--Oracle Databases-->
