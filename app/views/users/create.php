@@ -50,9 +50,14 @@ require APPROOT . '/views/inc/header.php';
                 <input type="number" name="Id" id="Id" autocomplete="Id" class="mt-1 block w-64 rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm " placeholder="1234567890" value="<?php echo $data != null ? $data['User Id'] : ''; ?>" >
               </div>
 
-              <div class="col-span-6 sm:col-span-4">
+              <div class="col-span-6 sm:col-span-2">
                 <label for="requestor" class="block text-sm font-medium text-gray-700">Requested By</label>
                 <input type="text" name="requestor" id="requestor" autocomplete="requestor" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm " placeholder="John Doe" value="<?php echo $data != null ? $data['Requestor'] : ''; ?>" >
+              </div>
+                  
+              <div class="col-span-6 sm:col-span-2">
+                <label for="same-access" class="block text-sm font-medium text-gray-700">Same Access (Optional)</label>
+                <input type="text" name="same-access" id="same-access" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" value="<?php echo $data != null ? $data['Sameaccess'] : ''; ?>">
               </div>
 
               <div class="col-span-6 sm:col-span-3">
