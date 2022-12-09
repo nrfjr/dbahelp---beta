@@ -110,10 +110,10 @@ class Users extends Controller
                     $data += [
                         'username' => $username,
                         'password' => $password,
-                        'db_name' => $this->db
+                        'db_name' => $DB
                     ];
 
-                    $this->passUserDetailsToModel($data, $this->db);
+                    $this->passUserDetailsToModel($data, $DB);
 
                     $this->userModel->insertToUserMaster($data, 'RMSPRD');
 
@@ -158,13 +158,11 @@ class Users extends Controller
                 //it will proceed on displaying the result of
                 //user creation.
 
-                $this->printCreatedRetailUser($data, $DB, $resultUsername);
-
-            }else {
+                $this->printCreatedRetailUser($data, $DB);
+            } else {
                 $this->dialog->FAILED('Create User', $DB . 'User creation failed', 'Unable to create user.', '/users/show/default');
             }
-
-        }else{
+        } else {
 
             $resultCreatedUser = $this->userModel->createUser($data['username'], $data['password'], $DB);
             $resultGrantUser = $this->userModel->grantUserRole($data['username'], $data['password'], $DB);
@@ -172,8 +170,7 @@ class Users extends Controller
             if ($resultCreatedUser && $resultGrantUser) {
 
                 $this->printCreatedRDWUser($data, $DB, $resultUsername);
-
-            }else {
+            } else {
                 $this->dialog->FAILED('Create User', $DB . 'User creation failed', 'Unable to create user.', '/users/show/default');
             }
         }
@@ -189,7 +186,6 @@ class Users extends Controller
 
             $msg = strtoupper($data['ID'] . ' ' . $data['fname'] . ' ' . $data['mname'] . ' ' . $data['lname']) . '<br>Username: ' . $data['username'] . '<br>Password: ' . $data['password'];
             $this->dialog->SUCCESS('Update User', $DB . ' User has been updated successfully', $msg, '/users/create/RDWPRD');
-
         } else {
 
             $resultCreatedUser = $this->userModel->createUser($data['username'], $data['password'], $DB);
@@ -209,11 +205,16 @@ class Users extends Controller
     // This method is responsible for printing output
     // from database operation of Retail users.
 
-    public function printCreatedRetailUser($data, $DB, $isExist)
+    public function printCreatedRetailUser($data, $DB)
     {
         $resultInRetail = $this->userModel->getUsername($data['username'], 'get_UsernameExistsInRetail', $DB);
 
-
+        // ORMS, OREIM, ORPM Proceeds here to verify
+        // if user already exists with these applications
+        // otherwise it will produce LDIF for the new user.
+        // this also verify if a user is from other application like
+        // KCS Retail and Custom Apps that needs RMS Account.
+        
         if ($data['app'] == 'ORMS' || $data['app'] == 'OREIM' || $data['app'] == 'ORPM') {
 
 
@@ -221,14 +222,17 @@ class Users extends Controller
 
                 $msg = strtoupper($data['ID'] . ' ' . $data['fname'] . ' ' . $data['mname'] . ' ' . $data['lname']) . '<br>Username: ' . $data['username'] . '<br>Password: ' . $data['password'];
 
-                $this->dialog->SUCCESS('Update User', $DB . ' User updated successfully', $msg, '/users/show/default');
+                $this->dialog->SUCCESS('Update User', $DB . ' User updated successfully', $msg, '/users/create/RMSPRD');
+
             } else {
 
                 //Generate LDIF File after user is created.
                 $ldiffile = $this->generateLDif($data['fname'], $data['lname'], $data['ID'], $data['username'], $data['password']);
 
+                $data += ['ldif' => $ldiffile];
+
                 //Shows the viewer of file contents.
-                $this->view('users/ldif', $data += ['ldif' => $ldiffile]);
+                $this->view('users/ldif', $data);
             }
         } else {
 
@@ -238,7 +242,7 @@ class Users extends Controller
         }
     }
 
-    // gets list of users
+    // get the list of users
     public function show($DB)
     {
         $data = ['search' => isset($_SESSION['Search']) ? $_SESSION['Search'] : ''];
@@ -405,7 +409,7 @@ class Users extends Controller
                 flush();
                 readfile($file['ldif']);
                 exit();
-                $this->view('users/create', $data = []);
+                $this->view('users/create', []);
             }
         }
     }
