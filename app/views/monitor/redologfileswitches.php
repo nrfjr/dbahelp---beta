@@ -16,66 +16,71 @@ require APPROOT . '/views/inc/sidebar.php'; ?>
 <div class="flex flex-col justify-evenly gap-y-2 xl:h-5/3">
     <div class="h-auto overflow-hidden">
         <h1 class="text-white">Morning Log File Switches Within a Week</h1>
-        <div class="block  justify-center w-full shadow-md overflow-auto sm:rounded-lg" style="max-height: 93%;">
-            <?php
+        <div class="flex gap-2">
+            <div class="block justify-center w-full shadow-md overflow-auto sm:rounded-lg" style="max-height: 93%;">
+                <?php
 
-            $am_redologfile = $data['AM'];
+                $am_redologfile = $data['AM'];
 
-            if (!empty($am_redologfile)) {
+                if (!empty($am_redologfile)) {
 
-                //Separates Column title from result set
-                foreach ($am_redologfile as $am_outer_key => $am_array) {
+                    //Separates Column title from result set
+                    foreach ($am_redologfile as $am_outer_key => $am_array) {
 
-                    foreach ($am_array as $am_inner_key => $am_value) {
-                        $am_column_names[] = $am_inner_key;
-                    }
-                }
-            ?>
-                <table class="w-full text-sm text-center text-white dark:text-gray-400">
-                    <thead class="text-md text-black bg-indigo-200 dark:bg-gray-700 dark:text-gray-400">
-                        <tr>
-                            <?php for ($am_title = 0; $am_title <= count($am_array) - 1; $am_title++) { ?>
-                                <th scope="col" class="py-2 px-6">
-                                    <?php echo $am_column_names[$am_title]; ?>
-                                </th>
-                            <?php } ?>
-                        </tr>
-                    </thead>
-                    <tbody class="bg-gray-500">
-                        <?php
-                        foreach ($am_redologfile as $am_column_title => $am_value) {
-                        ?>
-                            <tr class="focus:hover:bg-gray-700 hover:bg-gray-700">
-                                <?php
-                                foreach ($am_value as $am_logfile) {
-                                ?>
-                                    <td class="py-4 px-6">
-                                        <?php echo $am_logfile; ?>
-                                    </td>
-                                <?php
-                                }
-                                ?>
-                            </tr>
-                        <?php
+                        foreach ($am_array as $am_inner_key => $am_value) {
+                            $am_column_names[] = $am_inner_key;
                         }
-                        ?>
-                    </tbody>
-                </table>
-            <?php
-            } else {
-            ?>
-                <div class="flex w-full shadow-md overflow-auto sm:rounded-lg bg-gray-500" style="max-height: 80%; min-height: 100%;">
-                    <h1 class="text-white m-auto "><b>No Morning Log File Switches Found.</b></h1>
-                </div>
-            <?php
-            }
-            ?>
+                    }
+                ?>
+                    <table class="w-full text-sm text-center text-white dark:text-gray-400">
+                        <thead class="text-md text-black bg-indigo-200 dark:bg-gray-700 dark:text-gray-400">
+                            <tr>
+                                <?php for ($am_title = 0; $am_title <= count($am_array) - 1; $am_title++) { ?>
+                                    <th scope="col" class="py-2 px-6">
+                                        <?php echo $am_column_names[$am_title]; ?>
+                                    </th>
+                                <?php } ?>
+                            </tr>
+                        </thead>
+                        <tbody class="bg-gray-500">
+                            <?php
+                            foreach ($am_redologfile as $am_column_title => $am_value) {
+                            ?>
+                                <tr class="focus:hover:bg-gray-700 hover:bg-gray-700">
+                                    <?php
+                                    foreach ($am_value as $am_logfile) {
+                                    ?>
+                                        <td class="py-4 px-6">
+                                            <?php echo $am_logfile; ?>
+                                        </td>
+                                    <?php
+                                    }
+                                    ?>
+                                </tr>
+                            <?php
+                            }
+                            ?>
+                        </tbody>
+                    </table>
+                <?php
+                } else {
+                ?>
+                    <div class="flex w-full shadow-md overflow-auto sm:rounded-lg bg-gray-500" style="max-height: 80%; min-height: 100%;">
+                        <h1 class="text-white m-auto "><b>No Morning Log File Switches Found.</b></h1>
+                    </div>
+                <?php
+                }
+                ?>
+            </div>
+            <div id="redologchartAM" class="w-1/2 bg-gray-300 rounded-md h-fit">
+            </div>
         </div>
     </div>
 
     <div class="h-auto overflow-hidden">
         <h1 class="text-white">Evening Log File Switches Within a Week</h1>
-        <div class="block  justify-center w-full shadow-md overflow-auto sm:rounded-lg" style="max-height: 93%;">
+        <div class="flex gap-2">
+            <div class="block justify-center w-full shadow-md overflow-auto sm:rounded-lg " style="max-height: 93%;">
             <?php
 
             $pm_redologfile = $data['PM'];
@@ -129,8 +134,185 @@ require APPROOT . '/views/inc/sidebar.php'; ?>
             <?php
             }
             ?>
+        </div>
+        <div id="redologchartPM" class="w-1/2 bg-gray-700 rounded-md h-fit">
+            </div>
     </div>
 </div>
+</div>
+<script>
+    // FOR AM
+    var optionsAM = {
+          series: [{
+            name: "09/DEC",
+            data: [000, 000, 000, 00, 000, 000, 001, 000, 000, 000, 000, 000]
+          },
+          {
+            name: "08/DEC",
+            data: [000, 000, 000, 000, 000, 000, 000, 002, 000, 000, 000, 001]
+          },
+          {
+            name: '07/DEC',
+            data: [000, 000, 000, 000, 000, 000, 000, 002, 000, 000, 000, 001]
+          },
+          {
+            name: '06/DEC',
+            data: [00, 002, 004, 004, 004, 005, 003, 003, 002, 000, 002, 002]
+          },
+          {
+            name: '05/DEC',
+            data: [004, 00, 004, 004, 004, 000, 003, 004, 003, 000, 002, 001]
+          },
+          {
+            name: '04/DEC',
+            data: [004, 001, 004, 004, 004, 005, 000, 004, 004, 000, 002, 000]
+          },
+          {
+            name: '03/DEC',
+            data: [004, 002, 004, 004, 000, 005, 003, 004, 003, 000, 000, 003]
+          },
+        ],
+        chart: {
+          height: 350,
+          type: 'line',
+          zoom: {
+            enabled: false
+          },
+        },
+        dataLabels: {
+          enabled: false
+        },
+        stroke: {
+          width: 5,
+          curve: 'smooth',
+          dashArray: 0  
+        },
+        title: {
+          text: 'Morning Log File Switches',
+          align: 'left'
+        },
+        legend: {
+          tooltipHoverFormatter: function(val, opts) {
+            return val + ' - ' + opts.w.globals.series[opts.seriesIndex][opts.dataPointIndex] + ''
+          }
+        },
+        markers: {
+          size: 0,
+          hover: {
+            sizeOffset: 6
+          }
+        },
+        xaxis: {
+          categories: ['7AM', '8AM', '9AM', '10AM', '11AM', '12PM', '1PM', '2PM', '3PM',
+            '4PM', '5PM', '6PM'
+          ],
+        },
+        yaxis:{
+          tickAmount: 4,
+        },
+        grid: {
+          show: true,
+          borderColor: '#0d0d0d', 
+        }
+        };
+
+        var chartAM = new ApexCharts(document.querySelector("#redologchartAM"), optionsAM);
+        chartAM.render();
+</script>
+<script>
+    // FOR PM
+    var optionsPM = {
+      series: [{
+          name: "09/DEC",
+            data: [000, 000, 000, 00, 000, 000, 001, 000, 000, 000, 000, 000]
+          },
+          {
+            name: "08/DEC",
+            data: [000, 000, 000, 000, 000, 000, 000, 002, 000, 000, 000, 001]
+          },
+          {
+            name: '07/DEC',
+            data: [000, 000, 000, 000, 000, 000, 000, 002, 000, 000, 000, 001]
+          },
+          {
+            name: '06/DEC',
+            data: [00, 002, 004, 004, 004, 005, 003, 003, 002, 000, 002, 002]
+          },
+          {
+            name: '05/DEC',
+            data: [004, 00, 004, 004, 004, 000, 003, 004, 003, 000, 002, 001]
+          },
+          {
+            name: '04/DEC',
+            data: [004, 001, 004, 004, 004, 005, 000, 004, 004, 000, 002, 000]
+          },
+          {
+            name: '03/DEC',
+            data: [004, 002, 004, 004, 000, 005, 003, 004, 003, 000, 000, 003]
+          },
+        ],
+        chart: {
+          height: 350,
+          type: 'line',
+          zoom: {
+            enabled: false
+          },
+        },
+        dataLabels: {
+          enabled: false
+        },
+        stroke: {
+          width: 5,
+          curve: 'smooth',
+          dashArray: [1,2,4,6,8,10,12]  
+        },
+        title: {
+          text: 'Evening Log File Switches',
+          align: 'left',
+          style:{
+            color: 'white'
+          }
+        },
+        legend: {
+          tooltipHoverFormatter: function(val, opts) {
+            return val + ' - ' + opts.w.globals.series[opts.seriesIndex][opts.dataPointIndex] + ''
+          },
+          labels:{
+            colors: 'white'
+          }
+        },
+        markers: {
+          size: 0,
+          hover: {
+            sizeOffset: 6
+          }
+        },
+        xaxis: {
+          categories: ['7PM', '8PM', '9PM', '10PM', '11PM', '12MD', '1AM', '2AM', '3AM',
+            '4AM', '5AM', '6AM'
+          ],
+          labels:{
+            style:{
+              colors:'white'
+            }
+          }
+        },
+        yaxis:{
+          tickAmount: 4,
+          labels:{
+            style:{
+              colors:['white']
+            }
+          }
+        },
+        grid: {
+          show: true,
+          borderColor: 'white', 
+        }
+        };
+        var chartPM = new ApexCharts(document.querySelector("#redologchartPM"), optionsPM);
+        chartPM.render();
+</script>
 
 
 <?php require APPROOT . '/views/inc/footer.php'; ?>
