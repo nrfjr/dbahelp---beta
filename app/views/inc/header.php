@@ -9,7 +9,8 @@
     <link rel="icon" href="<?php echo URLROOT; ?>/public/img/kcc.png" />
 
     <link rel="stylesheet" href="<?php echo URLROOT.'/public/css/extstyle.css'?>">
-    
+    <link rel="stylesheet" href="<?php echo URLROOT.'/public/css/body_loader.css'?>">
+
     <!-- Tailwind -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
     <!--Flowbite-->
@@ -65,7 +66,10 @@
         } 
     </style>
 
+
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <!-- Body Loader JS -->
+    <script type="text/javascript" src="<?php echo URLROOT.'/public/js/body-loader.js'?>"></script>
     <!-- AlpineJS -->
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
     <!-- Font Awesome -->
@@ -88,4 +92,12 @@
     <script type="text/javascript" src="<?php echo URLROOT.'/public/js/sidebar-toggle-btn.js'?>"></script>
 </head>
 
+<div class="loader">
+            <div>
+                <div class="lds-ripple">
+                    <div></div>
+                    <div></div>
+                </div>
+            </div>
+</div>
 <body class="bg-gray-100 font-family-lexend flex">

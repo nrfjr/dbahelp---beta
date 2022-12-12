@@ -132,4 +132,5 @@ $url = 'http://' . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
 
 
     </header>
-    <main class="w-full flex-grow p-6 bg-gray-600 overflow-y-auto scrollbar-hide">
+    
+    <main class="content w-full flex-grow p-6 bg-gray-600 overflow-y-auto scrollbar-hide">
