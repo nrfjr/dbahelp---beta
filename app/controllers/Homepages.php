@@ -10,7 +10,6 @@
             if (!isset($_SESSION['username'])) {
                 redirect('users/login');
             }
-            
 
         }
 

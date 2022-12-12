@@ -1,5 +1,5 @@
 <?php
-    class OracleDatabase {
+    class OracleDatabase implements DBInterface {
         
         private $conn;
         private $stmt;
@@ -9,11 +9,11 @@
 
         public function __construct($DB){
 
-            $this->conn = $this->getConn($DB);
+            $this->conn = $this->getConnection($DB);
 
         }
 
-        public function getConn($dbname)    
+        public function getConnection($dbname)    
         {
             
             try{

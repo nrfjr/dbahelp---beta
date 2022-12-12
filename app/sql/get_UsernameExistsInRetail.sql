@@ -1,5 +1,6 @@
 SELECT 
-        DBA.USERNAME
+        DBA.USERNAME,
+        UM.PASSWORD
 FROM 
         DBA_USERS DBA
 LEFT JOIN
@@ -9,3 +10,4 @@ ON
 WHERE 
         DBA.USERNAME = :username
         AND UM.APPLICATION IN ('ORMS', 'OREIM', 'ORPM')
+        AND UM.DB_NAME = :db_name

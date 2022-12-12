@@ -256,7 +256,7 @@ require APPROOT . '/views/inc/sidebar.php'; ?>
     },
     legend: {
       tooltipHoverFormatter: function(val) {
-        return val
+        return val 
       },
       labels: {
         colors: 'white'

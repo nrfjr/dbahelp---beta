@@ -4,7 +4,7 @@ require APPROOT . '/views/inc/header.php';
 require APPROOT . '/views/inc/sidebar.php'; 
 ?>
 
-    <h1 class="text-3xl text-black pb-2 text-white"><b>Disk Storage</b></h1>
+    <h1 class="text-3xl text-black mb-5 text-white"><b>Disk Storage</b></h1>
 
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-x-10 gap-y-8 justify-center place-content-evenly">
       <?php

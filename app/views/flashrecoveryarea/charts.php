@@ -3,7 +3,7 @@ $title = 'Flash Recovery Area';
 require APPROOT . '/views/inc/header.php';
 require APPROOT . '/views/inc/sidebar.php'; ?>
 
-<h1 class="text-3xl text-black pb-2 text-white"><b>Flash Recovery Area</b></h1>
+<h1 class="text-3xl text-black mb-5 text-white"><b>Flash Recovery Area</b></h1>
 
 <div class="grid grid-cols-1 xl:grid-cols-2 gap-2 relative justify-start ">
 

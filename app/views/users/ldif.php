@@ -20,6 +20,7 @@ require APPROOT . '/views/inc/sidebar.php'; ?>
           foreach (new SplFileObject($data['ldif']) as $line) {
           ?>
             <p class="text-sm text-black"> <?php echo $line ?></p>
+            
           <?php
           }
           ?>

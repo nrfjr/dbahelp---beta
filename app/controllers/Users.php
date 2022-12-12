@@ -21,10 +21,10 @@ class Users extends Controller
         // of the local machine getHostByName()
         // gets the corresponding IP
 
-        $localIP = getHostByNamel(getHostName());
+        $IP = $_SERVER['REMOTE_ADDR']? $_SERVER['REMOTE_ADDR']: getHostByNamel(getHostName())[1];
 
         // Displaying the address 
-        return $localIP[1];
+        return $IP;
     }
 
     // verify user login to the system
@@ -100,13 +100,14 @@ class Users extends Controller
                     'ip' => $this->getIP(),
                     'requestor' => trim(SANITIZE_INPUT_STRING_EXCEPT_SPACE($_POST['requestor'])),
                     'remarks' => trim(SANITIZE_INPUT_STRING_EXCEPT_SPACE($_POST['remarks'])),
-                    'access' => trim(SANITIZE_INPUT_STRING_EXCEPT_SPACE($_POST['access'])),
+                    'access' => trim(SANITIZE_INPUT_STRING($_POST['access'])),
                 ];
 
                 if (!empty($data['fname']) && !empty($data['mname']) && !empty($data['lname']) && !empty($data['ID']) && !empty($data['requestor']) && !empty($data['remarks'])) {
 
                     $username = $this->generateUsername($data['fname'], $data['mname'], $data['lname'], $data['ID']);
-                    $password = $this->generatePassword();
+                    $ExistingPasswordByUsername = $this->userModel->getUsername($username, 'get_Username', $DB)['PASSWORD'];
+                    $password = ($ExistingPasswordByUsername)? $ExistingPasswordByUsername : $this->generatePassword();
 
                     $data += [
                         'username' => $username,
@@ -114,17 +115,18 @@ class Users extends Controller
                         'db_name' => $DB
                     ];
 
-                    
+                    print_r($data);
 
-                    $this->passUserDetailsToModel($data, $DB);
+                    // $this->passUserDetailsToModel($data, $DB);
 
-                    $this->userModel->insertToUserMaster($data, 'RMSPRD');
+                    // $this->userModel->insertToUserMaster($data, 'RMSPRD');
 
                     $data = [];
 
                 } else {
-                    $this->dialog->FAILED('Create User', 'User creation failed', 'Invalid / Missing Input, Please try again!', '/users/create/' . $_SESSION['CreateUserDB']);
+                    $this->dialog->FAILED('Create User', 'User creation failed', 'Invalid / Missing Input, Please try again!', '/users/show/' . $_SESSION['CreateUserDB']);
                 }
+
             } else {
 
                 $this->view('users/create', []);
@@ -142,8 +144,8 @@ class Users extends Controller
     {
         $resultUsername = $this->userModel->getUsername($data['username'], 'get_Username', $DB);
 
-        if(!empty($data['access'])){
-            $this->userModel->grantSameAccess($data['username'], $data['access'], $DB);
+        if($data['access']!=null){
+            $this->userModel->grantSameAccess($data['access'], $data['username'], $DB);
         }
 
         if ($DB == 'RMSPRD') {
@@ -302,46 +304,7 @@ class Users extends Controller
         $uid = $username;
         $mail = $username . "@kccmalls.com";
         $employeeNum = $ID;
-        $LDIF = "dn: cn=$username,cn=Users,dc=kccmalls,dc=com\n
-                 objectclass: top\n
-                 objectclass: organizationalperson\n
-                 objectclass: person\n
-                 objectclass: inetorgperson\n
-                 objectclass: KCCOBJ\n
-                 objectclass: rsimUser\n
-                 givenname: $givenName\n
-                 sn: $surName\n
-                 cn: $cn\n
-                 uid: $uid\n
-                 employeenumber: $employeeNum\n
-                 mail: $mail\n
-                 description: Department Store\n
-                 displayname: $cn\n
-                 preferredlanguage: en\n
-                 userstore: rsimStoreId=2,cn=rsimStores,cn=RSIM,dc=kccmalls,dc=com\n
-                 userstore: rsimStoreId=1,cn=rsimStores,cn=RSIM,dc=kccmalls,dc=com\n
-                 userstore: rsimStoreId=3,cn=rsimStores,cn=RSIM,dc=kccmalls,dc=com\n
-                 userstore: rsimStoreId=4,cn=rsimStores,cn=RSIM,dc=kccmalls,dc=com\n
-                 userstore: rsimStoreId=5,cn=rsimStores,cn=RSIM,dc=kccmalls,dc=com\n
-                 userstore: rsimStoreId=6,cn=rsimStores,cn=RSIM,dc=kccmalls,dc=com\n
-                 userstore: rsimStoreId=7,cn=rsimStores,cn=RSIM,dc=kccmalls,dc=com\n
-                 userstore: rsimStoreId=8,cn=rsimStores,cn=RSIM,dc=kccmalls,dc=com\n
-                 userstore: rsimStoreId=9,cn=rsimStores,cn=RSIM,dc=kccmalls,dc=com\n
-                 userstore: rsimStoreId=41,cn=rsimStores,cn=RSIM,dc=kccmalls,dc=com\n
-                 userstore: rsimStoreId=42,cn=rsimStores,cn=RSIM,dc=kccmalls,dc=com\n
-                 userstore: rsimStoreId=43,cn=rsimStores,cn=RSIM,dc=kccmalls,dc=com\n
-                 userstore: rsimStoreId=45,cn=rsimStores,cn=RSIM,dc=kccmalls,dc=com\n
-                 userstore: rsimStoreId=46,cn=rsimStores,cn=RSIM,dc=kccmalls,dc=com\n
-                 userstore: rsimStoreId=44,cn=rsimStores,cn=RSIM,dc=kccmalls,dc=com\n
-                 userstore: rsimStoreId=47,cn=rsimStores,cn=RSIM,dc=kccmalls,dc=com\n
-                 userstore: rsimStoreId=48,cn=rsimStores,cn=RSIM,dc=kccmalls,dc=com\n
-                 userstore: rsimStoreId=49,cn=rsimStores,cn=RSIM,dc=kccmalls,dc=com\n
-                 employmentstatus: 0\n
-                 ssn: 123456789\n
-                 preferredcountry: US\n
-                 userrole: rsimRoleName=KCC Admin,cn=rsimRoles,cn=RSIM,dc=kccmalls,dc=com\n
-                 homestore: rsimStoreId=2,cn=rsimStores,cn=RSIM,dc=kccmalls,dc=com\n
-                 userpassword: $password";
+        $LDIF = "dn: cn=$username,cn=Users,dc=kccmalls,dc=com\nobjectclass: top\nobjectclass: organizationalperson\nobjectclass: person\nobjectclass: inetorgperson\nobjectclass: KCCOBJ\nobjectclass: rsimUser\ngivenname: $givenName\nsn: $surName\ncn: $cn\nuid: $uid\nemployeenumber: $employeeNum\nmail: $mail\ndescription: Department Store\ndisplayname: $cn\npreferredlanguage: en\nuserstore: rsimStoreId=2,cn=rsimStores,cn=RSIM,dc=kccmalls,dc=com\nuserstore: rsimStoreId=1,cn=rsimStores,cn=RSIM,dc=kccmalls,dc=com\nuserstore: rsimStoreId=3,cn=rsimStores,cn=RSIM,dc=kccmalls,dc=com\nuserstore: rsimStoreId=4,cn=rsimStores,cn=RSIM,dc=kccmalls,dc=com\nuserstore: rsimStoreId=5,cn=rsimStores,cn=RSIM,dc=kccmalls,dc=com\nuserstore: rsimStoreId=6,cn=rsimStores,cn=RSIM,dc=kccmalls,dc=com\nuserstore: rsimStoreId=7,cn=rsimStores,cn=RSIM,dc=kccmalls,dc=com\nuserstore: rsimStoreId=8,cn=rsimStores,cn=RSIM,dc=kccmalls,dc=com\nuserstore: rsimStoreId=9,cn=rsimStores,cn=RSIM,dc=kccmalls,dc=com\nuserstore: rsimStoreId=41,cn=rsimStores,cn=RSIM,dc=kccmalls,dc=com\nuserstore: rsimStoreId=42,cn=rsimStores,cn=RSIM,dc=kccmalls,dc=com\nuserstore: rsimStoreId=43,cn=rsimStores,cn=RSIM,dc=kccmalls,dc=com\nuserstore: rsimStoreId=45,cn=rsimStores,cn=RSIM,dc=kccmalls,dc=com\nuserstore: rsimStoreId=46,cn=rsimStores,cn=RSIM,dc=kccmalls,dc=com\nuserstore: rsimStoreId=44,cn=rsimStores,cn=RSIM,dc=kccmalls,dc=com\nuserstore: rsimStoreId=47,cn=rsimStores,cn=RSIM,dc=kccmalls,dc=com\nuserstore: rsimStoreId=48,cn=rsimStores,cn=RSIM,dc=kccmalls,dc=com\nuserstore: rsimStoreId=49,cn=rsimStores,cn=RSIM,dc=kccmalls,dc=com\nemploymentstatus: 0\nssn: 123456789\npreferredcountry: US\nuserrole: rsimRoleName=KCC Admin,cn=rsimRoles,cn=RSIM,dc=kccmalls,dc=com\nhomestore: rsimStoreId=2,cn=rsimStores,cn=RSIM,dc=kccmalls,dc=com\nuserpassword: $password";
 
         $file = fopen("$username.ldif", "w") or die("Unable to open file!");
         fwrite($file, $LDIF);

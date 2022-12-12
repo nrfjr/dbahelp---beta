@@ -18,7 +18,7 @@ class User
         $result = $this->db->test_connection($username, $password);
 
         if ($result) {
-            if ($this->getUsername($username, 'get_Username', 'RMSPRD') == $username) {
+            if ($this->getUsername($username, 'get_Username', 'RMSPRD')['USERNAME'] == $username) {
                 $data = [
                     'username' => $username,
                     'password' => $password
@@ -36,7 +36,8 @@ class User
 
         $query = $this->fm->loadSQL($query);
         $param = [
-            'username' => $username
+            'username' => $username,
+            'db_name' => $db
         ];
 
         $this->db->queryWithParam($query, $param);
@@ -44,7 +45,7 @@ class User
         $row = $this->db->single();
 
         if ($row) {
-                return $row['USERNAME'];
+                return $row;
         } else {
             return false;
         }
@@ -214,7 +215,7 @@ class User
         }
     }
 
-    public function grantSameAccess($username, $ref_username, $db)
+    public function grantSameAccess($ref_username, $username, $db)
     {
         $this->db = new OracleDatabase($db);
 
@@ -226,6 +227,7 @@ class User
         ];
 
         $this->db->queryWithParam($query, $param);
+
         if ($this->db->execute()) {
             return true;
         } else {
