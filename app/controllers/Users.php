@@ -41,13 +41,15 @@ class Users extends Controller
 
             $loggedInUser = $this->userModel->login($data['username'], $data['password']);
 
-            if ($loggedInUser) {
+            if ($loggedInUser[0]) {
                 // Create Session
-                $this->createUserSession($loggedInUser);
+                $this->createUserSession($loggedInUser[1]);
+                
             } else {
-                echo '<script>alert("Invalid username/password, Please try again.")</script>';
+                echo '<script>alert("'.$loggedInUser[1].'")</script>';
                 $this->view('users/login', $data);
             }
+
         } else {
             // reset data
             $data = [
@@ -63,23 +65,15 @@ class Users extends Controller
     public function createUserSession($user)
     {
         $_SESSION['username'] = $user['username'];
+        $_SESSION['firstname'] = $user['firstname'];
         redirect('homepage/dashboard');
     }
 
     public function logout()
     {
-        unset($_SESSION['username']);
+        unset($_SESSION['username'], $_SESSION['firstname']);
         session_destroy();
         redirect('users/login');
-    }
-
-    public function isLoggedIn()
-    {
-        if (isset($_SESSION['username'])) {
-            return true;
-        } else {
-            return false;
-        }
     }
 
     // Create user account (Create Account Module)
