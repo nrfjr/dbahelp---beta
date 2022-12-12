@@ -84,5 +84,6 @@
         <p class="ml-2 absolute left-0">Copyright &copy; 2022, All Rights reserved</p>
     </footer>
 </body>
+    <script text="text/javascript" src="<?php echo URLROOT.'/public/js/loginbgcolorchanger.js'?>"></script>
 
 </html>
