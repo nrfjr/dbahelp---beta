@@ -193,17 +193,8 @@ class Users extends Controller
             $msg = strtoupper($data['ID'] . ' ' . $data['fname'] . ' ' . $data['mname'] . ' ' . $data['lname']) . '<br>Username: ' . $data['username'] . '<br>Password: ' . $data['password'];
             $this->dialog->SUCCESS('Update User', $DB . ' User has been updated successfully', $msg, '/users/create/RDWPRD');
         } else {
-
-            $resultCreatedUser = $this->userModel->createUser($data['username'], $data['password'], $DB);
-            $resultGrantUser = $this->userModel->grantUserRole($data['username'], $data['password'], $DB);
-
-            if ($resultCreatedUser && $resultGrantUser) {
-
-                $msg = strtoupper($data['ID'] . ' ' . $data['fname'] . ' ' . $data['mname'] . ' ' . $data['lname']) . '<br>Username: ' . $data['username'] . '<br>Password: ' . $data['password'];
-                $this->dialog->SUCCESS('Create User', $DB . ' User created successfully', $msg, '/users/create/RDWPRD');
-            } else {
-                $this->dialog->FAILED('Create User', $DB . 'User creation failed', 'Unable to create user.', '/users/show/default');
-            }
+            $msg = strtoupper($data['ID'] . ' ' . $data['fname'] . ' ' . $data['mname'] . ' ' . $data['lname']) . '<br>Username: ' . $data['username'] . '<br>Password: ' . $data['password'];
+            $this->dialog->SUCCESS('Create User', $DB . ' User created successfully', $msg, '/users/create/RDWPRD');
         }
     }
 
