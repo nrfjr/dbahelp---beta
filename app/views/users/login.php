@@ -13,6 +13,7 @@
     <script src="//unpkg.com/alpinejs" defer></script>
     <script src="https://cdn.tailwindcss.com"></script>
     <script text="text/javascript" src="<?php echo URLROOT.'/public/js/logingreet.js'?>"></script>
+    <script text="text/javascript" src="<?php echo URLROOT.'/public/js/spinner.js'?>"></script>
     <title><?php echo SITENAME ?> | Signin</title>
 
 </head>
