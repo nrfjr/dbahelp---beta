@@ -293,7 +293,7 @@
 </div>
 
 <!--TOP NAVBAR-->
-<div x-data="{ isOpen: false }" class="relative w-1/2 sm:w-fit md:w-1/4 inline-flex justify-end">
+<div x-data="{ isOpen: false }" class="relative w-1/2 sm:w-fit md:w-1/4 inline-flex justify-end items-center">
     <?php if (isset($_SESSION['username'])) : ?>
         <h4 class="text-white flex justify-end w-fit mr-2 whitespace-nowrap"><?php echo  '<b>'. greetings($_SESSION['firstname']) .'</b>' ?></h4>
     <?php endif; ?>
