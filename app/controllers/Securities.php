@@ -2,6 +2,7 @@
 
 class Securities extends Controller{
 
+    private $db;
     
     public function __construct(){
         $this->securityModel = $this->model('Security');
@@ -15,9 +16,19 @@ class Securities extends Controller{
     {
         $_SESSION['SecurityDB'] = $DB;
 
-        isset($_SESSION['SecurityDB']);
+        if (isset($_SESSION['StorageDB'])) {
+            $this->db = $_SESSION['StorageDB'];
+        }
 
-        $this->view('security/roleprivilege',[]);
+        $granted = $this->securityModel->getGrantedUsers($this->db);
+        $privileges = $this->securityModel->getDBPrivileges($this->db);
+
+        $data = [
+            'granted' => ($granted ) ? $granted  : [],
+            'privilege' => ($privileges) ? $privileges : []
+        ];
+
+        $this->view('security/roleprivilege', $data);
     }
 
     public function ldifforsso($DB)
