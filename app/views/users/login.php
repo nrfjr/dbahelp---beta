@@ -19,24 +19,15 @@
 
 <body onload="typeWriter()" class="h-screen w-full bg-gradient-to-r from-cyan-500 to-indigo-500 overflow-hidden relative">
     <div class="box z-10">
-        <div onclick="colorChange()" class="Odd"></div>
-        <div></div> 
-        <div onclick="colorChange()" class="Even"></div> 
-        <div></div> 
-        <div onclick="colorChange()" class="odd"></div> 
-        <div></div> 
+        <div onclick="colorChange()" class="Odd"></div> 
+        <div onclick="colorChange()" class="Even"></div>  
+        <div onclick="colorChange()" class="odd"></div>  
         <div onclick="colorChange()" class="even"></div> 
-        <div></div>
         <div onclick="colorChange()" class="extra"></div>
-        <div></div>
-        <div onclick="colorChange()" class="even"></div>
-        <div></div> 
-        <div onclick="colorChange()" class="odd"></div> 
-        <div></div> 
         <div onclick="colorChange()" class="even"></div> 
-        <div></div> 
-        <div onclick="colorChange()" class="extra"></div> 
-        <div></div>  
+        <div onclick="colorChange()" class="odd"></div>  
+        <div onclick="colorChange()" class="even"></div>  
+        <div onclick="colorChange()" class="extra"></div>   
         <div onclick="colorChange()" class="even"></div>  
     </div>
     <div id="login" class="flex justify-center m-auto pb-20 h-screen items-center">
