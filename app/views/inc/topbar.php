@@ -1,4 +1,4 @@
-<div class="w-full">
+<div class="w-1/2 sm:w-fit md:w-full">
     <button class="justify-center md:hidden mx-2 p-4 hover:bg-gray-400 rounded-full" onclick="navToggle()">
         <i class="fas fa-regular fa-bars"></i>
     </button>
@@ -250,38 +250,39 @@
         </svg></button>
     <!-- Dropdown menu -->
     <div id="dropdown-disk" class="whitespace-normal hidden z-10 w-fit bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700">
-        <ul class="py-1 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefault">
+
+        <ul class="py-1 text-sm text-gray-700 dark:text-gray-200 w-full" aria-labelledby="dropdownDefault">
             <li>
                 <a href="<?php echo URLROOT; ?>/diskstorages/diskstorage/RMSPRD">
-                    <button type="submit" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
+                    <button type="button" class="block w-full py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
                         192.168.32.184 - RMSPRD
                     </button>
                 </a>
             </li>
             <li>
                 <a href="<?php echo URLROOT; ?>/diskstorages/diskstorage/RDWPRD">
-                    <button type="submit" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
+                    <button type="submit" class="block w-full py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
                         192.168.32.198 - RDWPRD
                     </button>
                 </a>
             </li>
             <li>
                 <a href="<?php echo URLROOT; ?>/diskstorages/diskstorage/RMSOID">
-                    <button type="submit" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
+                    <button type="submit" class="block w-full py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
                         192.168.32.162 - RMS/OID
                     </button>
                 </a>
             </li>
             <li>
                 <a href="<?php echo URLROOT; ?>/diskstorages/diskstorage/SIMREIM">
-                    <button type="submit" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
+                    <button type="submit" class="block w-full py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
                         192.168.32.164 - SIM/REIM
                     </button>
                 </a>
             </li>
             <li>
                 <a href="<?php echo URLROOT; ?>/diskstorages/diskstorage/RPM">
-                    <button type="submit" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
+                    <button type="submit" class="block w-full py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
                         192.168.32.165 - RPM
                     </button>
                 </a>
@@ -292,9 +293,9 @@
 </div>
 
 <!--TOP NAVBAR-->
-<div x-data="{ isOpen: false }" class="relative w-1/4 sm:w-1/4 md:w-1/4 inline-flex justify-end">
-    <?php if (isset($_SESSION['firstname'])) : ?>
-        <h4 class="text-white flex justify-end w-fit mr-2 " title="is it you?"><?php echo  '<b>'. greetings($_SESSION['firstname']) .'</b>' ?></h4>
+<div x-data="{ isOpen: false }" class="relative w-1/2 sm:w-fit md:w-1/4 inline-flex justify-end">
+    <?php if (isset($_SESSION['username'])) : ?>
+        <h4 class="text-white flex justify-end w-fit mr-2 whitespace-nowrap"><?php echo  '<b>'. greetings($_SESSION['firstname']) .'</b>' ?></h4>
     <?php endif; ?>
     <button @click="isOpen = !isOpen" class="realtive z-10 w-12 h-12 rounded-full overflow-hidden border-4 border-gray-400 hover:border-gray-300 focus:border-gray-300 focus:outline-none">
         <img src="<?php echo URLROOT; ?>/public/img/user.png">
