@@ -16,9 +16,7 @@ $filterPHPArrayToJS = function ($array, $key) {
     <h1 class="text-3xl text-black text-white">
         <a href="<?php echo URLROOT; ?>/homepages/index/<?php echo $_SESSION['MonitorDB']; ?>" class="no-underline hover:underline">Monitor</a> > <b>Redo Log Generation</b>
     </h1>
-    <a href="<?php echo URLROOT; ?>/monitors/redologgenerations/<?php echo $_SESSION['MonitorDB'] ?>"><button type="submit" class="px-4 py-2 rounded-lg bg-gray-300 hover:bg-gray-500 shadow-inner shadow-xl">
-            Refresh Data
-        </button></a>
+    <button onclick="window.location.reload()" class="px-4 py-2 rounded-lg bg-gray-200 hover:bg-gray-500"> Refresh<i class="las la-redo-alt"></i></button>
 </div>
 
 <div class="flex flex-col justify-between h-full gap-y-1" style="max-height:93% ;">

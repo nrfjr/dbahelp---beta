@@ -61,9 +61,7 @@ if ($first_analysis_displayed === $last_analysis_displayed) {
                 </form>
             </div>
             <!--OBJECTS-->
-            <button type="submit" id="table" name="table" value="<?php echo $_SESSION['tablename']?>" class="flex px-4 py-2 rounded-lg bg-gray-200">
-                Refresh <i class="las la-redo-alt"></i>
-            </button>
+            <button onclick="window.location.reload()" class="px-4 py-2 rounded-lg bg-gray-200 hover:bg-gray-500"> Refresh<i class="las la-redo-alt"></i></button>
         </div>
     </form>
 </div>

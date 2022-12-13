@@ -11,10 +11,7 @@ $current_tab = isset($_GET['tab']) ? $_GET['tab'] : 1;
     <h1 class="text-3xl text-black text-white">
         <a href="<?php echo URLROOT; ?>/homepages/index/<?php echo $_SESSION['PerformanceDB']; ?>" class="no-underline hover:underline">Performance</a> > <b>Hit Ratio</b>
     </h1>
-    <a href="<?php echo URLROOT; ?>/performances/hitratio/<?php echo $_SESSION['PerformanceDB'] ?>?tab=<?php echo $current_tab; ?>"><button class="px-4 py-2 rounded-lg bg-gray-200 hover:bg-gray-500"> Refresh
-            <i class="las la-redo-alt"></i>
-        </button>
-    </a>
+    <button onclick="window.location.reload()" class="px-4 py-2 rounded-lg bg-gray-200 hover:bg-gray-500"> Refresh<i class="las la-redo-alt"></i></button>
 </div>
 <!--NEWTABBED-->
 <div class="overflow-x-auto relative shadow-md ">
@@ -23,16 +20,16 @@ $current_tab = isset($_GET['tab']) ? $_GET['tab'] : 1;
     <div class=" border-b border-gray-200 dark:border-gray-700">
         <ul class="flex flex-wrap -mb-px text-sm font-medium text-center bg-gray-200 rounded-t-lg" id="myTab" data-tabs-toggle="#myTabContent" role="tablist">
             <li class="mr-2" role="presentation">
-                <a href="?tab=1"><button class="inline-block p-4 rounded-t-lg border-b-2 hover:bg-gray-400" id="buffer-tab" data-tabs-target="#buffer" type="button" role="tab" aria-controls="buffer" aria-selected="<?php echo setSelectTabforHTML(1, $current_tab) ?>">Buffer Cache Hit Ratio</button></a>
+                <button onclick="window.history.replaceState(null, null, '?tab=1')" class="inline-block p-4 rounded-t-lg border-b-2 hover:bg-gray-400" id="buffer-tab" data-tabs-target="#buffer" type="button" role="tab" aria-controls="buffer" aria-selected="<?php echo setSelectTabforHTML(1, $current_tab) ?>">Buffer Cache Hit Ratio</button>
             </li>
             <li class="mr-2" role="presentation">
-                <a href="?tab=2"><button class="inline-block p-4 rounded-t-lg border-b-2 border-transparent hover:bg-gray-400 hover:border-gray-300 dark:hover:text-gray-300" id="dictionary-tab" data-tabs-target="#dictionary" type="button" role="tab" aria-controls="dictionary" aria-selected="<?php echo setSelectTabforHTML(2, $current_tab) ?>">Dictionary Hit Ratio</button></a>
+                <button onclick="window.history.replaceState(null, null, '?tab=2')" class="inline-block p-4 rounded-t-lg border-b-2 border-transparent hover:bg-gray-400 hover:border-gray-300 dark:hover:text-gray-300" id="dictionary-tab" data-tabs-target="#dictionary" type="button" role="tab" aria-controls="dictionary" aria-selected="<?php echo setSelectTabforHTML(2, $current_tab) ?>">Dictionary Hit Ratio</button>
             </li>
             <li class="mr-2" role="presentation">
-                <a href="?tab=3"><button class="inline-block p-4 rounded-t-lg border-b-2 border-transparent hover:bg-gray-400 hover:border-gray-300 dark:hover:text-gray-300" id="library-tab" data-tabs-target="#library" type="button" role="tab" aria-controls="library" aria-selected="<?php echo setSelectTabforHTML(3, $current_tab) ?>">Library Miss Ratio</button></a>
+                <button onclick="window.history.replaceState(null, null, '?tab=3')" class="inline-block p-4 rounded-t-lg border-b-2 border-transparent hover:bg-gray-400 hover:border-gray-300 dark:hover:text-gray-300" id="library-tab" data-tabs-target="#library" type="button" role="tab" aria-controls="library" aria-selected="<?php echo setSelectTabforHTML(3, $current_tab) ?>">Library Miss Ratio</button>
             </li>
             <li class="mr-2" role="presentation">
-                <a href="?tab=4"><button class="inline-block p-4 rounded-t-lg border-b-2 border-transparent hover:bg-gray-400 hover:border-gray-300 dark:hover:text-gray-300" id="latch-tab" data-tabs-target="#latch" type="button" role="tab" aria-controls="latch" aria-selected="<?php echo setSelectTabforHTML(4, $current_tab) ?>">Latch Miss Ratio</button></a>
+                <button onclick="window.history.replaceState(null, null, '?tab=4')" class="inline-block p-4 rounded-t-lg border-b-2 border-transparent hover:bg-gray-400 hover:border-gray-300 dark:hover:text-gray-300" id="latch-tab" data-tabs-target="#latch" type="button" role="tab" aria-controls="latch" aria-selected="<?php echo setSelectTabforHTML(4, $current_tab) ?>">Latch Miss Ratio</button>
             </li>
         </ul>
     </div>

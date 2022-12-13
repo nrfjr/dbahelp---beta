@@ -39,10 +39,7 @@ if ($first_locked_displayed === $last_locked_displayed) {
     <h1 class="text-3xl text-black text-white">
         <a href="<?php echo URLROOT; ?>/homepages/index/<?php echo $_SESSION['MonitorDB']; ?>" class="no-underline hover:underline">Monitor</a> > <b>Locked Sessions</b>
     </h1>
-    <a href="<?php echo URLROOT; ?>/monitors/lockedsessions/<?php echo $_SESSION['MonitorDB']; ?>"><button class="px-4 py-2 rounded-lg bg-gray-200 hover:bg-gray-500"> Refresh
-                <i class="las la-redo-alt"></i>
-            </button>
-            </a>
+    <button onclick="window.location.reload()" class="px-4 py-2 rounded-lg bg-gray-200 hover:bg-gray-500"> Refresh<i class="las la-redo-alt"></i></button>
 </div>
 <div class="overflow-x-auto relative shadow-md">
 
@@ -67,7 +64,7 @@ if ($first_locked_displayed === $last_locked_displayed) {
                 }
             ?>
                 <table class="w-full text-sm text-left text-white dark:text-gray-400">
-                    <thead class="text-xs text-black bg-indigo-200 dark:bg-gray-700 dark:text-gray-400">
+                    <thead class="text-xs text-black bg-indigo-200 dark:bg-gray-700 dark:text-gray-400 sticky top-0">
                         <tr class="focus:hover:bg-gray-700 hover:bg-gray-700">
                             <?php for ($title = 0; $title <= count($array) - 1; $title++) { ?>
                                 <th scope="col" class="py-2 px-6">
