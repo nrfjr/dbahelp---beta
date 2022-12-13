@@ -70,6 +70,8 @@
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
     <!-- Body Loader JS -->
     <script type="text/javascript" src="<?php echo URLROOT.'/public/js/body-loader.js'?>"></script>
+    <!-- Spinner -->
+    <script type="text/javascript" href="<?php echo URLROOT.'/public/js/spinner.js'?>"></script>
     <!-- AlpineJS -->
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
     <!-- Font Awesome -->
@@ -90,6 +92,10 @@
     <script type="text/javascript" src="<?php echo URLROOT.'/public/js/sideNav.js'?>"></script>
     <!-- SideNavBtnFunc -->
     <script type="text/javascript" src="<?php echo URLROOT.'/public/js/sidebar-toggle-btn.js'?>"></script>
+    <!-- Quill JS -->
+    <script src="//cdn.quilljs.com/1.0.0/quill.min.js"></script>
+    <link href="//cdn.quilljs.com/1.0.0/quill.snow.css" rel="stylesheet" />
+    <link href="//cdn.quilljs.com/1.0.0/quill.bubble.css" rel="stylesheet" />
 </head>
 
 <div class="loader">

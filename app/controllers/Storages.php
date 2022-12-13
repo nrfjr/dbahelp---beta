@@ -33,7 +33,7 @@ class Storages extends Controller{
         $this->view('storage/dbfilelayout',$data);
     }
 
-    public function tableindexes($DB)  
+    public function tableidx($DB)  
     {
         $_SESSION['StorageDB'] = $DB;
 
@@ -41,7 +41,7 @@ class Storages extends Controller{
             $this->db = $_SESSION['StorageDB'];
         }
 
-        $this->view('storage/tableindexes',[]);
+        $this->view('storage/tableidx',[]);
     }
 
     public function tablemonitoring($DB)  

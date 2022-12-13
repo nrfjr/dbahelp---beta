@@ -10,6 +10,9 @@
     // Load Filter
     require_once 'filters/sanitize.php';
 
+    // Load Misc
+    require_once 'misc/Greeting.php';
+
     // Load Interface
     require_once 'interfaces/DBInterface.php';
 

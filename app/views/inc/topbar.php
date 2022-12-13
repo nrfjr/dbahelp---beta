@@ -122,7 +122,7 @@
                         <a href="<?php echo URLROOT; ?>/storages/tablemonitoring/<?php echo $_SESSION['HomepageDB'] ?>" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Table Monitoring</a>
                     </li>
                     <li>
-                        <a href="<?php echo URLROOT; ?>/storages/tableindexes/<?php echo $_SESSION['HomepageDB'] ?>" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Table Indexes</a>
+                        <a href="<?php echo URLROOT; ?>/storages/tableidx/<?php echo $_SESSION['HomepageDB'] ?>" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Table Indexes</a>
                     </li>
                 </ul>
             </div>
@@ -231,7 +231,7 @@
                                 <a href="<?php echo URLROOT; ?>/storages/tablemonitoring/<?php echo $_SESSION['HomepageDB'] ?>" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Table Monitoring</a>
                             </li>
                             <li>
-                                <a href="<?php echo URLROOT; ?>/storages/tableindexes/<?php echo $_SESSION['HomepageDB'] ?>" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Table Indexes</a>
+                                <a href="<?php echo URLROOT; ?>/storages/tableidx/<?php echo $_SESSION['HomepageDB'] ?>" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Table Indexes</a>
                             </li>
                         </ul>
                     </div>

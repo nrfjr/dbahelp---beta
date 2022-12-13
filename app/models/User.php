@@ -15,18 +15,22 @@ class User
 
         $this->db = new OracleDatabase('RMSPRD');
 
-        $result = $this->db->test_connection($username, $password);
+        $resultConnection = $this->db->test_connection($username, $password);
+        $resultUsername = $this->getUsername($username, 'get_Username', 'RMSPRD');
 
-        if ($result) {
-            if ($this->getUsername($username, 'get_Username', 'RMSPRD')['USERNAME'] == $username) {
+        if ($resultConnection) {
+
+            if ($resultUsername['USERNAME'] == $username) {
                 $data = [
                     'username' => $username,
-                    'password' => $password
+                    'password' => $password,
+                    'firstname' => $resultUsername['FIRSTNAME']
                 ];
-                return $data;
+                return [true, $data];
             }
+
         } else {
-            return false;
+            return [false, 'Invalid username/password!, Please try again.'];
         }
     }
 

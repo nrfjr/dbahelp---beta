@@ -20,14 +20,23 @@
 <body onload="typeWriter()" class="h-screen w-full bg-gradient-to-r from-cyan-500 to-indigo-500 overflow-hidden relative">
     <div class="box z-10">
         <div onclick="colorChange()" class="Odd"></div>
+        <div></div> 
         <div onclick="colorChange()" class="Even"></div> 
+        <div></div> 
         <div onclick="colorChange()" class="odd"></div> 
+        <div></div> 
         <div onclick="colorChange()" class="even"></div> 
+        <div></div>
         <div onclick="colorChange()" class="extra"></div>
+        <div></div>
         <div onclick="colorChange()" class="even"></div>
+        <div></div> 
         <div onclick="colorChange()" class="odd"></div> 
+        <div></div> 
         <div onclick="colorChange()" class="even"></div> 
+        <div></div> 
         <div onclick="colorChange()" class="extra"></div> 
+        <div></div>  
         <div onclick="colorChange()" class="even"></div>  
     </div>
     <div id="login" class="flex justify-center m-auto pb-20 h-screen items-center">
@@ -84,6 +93,6 @@
         <p class="ml-2 absolute left-0">Copyright &copy; 2022, All Rights reserved</p>
     </footer>
 </body>
-    <script text="text/javascript" src="<?php echo URLROOT.'/public/js/loginbgcolorchanger.js'?>"></script>
+<script text="text/javascript" src="<?php echo URLROOT.'/public/js/loginbgcolorchanger.js'?>"></script>
 
 </html>
