@@ -50,4 +50,19 @@ class Storage{
         return false;
 
     }
+
+    public function getTableAnalysis($tablename, $db)
+    {
+        $this->db = new OracleDatabase($db);
+        $query = $this->fm->loadSQL('get _TableAnalysis');
+
+        $this->db->query(str_replace(':table',$tablename,$query));
+
+        $result = $this->db->resultSet();
+
+        if ($result) {
+            return $result;
+        }
+        return false;
+    }
 }

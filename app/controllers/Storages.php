@@ -1,13 +1,15 @@
 <?php
 
-class Storages extends Controller{
+class Storages extends Controller
+{
 
     private $db;
-    
-    public function __construct(){
+
+    public function __construct()
+    {
         $this->storageModel = $this->model('Storage');
 
-        if (!isset($_SESSION['username'])){
+        if (!isset($_SESSION['username'])) {
             redirect('users/login');
         }
     }
@@ -16,7 +18,7 @@ class Storages extends Controller{
     {
         $_SESSION['StorageDB'] = $DB;
 
-        if (isset($_SESSION['StorageDB'])){
+        if (isset($_SESSION['StorageDB'])) {
             $this->db = $_SESSION['StorageDB'];
         }
 
@@ -25,35 +27,53 @@ class Storages extends Controller{
         $controlfiles = $this->storageModel->getControlfiles($this->db);
 
         $data = [
-                    'datafiles' => ($datafiles)?$datafiles:[],
-                    'logfiles' => ($logfiles)?$logfiles:[],
-                    'controlfiles' => ($controlfiles)?$controlfiles:[]
-                  ];
+            'datafiles' => ($datafiles) ? $datafiles : [],
+            'logfiles' => ($logfiles) ? $logfiles : [],
+            'controlfiles' => ($controlfiles) ? $controlfiles : []
+        ];
 
-        $this->view('storage/dbfilelayout',$data);
+        $this->view('storage/dbfilelayout', $data);
     }
 
-    public function tableidx($DB)  
+    public function tableidx($DB)
     {
         $_SESSION['StorageDB'] = $DB;
 
-        if (isset($_SESSION['StorageDB'])){
+        if (isset($_SESSION['StorageDB'])) {
             $this->db = $_SESSION['StorageDB'];
         }
 
-        $this->view('storage/tableidx',[]);
+        $this->view('storage/tableidx', []);
     }
 
-    public function tablemonitoring($DB)  
+    public function tablemonitoring($DB)
     {
-
         $_SESSION['StorageDB'] = $DB;
 
-        if (isset($_SESSION['StorageDB'])){
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+
+            $_SESSION['tablename'] = $_POST['table'];
+
+        }
+
+        if ($_SESSION['tablename'] == null) {
+            $_SESSION['tablename'] = 'all_tables';
+        } else {
+            $_SESSION['tablename'] = $_SESSION['tablename'];
+        }
+
+        if (isset($_SESSION['StorageDB'])) {
             $this->db = $_SESSION['StorageDB'];
         }
 
-        $this->view('storage/tablemonitoring',[]);
+        $analysis = $this->storageModel->getTableAnalysis($_SESSION['tablename'], $this->db);
+
+        if ($analysis) {
+            $data = $analysis;
+        } else {
+            $data = [];
+        }
+
+        $this->view('storage/tablemonitoring', $data);
     }
-    
 }
