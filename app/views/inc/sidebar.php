@@ -121,7 +121,7 @@ $url = 'http://' . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
 <div class="w-full flex flex-col h-screen overflow-y-hidden scrollbar-hide">
     
     <!-- Desktop Header -->
-    <header class="w-full items-center bg-gray-600 py-2 px-6 sm:flex">
+    <header class="w-full items-center justify-between bg-gray-600 py-2 px-6 flex">
 
         <!--TOP NAVBAR-->
         <?php
