@@ -300,8 +300,8 @@
         <img src="<?php echo URLROOT; ?>/public/img/user.png">
     </button>
     <button x-show="isOpen" @click="isOpen = false" class="h-full w-full fixed inset-0 cursor-default"></button>
-    <div x-show="isOpen" class="absolute w-32 justify-center bg-gray-800 rounded-lg shadow-lg px-4 py-2 mt-16">
-        <div class="absolute top-0 right-2 transform -translate-x-1/2 -translate-y-1/2 rotate-45 w-4 h-4 bg-gray-800"></div>
+    <div x-show="isOpen" class="absolute top-0 z-20 w-32 justify-center bg-gray-800 rounded-lg shadow-lg px-4 py-2 mt-16">
+        <div class="absolute z-10 top-0 right-2 transform -translate-x-1/2 -translate-y-1/2 rotate-45 w-4 h-4 bg-gray-800"></div>
         <div class="flex flex-col justify-between">
         <a href="https://192.168.33.156/" target="_blank" class="block text-gray-300  text-center  py-2 mt-2 rounded-sm hover:bg-blue-300 hover:text-white">Email <i class="ml-6 fas fa-envelope"></i></a>
         <a href="<?php echo URLROOT; ?>/users/logout" class="block text-gray-300  text-center  py-2 my-2 rounded-sm hover:bg-red-600 hover:text-white">Sign Out <i class="fas fa-power-off"></i></a>
