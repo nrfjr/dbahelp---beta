@@ -2,8 +2,6 @@
 
 // Always check if-else degree, only 2nd to 3rd are allowed.
 
-use LDAP\Result;
-
 class Users extends Controller
 {
 
