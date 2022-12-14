@@ -22,14 +22,14 @@
     <div class="box z-10">
         <div onclick="colorChange()" class="Odd"></div>
         <div onclick="colorChange()" class="Even"></div> 
-        <div onclick="colorChange()" class="odd"></div> 
-        <div onclick="colorChange()" class="even"></div> 
+        <div onclick="colorChange()" class="Odd"></div> 
+        <div onclick="colorChange()" class="Even"></div> 
         <div onclick="colorChange()" class="extra"></div>
-        <div onclick="colorChange()" class="even"></div>
-        <div onclick="colorChange()" class="odd"></div> 
-        <div onclick="colorChange()" class="even"></div> 
+        <div onclick="colorChange()" class="Even"></div>
+        <div onclick="colorChange()" class="Odd"></div> 
+        <div onclick="colorChange()" class="Even"></div> 
         <div onclick="colorChange()" class="extra"></div> 
-        <div onclick="colorChange()" class="even"></div>  
+        <div onclick="colorChange()" class="Even"></div>  
     </div>
     <div id="login" class="flex justify-center m-auto pb-20 h-screen items-center">
         <div class="w-1/2 p-6 z-20 mx-auto bg-white rounded-md shadow-lg dark:bg-gray-700 mt-20">
@@ -61,7 +61,7 @@
                             <button onclick="loadit()" type="submit" name="Signin" value="submit" class="group relative flex w-full justify-center rounded-sm border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
                                 <span class="absolute inset-y-0 left-0 flex items-center pl-3">
                                     <svg class="h-4 w-5 text-indigo-500 group-hover:text-indigo-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                                        <path fill-rule="evenodd" d="M10 1a4.5 4.5 0 00-4.5 4.5V9H5a2 2 0 00-2 2v6a2 2 0 002 2h10a2 2 0 002-2v-6a2 2 0 00-2-2h-.5V5.5A4.5 4.5 0 0010 1zm3 8V5.5a3 3 0 10-6 0V9h6z" clip-rule="evenodd" />
+                                        <path fill-rule="EvenOdd" d="M10 1a4.5 4.5 0 00-4.5 4.5V9H5a2 2 0 00-2 2v6a2 2 0 002 2h10a2 2 0 002-2v-6a2 2 0 00-2-2h-.5V5.5A4.5 4.5 0 0010 1zm3 8V5.5a3 3 0 10-6 0V9h6z" clip-rule="EvenOdd" />
                                     </svg>
                                 </span>
                                 Sign in

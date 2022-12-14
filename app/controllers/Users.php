@@ -2,6 +2,8 @@
 
 // Always check if-else degree, only 2nd to 3rd are allowed.
 
+use LDAP\Result;
+
 class Users extends Controller
 {
 
@@ -21,7 +23,7 @@ class Users extends Controller
         // of the local machine getHostByName()
         // gets the corresponding IP
 
-        $IP = $_SERVER['REMOTE_ADDR']? $_SERVER['REMOTE_ADDR']: getHostByNamel(getHostName())[1];
+        $IP = $_SERVER['REMOTE_ADDR'] ? $_SERVER['REMOTE_ADDR'] : getHostByNamel(getHostName())[1];
 
         // Displaying the address 
         return $IP;
@@ -44,12 +46,10 @@ class Users extends Controller
             if ($loggedInUser[0]) {
                 // Create Session
                 $this->createUserSession($loggedInUser[1]);
-                
             } else {
-                echo '<script>alert("'.$loggedInUser[1].'")</script>';
+                echo '<script>alert("' . $loggedInUser[1] . '")</script>';
                 $this->view('users/login', $data);
             }
-
         } else {
             // reset data
             $data = [
@@ -101,7 +101,7 @@ class Users extends Controller
 
                     $username = $this->generateUsername($data['fname'], $data['mname'], $data['lname'], $data['ID']);
                     $ExistingPasswordByUsername = $this->userModel->getUsername($username, 'get_Username', $DB)['PASSWORD'];
-                    $password = ($ExistingPasswordByUsername)? $ExistingPasswordByUsername : $this->generatePassword();
+                    $password = ($ExistingPasswordByUsername) ? $ExistingPasswordByUsername : $this->generatePassword();
 
                     $data += [
                         'username' => $username,
@@ -109,18 +109,14 @@ class Users extends Controller
                         'db_name' => $DB
                     ];
 
-                    print_r($data);
+                    $this->passUserDetailsToModel($data, $DB);
 
-                    // $this->passUserDetailsToModel($data, $DB);
-
-                    // $this->userModel->insertToUserMaster($data, 'RMSPRD');
+                    $this->userModel->insertToUserMaster($data, 'RMSPRD');
 
                     $data = [];
-
                 } else {
                     $this->dialog->FAILED('Create User', 'User creation failed', 'Invalid / Missing Input, Please try again!', '/users/show/' . $_SESSION['CreateUserDB']);
                 }
-
             } else {
 
                 $this->view('users/create', []);
@@ -138,10 +134,6 @@ class Users extends Controller
     {
         $resultUsername = $this->userModel->getUsername($data['username'], 'get_Username', $DB);
 
-        if($data['access']!=null){
-            $this->userModel->grantSameAccess($data['access'], $data['username'], $DB);
-        }
-
         if ($DB == 'RMSPRD') {
 
             $resultCreatedUser = $this->userModel->createUser($data['username'], $data['password'], $DB);
@@ -156,18 +148,23 @@ class Users extends Controller
                 $this->userModel->insertIntoIMUserAuth($data, $DB);
             }
 
+            if ($data['access'] != null) {
+                $resultSameAccess = $this->userModel->grantSameAccess($data['access'], $data['username'], $DB);
+            }else{
+                $resultSameAccess = null;
+            }
+
             if ($resultCreatedUser && $resultAttribTable && $resultAccountsTable && $resultSecUserGroup && $resultGrantUser) {
 
                 //if all the model operation is successful,
                 //it will proceed on displaying the result of
                 //user creation.
 
-                $this->printCreatedRetailUser($data, $DB);
+                $this->printCreatedRetailUser($data, $DB, $resultSameAccess);
 
             } else {
                 $this->dialog->FAILED('Create User', $DB . 'User creation failed', 'Unable to create user.', '/users/show/default');
             }
-            
         } else {
 
             $resultCreatedUser = $this->userModel->createUser($data['username'], $data['password'], $DB);
@@ -193,8 +190,9 @@ class Users extends Controller
             $msg = strtoupper($data['ID'] . ' ' . $data['fname'] . ' ' . $data['mname'] . ' ' . $data['lname']) . '<br>Username: ' . $data['username'] . '<br>Password: ' . $data['password'];
             $this->dialog->SUCCESS('Update User', $DB . ' User has been updated successfully', $msg, '/users/create/RDWPRD');
         } else {
-            $msg = strtoupper($data['ID'] . ' ' . $data['fname'] . ' ' . $data['mname'] . ' ' . $data['lname']) . '<br>Username: ' . $data['username'] . '<br>Password: ' . $data['password'];
-            $this->dialog->SUCCESS('Create User', $DB . ' User created successfully', $msg, '/users/create/RDWPRD');
+
+                $msg = strtoupper($data['ID'] . ' ' . $data['fname'] . ' ' . $data['mname'] . ' ' . $data['lname']) . '<br>Username: ' . $data['username'] . '<br>Password: ' . $data['password'];
+                $this->dialog->SUCCESS('Create User', $DB . ' User created successfully', $msg, '/users/create/RDWPRD');
         }
     }
 
@@ -202,7 +200,7 @@ class Users extends Controller
     // This method is responsible for printing output
     // from database operation of Retail users.
 
-    public function printCreatedRetailUser($data, $DB)
+    public function printCreatedRetailUser($data, $DB, $sameAccessStatus)
     {
         $resultInRetail = $this->userModel->getUsername($data['username'], 'get_UsernameExistsInRetail', $DB);
 
@@ -217,9 +215,10 @@ class Users extends Controller
 
             if ($resultInRetail) {
 
-                $msg = strtoupper($data['ID'] . ' ' . $data['fname'] . ' ' . $data['mname'] . ' ' . $data['lname']) . '<br>Username: ' . $data['username'] . '<br>Password: ' . $data['password'];
+                $msg = strtoupper($data['ID'] . ' ' . $data['fname'] . ' ' . $data['mname'] . ' ' . $data['lname']) . '<br>Username: ' . $data['username'] . '<br>Password: ' . $data['password'] . '<br>'.$this->getSameAccessStatus($sameAccessStatus);
 
                 $this->dialog->SUCCESS('Update User', $DB . ' User updated successfully', $msg, '/users/create/RMSPRD');
+
 
             } else {
 
@@ -233,9 +232,21 @@ class Users extends Controller
             }
         } else {
 
-            $msg = strtoupper($data['ID'] . ' ' . $data['fname'] . ' ' . $data['mname'] . ' ' . $data['lname']) . '<br>Username: ' . $data['username'] . '<br>Password: ' . $data['password'];
+            $msg = strtoupper($data['ID'] . ' ' . $data['fname'] . ' ' . $data['mname'] . ' ' . $data['lname']) . '<br>Username: ' . $data['username'] . '<br>Password: ' . $data['password']. '<br>'.$this->getSameAccessStatus($sameAccessStatus);
 
             $this->dialog->SUCCESS('Create User', $DB . ' User created successfully', $msg, '/users/show/default');
+        }
+    }
+
+    public function getSameAccessStatus($sameAccessStatus)  
+    {
+        if($sameAccessStatus == null){
+            return '';
+        }elseif ($sameAccessStatus)
+        {
+            return '<font color="green">Granted Same Access!</font>'; 
+        }else{
+            return '<font color="red">Failed to Grant Same Access!</font>';
         }
     }
 
@@ -328,7 +339,6 @@ class Users extends Controller
     // Method for user editing
     public function edit($id)
     {
-
         // Check for POST
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
