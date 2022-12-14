@@ -26,16 +26,16 @@
 
 <body onload="changeSVGonSeason(); logingreet(); colorChange();" class="h-screen w-full bg-gradient-to-r from-cyan-500 to-indigo-500 overflow-hidden relative">
     <div class="box z-10">
-        <div onclick="colorChange()" class="Odd text-center"><i id="i1" class="odd fas fa-solid text-8xl font-light"></i></div> 
-        <div onclick="colorChange()" class="Even text-center"><i id="i2" class="even fas fa-solid text-8xl font-light"></i></div>  
-        <div onclick="colorChange()" class="Odd text-center"><i id="i3" class="odd fas fa-solid text-8xl font-light"></i></div>  
-        <div onclick="colorChange()" class="Even text-center"><i id="i4" class="even fas fa-solid text-8xl font-light"></i></div> 
-        <div onclick="colorChange()" class="Extra text-center"><i id="i5" class="extra fas fa-solid text-8xl font-light"></i></div>
-        <div onclick="colorChange()" class="Even text-center"><i id="i6" class="even fas fa-solid text-8xl font-light"></i></div> 
-        <div onclick="colorChange()" class="Odd text-center"><i id="i7" class="odd fas fa-solid text-8xl font-light"></i></div>  
-        <div onclick="colorChange()" class="Even text-center"><i id="i8" class="even fas fa-solid text-8xl font-light"></i></div>  
-        <div onclick="colorChange()" class="Extra text-center"><i id="i9" class="extra fas fa-solid text-8xl font-light"></i></div>   
-        <div onclick="colorChange()" class="Even text-center"><i id="i10" class="even fas fa-solid text-8xl font-light"></i></div>  
+        <div id="div1" onclick="colorChange()" class="Odd text-center"><i id="i1" class="odd fas fa-solid text-8xl font-light"></i></div> 
+        <div id="div2" onclick="colorChange()" class="Even text-center"><i id="i2" class="even fas fa-solid text-8xl font-light"></i></div>  
+        <div id="div3" onclick="colorChange()" class="Odd text-center"><i id="i3" class="odd fas fa-solid text-8xl font-light"></i></div>  
+        <div id="div4" onclick="colorChange()" class="Even text-center"><i id="i4" class="even fas fa-solid text-8xl font-light"></i></div> 
+        <div id="div5" onclick="colorChange()" class="Extra text-center"><i id="i5" class="extra fas fa-solid text-8xl font-light"></i></div>
+        <div id="div6" onclick="colorChange()" class="Even text-center"><i id="i6" class="even fas fa-solid text-8xl font-light"></i></div> 
+        <div id="div7" onclick="colorChange()" class="Odd text-center"><i id="i7" class="odd fas fa-solid text-8xl font-light"></i></div>  
+        <div id="div8" onclick="colorChange()" class="Even text-center"><i id="i8" class="even fas fa-solid text-8xl font-light"></i></div>  
+        <div id="div9" onclick="colorChange()" class="Extra text-center"><i id="i9" class="extra fas fa-solid text-8xl font-light"></i></div>   
+        <div id="div10" onclick="colorChange()" class="Even text-center"><i id="i10" class="even fas fa-solid text-8xl font-light"></i></div>  
     </div>
     <div id="login" class="flex flex-col-reverse md:flex-row justify-center m-auto pb-20 h-screen items-center">
         <div class="w-1/2 p-6 z-20 mx-auto bg-white rounded-md shadow-lg dark:bg-gray-700 mt-20">
