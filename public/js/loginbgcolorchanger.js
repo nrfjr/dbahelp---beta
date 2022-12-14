@@ -13,6 +13,10 @@ function colorChange() {
     const date = new Date();
     let currmonth = date.toLocaleString('default',{month: 'long'});
 
+    const randomX = Math.random() * (40 - (-40)) + (-40);
+    
+    root = document.documentElement;
+
     // console.log(Palletes[random2][random1].toString());
     // console.log(Palletes[random1][random2].toString());
 
@@ -37,7 +41,8 @@ function colorChange() {
         document.querySelectorAll(".extra").forEach(el => el.style.color = Palletes[3][random2].toString());
     }
 
-    
+    root.style.setProperty('--end-point', randomX + "px");
+
     setTimeout(colorChange, 10000)
 
 }
