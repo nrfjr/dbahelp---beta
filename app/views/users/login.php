@@ -8,30 +8,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" href="<?php echo URLROOT; ?>/public/img/kcc.png" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
     <link rel="stylesheet" href="<?php echo URLROOT.'/public/css/loginanimatebg.css'?>">
 
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <script text="text/javascript" src="<?php echo URLROOT.'/public/js/partypopper.js'?>"></script>
     <script src="//unpkg.com/alpinejs" defer></script>
     <script src="https://cdn.tailwindcss.com"></script>
+  
     <script text="text/javascript" src="<?php echo URLROOT.'/public/js/logingreet.js'?>"></script>
     <script text="text/javascript" src="<?php echo URLROOT.'/public/js/spinner.js'?>"></script>
+    <script text="text/javascript" src="<?php echo URLROOT.'/public/js/dynamicSeasondetector.js'?>"></script>
+    
     <title><?php echo SITENAME ?> | Signin</title>
 
 </head>
 
-<body onload="typeWriter()" class="h-screen w-full bg-gradient-to-r from-cyan-500 to-indigo-500 overflow-hidden relative">
+<body onload="changeSVGonSeason();logingreet();colorChange();" class="h-screen w-full bg-gradient-to-r from-cyan-500 to-indigo-500 overflow-hidden relative">
     <div class="box z-10">
-        <div onclick="colorChange()" class="Odd"></div>
-        <div onclick="colorChange()" class="Even"></div> 
-        <div onclick="colorChange()" class="Odd"></div> 
-        <div onclick="colorChange()" class="Even"></div> 
-        <div onclick="colorChange()" class="extra"></div>
-        <div onclick="colorChange()" class="Even"></div>
-        <div onclick="colorChange()" class="Odd"></div> 
-        <div onclick="colorChange()" class="Even"></div> 
-        <div onclick="colorChange()" class="extra"></div> 
-        <div onclick="colorChange()" class="Even"></div>  
+        <div onclick="colorChange()" class="Odd text-center"><i id="i1" class="odd fas fa-solid text-8xl font-light"></i></div> 
+        <div onclick="colorChange()" class="Even text-center"><i id="i2" class="even fas fa-solid text-8xl font-light"></i></div>  
+        <div onclick="colorChange()" class="Odd text-center"><i id="i3" class="odd fas fa-solid text-8xl font-light"></i></div>  
+        <div onclick="colorChange()" class="Even text-center"><i id="i4" class="even fas fa-solid text-8xl font-light"></i></div> 
+        <div onclick="colorChange()" class="Extra text-center"><i id="i5" class="extra fas fa-solid text-8xl font-light"></i></div>
+        <div onclick="colorChange()" class="Even text-center"><i id="i6" class="even fas fa-solid text-8xl font-light"></i></div> 
+        <div onclick="colorChange()" class="Odd text-center"><i id="i7" class="odd fas fa-solid text-8xl font-light"></i></div>  
+        <div onclick="colorChange()" class="Even text-center"><i id="i8" class="even fas fa-solid text-8xl font-light"></i></div>  
+        <div onclick="colorChange()" class="Extra text-center"><i id="i9" class="extra fas fa-solid text-8xl font-light"></i></div>   
+        <div onclick="colorChange()" class="Even text-center"><i id="i10" class="even fas fa-solid text-8xl font-light"></i></div>  
     </div>
-    <div id="login" class="flex justify-center m-auto pb-20 h-screen items-center">
+    <div id="login" class="flex flex-col-reverse md:flex-row justify-center m-auto pb-20 h-screen items-center">
         <div class="w-1/2 p-6 z-20 mx-auto bg-white rounded-md shadow-lg dark:bg-gray-700 mt-20">
             <div class="grid grid-rows-1 grid-flow-col h-fit">
                 <form class=" space-y-6" action="<?php echo URLROOT; ?>/users/login" method="POST">
@@ -61,7 +67,7 @@
                             <button onclick="loadit()" type="submit" name="Signin" value="submit" class="group relative flex w-full justify-center rounded-sm border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
                                 <span class="absolute inset-y-0 left-0 flex items-center pl-3">
                                     <svg class="h-4 w-5 text-indigo-500 group-hover:text-indigo-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                                        <path fill-rule="EvenOdd" d="M10 1a4.5 4.5 0 00-4.5 4.5V9H5a2 2 0 00-2 2v6a2 2 0 002 2h10a2 2 0 002-2v-6a2 2 0 00-2-2h-.5V5.5A4.5 4.5 0 0010 1zm3 8V5.5a3 3 0 10-6 0V9h6z" clip-rule="EvenOdd" />
+                                        <path fill-rule="evenodd" d="M10 1a4.5 4.5 0 00-4.5 4.5V9H5a2 2 0 00-2 2v6a2 2 0 002 2h10a2 2 0 002-2v-6a2 2 0 00-2-2h-.5V5.5A4.5 4.5 0 0010 1zm3 8V5.5a3 3 0 10-6 0V9h6z" clip-rule="evenodd" />
                                     </svg>
                                 </span>
                                 Sign in
@@ -74,8 +80,58 @@
                         </div>
                     </div>
                 </form>
-                <div class="flex justify-center w-auto">
-                    <img class="object-cover m-auto h-30 w-52" src="<?php echo URLROOT; ?>/public/img/kcc-w-tagline.png" alt="company">
+                <div id="tag-logo-cont" class="flex justify-center w-auto p-0 hoverme">
+                    <img id="tag-logo" type="button" onclick="partypopper()" draggable="false" class="object-cover my-auto h-30 w-72" src="<?php echo URLROOT; ?>/public/img/kcc-w-tagline.png" alt="company">
+                    <i></i>
+                    <i></i>
+                    <i></i>
+                    <i></i>
+                    <i></i>
+                    <i></i>
+                    <i></i>
+                    <i></i>
+                    <i></i>
+                    <i></i>
+                    <i></i>
+                    <i></i>
+                    <i></i>
+                    <i></i>
+                    <i></i>
+                    <i></i>
+                    <i></i>
+                    <i></i>
+                    <i></i>
+                    <i></i>
+                    <i></i>
+                    <i></i>
+                    <i></i>
+                    <i></i>
+                    <i></i>
+                    <i></i>
+                    <i></i>
+                    <i></i>
+                    <i></i>
+                    <i></i>
+                    <i></i>
+                    <i></i>
+                    <i></i>
+                    <i></i>
+                    <i></i>
+                    <i></i>
+                    <i></i>
+                    <i></i>
+                    <i></i>
+                    <i></i>
+                    <i></i>
+                    <i></i>
+                    <i></i>
+                    <i></i>
+                    <i></i>
+                    <i></i>
+                    <i></i>
+                    <i></i>
+                    <i></i>
+                    <i></i>
                 </div>
             </div>
         </div>
@@ -86,5 +142,6 @@
     </footer>
 </body>
 <script text="text/javascript" src="<?php echo URLROOT.'/public/js/loginbgcolorchanger.js'?>"></script>
+<script src="https://kit.fontawesome.com/d1a7d83221.js" crossorigin="anonymous"></script>
 
 </html>
