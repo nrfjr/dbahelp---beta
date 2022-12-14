@@ -46,15 +46,15 @@ if ($first_user_displayed === $last_user_displayed) {
                     Create
                     <i class="fas fa-chevron-down ml-2"></i>
                 </button>
-                <div id="dropdown-createuser" class="whitespace-normal hidden z-10 w-fit bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700">
-                        <ul class="p-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefault">
-                            <li class="block py-2 px-4 hover:bg-gray-300 rounded-lg dark:hover:bg-gray-600 dark:hover:text-white">
+                <div id="dropdown-createuser" class="whitespace-normal hidden z-10 w-fit bg-white rounded-md divide-y divide-gray-100 shadow dark:bg-gray-700">
+                        <ul class="text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefault">
+                            <li class="block py-2 px-4 hover:bg-gray-400 hover:text-white rounded-t-md dark:hover:bg-gray-600 dark:hover:text-white">
                                 <a href="<?php echo URLROOT; ?>/users/create/RMSPRD">RMSPRD</a>
                             </li>
-                            <li class="block py-2 px-4 hover:bg-gray-300 rounded-lg dark:hover:bg-gray-600 dark:hover:text-white">
+                            <li class="block py-2 px-4 hover:bg-gray-400 hover:text-white rounded-sm dark:hover:bg-gray-600 dark:hover:text-white">
                                 <a href="<?php echo URLROOT; ?>/users/create/RDWPRD">RDWPRD</a>
                             </li>
-                            <li class="block py-2 px-4 hover:bg-gray-300 rounded-lg dark:hover:bg-gray-600 dark:hover:text-white">
+                            <li class="block py-2 px-4 hover:bg-gray-400 hover:text-white rounded-b-md dark:hover:bg-gray-600 dark:hover:text-white">
                                 <a href="#">BSPIKCON</a>
                             </li>
                         </ul>
