@@ -28,7 +28,7 @@ class Securities extends Controller{
             'privilege' => ($privileges) ? $privileges : []
         ];
 
-        $this->view('security/roleprivilege', $data);
+        $this->view('oracle/security/roleprivilege', $data);
     }
 
     public function ldifforsso($DB)
@@ -37,7 +37,7 @@ class Securities extends Controller{
 
         isset($_SESSION['SecurityDB']);
 
-        $this->view('security/ldifforsso',[]);
+        $this->view('oracle/security/ldifforsso',[]);
     }
 
     public function download($DB)
@@ -69,7 +69,7 @@ class Securities extends Controller{
         flush();
         readfile('MyLDIF.ldif');
         exit();
-        $this->view('securities/ldifforsso/'.$DB, []);
+        $this->view('oracle/securities/ldifforsso/'.$DB, []);
         
     }
     

@@ -11,7 +11,7 @@ class FlashRecoveryAreas extends Controller
         $this->dialog = $this->dialog('Dialog');
 
         if (!isset($_SESSION['username'])) {
-            redirect('users/login');
+            redirect('/users/login');
         }
     }
 
@@ -25,7 +25,7 @@ class FlashRecoveryAreas extends Controller
             'OFIN' => $this->fraModel->getFRA('OFINDB')
         ];
 
-        $this->view('flashrecoveryarea/charts', $data);
+        $this->view('oracle/flashrecoveryarea/charts', $data);
     }
 
     public function resize()
@@ -45,20 +45,29 @@ class FlashRecoveryAreas extends Controller
                     $this->dialog->SUCCESS(
                         'FRA Resize',
                         'Resized Successfully',
-                        $db . ' FRA resized by: ' . $size,
+                        $db . ' FRA resized by: ' . $size . ' '.$this->getUnit($unit),
                         '/flashrecoveryareas/charts'
                     );
                 } else {
                     $this->dialog->FAILED(
                         'FRA Resize',
                         'Failed to Resized FRA',
-                        $db . ' FRA resized by: ' . $size . ' failed.',
+                        $db . ' FRA resized by: ' . $size . ' '.$this->getUnit($unit).' failed.',
                         '/flashrecoveryareas/charts'
                     );
                 }
             } else {
                 $this->dialog->FAILED('Resize RFA', 'Resizing failed', 'Invalid size', '/flashrecoveryareas/charts');
             }
+        }
+    }
+
+    public function getUnit($raw_unit)
+    {
+        if($raw_unit == 'g' || $raw_unit == 'G'){
+            return 'GB';
+        }else{
+            return 'MB';
         }
     }
 }

@@ -28,7 +28,7 @@ class Performances extends Controller{
             $data = [];
         }
 
-        $this->view('performance/pgatargetadvisor',$data);
+        $this->view('oracle/performance/pgatargetadvisor',$data);
     }
 
     public function sgatargetadvisor($DB)
@@ -47,7 +47,7 @@ class Performances extends Controller{
             $data = [];
         }
 
-        $this->view('performance/sgatargetadvisor',$data);
+        $this->view('oracle/performance/sgatargetadvisor',$data);
 
     }
 
@@ -67,7 +67,7 @@ class Performances extends Controller{
             $data = [];
         }
 
-        $this->view('performance/buffercacheadvisor',$data);
+        $this->view('oracle/performance/buffercacheadvisor',$data);
     }
 
     public function hitratio($DB)
@@ -90,7 +90,7 @@ class Performances extends Controller{
                     'latch' => ($latch_mr)?$latch_mr:[]
                   ];
         
-        $this->view('performance/hitratio', $data);
+        $this->view('oracle/performance/hitratio', $data);
     }
 
     public function tablestatistics($DB)
@@ -110,7 +110,7 @@ class Performances extends Controller{
             $data = [];
         }
 
-        $this->view('performance/tablestatistics', $data);
+        $this->view('oracle/performance/tablestatistics', $data);
     }
     
 }

@@ -10,7 +10,7 @@ class Storages extends Controller
         $this->storageModel = $this->model('Storage');
 
         if (!isset($_SESSION['username'])) {
-            redirect('users/login');
+            redirect('/users/login');
         }
     }
 
@@ -32,7 +32,7 @@ class Storages extends Controller
             'controlfiles' => ($controlfiles) ? $controlfiles : []
         ];
 
-        $this->view('storage/dbfilelayout', $data);
+        $this->view('oracle/storage/dbfilelayout', $data);
     }
 
     public function tableidx($DB)
@@ -43,12 +43,13 @@ class Storages extends Controller
             $this->db = $_SESSION['StorageDB'];
         }
 
-        $this->view('storage/tableidx', []);
+        $this->view('oracle/storage/tableidx', []);
     }
 
     public function tablemonitoring($DB)
     {
         $_SESSION['StorageDB'] = $DB;
+        $_SESSION['tablename'] = null;
 
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
@@ -74,6 +75,6 @@ class Storages extends Controller
             $data = [];
         }
 
-        $this->view('storage/tablemonitoring', $data);
+        $this->view('oracle/storage/tablemonitoring', $data);
     }
 }

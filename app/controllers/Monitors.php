@@ -11,7 +11,7 @@ class Monitors extends Controller
         $this->dialog = $this->dialog('Dialog');
 
         if (!isset($_SESSION['username'])) {
-            redirect('users/login');
+            redirect('/users/login');
         }
     }
 
@@ -31,7 +31,7 @@ class Monitors extends Controller
             $data = [];
         }
 
-        $this->view('monitor/lockedsessions', $data);
+        $this->view('oracle/monitor/lockedsessions', $data);
     }
 
     public function usersessions($DB)
@@ -62,7 +62,7 @@ class Monitors extends Controller
             $data = [];
         }
 
-        $this->view('monitor/usersessions', $data);
+        $this->view('oracle/monitor/usersessions', $data);
     }
 
     public function redologgenerations($DB)
@@ -81,7 +81,7 @@ class Monitors extends Controller
             $data = [];
         }
 
-        $this->view('monitor/redogenerations', $data);
+        $this->view('oracle/monitor/redogenerations', $data);
     }
 
     public function redologswitches($DB)
@@ -105,7 +105,7 @@ class Monitors extends Controller
             $data = [];
         }
 
-        $this->view('monitor/redologfileswitches', $data);
+        $this->view('oracle/monitor/redologfileswitches', $data);
     }
 
     public function topsql($DB)
@@ -124,7 +124,7 @@ class Monitors extends Controller
             $data = [];
         }
 
-        $this->view('monitor/toprunningsqlprocesses', $data);
+        $this->view('oracle/monitor/toprunningsqlprocesses', $data);
     }
 
     public function kill($DB)

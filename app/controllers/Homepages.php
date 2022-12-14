@@ -8,7 +8,7 @@
             $this->homepageModel = $this->model('Homepage');
 
             if (!isset($_SESSION['username'])) {
-                redirect('users/login');
+                redirect('/users/login');
             }
 
         }
@@ -35,7 +35,7 @@
                         'Temp TS' =>$this->homepageModel->getTempTablespaceInfo($this->db)
             ];
 
-            $this->view('homepage/dashboard', $data);
+            $this->view('oracle/homepage/dashboard', $data);
 
         }
 

@@ -46,7 +46,7 @@ class Users extends Controller
                 $this->createUserSession($loggedInUser[1]);
             } else {
                 echo '<script>alert("' . $loggedInUser[1] . '")</script>';
-                $this->view('users/login', $data);
+                $this->view('oracle/users/login', $data);
             }
         } else {
             // reset data
@@ -56,7 +56,7 @@ class Users extends Controller
             ];
 
             // Load form
-            $this->view('users/login', $data);
+            $this->view('oracle/users/login', $data);
         }
     }
 
@@ -64,14 +64,14 @@ class Users extends Controller
     {
         $_SESSION['username'] = $user['username'];
         $_SESSION['firstname'] = $user['firstname'];
-        redirect('homepage/dashboard');
+        redirect('/homepage/dashboard');
     }
 
     public function logout()
     {
         unset($_SESSION['username'], $_SESSION['firstname']);
         session_destroy();
-        redirect('users/login');
+        redirect('/users/login');
     }
 
     // Create user account (Create Account Module)
@@ -117,7 +117,7 @@ class Users extends Controller
                 }
             } else {
 
-                $this->view('users/create', []);
+                $this->view('oracle/users/create', []);
             }
         } catch (\Exception $e) {
             $this->dialog->FAILED('Create User', 'User creation failed', $e->getMessage(), '/users/show/default');
@@ -226,7 +226,7 @@ class Users extends Controller
                 $data += ['ldif' => $ldiffile];
 
                 //Shows the viewer of file contents.
-                $this->view('users/ldif', $data);
+                $this->view('oracle/users/ldif', $data);
             }
         } else {
 
@@ -274,7 +274,7 @@ class Users extends Controller
             $data = [];
         }
 
-        $this->view('users/show', $data);
+        $this->view('oracle/users/show', $data);
     }
 
     public function generateUsername($fname, $mname, $lname, $ID)
@@ -349,7 +349,7 @@ class Users extends Controller
 
             $_SESSION['CreateUserDB'] = $db;
 
-            $this->view('users/create', $data);
+            $this->view('oracle/users/create', $data);
         }
     }
 
@@ -375,7 +375,7 @@ class Users extends Controller
                 flush();
                 readfile($file['ldif']);
                 exit();
-                $this->view('users/create', []);
+                $this->view('oracle/users/create', []);
             }
         }
     }
