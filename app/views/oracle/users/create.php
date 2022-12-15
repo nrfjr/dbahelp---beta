@@ -67,7 +67,8 @@ require APPROOT . '/views/inc/header.php';
                   <?php
                   $options = [
                     'RMS' => array('ORMS', 'OREIM', 'ORPM', 'KCS RETAIL', 'CUSTOM APP (OTHERS)'),
-                    'RDW' => array('KCS RETAIL', 'CUSTOM APP (OTHERS)')
+                    'RDW' => array('KCS RETAIL', 'CUSTOM APP (OTHERS)'),
+                    'BSP' => array('BSPI CONCORD')
                   ];
 
                   if ($_SESSION['CreateUserDB'] == 'RMSPRD' || $_SESSION['CreateUserDB'] == 'default') {
@@ -78,12 +79,19 @@ require APPROOT . '/views/inc/header.php';
                       <option><?php echo $option; ?></option>
                     <?php
                     }
-                  } else {
+                  } elseif ($_SESSION['CreateUserDB'] == 'RDWPRD'){
                     foreach ($options['RDW'] as $option) {
                     ?>
                       <option><?php echo $option; ?></option>
                   <?php }
-                  } ?>
+                    }else{
+                      foreach ($options['BSP'] as $option) {
+                    ?>
+                    <option><?php echo $option; ?></option>
+                  <?php 
+                      }
+                    }
+                  ?>
                 </select>
               </div>
             </div>

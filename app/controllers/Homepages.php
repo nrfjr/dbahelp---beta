@@ -13,7 +13,7 @@
 
         }
 
-        public function index($DB) {
+        public function index($DB){
 
             self::__construct();
   

@@ -7,7 +7,7 @@ require APPROOT . '/views/inc/sidebar.php'; ?>
   <h1 class="text-3xl text-black text-white">
     <a href="<?php echo URLROOT; ?>/homepages/index/<?php echo $_SESSION['MonitorDB']; ?>" class="no-underline hover:underline">Monitor</a> > <b>Redo Log File Switches</b>
   </h1>
-  <button onclick="window.location.reload()" class="px-4 py-2 rounded-lg bg-gray-200 hover:bg-gray-500"> Refresh<i class="las la-redo-alt"></i></button>
+  <button onclick="window.location.reload()" class="px-4 py-2 rounded-lg bg-gray-200 hover:bg-gray-500"> Refresh<i class="ml-2 fas fa-redo"></i></button>
 </div>
 
 <div class="flex flex-col justify-evenly gap-y-2 xl:h-5/3">

@@ -98,8 +98,8 @@ class Users extends Controller
                 if (!empty($data['fname']) && !empty($data['mname']) && !empty($data['lname']) && !empty($data['ID']) && !empty($data['requestor']) && !empty($data['remarks'])) {
 
                     $username = $this->generateUsername($data['fname'], $data['mname'], $data['lname'], $data['ID']);
-                    $ExistingPasswordByUsername = $this->userModel->getUsername($username, 'get_Username', $DB)['PASSWORD'];
-                    $password = ($ExistingPasswordByUsername) ? $ExistingPasswordByUsername : $this->generatePassword();
+                    $ExistingPasswordByUsername = ($this->userModel->getUsername($username, 'get_Username', $DB))? $this->userModel->getUsername($username, 'get_Username', $DB)['PASSWORD']:null;
+                    $password = ($ExistingPasswordByUsername==null) ?  $this->generatePassword() : $ExistingPasswordByUsername;
 
                     $data += [
                         'username' => $username,
@@ -163,7 +163,7 @@ class Users extends Controller
             } else {
                 $this->dialog->FAILED('Create User', $DB . 'User creation failed', 'Unable to create user.', '/users/show/default');
             }
-        } else {
+        } elseif ($DB == 'RDWPRD'){
 
             $resultCreatedUser = $this->userModel->createUser($data['username'], $data['password'], $DB);
             $resultGrantUser = $this->userModel->grantUserRole($data['username'], $data['password'], $DB);
@@ -174,6 +174,33 @@ class Users extends Controller
             } else {
                 $this->dialog->FAILED('Create User', $DB . 'User creation failed', 'Unable to create user.', '/users/show/default');
             }
+        }
+        elseif ($DB == 'BSPIKCONDB'){
+
+            $resultCreatedUser = $this->userModel->createUser($data['username'], $data['password'], $DB);
+            $resultGrantUser = $this->userModel->grantUserRole($data['username'], $data['password'], $DB);
+
+            if ($resultCreatedUser && $resultGrantUser) {
+
+                $this->printCreatedBSPUser($data, $DB, $resultUsername);
+
+            } else {
+                $this->dialog->FAILED('Create User', $DB . 'User creation failed', 'Unable to create user.', '/users/show/default');
+            }
+
+        }
+    }
+
+    public function printCreatedBSPUser($data, $DB, $isExist)
+    {
+        if ($isExist) {
+
+            $msg = strtoupper($data['ID'] . ' ' . $data['fname'] . ' ' . $data['mname'] . ' ' . $data['lname']) . '<br>Username: ' . $data['username'] . '<br>Password: ' . $data['password'];
+            $this->dialog->SUCCESS('Update User', $DB . ' User has been updated successfully', $msg, '/users/create/RDWPRD');
+        } else {
+
+                $msg = strtoupper($data['ID'] . ' ' . $data['fname'] . ' ' . $data['mname'] . ' ' . $data['lname']) . '<br>Username: ' . $data['username'] . '<br>Password: ' . $data['password'];
+                $this->dialog->SUCCESS('Create User', $DB . ' User created successfully', $msg, '/users/create/RDWPRD');
         }
     }
 

@@ -63,8 +63,16 @@ class User
 
         $rms = $this->db->setProcedure('RMS_upsertToDBAUser(:username, :password)');
         $rdw = $this->db->setProcedure('RDW_upsertToDBAUser(:username, :password)');
+        $bsp = $this->db->setProcedure('BSP_upsertToDBAUser(:username, :password)');
 
-        $query = $db == 'RMSPRD' ? $rms : $rdw;
+        if($db == 'RMSPRD'){
+            $query = $rms;
+        }
+        elseif($db == 'RDWPRD'){
+            $query = $rdw;
+        }else{
+            $query = $bsp;
+        }
 
         $param = [
             'username' => $username,
@@ -295,8 +303,16 @@ class User
 
         $rms = $this->db->setProcedure('RMS_grantUserPrivilege(:username, :password)');
         $rdw = $this->db->setProcedure('RDW_grantUserPrivilege(:username, :password)');
+        $bsp = $this->db->setProcedure('BSP_grantUserPrivilege(:username, :password)');
 
-        $query = $db == 'RMSPRD'? $rms : $rdw;
+        if($db == 'RMSPRD'){
+            $query = $rms;
+        }
+        elseif($db == 'RDWPRD'){
+            $query = $rdw;
+        }else{
+            $query = $bsp;
+        }
 
         $param = [
             'username' => $username,

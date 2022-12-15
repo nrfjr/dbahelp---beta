@@ -39,6 +39,7 @@ if ($first_analysis_displayed === $last_analysis_displayed) {
     <h1 class="text-3xl text-black text-white">
         <a href="<?php echo URLROOT; ?>/homepages/index/<?php echo $_SESSION['StorageDB']; ?>" class="no-underline hover:underline">Storage</a> > <b>Table Monitoring</b>
     </h1>
+    <form class="hiddden" action="<?php echo URLROOT; ?>/storages/tablemonitoring/<?php echo $_SESSION['StorageDB'] ?>" method="POST">
         <div class="inline-flex gap-4">
             <div class="flex gap-2">
                 <b for="tables" class="flex flex-row inline-flex whitespace-nowrap w-full items-center text-sm font-medium text-gray-100">Select Table: </b>
@@ -60,8 +61,9 @@ if ($first_analysis_displayed === $last_analysis_displayed) {
                 </form>
             </div>
             <!--OBJECTS-->
-            <button onclick="window.location.reload()" class="px-4 py-2 rounded-lg bg-gray-200 hover:bg-gray-500"> Refresh<i class="las la-redo-alt"></i></button>
+            <button onclick="window.location.reload()" class="px-4 py-2 rounded-lg bg-gray-200 hover:bg-gray-500"> Refresh<i class="ml-2 fas fa-redo"></i></button>
         </div>
+    </form>
 </div>
 
 <div class="overflow-x-auto relative shadow-md">

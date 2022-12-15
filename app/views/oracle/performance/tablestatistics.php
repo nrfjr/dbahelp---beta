@@ -37,7 +37,7 @@ if ($first_stats_displayed === $last_stats_displayed) {
     <h1 class="text-3xl text-black text-white">
         <a href="<?php echo URLROOT; ?>/homepages/index/<?php echo $_SESSION['PerformanceDB']; ?>" class="no-underline hover:underline">Performance</a> > <b>Table Statistics</b>
     </h1>
-    <button onclick="window.location.reload()" class="px-4 py-2 rounded-lg bg-gray-200 hover:bg-gray-500"> Refresh<i class="las la-redo-alt"></i></button>
+    <button onclick="window.location.reload()" class="px-4 py-2 rounded-lg bg-gray-200 hover:bg-gray-500"> Refresh<i class="ml-2 fas fa-redo"></i></button>
 </div>
 
 <div class="overflow-x-auto relative shadow-md">
