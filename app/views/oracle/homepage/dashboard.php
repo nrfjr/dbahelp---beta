@@ -432,11 +432,6 @@ require APPROOT . '/views/inc/sidebar.php';
             },
           }
         });
-
-        const configDonut = {
-          type: 'doughnut',
-          data: data
-        };
       </script>
     </div>
     <!--Donuts-->
