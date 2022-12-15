@@ -31,9 +31,10 @@ require APPROOT . '/views/inc/sidebar.php';
   <div class="2xl:col-span-2 lg:col-span-1">
 
     <!--Rename for duplicate: chart1, options1-->
-    <div class="w-full h-full p-5 rounded-lg mb-2 box">
+    <div class="w-full h-full p-5 rounded-lg mb-2 box relative">
 
-      <div id="linechart" class="relative"><span id="noData" class="z-10 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-2xl text-white font-bold"></span></div>
+      <div id="linechart" ></div>
+      <font id="noData" class="z-10 transition absolute top-1/3 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-2xl text-white font-bold">Loading Sessions...</font>
 
       <div class="card grid grid-rows-2 gap-2">
         <div class="row-span-1">
@@ -291,8 +292,10 @@ require APPROOT . '/views/inc/sidebar.php';
               ]
             ]
           }])
+          document.getElementById("noData").style.display = "none";
         } else {
-          document.getElementById("noData").innerHTML = "Loading Sessions...";
+          console.log("no session")
+          document.getElementById("noData").style.display = "static";
         }
 
       }, 1000);
