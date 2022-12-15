@@ -8,7 +8,7 @@ function colorChange() {
     const spring = ["March", "April", "May"]
     const summer = ["June", "July", "August"]
     const fall = ["September", "October", "November"]
-    const winter = ["December","January","February"]
+    const winter = ["December","February"]
 
     const date = new Date();
     let currmonth = date.toLocaleString('default',{month: 'long'});
@@ -36,8 +36,7 @@ function colorChange() {
         document.querySelectorAll(".odd").forEach(el => el.style.color = Palletes[3][random3].toString());
         document.querySelectorAll(".extra").forEach(el => el.style.color = Palletes[3][random2].toString());
     }
-
-    
+    console.log("im changing color still")
     setTimeout(colorChange, 10000)
 
 }

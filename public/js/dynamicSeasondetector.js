@@ -2,7 +2,7 @@ function changeSVGonSeason(){
     const spring = ["March", "April", "May"]
     const summer = ["June", "July", "August"]
     const fall = ["September", "October", "November"]
-    const winter = ["December","January","February"]
+    const winter = ["December","February"]
 
     const date = new Date();
     let currmonth = date.toLocaleString('default',{month: 'long'});
