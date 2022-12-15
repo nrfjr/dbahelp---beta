@@ -11,36 +11,38 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"  />
     <link rel="stylesheet" href="<?php echo URLROOT.'/public/css/line-awesome/line-awesome_1.3.0.min.css'?>"/>
     <link rel="stylesheet" href="<?php echo URLROOT.'/public/css/loginanimatebg.css'?>"/>
+    <link rel="stylesheet" href="<?php echo URLROOT.'/public/css/newyear.css'?>">
 
     <script text="text/javascript" src="<?php echo URLROOT.'/public/js/jquery_1.8.3/jquery.min.js'?>"></script>
     <script text="text/javascript" src="<?php echo URLROOT.'/public/js/partypopper.js'?>"></script>
-    <script text="text/javascript" src="<?php echo URLROOT.'/public/js/alpinejs/alpine.js'?>"></script>
+    <script text="text/javascript" src="<?php echo URLROOT.'/public/js/alpinejs/alpine.js'?>" defer></script>
     <script text="text/javascript" src="<?php echo URLROOT.'/public/js/tailwindjs/tailwind.js'?>"></script>
   
     <script text="text/javascript" src="<?php echo URLROOT.'/public/js/logingreet.js'?>"></script>
     <script text="text/javascript" src="<?php echo URLROOT.'/public/js/spinner.js'?>"></script>
     <script text="text/javascript" src="<?php echo URLROOT.'/public/js/dynamicSeasondetector.js'?>"></script>
+    <script text="text/javascript" src="<?php echo URLROOT.'/public/js/newyear.js'?>"></script>
     
     <title><?php echo SITENAME ?> | Signin</title>
 
 </head>
 
-<body onload="changeSVGonSeason(); logingreet(); colorChange();" class="h-screen w-full bg-gradient-to-r from-cyan-500 to-indigo-500 overflow-hidden relative">
-    <div class="box z-10">
-        <div id="div1" onclick="colorChange()" class="Odd text-center"><i id="i1" class="odd fas fa-solid text-8xl font-light"></i></div> 
-        <div id="div2" onclick="colorChange()" class="Even text-center"><i id="i2" class="even fas fa-solid text-8xl font-light"></i></div>  
-        <div id="div3" onclick="colorChange()" class="Odd text-center"><i id="i3" class="odd fas fa-solid text-8xl font-light"></i></div>  
-        <div id="div4" onclick="colorChange()" class="Even text-center"><i id="i4" class="even fas fa-solid text-8xl font-light"></i></div> 
-        <div id="div5" onclick="colorChange()" class="Extra text-center"><i id="i5" class="extra fas fa-solid text-8xl font-light"></i></div>
-        <div id="div6" onclick="colorChange()" class="Even text-center"><i id="i6" class="even fas fa-solid text-8xl font-light"></i></div> 
-        <div id="div7" onclick="colorChange()" class="Odd text-center"><i id="i7" class="odd fas fa-solid text-8xl font-light"></i></div>  
-        <div id="div8" onclick="colorChange()" class="Even text-center"><i id="i8" class="even fas fa-solid text-8xl font-light"></i></div>  
-        <div id="div9" onclick="colorChange()" class="Extra text-center"><i id="i9" class="extra fas fa-solid text-8xl font-light"></i></div>   
-        <div id="div10" onclick="colorChange()" class="Even text-center"><i id="i10" class="even fas fa-solid text-8xl font-light"></i></div>  
+<body id="body" onload="newyear();changeSVGonSeason(); logingreet(); colorChange();" class="h-screen w-full bg-gradient-to-r  overflow-hidden relative from-cyan-500 to-indigo-500">
+    <div id="boxcont" class="box z-10">
+        <div id="div1" onclick="colorChange()" class="Odd Div1 text-center"><i id="i1" class="odd fas fa-solid text-8xl font-light"></i></div> 
+        <div id="div2" onclick="colorChange()" class="Even Div2 text-center"><i id="i2" class="even fas fa-solid text-8xl font-light"></i></div>  
+        <div id="div3" onclick="colorChange()" class="Odd Div3 text-center"><i id="i3" class="odd fas fa-solid text-8xl font-light"></i></div>  
+        <div id="div4" onclick="colorChange()" class="Even Div4 text-center"><i id="i4" class="even fas fa-solid text-8xl font-light"></i></div> 
+        <div id="div5" onclick="colorChange()" class="Extra Div5 text-center"><i id="i5" class="extra fas fa-solid text-8xl font-light"></i></div>
+        <div id="div6" onclick="colorChange()" class="Even Div6 text-center"><i id="i6" class="even fas fa-solid text-8xl font-light"></i></div> 
+        <div id="div7" onclick="colorChange()" class="Odd Div7 text-center"><i id="i7" class="odd fas fa-solid text-8xl font-light"></i></div>  
+        <div id="div8" onclick="colorChange()" class="Even Div8 text-center"><i id="i8" class="even fas fa-solid text-8xl font-light"></i></div>  
+        <div id="div9" onclick="colorChange()" class="Extra Div9 text-center"><i id="i9" class="extra fas fa-solid text-8xl font-light"></i></div>   
+        <div id="div10" onclick="colorChange()" class="Even Div10 text-center"><i id="i10" class="even fas fa-solid text-8xl font-light"></i></div>  
     </div>
     <div id="login" class="flex flex-col-reverse md:flex-row justify-center m-auto pb-20 h-screen items-center">
         <div class="w-1/2 p-6 z-20 mx-auto bg-white rounded-md shadow-lg dark:bg-gray-700 mt-20">
-            <div class="grid grid-rows-1 grid-flow-col h-fit">
+            <div class="flex flex-col-reverse lg:grid lg:grid-rows-1 lg:grid-flow-col h-fit">
                 <form class=" space-y-6" action="<?php echo URLROOT; ?>/users/login" method="POST">
                     <div class="grid grid-rows-1 gap-4">
                         <div class="text-center text-white text-xl m-auto"><strong id="greet" class="font-bold text-center text-white drop-shadow-2xl"></strong></div>
@@ -82,8 +84,8 @@
                     </div>
                 </form>
                 <div id="tag-logo-cont" class="flex justify-center w-auto p-0 hoverme">
-                    <img id="tag-logo" type="button" onclick="partypopper()" draggable="false" class="object-cover my-auto h-30 w-72" src="<?php echo URLROOT; ?>/public/img/kcc-w-tagline.png" alt="company">
-                <?php 
+                    <img id="tag-logo" type="button" onclick="partypopper()" draggable="false" class="object-cover my-auto h-30 w-72 filter drop-shadow-xl" src="<?php echo URLROOT; ?>/public/img/kcc-w-tagline.png" alt="company">
+                    <?php 
                     for($i=0; $i<=48; $i++){
                         echo '<i></i>';
                     }
