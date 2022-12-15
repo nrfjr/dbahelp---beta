@@ -11,7 +11,7 @@ class FlashRecoveryAreas extends Controller
         $this->dialog = $this->dialog('Dialog');
 
         if (!isset($_SESSION['username'])) {
-            redirect('/users/login');
+            redirect('users/login');
         }
     }
 

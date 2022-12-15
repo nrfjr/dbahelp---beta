@@ -7,7 +7,7 @@ class Objects extends Controller{
         $this->objectModel = $this->model('ObjectModel');
 
         if (!isset($_SESSION['username'])){
-            redirect('/users/login');
+            redirect('users/login');
         }
     }
 

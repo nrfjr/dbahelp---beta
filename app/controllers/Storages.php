@@ -10,7 +10,7 @@ class Storages extends Controller
         $this->storageModel = $this->model('Storage');
 
         if (!isset($_SESSION['username'])) {
-            redirect('/users/login');
+            redirect('users/login');
         }
     }
 

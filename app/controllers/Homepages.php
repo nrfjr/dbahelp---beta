@@ -8,7 +8,7 @@
             $this->homepageModel = $this->model('Homepage');
 
             if (!isset($_SESSION['username'])) {
-                redirect('/users/login');
+                redirect('users/login');
             }
 
         }

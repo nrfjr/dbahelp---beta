@@ -64,14 +64,14 @@ class Users extends Controller
     {
         $_SESSION['username'] = $user['username'];
         $_SESSION['firstname'] = $user['firstname'];
-        redirect('/homepage/dashboard');
+        redirect('homepage/dashboard');
     }
 
     public function logout()
     {
         unset($_SESSION['username'], $_SESSION['firstname']);
         session_destroy();
-        redirect('/users/login');
+        redirect('users/login');
     }
 
     // Create user account (Create Account Module)
