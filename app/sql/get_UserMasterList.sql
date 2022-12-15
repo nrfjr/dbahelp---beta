@@ -1,15 +1,15 @@
 SELECT 
     ROWNUM AS "No.", 
-    ID, 
-    USERNAME, 
-    PASSWORD, 
-    DB_NAME, 
-    APPLICATION, 
-    DATE_CREATED,
-    CREATED_BY, 
-    REQUESTOR, 
-    REMARKS, 
-    STATUS 
+    ID AS "Employee ID", 
+    USERNAME AS "Username", 
+    PASSWORD AS "Password", 
+    DB_NAME AS "DB Name", 
+    APPLICATION AS "Application", 
+    DATE_CREATED AS "Creation date",
+    CREATED_BY AS "Created By", 
+    REQUESTOR AS "Requestor", 
+    REMARKS AS "Remarks", 
+    STATUS AS "Status"
 FROM 
     DBADMINS.USER_MASTER 
 WHERE 

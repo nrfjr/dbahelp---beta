@@ -26,10 +26,6 @@
                     {
                         return new PDO("oci:dbname=" . $this->getTNS(OFIN_HOST, DEFAULT_PORT, OFIN_SID). ";charset=utf8", OFIN_USERNAME, OFIN_PASSWORD, $this->getOption());
                     }
-                    elseif ($dbname === 'USERS'){
-
-                        return new PDO("oci:dbname=" . $this->getTNS(RMS_HOST, DEFAULT_PORT, RMS_SID). ";charset=utf8", RMS_USERNAME, RMS_PASSWORD, $this->getOption());
-                    }
                     else
                     {
                         return new PDO("oci:dbname=" . $this->getTNS(RMS_HOST, DEFAULT_PORT, RMS_SID). ";charset=utf8", ADMIN_USERNAME, ADMIN_PASSWORD, $this->getOption());

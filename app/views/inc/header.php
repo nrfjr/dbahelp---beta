@@ -8,17 +8,16 @@
     <meta name="description" content="">
     <link rel="icon" href="<?php echo URLROOT; ?>/public/img/kcc.png" />
 
-    <link rel="stylesheet" href="<?php echo URLROOT.'/public/css/extstyle.css'?>">
-    <link rel="stylesheet" href="<?php echo URLROOT.'/public/css/body_loader.css'?>">
+    <link rel="stylesheet" href="<?php echo URLROOT.'/public/css/extstyle.css'?>"/>
+    <link rel="stylesheet" href="<?php echo URLROOT.'/public/css/body_loader.css'?>"/>
 
     <!-- Tailwind -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
-    <!--Flowbite-->
-    <!-- <link rel="stylesheet" href="https://unpkg.com/flowbite@1.5.3/dist/flowbite.min.css" /> -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lexend:400,700&display=swap">
-    <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
-    
-
+    <link rel="stylesheet" href="<?php echo URLROOT.'/public/css/tailwindcss/tailwind_2.2.19.css'?>"/>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lexend:400,700&display=swap"/>
+    <link rel="stylesheet" href="<?php echo URLROOT.'/public/css/line-awesome/line-awesome_1.3.0.min.css'?>"/>
+    <!-- Quill CSS -->
+    <link rel="stylesheet" href="<?php echo URLROOT.'/public/css/quillcss/quill.snow.css'?>"/>
+    <link rel="stylesheet" href="<?php echo URLROOT.'/public/css/quillcss/quill.bubble.css'?>"/>
     
     <style>
         .font-family-lexend {
@@ -65,27 +64,26 @@
             box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
         } 
     </style>
-
-
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <!-- JQuery -->
+    <script text="text/javascript" src="<?php echo URLROOT.'/public/js/jquery_1.3.0/jquery.min.js'?>"></script>
+    <script text="text/javascript" src="<?php echo URLROOT.'/public/js/jquery_3.2.1/jquery.slim.min.js'?>"></script>
+    <script text="text/javascript" src="<?php echo URLROOT.'/public/js/jquery_1.8.3/jquery.min.js'?>"></script>
     <!-- Body Loader JS -->
     <script type="text/javascript" src="<?php echo URLROOT.'/public/js/body-loader.js'?>"></script>
     <!-- Spinner -->
     <script type="text/javascript" href="<?php echo URLROOT.'/public/js/spinner.js'?>"></script>
     <!-- AlpineJS -->
-    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
+    <script text="text/javascript" src="<?php echo URLROOT.'/public/js/alpinejs/alpine_5.3.5.js'?>"></script>
     <!-- Font Awesome -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js" integrity="sha256-KzZiKy0DWYsnwMF+X1DvQngQ2/FxF7MF3Ff72XcpuPs=" crossorigin="anonymous"></script>
+    <script text="text/javascript" src="<?php echo URLROOT.'/public/js/font-awesomejs/font-awesome_5.13.0.js'?>"></script>
     <!-- ChartJS -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js" integrity="sha256-R4pqcOYV8lt7snxMQO/HSbVCFRPMdrhAFMH+vr9giYI=" crossorigin="anonymous"></script> -->
+    <script text="text/javascript" src="<?php echo URLROOT.'/public/js/chartjs/chart_3.9.1.js'?>"></script>
     <!--FlowBite-->
-    <script src="https://unpkg.com/flowbite@1.5.3/dist/flowbite.js"></script>
+    <script text="text/javascript" src="<?php echo URLROOT.'/public/js/flowbitejs/flowbite_1.5.3.js'?>"></script>
     <!--Apex Chart-->
-    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.slim.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.0/jquery.min.js"></script>
+    <script text="text/javascript" src="<?php echo URLROOT.'/public/js/apexchartjs/apexchart_3.36.2.js'?>"></script>
+    <!-- Moment -->
+    <script text="text/javascript" src="<?php echo URLROOT.'/public/js/momentjs/moment.js'?>"></script>
     <!-- Custom Tooltip Position -->
     <script type="text/javascript" src="<?php echo URLROOT.'/public/js/customtooltip.js'?>"></script>
     <!-- SideNavHideFunc -->
@@ -93,9 +91,8 @@
     <!-- SideNavBtnFunc -->
     <script type="text/javascript" src="<?php echo URLROOT.'/public/js/sidebar-toggle-btn.js'?>"></script>
     <!-- Quill JS -->
-    <script src="//cdn.quilljs.com/1.0.0/quill.min.js"></script>
-    <link href="//cdn.quilljs.com/1.0.0/quill.snow.css" rel="stylesheet" />
-    <link href="//cdn.quilljs.com/1.0.0/quill.bubble.css" rel="stylesheet" />
+    <script text="text/javascript" src="<?php echo URLROOT.'/public/js/quilljs/quill.js'?>"></script>
+
 </head>
 
 <div class="loader">

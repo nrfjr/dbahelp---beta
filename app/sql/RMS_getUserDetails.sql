@@ -1,11 +1,11 @@
 SELECT
-                        firstname AS "Firstname",
-                        middlename AS "Middlename",
-                        lastname AS "Lastname",
-                        id AS "User Id",
-                        application AS "Application",
-                        requestor AS "Requestor",
-                        remarks AS "Remarks"
+                        FIRSTNAME AS "Firstname",
+                        MIDDLENAMe AS "Middlename",
+                        LASTNAME AS "Lastname",
+                        ID AS "User Id",
+                        APPLICATION AS "Application",
+                        REQUESTOR AS "Requestor",
+                        REMARKS AS "Remarks"
                     FROM 
-                        (SELECT firstname, middlename, lastname, id FROM user_accounts where username = (SELECT username from dbadmins.user_master WHERE id = :userid)),
-                        (SELECT application, requestor, remarks FROM dbadmins.user_master WHERE id = :userid)
+                        (SELECT FIRSTNAME, MIDDLENAME, LASTNAME, ID FROM RMS13PRD.USER_ACCOUNTS WHERE USERNAME = (SELECT USERNAME FROM DBADMINS.USER_MASTER WHERE ID = :USERID)),
+                        (SELECT APPLICATION, REQUESTOR, REMARKS FROM DBADMINS.USER_MASTER WHERE ID = :USERID)

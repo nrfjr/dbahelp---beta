@@ -7,14 +7,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" href="<?php echo URLROOT; ?>/public/img/kcc.png" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
-    <link rel="stylesheet" href="<?php echo URLROOT.'/public/css/loginanimatebg.css'?>">
+    <link rel="stylesheet" href="<?php echo URLROOT.'/public/css/font-awesome/font-awesome_6.1.1.min.css'?>" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"  />
+    <link rel="stylesheet" href="<?php echo URLROOT.'/public/css/line-awesome/line-awesome_1.3.0.min.css'?>"/>
+    <link rel="stylesheet" href="<?php echo URLROOT.'/public/css/loginanimatebg.css'?>"/>
 
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <script text="text/javascript" src="<?php echo URLROOT.'/public/js/jquery_1.8.3/jquery.min.js'?>"></script>
     <script text="text/javascript" src="<?php echo URLROOT.'/public/js/partypopper.js'?>"></script>
-    <script src="//unpkg.com/alpinejs" defer></script>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <script text="text/javascript" src="<?php echo URLROOT.'/public/js/alpinejs/alpine.js'?>"></script>
+    <script text="text/javascript" src="<?php echo URLROOT.'/public/js/tailwindjs/tailwind.js'?>"></script>
   
     <script text="text/javascript" src="<?php echo URLROOT.'/public/js/logingreet.js'?>"></script>
     <script text="text/javascript" src="<?php echo URLROOT.'/public/js/spinner.js'?>"></script>
@@ -82,56 +83,11 @@
                 </form>
                 <div id="tag-logo-cont" class="flex justify-center w-auto p-0 hoverme">
                     <img id="tag-logo" type="button" onclick="partypopper()" draggable="false" class="object-cover my-auto h-30 w-72" src="<?php echo URLROOT; ?>/public/img/kcc-w-tagline.png" alt="company">
-                    <i></i>
-                    <i></i>
-                    <i></i>
-                    <i></i>
-                    <i></i>
-                    <i></i>
-                    <i></i>
-                    <i></i>
-                    <i></i>
-                    <i></i>
-                    <i></i>
-                    <i></i>
-                    <i></i>
-                    <i></i>
-                    <i></i>
-                    <i></i>
-                    <i></i>
-                    <i></i>
-                    <i></i>
-                    <i></i>
-                    <i></i>
-                    <i></i>
-                    <i></i>
-                    <i></i>
-                    <i></i>
-                    <i></i>
-                    <i></i>
-                    <i></i>
-                    <i></i>
-                    <i></i>
-                    <i></i>
-                    <i></i>
-                    <i></i>
-                    <i></i>
-                    <i></i>
-                    <i></i>
-                    <i></i>
-                    <i></i>
-                    <i></i>
-                    <i></i>
-                    <i></i>
-                    <i></i>
-                    <i></i>
-                    <i></i>
-                    <i></i>
-                    <i></i>
-                    <i></i>
-                    <i></i>
-                    <i></i>
-                    <i></i>
+                <?php 
+                    for($i=0; $i<=48; $i++){
+                        echo '<i></i>';
+                    }
+                    ?>
                 </div>
             </div>
         </div>
@@ -142,6 +98,6 @@
     </footer>
 </body>
 <script text="text/javascript" src="<?php echo URLROOT.'/public/js/loginbgcolorchanger.js'?>"></script>
-<script src="https://kit.fontawesome.com/d1a7d83221.js" crossorigin="anonymous"></script>
+<script text="text/javascript" src="<?php echo URLROOT.'/public/js/kit-font-awesomejs/d1a7d83221.js'?>" crossorigin="anonymous"></script>
 
 </html>

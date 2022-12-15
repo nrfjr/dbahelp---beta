@@ -83,7 +83,7 @@ class User
     // get user details specific to given id
     public function getUserDetails($id)
     {
-        $this->db = new OracleDatabase('USERS');
+        $this->db = new OracleDatabase('RMSPRD');
         $query = $this->fm->loadSQL('RMS_getUserDetails');
         $param = [
             'userid' => $id
