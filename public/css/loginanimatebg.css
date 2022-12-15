@@ -16,61 +16,61 @@
   top: -100px;
   animation-fill-mode: both;
   left: 5%;
-  animation: animate 10s linear infinite;
+  animation: animate 10s ease-in infinite;
 }
 .box .Div2{
   top: -100px;
   animation-fill-mode: both;
   left: 15%;
-  animation: animate 7s linear infinite;
+  animation: animate 7s ease-in infinite;
 }
 .box .Div3{
   top: -100px;
   animation-fill-mode: both;
   left: 25%;
-  animation: animate 9s linear infinite;
+  animation: animate 9s ease-in infinite;
 }
 .box .Div4{
   top: -100px;
   animation-fill-mode: both;
   left: 35%;
-  animation: animate 10s linear infinite;
+  animation: animate 10s ease-in infinite;
 }
 .box .Div5{
   top: -100px;
   animation-fill-mode: both;
   left: 45%;
-  animation: animate 6s linear infinite;
+  animation: animate 6s ease-in infinite;
 }
 .box .Div6{
   top: -100px;
   animation-fill-mode: both;
   left: 55%;
-  animation: animate 12s linear infinite;
+  animation: animate 12s ease-in infinite;
 }
 .box .Div7{
   top: -100px;
   animation-fill-mode: both;
   left: 65%;
-  animation: animate 15s linear infinite;
+  animation: animate 15s ease-in infinite;
 }
 .box .Div8{
   top: -100px;
   animation-fill-mode: both;
   left: 75%;
-  animation: animate 16s linear infinite;
+  animation: animate 16s ease-in infinite;
 }
 .box .Div9{
   top: -100px;
   animation-fill-mode: both;
   left: 85%;
-  animation: animate 9s linear infinite;
+  animation: animate 9s ease-in infinite;
 }
 .box .Div10{
   top: -100px;
   animation-fill-mode: both;
   left: 95%;
-  animation: animate 8s linear infinite;
+  animation: animate 8s ease-in infinite;
 }
 
 @keyframes animate{
