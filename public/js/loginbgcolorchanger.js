@@ -36,7 +36,7 @@ function colorChange() {
         document.querySelectorAll(".odd").forEach(el => el.style.color = Palletes[3][random3].toString());
         document.querySelectorAll(".extra").forEach(el => el.style.color = Palletes[3][random2].toString());
     }
-    console.log("im changing color still")
+    
     setTimeout(colorChange, 10000)
 
 }

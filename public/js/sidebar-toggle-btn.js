@@ -1,6 +1,5 @@
 function getAria(){
     let sidebtnAria = document.getElementById('sidenavbtn').getAttribute('aria-expanded')
-    console.log(sidebtnAria)
 
     if(sidebtnAria == "false"){
         document.getElementById("chevron").classList.remove('fa-chevron-down');
