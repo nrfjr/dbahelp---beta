@@ -378,6 +378,11 @@ class Users extends Controller
         }
     }
 
+    public function profile()
+    {
+        $this->view('oracle/users/profile', []);
+    }
+
     // Method for downloading LDIF Generated Files
     public function download_ldif()
     {

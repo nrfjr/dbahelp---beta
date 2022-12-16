@@ -1,8 +1,7 @@
 <?php
 $title = 'Create User';
 require APPROOT . '/views/inc/header.php';
-?>
-<?php require APPROOT . '/views/inc/sidebar.php'; ?>
+require APPROOT . '/views/inc/sidebar.php'; ?>
 
 <h1 class="text-3xl text-black pb-6 text-white"><b><?php echo $data == null ? 'Create User' : 'Edit User'; ?></b></h1>
 <!-- <label for="database" class="absolute right-0 text-sm font-medium text-gray-700">Database</label>

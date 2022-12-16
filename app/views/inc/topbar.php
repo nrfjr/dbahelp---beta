@@ -292,19 +292,20 @@
 </div>
 
 <!--TOP NAVBAR-->
-<div x-data="{ isOpen: false }" class=" relative w-3/4 md:w-2/4 lg:w-1/4 inline-flex justify-end items-center">
+<div x-data="{ isOpen: false }" class="relative w-1/4 sm:w-1/4 md:w-1/4 inline-flex justify-end items-center">
     <?php if (isset($_SESSION['firstname'])) : ?>
-        <h4 class="text-white flex justify-end w-fit mr-2 whitespace-nowrap " title="is it you?"><?php echo  '<b>'. greetings($_SESSION['firstname']) .'</b>' ?></h4>
+        <h4 class="text-white flex justify-end w-fit mr-2 whitespace-nowrap" title="is it you?"><?php echo  '<b>'. greetings($_SESSION['firstname']) .'</b>' ?></h4>
     <?php endif; ?>
-    <button @click="isOpen = !isOpen" class="relative z-10 w-12 h-12 rounded-full overflow-hidden border-4 border-gray-400 hover:border-gray-300 focus:border-gray-300 focus:outline-none">
+    <button @click="isOpen = !isOpen" class="realtive z-10 w-12 h-12 rounded-full overflow-hidden border-4 border-gray-400 hover:border-gray-300 focus:border-gray-300 focus:outline-none">
         <img src="<?php echo URLROOT; ?>/public/img/user.png">
     </button>
     <button x-show="isOpen" @click="isOpen = false" class="h-full w-full fixed inset-0 cursor-default"></button>
     <div x-show="isOpen" class="absolute w-32 justify-center bg-gray-800 top-0 rounded-lg shadow-lg mt-16">
         <div class="absolute top-0 right-2 transform -translate-x-1/2 -translate-y-1/2 rotate-45 w-4 h-4 bg-gray-800"></div>
         <div class="flex flex-col z-10 justify-between">
-        <a href="https://192.168.33.156/" target="_blank" class="block text-gray-300 py-2 text-center z-10 rounded-lg hover:bg-blue-300 hover:text-white">Email <i class="ml-6 fas fa-envelope"></i></a>
-        <a href="<?php echo URLROOT; ?>/users/logout" class="block text-gray-300  py-2 z-10 text-center rounded-lg hover:bg-red-600 hover:text-white">Sign Out <i class="fas fa-power-off"></i></a>
+        <a href="<?php echo URLROOT; ?>/users/profile" class="block text-gray-300 py-2 text-center z-10 rounded-lg hover:bg-blue-300 hover:text-white">My Profile <i class="fas fa-user-circle"></i></a>
+        <a href="https://192.168.33.156/" target="_blank" class="block text-gray-300 py-2 text-center z-10 rounded-lg hover:bg-blue-300 hover:text-white">Email <i class="ml-8 fas fa-envelope"></i></a>
+        <a href="<?php echo URLROOT; ?>/users/logout" class="block text-gray-300  py-2 z-10 text-center rounded-lg hover:bg-red-600 hover:text-white">Sign Out <i class="ml-2 fas fa-power-off"></i></a>
         </div>
     </div>
 </div>
