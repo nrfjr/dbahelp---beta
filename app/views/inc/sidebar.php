@@ -25,7 +25,7 @@ $url = 'http://' . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
                                                                                                                                 } ?>" aria-controls="databases" data-accordion-target="#databases" data-collapse-toggle="databases">
                             <!--Code above is needed for collapse open while select-->
                             <!--Change here for control variables-->
-                            <i id="chevron" class="fas fa-regular fa-chevron-up"></i>                                                                                         
+                            <i id="chevron" class="fas fa-regular fa-chevron-down"></i>                                                                                         
                         </button>
                     </li>
                     <ul id="databases" class="hidden py-1  ">
