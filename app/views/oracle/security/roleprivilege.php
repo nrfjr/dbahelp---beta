@@ -45,7 +45,7 @@ $current_tab = isset($_GET['tab']) ? $_GET['tab'] : 1;
                                 }
                             }
                         ?>
-                            <table class="w-full text-sm text-center text-white dark:text-gray-400">
+                            <table class=" sortable w-full text-sm text-center text-white dark:text-gray-400">
                                 <thead class="text-md text-black bg-indigo-200 dark:bg-gray-700 dark:text-gray-400 sticky top-0">
                                     <tr>
                                         <?php for ($title = 0; $title <= count($inner_array) - 1; $title++) { ?>
@@ -68,7 +68,7 @@ $current_tab = isset($_GET['tab']) ? $_GET['tab'] : 1;
                                             <?php
                                             foreach ($values as $ratios) {
                                             ?>
-                                                <td class="py-4 px-6">
+                                                <td class=" item py-4  px-6">
                                                     <?php echo $ratios; ?>
                                                 </td>
                                             <?php

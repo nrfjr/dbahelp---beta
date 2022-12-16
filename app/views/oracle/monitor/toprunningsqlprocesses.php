@@ -27,7 +27,7 @@ require APPROOT . '/views/inc/sidebar.php'; ?>
                     }
                 }
             ?>
-                <table class="w-full text-sm text-center text-white dark:text-gray-400">
+                <table class=" sortable w-full text-sm text-center text-white dark:text-gray-400">
                     <thead class="text-md text-black bg-indigo-200 dark:bg-gray-700 dark:text-gray-400 sticky top-0 z-10">
                         <tr>
                             <?php for ($title = 0; $title <= count($array) - 2; $title++) { ?>
@@ -49,17 +49,17 @@ require APPROOT . '/views/inc/sidebar.php'; ?>
                                 array_splice($value, 9);
                                 foreach ($value as $k => $v) {
                                 ?>
-                                    <td class="py-4 px-6">
+                                    <td class=" item py-4  px-6">
                                         <?php echo $v; ?>
                                     </td>
                                 <?php
                                 }
                                 ?>
-                                <td class="py-4 px-6 text-center">
+                                <td class=" item py-4  px-6 text-center">
                                     <div x-data="{toSubmit: false}">
                                         <button @click="toSubmit = true" alt="Kill" class="w-2/4 h-3/4 rounded-full hover:bg-red-200 border-blue-500 md:border-green-500">
                                             <font color="#b00020" title="Kill Session">
-                                                <i class="lar la-times-circle transform scale-150"></i>
+                                                <i class="fas fa-times-circle transform scale-150"></i>
                                             </font>
                                         </button>
                                         <button x-show="toSubmit" @click="toSubmit = false" alt="Kill" class="border-blue-500 md:border-green-500">

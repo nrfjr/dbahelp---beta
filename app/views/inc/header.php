@@ -92,7 +92,8 @@
     <script type="text/javascript" src="<?php echo URLROOT.'/public/js/sidebar-toggle-btn.js'?>"></script>
     <!-- Quill JS -->
     <script text="text/javascript" src="<?php echo URLROOT.'/public/js/quilljs/quill.js'?>"></script>
-
+    <!-- Table Sort -->
+    <script src="<?php echo URLROOT.'/public/js/sortablejs/sortable.js'?>"></script>
 </head>
 
 <div class="loader">

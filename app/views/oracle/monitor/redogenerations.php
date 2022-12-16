@@ -39,7 +39,7 @@ $filterPHPArrayToJS = function ($array, $key) {
                 }
             }
         ?>
-            <table class="w-full text-sm text-center text-white dark:text-gray-400">
+            <table class=" sortable w-full text-sm text-center text-white dark:text-gray-400">
                 <thead class="text-md text-black bg-indigo-200 dark:bg-gray-700 dark:text-gray-400 sticky top-0">
                     <tr>
                         <?php for ($title = 0; $title <= count($array) - 1; $title++) { ?>
@@ -57,7 +57,7 @@ $filterPHPArrayToJS = function ($array, $key) {
                             <?php
                             foreach ($value as $logfile) {
                             ?>
-                                <td class="py-4 px-6" title="<?php echo $logfile; ?>">
+                                <td class=" item py-4  px-6" title="<?php echo $logfile; ?>">
                                     <?php echo $logfile; ?>
                                 </td>
                             <?php

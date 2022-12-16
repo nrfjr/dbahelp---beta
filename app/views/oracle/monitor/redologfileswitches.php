@@ -29,7 +29,7 @@ require APPROOT . '/views/inc/sidebar.php'; ?>
             }
           }
         ?>
-          <table class="w-full text-sm text-center text-white dark:text-gray-400">
+          <table class=" sortable w-full text-sm text-center text-white dark:text-gray-400">
             <thead class="text-md text-black bg-indigo-200 dark:bg-gray-700 dark:text-gray-400">
               <tr>
                 <?php for ($am_title = 0; $am_title <= count($am_array) - 1; $am_title++) { ?>
@@ -47,7 +47,7 @@ require APPROOT . '/views/inc/sidebar.php'; ?>
                   <?php
                   foreach ($am_value as $am_logfile) {
                   ?>
-                    <td class="py-4 px-6">
+                    <td class=" item py-4  px-6">
                       <?php echo $am_logfile; ?>
                     </td>
                   <?php
@@ -92,7 +92,7 @@ require APPROOT . '/views/inc/sidebar.php'; ?>
             }
           }
         ?>
-          <table class="w-full text-sm text-center text-white dark:text-gray-400">
+          <table class=" sortable w-full text-sm text-center text-white dark:text-gray-400">
             <thead class="text-md text-black bg-indigo-200 dark:bg-gray-700 dark:text-gray-400">
               <tr>
                 <?php for ($pm_title = 0; $pm_title <= count($pm_array) - 1; $pm_title++) { ?>
@@ -110,7 +110,7 @@ require APPROOT . '/views/inc/sidebar.php'; ?>
                   <?php
                   foreach ($pm_value as $pm_logfile) {
                   ?>
-                    <td class="py-4 px-6">
+                    <td class=" item py-4  px-6">
                       <?php echo $pm_logfile; ?>
                     </td>
                   <?php

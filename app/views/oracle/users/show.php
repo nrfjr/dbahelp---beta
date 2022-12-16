@@ -64,9 +64,7 @@ if ($first_user_displayed === $last_user_displayed) {
         <label for="table-search" class="sr-only">Search</label>
         <div class="relative absolute">
             <div class="flex absolute inset-y-0 left-0 items-center pl-3">
-                <svg class="w-5 h-5 text-gray-500 dark:text-gray-400" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                    <path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd"></path>
-                </svg>
+                <i class="fas fa-search w-5 h-5 text-gray-500"></i>
             </div>
             <form action="<?php echo URLROOT; ?>/users/show/<?php echo $_SESSION['UserDB']; ?>" method="POST">
                 <div class="flex justify-auto">
@@ -91,11 +89,11 @@ if ($first_user_displayed === $last_user_displayed) {
                     }
                 }
             ?>
-                <table class="w-full text-sm text-left text-white dark:text-gray-400">
+                <table class="sortable w-full text-sm text-left text-white dark:text-gray-400">
                     <thead class="text-xs text-black bg-indigo-200 dark:bg-gray-700 dark:text-gray-400 sticky top-0">
                         <tr>
                             <?php for ($title = 0; $title <= count($array) - 1; $title++) { ?>
-                                <th scope="col" class="py-2 px-6">
+                                <th  scope="col" class="py-2 px-6">
                                     <?php echo $column_names[$title]; ?>
                                 </th>
                             <?php } ?>
@@ -114,13 +112,13 @@ if ($first_user_displayed === $last_user_displayed) {
                                 <?php
                                 foreach ($value as $user) {
                                 ?>
-                                    <td class="py-4 px-6">
+                                    <td class="item py-4 px-6">
                                         <?php echo $user; ?>
                                     </td>
                                 <?php
                                 }
                                 ?>
-                                <td class="py-4 px-6 text-center">
+                                <td class="item py-4 px-6 text-center">
                                     <form action="<?php echo URLROOT; ?>/users/edit/<?php echo $value['Employee ID'] ?>" method="POST">
                                         <input id="edit_db" name="edit_db" value="<?php echo $value['DB Name'] ?>" class="hidden">
                                         <button type="submit" alt="Edit" class="px-2">
@@ -241,6 +239,5 @@ if ($first_user_displayed === $last_user_displayed) {
             }
 ?>
 </div>
-
 
 <?php require APPROOT . '/views/inc/footer.php'; ?>

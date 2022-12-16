@@ -46,7 +46,7 @@ if ($first_user_displayed === $last_user_displayed) {
             <p class="mt-3">Search: </p>
             <input id="search" name="search" class="m-2 rounded-sm py-1 px-2" type="text" placeholder="Search for SPID">
             <button type="submit" class="px-4 py-1 rounded-md bg-gray-300 hover:bg-gray-500 shadow-inner shadow-xl">
-                <i class="las la-search"></i>
+                <i class="fas fa-search"></i>
             </button>
         </div>
         <div class="inline-flex">
@@ -75,7 +75,7 @@ if ($first_user_displayed === $last_user_displayed) {
                     }
                 }
             ?>
-                <table class="w-full text-sm text-left text-white dark:text-gray-400">
+                <table class=" sortable w-full text-sm text-left text-white dark:text-gray-400">
                     <thead class="text-xs text-black bg-indigo-200 dark:bg-gray-700 dark:text-gray-400 sticky top-0 z-10">
                         <tr>
                             <?php for ($title = 0; $title <= count($array) - 1; $title++) { ?>
@@ -98,17 +98,17 @@ if ($first_user_displayed === $last_user_displayed) {
                                 <?php
                                 foreach ($value as $user) {
                                 ?>
-                                    <td class="py-4 px-6">
+                                    <td class=" item py-4  px-6">
                                         <?php echo $user; ?>
                                     </td>
                                 <?php
                                 }
                                 ?>
-                                <td class="py-4 px-6 text-center">
+                                <td class=" item py-4  px-6 text-center">
                                     <div x-data="{toSubmit: false}">
                                         <button @click="toSubmit = true" alt="Kill" class="w-2/4 h-3/4 rounded-full hover:bg-red-200 border-blue-500 md:border-green-500">
                                             <font color="#b00020" title="Kill Session">
-                                                <i class="lar la-times-circle transform scale-150"></i>
+                                                <i class="fas fa-times-circle transform scale-150"></i>
                                             </font>
                                         </button>
                                         <button x-show="toSubmit" @click="toSubmit = false" alt="Kill" class="border-blue-500 md:border-green-500">

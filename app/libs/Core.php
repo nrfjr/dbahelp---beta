@@ -8,6 +8,7 @@ class Core {
 
     public function __construct() {
 
+        try{
         $url = $this->getUrl();
         // Look in controllers for first value
         if (file_exists('../app/controllers/' . ucwords($url[0]) . '.php')) {
@@ -36,6 +37,11 @@ class Core {
 
         // Call a callback with array of params
         call_user_func_array([$this->currentController, $this->currentMethod], $this->params);
+    }catch(\Exception $e){
+
+        echo $e->getMessage();
+
+    }
 
     }
 

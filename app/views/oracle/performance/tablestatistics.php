@@ -54,7 +54,7 @@ if ($first_stats_displayed === $last_stats_displayed) {
                     }
                 }
             ?>
-                <table class="w-full text-sm text-left text-white dark:text-gray-400">
+                <table class=" sortable w-full text-sm text-left text-white dark:text-gray-400">
                     <thead class="text-xs text-black bg-indigo-200 dark:bg-gray-700 dark:text-gray-400 sticky top-0">
                         <tr>
                             <?php for ($title = 0; $title <= count($array) - 1; $title++) { ?>
@@ -74,7 +74,7 @@ if ($first_stats_displayed === $last_stats_displayed) {
                                 <?php
                                 foreach ($value as $stats) {
                                 ?>
-                                    <td class="py-4 px-6">
+                                    <td class=" item py-4  px-6">
                                         <?php echo $stats; ?>
                                     </td>
                                 <?php
