@@ -14,7 +14,6 @@
     <!-- Tailwind -->
     <link rel="stylesheet" href="<?php echo URLROOT.'/public/css/tailwindcss/tailwind_2.2.19.css'?>"/>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lexend:400,700&display=swap"/>
-    <link rel="stylesheet" href="<?php echo URLROOT.'/public/css/line-awesome/line-awesome_1.3.0.min.css'?>"/>
     <!-- Quill CSS -->
     <link rel="stylesheet" href="<?php echo URLROOT.'/public/css/quillcss/quill.snow.css'?>"/>
     <link rel="stylesheet" href="<?php echo URLROOT.'/public/css/quillcss/quill.bubble.css'?>"/>
