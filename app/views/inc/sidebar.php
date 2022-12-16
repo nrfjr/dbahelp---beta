@@ -103,6 +103,17 @@ $url = 'http://' . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
                         </a>
                     </li>
 
+                    <li>
+                        <a href="<?php echo URLROOT; ?>/telephones/contacts" class="flex items-center hover:opacity-100 py-4 pl-6 nav-item text-white <?php if (strpos($url, 'telephones')) {
+                                                                                                                                                            echo 'active-nav-link ';
+                                                                                                                                                        } else {
+                                                                                                                                                            echo 'opacity-75';
+                                                                                                                                                        } ?>">
+                            <i class="fas fa-phone mr-3"></i>
+                            Telephone Directories
+                        </a>
+                    </li>
+
                 </ul>
             </div>
         </nav>
