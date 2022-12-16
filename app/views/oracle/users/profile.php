@@ -19,6 +19,7 @@ require APPROOT . '/views/inc/sidebar.php'; ?>
             <img class="w-40 h-40 md:w-44 md:h-44 xl:w-52 xl:h-52 border-2 border-sky-500 rounded-full m-0 p-0" src="<?php echo URLROOT; ?>/public/img/user.png">
         </div>
     </div>
+    <?php if(!empty($data)){?>
     <div class="pt-24 px-8 pb-8 relative flex flex-col lg:flex-row items-center justify-evenly gap-6 shadow-md h-fit xl:h-1/2 w-full">
         <div class="flex flex-col gap-6 w-full justify-between">
             <div class="border rounded-lg shadow-inner flex flex-col bg-gradient-to-r from-red-100 via-gray-100 to-indigo-100 w-full h-full p-6">
@@ -42,8 +43,8 @@ require APPROOT . '/views/inc/sidebar.php'; ?>
             </div>
         </div>
     </div> 
-    
-    
-    
+    <?php }else{?>
+        <div class="border rounded-lg shadow-inner text-xl flex text-center flex-col bg-gradient-to-r from-red-100 via-gray-100 to-indigo-100 w-full h-full p-6"><em>No Profile Details Available.</em></div>
+    <?php }?>
 </div>
 <?php require APPROOT . '/views/inc/footer.php'; ?>
