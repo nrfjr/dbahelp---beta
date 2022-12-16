@@ -94,7 +94,7 @@ if ($first_locked_displayed === $last_locked_displayed) {
                                 ?>
                                 <td class=" item py-4  px-6 text-center">
                                 <div x-data="{toSubmit: false}" >
-                                <button @click="toSubmit = true" alt="Kill" class="w-2/4 h-3/4 rounded-full hover:bg-red-200 border-blue-500 md:border-green-500">
+                                <button @click="toSubmit = true" alt="Kill" class="w-fit h-3/4 rounded-full hover:bg-red-200 border-blue-500 md:border-green-500">
                                     <font color="#b00020" title="Kill Session">
                                         <i class="fas fa-times-circle transform scale-150"></i>
                                     </font>
