@@ -69,7 +69,7 @@ require APPROOT . '/views/inc/sidebar.php'; ?>
         }
         ?>
       </div>
-      <div id="redologchartAM" class="w-1/2 bg-gray-300 rounded-md h-fit">
+      <div id="redologchartAM" class="w-1/2 bg-white rounded-md h-fit">
       </div>
     </div>
   </div>
@@ -172,15 +172,25 @@ require APPROOT . '/views/inc/sidebar.php'; ?>
     stroke: {
       width: 5,
       curve: 'smooth',
-      dashArray: 0
+      dashArray: 0,
+      colors: ['#2192FF','#38E54D','#9CFF2E','#9CFF2E','#FDFF00','#FF74B1', '#145051','#B1B2FF',]
     },
     title: {
       text: 'Morning Log File Switches',
       align: 'left'
     },
+    tooltip: {
+      marker: {
+          show: true,
+          fillColors: ['#2192FF','#38E54D','#9CFF2E','#9CFF2E','#FDFF00','#FF74B1', '#145051','#B1B2FF',]
+      },
+    },
     legend: {
       tooltipHoverFormatter: function(val) {
         return val
+      },
+      markers:{
+        fillColors: ['#2192FF','#38E54D','#9CFF2E','#9CFF2E','#FDFF00','#FF74B1', '#145051','#B1B2FF',],
       }
     },
     markers: {
@@ -242,7 +252,13 @@ require APPROOT . '/views/inc/sidebar.php'; ?>
     stroke: {
       width: 5,
       curve: 'smooth',
-      dashArray: [1, 2, 4, 6, 8, 10, 12]
+      colors: ['#2192FF','#38E54D','#9CFF2E','#9CFF2E','#FDFF00','#FF74B1', '#A7FFE4','#B1B2FF',]
+    },
+    tooltip: {
+      marker: {
+          show: true,
+          fillColors: ['#2192FF','#38E54D','#9CFF2E','#9CFF2E','#FDFF00','#FF74B1', '#A7FFE4','#B1B2FF',]
+      },
     },
     title: {
       text: 'Evening Log File Switches',
@@ -257,6 +273,9 @@ require APPROOT . '/views/inc/sidebar.php'; ?>
       },
       labels: {
         colors: 'white'
+      },
+      markers:{
+        fillColors: ['#2192FF','#38E54D','#9CFF2E','#9CFF2E','#FDFF00','#FF74B1', '#A7FFE4','#B1B2FF',]
       }
     },
     markers: {
