@@ -50,7 +50,7 @@ if ($first_locked_displayed === $last_locked_displayed) {
         </div>
     </div>
 
-    <div style="height: 65vh; overflow: clip;">
+    <div style="height: fit-content; overflow: clip;">
         <div class="block w-full shadow-md overflow-auto sm:rounded-lg" style="max-height: 98%;">
             <?php
             if (!empty($lockedsessions)) {

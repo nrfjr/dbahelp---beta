@@ -41,13 +41,13 @@ if ($first_num_displayed === $last_num_displayed) {
     </h1>
     <button onclick="window.location.reload()" class="px-4 py-2 rounded-lg bg-gray-200 hover:bg-gray-500"> Refresh<i class="ml-2 fas fa-redo"></i></button>
 </div>
-<div class="overflow-x-auto relative shadow-md">
+<div class="overflow-x-auto relative shadow-md rounded-md">
 <form  action="<?php echo URLROOT; ?>/telephones/contacts" method="POST">
-    <div class="rounded-lg flex justify-between items-center p-2 bg-gray-300 dark:bg-gray-900 mb-4">
+    <div class="rounded-lg flex justify-between items-center bg-gray-300 dark:bg-gray-900 mb-4">
         <div class="inline-flex">
-            <p class="mt-3">Search: </p>
-            <input id="search" name="search" class="m-2 rounded-sm py-2 px-2" type="text" placeholder="Enter keyword here..." value="<?php echo ($_SESSION['ContactSearch'] != null || $_SESSION['ContactSearch'] != '')? $_SESSION['ContactSearch']: ''?>">
-            <button type="submit" class="px-4 py-1 rounded-md bg-gray-300 hover:bg-gray-500 shadow-inner shadow-xl">
+            <p class="mt-2">Search: </p>
+            <input id="search" name="search" class="m-1 rounded-sm py-1 px-2" type="text" placeholder="Enter keyword here..." value="<?php echo ($_SESSION['ContactSearch'] != null || $_SESSION['ContactSearch'] != '')? $_SESSION['ContactSearch']: ''?>">
+            <button type="submit" class="px-4 rounded-md bg-gray-300 hover:bg-gray-500 shadow-inner shadow-xl">
                 <i class="fas fa-search"></i>
             </button>
         </div>
@@ -55,7 +55,7 @@ if ($first_num_displayed === $last_num_displayed) {
     </div>
 
     <div style="height: fit-contents; overflow: clip;">
-        <div class="block w-full shadow-md overflow-auto sm:rounded-lg" style="max-height: 62vh;">
+        <div class="block w-full overflow-auto sm:rounded-md" style="max-height: 67vh;">
             <?php
             if (!empty($telcontacts)) {
 

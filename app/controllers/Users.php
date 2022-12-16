@@ -254,6 +254,7 @@ class Users extends Controller
                 //Shows the viewer of file contents.
                 $this->view('oracle/users/ldif', $data);
             }
+            
         } else {
 
             $msg = strtoupper($data['ID'] . ' ' . $data['fname'] . ' ' . $data['mname'] . ' ' . $data['lname']) . '<br>Username: ' . $data['username'] . '<br>Password: ' . $data['password'] . '<br>' . $this->getSameAccessStatus($sameAccessStatus);
@@ -367,8 +368,12 @@ class Users extends Controller
 
             $db = trim(SANITIZE_INPUT_STRING($_POST['edit_db']));
 
+            $param = [
+                'userid' => $id
+            ];
+
             //get specific details and pass to view
-            $result = $this->userModel->getUserDetails($id);
+            $result = $this->userModel->getUserDetails($param, 'RMS_getUserDetails');
 
             $data = $result;
 
@@ -380,7 +385,15 @@ class Users extends Controller
 
     public function profile()
     {
-        $this->view('oracle/users/profile', []);
+        $param = [
+            'username' => $_SESSION['username']
+        ];
+
+        $result = $this->userModel->getUserDetails($param, 'RMS_getUserDetailsByUsername');
+
+        $data = $result;
+
+        $this->view('oracle/users/profile', $data);
     }
 
     // Method for downloading LDIF Generated Files

@@ -118,8 +118,8 @@ if ($first_user_displayed === $last_user_displayed) {
                                 <?php
                                 }
                                 ?>
-                                <td class="item py-4 px-6 text-center">
-                                    <form action="<?php echo URLROOT; ?>/users/edit/<?php echo $value['Employee ID'] ?>" method="POST">
+                                <td class="item py-4 px-4 text-center">
+                                    <form action="<?php echo URLROOT; ?>/users/edit/<?php echo $value['ID'] ?>" method="POST">
                                         <input id="edit_db" name="edit_db" value="<?php echo $value['DB Name'] ?>" class="hidden">
                                         <button type="submit" alt="Edit" class="px-2">
                                             <font color="#005eff" title="Edit User">
