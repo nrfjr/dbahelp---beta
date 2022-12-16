@@ -20,13 +20,19 @@ class User
 
         if ($resultConnection) {
 
-            if ($resultUsername['USERNAME'] == $username) {
+            if ($resultUsername) {
+
                 $data = [
                     'username' => $username,
                     'password' => $password,
                     'firstname' => $resultUsername['FIRSTNAME']
                 ];
+
                 return [true, $data];
+
+            }else{
+
+                return [false, 'Account does not exist in User Accounts!, Contact your administrator.'];
             }
 
         } else {
