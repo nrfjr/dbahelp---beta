@@ -1,5 +1,5 @@
 function colorChange() {
-    const Palletes = [["#F7A4A4","#FEBE8C","#FFFBC1","#B6E2A1"],["#277BC0","#FFB200","#FFCB42","#FFF4CF"],["#FEFFDB","#FFC60B","#FF8B00","#444444"],["#EB455F","#FCFFE7","#BAD7E9","#2B3467"],["#C21010","#E64848","#FFFDE3","#FF1E00"]];
+    const Palletes = [["#F7A4A4","#FEBE8C","#FFFBC1","#B6E2A1"],["#277BC0","#FFB200","#FFCB42","#FFF4CF"],["#FEFFDB","#FFC60B","#FF8B00","#444444"],["#EB455F","#FCFFE7","#BAD7E9","#2B3467"]   ];
 
     const random1 = Math.floor(Math.random() * Palletes.length);
     const random2 = Math.floor(Math.random() * Palletes.length);
@@ -8,8 +8,7 @@ function colorChange() {
     const spring = ["March", "April", "May"]
     const summer = ["June", "July", "August"]
     const fall = ["September", "October", "November"]
-    const winter = ["December"]
-    const valentine = "February"
+    const winter = ["December","January","February"]
 
     const date = new Date();
     let currmonth = date.toLocaleString('default',{month: 'long'});
@@ -37,11 +36,7 @@ function colorChange() {
         document.querySelectorAll(".odd").forEach(el => el.style.color = Palletes[3][random3].toString());
         document.querySelectorAll(".extra").forEach(el => el.style.color = Palletes[3][random2].toString());
     }
-    else if(valentine==currmonth){
-        document.querySelectorAll(".even").forEach(el => el.style.color = Palletes[4][random1].toString());
-        document.querySelectorAll(".odd").forEach(el => el.style.color = Palletes[4][random3].toString());
-        document.querySelectorAll(".extra").forEach(el => el.style.color = Palletes[4][random2].toString());
-    }
+
     
     setTimeout(colorChange, 10000)
 
