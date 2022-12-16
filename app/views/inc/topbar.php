@@ -292,11 +292,11 @@
 </div>
 
 <!--TOP NAVBAR-->
-<div x-data="{ isOpen: false }" class="relative w-1/4 sm:w-1/4 md:w-1/4 inline-flex justify-end items-center">
+<div x-data="{ isOpen: false }" class=" relative w-3/4 md:w-2/4 lg:w-1/4 inline-flex justify-end items-center">
     <?php if (isset($_SESSION['firstname'])) : ?>
-        <h4 class="text-white flex justify-end w-fit mr-2 whitespace-nowrap" title="is it you?"><?php echo  '<b>'. greetings($_SESSION['firstname']) .'</b>' ?></h4>
+        <h4 class="text-white flex justify-end w-fit mr-2 whitespace-nowrap " title="is it you?"><?php echo  '<b>'. greetings($_SESSION['firstname']) .'</b>' ?></h4>
     <?php endif; ?>
-    <button @click="isOpen = !isOpen" class="realtive z-10 w-12 h-12 rounded-full overflow-hidden border-4 border-gray-400 hover:border-gray-300 focus:border-gray-300 focus:outline-none">
+    <button @click="isOpen = !isOpen" class="relative z-10 w-12 h-12 rounded-full overflow-hidden border-4 border-gray-400 hover:border-gray-300 focus:border-gray-300 focus:outline-none">
         <img src="<?php echo URLROOT; ?>/public/img/user.png">
     </button>
     <button x-show="isOpen" @click="isOpen = false" class="h-full w-full fixed inset-0 cursor-default"></button>
