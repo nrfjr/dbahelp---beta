@@ -112,5 +112,23 @@ class Performances extends Controller{
 
         $this->view('oracle/performance/tablestatistics', $data);
     }
+    public function dynacomp($DB)
+    {
+        $_SESSION['PerformanceDB'] = $DB;
+
+        if (isset($_SESSION['PerformanceDB'])){
+            $this->db = $_SESSION['PerformanceDB'];
+        }
+
+        $result = $this->performanceModel->getDynaComponents($this->db);
+
+        if ($result){
+            $data = $result;
+        }else{
+            $data = [];
+        }
+
+        $this->view('oracle/performance/dynacomp', $data);
+    }
     
 }

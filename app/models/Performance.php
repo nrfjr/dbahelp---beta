@@ -126,4 +126,19 @@ class Performance{
             return false;
         }
     }
+
+    public function getDynaComponents($db)
+    {
+        $this->db = new OracleDatabase($db);
+        $query = $this->fm->loadSQL('get_SGADynamicComponents');
+        $this->db->query($query);
+
+        $result = $this->db->resultSet();
+
+        if ($result) {
+            return $result;
+        } else {
+            return false;
+        }
+    }
 }

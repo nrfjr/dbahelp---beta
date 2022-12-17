@@ -1,6 +1,6 @@
 SELECT 
     ROWNUM AS "No.", 
-    ID AS "Employee ID", 
+    ID, 
     USERNAME AS "Username", 
     PASSWORD AS "Password", 
     DB_NAME AS "DB Name", 

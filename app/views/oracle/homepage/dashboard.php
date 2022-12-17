@@ -14,7 +14,7 @@ require APPROOT . '/views/inc/sidebar.php';
   $FRA_Size = $FRA['FRA Size'];
   $FRA_Usage = $FRA['FRA Usage'];
   $FRA_Percent = $FRA['FRA Percentage'];
-  $DBStatus = $data['DB Status'];
+  $DBPerfStatus = $data['DB Status'];
   $DBInfo = $data['DB Info'];
   $LockedSessions = $data['Locked Sessions'];
   $TempTS = $data['Temp TS'];
@@ -22,7 +22,7 @@ require APPROOT . '/views/inc/sidebar.php';
   ?>
 
   <div class="hidden" id="Sessions"><?php echo $Sessions; ?></div>
-  <div class="hidden" id="DBStatus"><?php echo $DBStatus; ?></div>
+  <div class="hidden" id="DBPerfStatus"><?php echo $DBPerfStatus; ?></div>
   <div class="hidden" id="DBInfoArray"><?php foreach ($DBInfo as $i) {
                                           echo $i . '/';
                                         } ?></div>
@@ -304,7 +304,7 @@ require APPROOT . '/views/inc/sidebar.php';
   <!--RealLine-->
 
   <script>
-    var Sessions, DBStatus, DBInfo, TotalSes, InactiveSes, SystemSes;
+    var Sessions, DBPerfStatus, DBInfo, TotalSes, InactiveSes, SystemSes;
     var DBInfoArray;
 
     setInterval(() => {
@@ -315,7 +315,7 @@ require APPROOT . '/views/inc/sidebar.php';
           
           Sessions = jQuery(response).find('#Sessions').html();
 
-          DBStatus = jQuery(response).find('#DBStatus').html();
+          DBPerfStatus = jQuery(response).find('#DBPerfStatus').html();
 
           DBInfoArray = jQuery(response).find('#DBInfoArray').html();
 
@@ -325,7 +325,7 @@ require APPROOT . '/views/inc/sidebar.php';
           InactiveSes = DBInfo[4];
           SystemSes = DBInfo[5];
 
-          document.getElementById('DBSTATUS').innerHTML = DBStatus;
+          document.getElementById('DBPerfStatus').innerHTML = DBPerfStatus;
           document.getElementById('Active_Num').innerHTML = Sessions === null ? 'Fetching...' : Sessions;
           document.getElementById('TotalSes').innerHTML = TotalSes;
           document.getElementById('InactiveSes').innerHTML = InactiveSes;
@@ -438,7 +438,7 @@ require APPROOT . '/views/inc/sidebar.php';
 
     <!-- DB Statuses -->
     <div class="w-full box rounded-lg text-md justify-center items-center db-stat">
-      <h5 class="text-white font-bold">Hostname: <span id="DBStatusTitle" class="underline"><?php echo $DBInfo['Hostname']; ?></span></h5>
+      <h5 class="text-white font-bold">Hostname: <span id="DBPerfStatusTitle" class="underline"><?php echo $DBInfo['Hostname']; ?></span></h5>
       <table>
         <tr title="Flash Recovery Area Size">
           <th>FRA Size: </th>
@@ -472,7 +472,7 @@ require APPROOT . '/views/inc/sidebar.php';
         </tr>
         <tr title="Database Performance">
           <th>DB Performance Status: </th>
-          <td class="text-red-500"><span id="DBSTATUS"><?php echo $DBStatus; ?></span></td>
+          <td class="text-red-500"><span id="DBPerfStatus"><?php echo $DBPerfStatus; ?></span></td>
         </tr>
       </table>
     </div>

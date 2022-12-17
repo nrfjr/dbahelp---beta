@@ -23,15 +23,15 @@ require APPROOT . '/views/inc/sidebar.php'; ?>
         <div class="pt-24 px-8 pb-8 relative flex lg:flex-row items-center justify-evenly gap-6 h-fit xl:h-1/2 w-full">
             <div class="flex gap-6 w-full justify-between">
                 <div class="border rounded-lg shadow-inner flex flex-col bg-gradient-to-r from-red-100 via-gray-100 to-indigo-100 w-full h-full p-6">
-                    <font class="text-xs self-start">FIRST NAME</font>
+                    <font class="text-xs self-start">Firstname</font>
                     <font class="font-bold text-lg self-center"><?php echo $data['Firstname'] ?></font>
                 </div>
                 <div class="border rounded-lg shadow-inner flex flex-col bg-gradient-to-r from-red-100 via-gray-100 to-indigo-100 w-full h-full p-6">
-                    <font class="text-xs self-start">MIDDLE NAME</font>
+                    <font class="text-xs self-start">Middlename</font>
                     <font class="font-bold text-lg self-center"><?php echo $data['Middlename'] ?></font>
                 </div>
                 <div class="border rounded-lg shadow-inner flex flex-col bg-gradient-to-r from-red-100 via-gray-100 to-indigo-100 w-full h-full p-6">
-                    <font class="text-xs self-start">LAST NAME</font>
+                    <font class="text-xs self-start">Lastname</font>
                     <font class="font-bold text-lg self-center"><?php echo $data['Lastname'] ?></font>
                 </div>
             </div>
@@ -39,7 +39,7 @@ require APPROOT . '/views/inc/sidebar.php'; ?>
         <div class="px-8 pb-8">
             <div class="flex w-full gap-6 justify-between">
                 <div class="border rounded-lg shadow-inner flex flex-col bg-gradient-to-r from-red-100 via-gray-100 to-indigo-100 w-full h-full p-6">
-                    <font class="text-xs self-start">EMPLOYEE ID</font>
+                    <font class="text-xs self-start">Employee ID</font>
                     <font class="font-bold text-lg self-center"><?php echo $data['User Id'] ?></font>
                 </div>
                 <div class="border rounded-lg shadow-inner flex flex-col bg-gradient-to-r from-red-100 via-gray-100 to-indigo-100 w-full h-full p-6">

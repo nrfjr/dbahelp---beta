@@ -80,6 +80,9 @@
                     <li>
                         <a href="<?php echo URLROOT; ?>/performances/tablestatistics/<?php echo $_SESSION['HomepageDB'] ?>" class="rounded-b-sm block py-2 px-4 hover:bg-gray-400 hover:text-white dark:hover:bg-gray-600 dark:hover:text-white">Table Statistics Status</a>
                     </li>
+                    <li>
+                        <a href="<?php echo URLROOT; ?>/performances/dynacomp/<?php echo $_SESSION['HomepageDB'] ?>" class="rounded-b-sm block py-2 px-4 hover:bg-gray-400 hover:text-white dark:hover:bg-gray-600 dark:hover:text-white">SGA Dynamic Components</a>
+                    </li>
                 </ul>
             </div>
             <!--PERFORMANCE-->
@@ -190,6 +193,9 @@
                             </li>
                             <li>
                                 <a href="<?php echo URLROOT; ?>/performances/tablestatistics/<?php echo $_SESSION['HomepageDB'] ?>" class="rounded-b-sm block py-2 px-4 hover:bg-gray-400 hover:text-white dark:hover:bg-gray-600 dark:hover:text-white">Table Statistics Status</a>
+                            </li>
+                            <li>
+                                <a href="<?php echo URLROOT; ?>/performances/dynacomp/<?php echo $_SESSION['HomepageDB'] ?>" class="rounded-b-sm block py-2 px-4 hover:bg-gray-400 hover:text-white dark:hover:bg-gray-600 dark:hover:text-white">SGA Dynamic Components</a>
                             </li>
                         </ul>
                     </div>

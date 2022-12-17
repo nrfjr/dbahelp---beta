@@ -67,12 +67,12 @@
             return false;
         }
 
-        public function getDBStatus($db)
+        public function getDBPerfStatus($db)
         {
 
             $this->db = new OracleDatabase($db);
 
-            $query = $this->fm->loadSQL('get_DBStatus');
+            $query = $this->fm->loadSQL('get_DBPerfStatus');
 
             $this->db->query($query);
 
@@ -81,7 +81,7 @@
             if (!empty($result)){
 
                 $data = [
-                    'DBSTATUS' => $result['DB STATUS']
+                    'DBPerfStatus' => $result['DB STATUS']
                 ];
 
                 return $data;

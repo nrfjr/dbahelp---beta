@@ -65,7 +65,7 @@ if ($first_locked_displayed === $last_locked_displayed) {
             ?>
                 <table class=" sortable w-full text-sm text-left text-white dark:text-gray-400">
                     <thead class="cursor-pointer text-xs text-black bg-indigo-200 dark:bg-gray-700 dark:text-gray-400 sticky top-0">
-                        <tr class="focus:hover:bg-gray-700 hover:bg-gray-700">
+                        <tr class="focus:hover:bg-gray-700">
                             <?php for ($title = 0; $title <= count($array) - 1; $title++) { ?>
                                 <th scope="col" class="py-2 px-6">
                                     <?php echo $column_names[$title]; ?>
@@ -82,7 +82,7 @@ if ($first_locked_displayed === $last_locked_displayed) {
 
                         foreach ($lockedsessions as $column_title => $value) {
                         ?>
-                            <tr>
+                            <tr class="hover:bg-gray-800">
                                 <?php
                                 foreach ($value as $user) {
                                 ?>
@@ -93,16 +93,16 @@ if ($first_locked_displayed === $last_locked_displayed) {
                                 }
                                 ?>
                                 <td class=" item py-4  px-6 text-center">
-                                <div x-data="{toSubmit: false}" >
+                                <!-- <div x-data="{toSubmit: false}" > -->
                                 <button @click="toSubmit = true" alt="Kill" class="w-fit h-3/4 rounded-full hover:bg-red-200 border-blue-500 md:border-green-500">
                                     <font color="#b00020" title="Kill Session">
                                         <i class="fas fa-times-circle transform scale-150"></i>
                                     </font>
                                 </button>
-                                <button x-show="toSubmit" @click="toSubmit = false" alt="Kill" class="border-blue-500 md:border-green-500">
-                                </button>
+                                <!-- <button x-show="toSubmit" @click="toSubmit = false" alt="Kill" class="border-blue-500 md:border-green-500">
+                                </button> -->
                                 <!-- Delete User Modal -->
-                                <div x-show="toSubmit" class="border-double border-2 border-red-500 absolute left-1/4 top-1/2 z-10" aria-labelledby="modal-title" role="dialog" aria-modal="true">
+                                <!-- <div x-show="toSubmit" class="border-double border-2 border-red-500 absolute left-1/4 top-1/2 z-10" aria-labelledby="modal-title" role="dialog" aria-modal="true">
                                     <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"></div>
                                     <div class="modal fixed fade justify-center mr-48 top-72 w-5/12 h-full outline-none overflow-x-hidden overflow-y-auto" id="ModalCenteredScrollable" tabindex="-1" aria-labelledby="ModalCenteredScrollable" aria-modal="true" role="dialog">
                                         <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable relative pointer-events-none w-auto">
@@ -126,7 +126,7 @@ if ($first_locked_displayed === $last_locked_displayed) {
                                             </div>
                                         </div>
                                     </div>
-                                </div>
+                                </div> -->
                                 <!-- Delete User Modal -->
                             </div>
                                 </td>
