@@ -391,6 +391,10 @@ class Users extends Controller
 
         $result = $this->userModel->getUserDetails($param, 'RMS_getUserDetailsByUsername');
 
+        if($result){
+            $result += ['IP' => $this->getIP()];
+        }
+
         $data = $result;
 
         $this->view('oracle/users/profile', $data);
