@@ -1,0 +1,303 @@
+h1, h2, h3, h4, h5, h6, strong {
+    font-weight: 600;
+}
+
+.box .apexcharts-xaxistooltip {
+    background: #1B213B;
+    color: #fff;
+}
+
+body{
+    min-width: 40rem;
+}
+
+aside{
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    background-color: #2c2f33;
+    z-index: 2;
+}
+
+main{
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+    z-index: 1;
+}
+header,.logo{
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    z-index: 3;
+}
+footer{
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    z-index: 2;
+}
+.content-area {
+    max-width: 1280px;
+    margin: 0 auto;
+}
+
+.columnbox {
+    padding-right: 15px;
+}
+.radialbox {
+    max-height: 333px;
+    margin-bottom: 60px;
+}
+
+.apexcharts-legend-series tspan:nth-child(3) {
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.spinner-border {
+    display: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+    display: none;
+}
+
+/* For IE, Edge and Firefox */
+.scrollbar-hide {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+
+.sm-card{
+    box-shadow: rgba(73, 84, 100, 0.4) 5px 5px, rgba(187, 191, 202, 0.3) 10px 10px, rgba(232, 232, 232, 0.2) 15px 15px;
+    padding: 15px 15px;
+    border-radius: 10px;
+    background-color: #8f99a6;
+    font-size: 100%;
+    text-align: center;
+}
+
+.card{
+    box-shadow: rgba(0, 0, 0, 1) 0px 1px 3px, rgba(0, 0, 0, 1) 0px 1px 2px;
+    padding: 15px 15px;
+    border-radius: 10px;
+    background-color: #8f99a6;
+    margin-top: 5px;
+    font-size: 100%;
+    text-align: center;
+}
+
+.cardp{
+    padding-top: .5rem;
+    padding-bottom: .5rem;
+    
+}
+
+.cardp:first-child{
+    border-bottom: 1px solid #2c2f33;
+}
+
+.cardb{
+    padding: 15px 15px;
+    background-color: #8f99a6;
+    /* margin-top: 5px; */
+    font-size: 100%;
+    text-align: center;
+    
+
+    border-left: 1px solid #2c2f33;
+}
+
+.cardb:first-child{
+    border-left: none;
+}
+
+.cardb,.card p{
+    font-size: small;
+    text-align: start;
+    color: #2c2f33;
+}
+
+.cardb,.card h1{
+    font-size: large;
+    font-weight: bold;
+    text-align: center;
+    color: #000000;
+    overflow-wrap: break-word;
+}
+.chartDonut{
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+}
+.db-stat{
+    box-shadow: rgb(95, 98, 100) 3px 3px 6px 0px inset, rgba(138, 133, 133, 0.5) -3px -3px 6px 1px inset;
+    background-color: #8f99a6;
+    margin-top: .5rem;
+}
+
+.db-stat table{
+    color: #000000;
+    text-align: center;
+    line-height: 2rem;
+    border-radius: 10px;
+    border-collapse: separate;
+    border-spacing: 5px 0;
+}
+.db-stat th{
+    text-align: end;
+    border-right: 1px solid rgba(0,0,0,.2);
+    
+}
+.db-stat td{
+    text-align: start;
+}
+
+.db-stat td span{
+    width:fit-content; 
+    width:-webkit-fit-content; 
+    width:-moz-fit-content;
+    padding-left: .5rem;
+    padding-right: .5rem;
+    border-radius: 5px;
+    box-shadow: rgba(40, 40, 80, 0.25) 0px 4px 8px -2px, rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
+}
+
+
+
+
+@media screen and (min-height: 600px){
+    .maxh{
+        max-height: 20rem;
+    }
+    .widgets{
+        position: absolute;
+        bottom: 0.5rem;
+    }
+}
+@media screen and (min-height: 700px){
+    .maxh{
+        max-height: 24rem;
+    }
+    
+}
+@media screen and (min-height: 768px){
+    .maxh{
+        max-height: 28rem;
+    }
+    .widgets{
+        position: absolute;
+        bottom: 0.5rem;
+    }
+}
+
+@media screen and (min-height: 800px){
+    .widgets{
+        position: absolute;
+        bottom: 0.5rem;
+    }
+    .maxh{
+        max-height: 28rem;
+    }
+}
+@media screen and (min-height: 900px){
+    .maxh{
+        max-height: 29rem;
+    }
+}
+
+@media screen and (min-width: 1280px){
+    .sm-card{
+        box-shadow: rgba(73, 84, 100, 0.4) 5px 5px, rgba(187, 191, 202, 0.3) 10px 10px, rgba(232, 232, 232, 0.2) 15px 15px;
+        padding: 15px 15px;
+        border-radius: 10px;
+        background-color: #8f99a6;
+        font-size: 100%;
+        text-align: center;
+    }
+}
+
+@media (min-width: 1536px) {
+    .sm-card{
+        box-shadow: rgba(73, 84, 100, 0.4) 5px 5px;
+        padding: 15px 15px;
+        border-radius: 10px;
+        background-color: #8f99a6;
+        font-size: 100%;
+        text-align: center;
+    }
+}
+
+@media (min-width: 640px) {
+    .sm-card{
+        box-shadow: rgba(73, 84, 100, 0.4) 5px 5px;
+        padding: 15px 15px;
+        border-radius: 10px;
+        background-color: #8f99a6;
+        font-size: 100%;
+        text-align: center;
+    }
+}
+
+/* quill JS */
+.ql-container.ql-snow{
+     border: none !important;
+}
+.ql-toolbar.ql-snow { 
+    border: none !important;
+}
+
+.slide-in-left{
+    animation: slide-in-left .8s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}
+@keyframes slide-in-left {
+    0% {
+      -webkit-transform: translateX(-1000px);
+              transform: translateX(-1000px);
+      opacity: 0;
+    }
+    100% {
+      -webkit-transform: translateX(0);
+              transform: translateX(0);
+      opacity: 1;
+    }
+}
+.slide-in-right{
+    animation: slide-in-right .8s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}
+@keyframes slide-in-right {
+    0% {
+      -webkit-transform: translateX(1000px);
+              transform: translateX(1000px);
+      opacity: 0;
+    }
+    100% {
+      -webkit-transform: translateX(0);
+              transform: translateX(0);
+      opacity: 1;
+    }
+}
+.slide-out-left{
+    animation: slide-out-left .8s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+}
+@keyframes slide-out-left {
+    0% {
+      -webkit-transform: translateX(0);
+              transform: translateX(0);
+      opacity: 1;
+    }
+    100% {
+      -webkit-transform: translateX(-1000px);
+              transform: translateX(-1000px);
+      opacity: 0;
+    }
+}
+.slide-out-right{
+    animation: slide-out-right .8s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+}
+@keyframes slide-out-right {
+    0% {
+      -webkit-transform: translateX(0);
+              transform: translateX(0);
+      opacity: 1;
+    }
+    100% {
+      -webkit-transform: translateX(1000px);
+              transform: translateX(1000px);
+      opacity: 0;
+    }
+}
+  
