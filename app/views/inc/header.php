@@ -93,6 +93,8 @@
     <script text="text/javascript" src="<?php echo URLROOT.'/public/js/quilljs/quill.js'?>"></script>
     <!-- Table Sort -->
     <script src="<?php echo URLROOT.'/public/js/sortablejs/sortable.js'?>"></script>
+    <!-- DB STAT-Tabslide -->
+    <script type="text/javascript" src="<?php echo URLROOT.'/public/js/dbstats_tabslide.js'?>"></script>
 </head>
 
 <div class="loader">
