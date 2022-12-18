@@ -439,15 +439,15 @@ require APPROOT . '/views/inc/sidebar.php';
     <!-- DB Statuses -->
     <div id="tabs" class="w-full box rounded-lg text-md justify-center items-center" style="padding: 5px 25px 25px ;">
       <div class="flex justify-center px-6">
-        <button onclick="tab1()" class="w-full bg-gray-400 rounded-l-full py-2 hover:bg-gray-800 hover:text-white focus:bg-gray-800 focus:outline-none focus:ring focus:ring-violet-300 focus:z-10 focus:text-white">
+        <button id="tabbtn1" onclick="tab1()" class="w-full transition-all rounded-l-full py-2 hover:bg-gray-800 hover:text-white bg-gray-800 outline-none ring ring-violet-300 z-10 text-white">
           Tab1
         </button>
-        <button onclick="tab2()" class="w-full bg-gray-400 rounded-r-full py-2 hover:bg-gray-800 hover:text-white focus:bg-gray-800 focus:outline-none focus:ring focus:ring-violet-300 focus:z-10 focus:text-white">
+        <button id="tabbtn2" onclick="tab2()" class="w-full transition-all bg-gray-400 rounded-r-full py-2 hover:bg-gray-800 hover:text-white">
           Tab2
         </button>
       </div>
       <div id="maindiv" class="relative overflow-hidden">
-          <div class="inner absolute relative inline-flex h-full w-full transition duration-500 ease-in-out db-stat" >
+          <div class="inner absolute relative inline-flex h-full w-full transition duration-500 ease-in-out db-stat rounded-md" >
             <div id="tabs-1" class="float-left transition-all static w-full slide-in-left">
               <table>
                 <tr title="Flash Recovery Area Size">
