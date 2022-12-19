@@ -97,12 +97,27 @@
     <script type="text/javascript" src="<?php echo URLROOT.'/public/js/dbstats_tabslide.js'?>"></script>
 </head>
 
-<div class="loader">
-            <div>
-                <div class="lds-ripple">
+<div id="loaderz" class="loader">
+            <div class="spinner flex justify-start items-center">
+
+                <svg class="absolute hidden">
+                    <filter id="white-glow" x="-20" y="-20" width="50" height="50" > <feOffset result="offOut" in="SourceGraphic" dx="0" dy="0" /> <feColorMatrix result="matrixOut" in="offOut" type="matrix" values=" 1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 1 0" /> <feGaussianBlur result="blurOut" in="matrixOut" stdDeviation="30" /> <feBlend in="SourceGraphic" in2="blurOut" mode="normal" /> </filter>
+                </svg>
+                <svg>
+                    
+
+                    <circle cx="50%" cy="50%" r="70"></circle>
+                    <circle cx="50%" cy="50%" r="50"></circle>
+                    <circle cx="50%" cy="50%" r="35"></circle>
+                    <circle cx="50%" cy="50%" r="25"></circle>
+                    <circle cx="50%" cy="50%" r="15"></circle>
+                    <circle cx="50%" cy="50%" r="8" filter="url(#white-glow)"></circle>
+                </svg>
+                <!-- <b class="absolute top-1/2 left-1/2">Loading...</b> -->
+                <!-- <div class="lds-ripple">
                     <div></div>
                     <div></div>
-                </div>
+                </div> -->
             </div>
 </div>
 <body class="bg-gray-100 font-family-lexend flex">
