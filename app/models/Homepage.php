@@ -150,5 +150,21 @@
             return 0;
         }
 
+        public function getDBStatus($db)
+        {
+            $this->db = new OracleDatabase($db);
+
+            $query = $this->fm->loadSQL('get_DBStatus');
+
+            $this->db->query($query);
+
+            $result = $this->db->single();
+
+            if (!empty($result)){
+
+                return $result;
+            }
+            return false;
+        }
 
     }

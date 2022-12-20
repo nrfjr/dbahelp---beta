@@ -67,18 +67,7 @@ class User
 
         $this->db = new OracleDatabase($db);
 
-        $rms = $this->db->setProcedure('RMS_upsertToDBAUser(:username, :password)');
-        $rdw = $this->db->setProcedure('RDW_upsertToDBAUser(:username, :password)');
-        $bsp = $this->db->setProcedure('BSP_upsertToDBAUser(:username, :password)');
-
-        if($db == 'RMSPRD'){
-            $query = $rms;
-        }
-        elseif($db == 'RDWPRD'){
-            $query = $rdw;
-        }else{
-            $query = $bsp;
-        }
+        $query = $this->db->setProcedure($db.'_upsertToDBAUser(:username, :password)');
 
         $param = [
             'username' => $username,
@@ -158,7 +147,7 @@ class User
 
         $this->db = new OracleDatabase($db);
 
-        $query = $this->db->setProcedure('RMS_upsertToUserAttrib(:username)');
+        $query = $this->db->setProcedure($db.'_upsertToUserAttrib(:username)');
 
         $param = [
             'username' => $username
@@ -177,7 +166,7 @@ class User
     {
         $this->db = new OracleDatabase($db);
 
-        $query = $this->db->setProcedure('RMS_upsertToIMUserAuth(:username, :password, :firstname, :lastname)');
+        $query = $this->db->setProcedure($db.'_upsertToIMUserAuth(:username, :password, :firstname, :lastname)');
 
         $param = [
             'username' => $data['username'],
@@ -198,7 +187,7 @@ class User
     {
         $this->db = new OracleDatabase($db);
 
-        $query = $this->db->setProcedure('RMS_upsertToIMBRoleMember(:username)');
+        $query = $this->db->setProcedure($db.'_upsertToIMBRoleMember(:username)');
 
         $param = [
             'username' => $username
@@ -216,7 +205,7 @@ class User
     {
         $this->db = new OracleDatabase($db);
 
-        $query = $this->db->setProcedure('RMS_upsertToSecUserGroup(:username)');
+        $query = $this->db->setProcedure($db.'_upsertToSecUserGroup(:username)');
 
         $param = [
             'username' => $username
@@ -256,7 +245,7 @@ class User
 
         $this->db = new OracleDatabase($db);
 
-        $query = $this->db->setProcedure('RMS_upsertToUserAccounts(:id, :firstname, :middlename, :lastname, :password, :username, :status)');
+        $query = $this->db->setProcedure($db.'_upsertToUserAccounts(:id, :firstname, :middlename, :lastname, :password, :username, :status)');
 
         $param = [
             'id' => (int)$data['ID'],
@@ -281,10 +270,7 @@ class User
     {
         $this->db = new OracleDatabase($db);
 
-        $rms = $this->db->setProcedure('RMS_DeactivateUser(:username, :db_name)');
-        $rdw = $this->db->setProcedure('RDW_DeactivateUser(:username, :db_name)');
-
-        $query = $db == 'RMSPRD' ? $rms : $rdw;
+        $query = $this->db->setProcedure($db.'_DeactivateUser(:username, :db_name)');
 
         $param = [
             'username' => $username,
@@ -304,18 +290,7 @@ class User
     {
         $this->db = new OracleDatabase($db);
 
-        $rms = $this->db->setProcedure('RMS_grantUserPrivilege(:username, :password)');
-        $rdw = $this->db->setProcedure('RDW_grantUserPrivilege(:username, :password)');
-        $bsp = $this->db->setProcedure('BSP_grantUserPrivilege(:username, :password)');
-
-        if($db == 'RMSPRD'){
-            $query = $rms;
-        }
-        elseif($db == 'RDWPRD'){
-            $query = $rdw;
-        }else{
-            $query = $bsp;
-        }
+        $query = $this->db->setProcedure($db.'_grantUserPrivilege(:username, :password)');
 
         $param = [
             'username' => $username,

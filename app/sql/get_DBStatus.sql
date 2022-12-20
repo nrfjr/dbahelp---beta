@@ -12,7 +12,7 @@ SELECT * FROM
             TO_CHAR(SUM(BYTES)/POWER(2,30),'fm999999') || ' GB'
             ELSE
             TO_CHAR(SUM(BYTES)/POWER(2,40),'fm999999') || ' TB' 
-            END) AS "Used SGA Size"
+            END) AS "Used SGA"
             FROM V$SGASTAT WHERE NAME != 'free memory'),
 (SELECT     (CASE
             WHEN SUM(BYTES)/POWER(2,10) < 1024 THEN
@@ -24,7 +24,7 @@ SELECT * FROM
             TO_CHAR(SUM(BYTES)/POWER(2,30),'fm999999') || ' GB'
             ELSE
             TO_CHAR(SUM(BYTES)/POWER(2,40),'fm999999') || ' TB' 
-            END) AS "Free SGA Size"
+            END) AS "Free SGA"
             FROM V$SGASTAT WHERE NAME = 'free memory'),
 (SELECT     (CASE
             WHEN SUM(BYTES)/POWER(2,10) < 1024 THEN
@@ -36,5 +36,5 @@ SELECT * FROM
             TO_CHAR(SUM(BYTES)/POWER(2,30),'fm999999') || ' GB'
             ELSE
             TO_CHAR(SUM(BYTES)/POWER(2,40),'fm999999') || ' TB' 
-            END) AS "Total SGA Size"
+            END) AS "Total SGA"
             FROM V$SGASTAT)

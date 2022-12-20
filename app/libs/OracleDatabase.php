@@ -19,18 +19,15 @@ class OracleDatabase implements DBInterface
 
         try {
 
-            if ($dbname === 'RDWPRD') {
-                return new PDO("oci:dbname=" . $this->getTNS(RDW_HOST, DEFAULT_PORT, RDW_SID) . ";charset=utf8", RDW_USERNAME, RDW_PASSWORD, $this->getOption());
-            } elseif ($dbname === 'OFINDB') {
-                return new PDO("oci:dbname=" . $this->getTNS(OFIN_HOST, DEFAULT_PORT, OFIN_SID) . ";charset=utf8", OFIN_USERNAME, OFIN_PASSWORD, $this->getOption());
-            } elseif($dbname === 'BSPIKCONDB'){
-                return new PDO("oci:dbname=" . $this->getTNS(BSPIKCON_HOST, DEFAULT_PORT, BSPIKCON_SID) . ";charset=utf8", ADMIN_USERNAME, ADMIN_PASSWORD, $this->getOption());
+            if (strpos($dbname, 'DB') || strpos($dbname, 'PRD')){
+                return new PDO("oci:dbname=" . $this->getTNS(HOSTS[$dbname], DEFAULT_PORT, SIDS[$dbname]) . ";charset=utf8", ADMIN_USERNAME, ADMIN_PASSWORD, $this->getOption());
             }else{
-                return new PDO("oci:dbname=" . $this->getTNS(RMS_HOST, DEFAULT_PORT, RMS_SID) . ";charset=utf8", ADMIN_USERNAME, ADMIN_PASSWORD, $this->getOption());
+                return new PDO("oci:dbname=" . $this->getTNS(HOSTS['DEFAULT'], DEFAULT_PORT, SIDS['DEFAULT']) . ";charset=utf8", ADMIN_USERNAME, ADMIN_PASSWORD, $this->getOption());
             }
+            
         } catch (PDOException $e) {
 
-            redirect('errors/void');
+           echo $e->getMessage();
         }
     }
 
@@ -56,7 +53,7 @@ class OracleDatabase implements DBInterface
 
         try {
 
-            if (new PDO("oci:dbname=" . $this->getTNS(RMS_HOST, DEFAULT_PORT, RMS_SID) . ";charset=utf8", $username, $password, $this->getOption())) {
+            if (new PDO("oci:dbname=" . $this->getTNS(HOSTS['DEFAULT'], DEFAULT_PORT, 'RMSPRD') . ";charset=utf8", $username, $password, $this->getOption())) {
                 return true;
             }
             return false;
@@ -69,20 +66,11 @@ class OracleDatabase implements DBInterface
     // Prepare statement with query
     public function query($sql)
     {
-        try {
-
             $this->stmt = $this->conn->prepare($sql);
-        } catch (PDOException $e) {
-
-            redirect('errors/void');
-        }
     }
     // Prepare statement with query and parameters
     public function queryWithParam($sql, $param = [])
     {
-
-        try {
-
             $this->stmt = $this->conn->prepare($sql);
 
             foreach ($param as $bindTarget => $ParamValue) {
@@ -93,20 +81,11 @@ class OracleDatabase implements DBInterface
                     $this->stmt->bindValue($bindTarget, $ParamValue);
                 }
             }
-        } catch (PDOException $e) {
-
-            redirect('errors/void');
-        }
     }
     // Execute the prepared statement
     public function execute()
     {
-        try {
-
             return $this->stmt->execute();
-        } catch (\Exception $e) {
-            return false;
-        }
     }
 
     // Get result set as array of objects

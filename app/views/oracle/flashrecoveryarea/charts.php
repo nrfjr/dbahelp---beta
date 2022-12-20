@@ -60,7 +60,7 @@ require APPROOT . '/views/inc/sidebar.php'; ?>
                         </div>
                         <div class="modal-body relative p-4">
                           <font color="black">Enter a value to resize FRA:</font>
-                          <input id="db" name="db" class="hidden"  value="<?php echo $titles[$count]=='OFIN'? $titles[$count].'DB': $titles[$count].'PRD'; ?>">
+                          <input id="db" name="db" class="hidden"  value="<?php echo $titles[$count]?>">
                           <input id="size" name="size" class="ml-4 rounded-md bg-gray-200 text-black px-2" placeholder="eg: 20g, 10m ..." type="number">
                           <select class="ml-4 bg-gray-200 rounded-md px-2 text-black border-none rounded-sm" name="unit" id="unit">
                                                               <option value="g">GB</option>
@@ -80,7 +80,7 @@ require APPROOT . '/views/inc/sidebar.php'; ?>
           </div>
 
           <div>
-            <button class="rounded-lg w-full lg:w-1/2 xl:w-full 2xl:w-1/2 bg-gray-100 hover:bg-gray-500 border-1 border-solid border-gray-900 text-center px-4 py-2"><a href="<?php echo URLROOT; ?>/monitors/redologswitches/<?php echo $titles[$count]=='OFIN'? $titles[$count].'DB': $titles[$count].'PRD'; ?>">Log Switches</a></button>
+            <button class="rounded-lg w-full lg:w-1/2 xl:w-full 2xl:w-1/2 bg-gray-100 hover:bg-gray-500 border-1 border-solid border-gray-900 text-center px-4 py-2"><a href="<?php echo URLROOT; ?>/monitors/redologswitches/<?php echo $titles[$count]?>">Log Switches</a></button>
           </div>
         </div>
       </div>

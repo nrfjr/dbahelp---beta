@@ -1,7 +1,7 @@
 <?php
 $title = 'Dashboard';
 require APPROOT . '/views/inc/header.php';
-require APPROOT . '/views/inc/sidebar.php'; 
+require APPROOT . '/views/inc/sidebar.php';
 ?>
 
 <h1 class="text-3xl text-black mb-5 text-white"><b>Dashboard</b></h1>
@@ -14,10 +14,11 @@ require APPROOT . '/views/inc/sidebar.php';
   $FRA_Size = $FRA['FRA Size'];
   $FRA_Usage = $FRA['FRA Usage'];
   $FRA_Percent = $FRA['FRA Percentage'];
-  $DBPerfStatus = $data['DB Status'];
+  $DBPerfStatus = $data['DB PerfStatus'];
   $DBInfo = $data['DB Info'];
   $LockedSessions = $data['Locked Sessions'];
   $TempTS = $data['Temp TS'];
+  $DBStatus = $data['DB Status'];
 
   ?>
 
@@ -33,7 +34,7 @@ require APPROOT . '/views/inc/sidebar.php';
     <!--Rename for duplicate: chart1, options1-->
     <div class="w-full h-full p-5 rounded-lg mb-2 box relative">
 
-      <div id="linechart" ></div>
+      <div id="linechart"></div>
       <font id="noData" class="z-10 transition absolute top-1/3 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-2xl text-white font-bold">Loading Sessions...</font>
 
       <div class="card grid grid-rows-2 gap-2">
@@ -244,7 +245,7 @@ require APPROOT . '/views/inc/sidebar.php';
           }
         },
         title: {
-          text: '<?php echo $DBInfo['IP Address']; ?> Active Sessions',
+          text: 'Realtime Active Sessions',
           align: 'left',
           style: {
             fontSize: '12px'
@@ -312,7 +313,7 @@ require APPROOT . '/views/inc/sidebar.php';
         url: '../app/controllers/Homepage',
         dataType: 'html',
         success: function(response) {
-          
+
           Sessions = jQuery(response).find('#Sessions').html();
 
           DBPerfStatus = jQuery(response).find('#DBPerfStatus').html();
@@ -436,98 +437,93 @@ require APPROOT . '/views/inc/sidebar.php';
     </div>
     <!--Donuts-->
 
-    <!-- DB Statuses -->
+    <!-- DB PerfStatuses -->
     <div id="tabs" class="w-full box rounded-lg text-md justify-center items-center" style="padding: 5px 25px 25px ;">
       <div class="flex justify-center px-6">
-        <button id="tabbtn1" onclick="tab1()" class="w-full transition-all rounded-l-full py-2 hover:bg-gray-800 hover:text-white bg-gray-800 outline-none ring ring-gray-400 z-10 text-white">
-          Tab1
+      <button id="tabbtn1" onclick="tab1()" class="w-full transition-all rounded-l-full py-2 hover:bg-gray-800 hover:text-white bg-gray-800 outline-none ring ring-gray-400 z-10 text-white">
+          Instance
         </button>
         <button id="tabbtn2" onclick="tab2()" class="w-full transition-all bg-gray-400 rounded-r-full py-2 hover:bg-gray-800 hover:text-white">
-          Tab2
+          Performance
         </button>
       </div>
       <div id="maindiv" class="relative overflow-hidden">
-          <div class="inner absolute relative inline-flex h-full w-full transition duration-500 ease-in-out db-stat rounded-md" >
-            <div id="tabs-1" class="float-left transition-all static w-full slide-in-left">
-              <table>
-                <tr title="Flash Recovery Area Size">
-                  <th>TAB 1FRA Size: </th>
-                  <td><span><?php echo $FRA_Size; ?></span></td>
-                </tr>
-                <tr title="Flash Recovery Area Usage">
-                  <th>FRA Usage: </th>
-                  <td><span><?php echo $FRA_Usage; ?></span></td>
-                </tr>
-                <tr title="Temp Tablespace Free Size">
-                  <th>Temp TS Free: </th>
-                  <td>
-                    <?php foreach ($TempTS as $tsarray => $tsfree) { ?>
-                      <span><?php echo $tsfree['TEMP FREE']; ?></span>
-                      <br>
-                    <?php } ?>
-                  </td>
-                </tr>
-                <tr title="Temp Tablespace Usage Size">
-                  <th>Temp TS Usage: </th>
-                  <td>
-                    <?php foreach ($TempTS as $tsarray => $tsused) { ?>
-                      <span><?php echo $tsused['TEMP USED']; ?></span>
-                      <br>
-                    <?php } ?>
-                  </td>
-                </tr>
-                <tr title="Total Locked Sessions">
-                  <th>Locked Session: </th>
-                  <td><span><?php echo $LockedSessions; ?></span></td>
-                </tr>
-                <tr title="Database Performance">
-                  <th>DB Performance Status: </th>
-                  <td class="text-red-500"><span id="DBPerfStatus"><?php echo $DBPerfStatus; ?></span></td>
-                </tr>
-              </table>
-            </div>
-            <div id="tabs-2" class="float-left transition-all static w-full hidden">
+        <div class="inner absolute relative inline-flex h-full w-full transition duration-500 ease-in-out db-stat rounded-md">
+          <div id="tabs-1" class="float-left transition-all static w-full slide-in-left">
             <table>
-                <tr title="Flash Recovery Area Size">
-                  <th>TAB 2FRA Size: </th>
-                  <td><span><?php echo $FRA_Size; ?></span></td>
-                </tr>
-                <tr title="Flash Recovery Area Usage">
-                  <th>FRA Usage: </th>
-                  <td><span><?php echo $FRA_Usage; ?></span></td>
-                </tr>
-                <tr title="Temp Tablespace Free Size">
-                  <th>Temp TS Free: </th>
-                  <td>
-                    <?php foreach ($TempTS as $tsarray => $tsfree) { ?>
-                      <span><?php echo $tsfree['TEMP FREE']; ?></span>
-                      <br>
-                    <?php } ?>
-                  </td>
-                </tr>
-                <tr title="Temp Tablespace Usage Size">
-                  <th>Temp TS Usage: </th>
-                  <td>
-                    <?php foreach ($TempTS as $tsarray => $tsused) { ?>
-                      <span><?php echo $tsused['TEMP USED']; ?></span>
-                      <br>
-                    <?php } ?>
-                  </td>
-                </tr>
-                <tr title="Total Locked Sessions">
-                  <th>Locked Session: </th>
-                  <td><span><?php echo $LockedSessions; ?></span></td>
-                </tr>
-                <tr title="Database Performance">
-                  <th>DB Performance Status: </th>
-                  <td class="text-red-500"><span id="DBPerfStatus"><?php echo $DBPerfStatus; ?></span></td>
-                </tr>
-              </table>
-            </div>
+              <tr title="DB Instance Name">
+                <th>DB Instance: </th>
+                <td><span><?php echo $DBStatus['DB Name']; ?></span></td>
+              </tr>
+              <tr title="DB Status">
+                <th>DB Status: </th>
+                <td><span><?php echo $DBStatus['DB Status']; ?></span></td>
+              </tr>
+              <tr title="DB Uptime">
+                <th>Uptime: </th>
+                <td>
+                    <span><?php echo $DBStatus['Start Time']; ?></span>
+                </td>
+              </tr>
+              <tr title="Used SGA Size">
+                <th>SGA Usage: </th>
+                <td>
+                    <span><?php echo $DBStatus['Used SGA']; ?></span>
+                </td>
+              </tr>
+              <tr title="Free SGA Size">
+                <th>SGA Free: </th>
+                <td><span><?php echo $DBStatus['Free SGA']; ?></span></td>
+              </tr>
+              <tr title="Total SGA Size">
+                <th>Total SGA: </th>
+                <td>
+                  <span id="DBPerfStatus"><?php echo $DBStatus['Total SGA'];  ?></span></td>
+              </tr>
+            </table>
           </div>
+          <div id="tabs-2" class="float-left transition-all static w-full hidden">
+            <table>
+              <tr title="Flash Recovery Area Size">
+                <th>FRA Size: </th>
+                <td><span><?php echo $FRA_Size; ?></span></td>
+              </tr>
+              <tr title="Flash Recovery Area Usage">
+                <th>FRA Usage: </th>
+                <td><span><?php echo $FRA_Usage; ?></span></td>
+              </tr>
+              <tr title="Temp Tablespace Free Size">
+                <th>Temp TS Free: </th>
+                <td>
+                  <?php foreach ($TempTS as $tsarray => $tsfree) { ?>
+                    <span><?php echo $tsfree['TEMP FREE']; ?></span>
+                    <br>
+                  <?php } ?>
+                </td>
+              </tr>
+              <tr title="Temp Tablespace Usage Size">
+                <th>Temp TS Usage: </th>
+                <td>
+                  <?php foreach ($TempTS as $tsarray => $tsused) { ?>
+                    <span><?php echo $tsused['TEMP USED']; ?></span>
+                    <br>
+                  <?php } ?>
+                </td>
+              </tr>
+              <tr title="Total Locked Sessions">
+                <th>Locked Session: </th>
+                <td><span><?php echo $LockedSessions; ?></span></td>
+              </tr>
+              <tr title="Database Performance">
+                <th>DB Performance: </th>
+                <td class="text-red-500"><span id="DBPerfStatus"><?php echo $DBPerfStatus; ?></span></td>
+              </tr>
+            </table>
+          </div>
+        </div>
       </div>
     </div>
-    <!-- DB Statuses -->
+    <!-- DB PerfStatuses -->
   </div>
 
 </div>

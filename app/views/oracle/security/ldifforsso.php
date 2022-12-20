@@ -9,7 +9,7 @@ require APPROOT . '/views/inc/sidebar.php'; ?>
 
 <div class="bg-gray-400 rounded-lg p-2 h-">
     <form action="<?php echo URLROOT; ?>/securities/download/<?php echo $_SESSION['SecurityDB']; ?>" method="POST">
-        <div id="editor" class="border-none bg-gray-100 rounded-md focus:ring-2">
+        <div id="editor" class="bg-white rounded-md focus:ring-6 focus:ring-blue-400">
             <?php
             $count = 0;
             foreach (new SplFileObject('../public/ldifs/sample.ldif') as $line) {
@@ -32,7 +32,7 @@ require APPROOT . '/views/inc/sidebar.php'; ?>
 function save(){
     var contents = "";
         document.querySelectorAll('p').forEach(p=>{
-            contents +=  p.textContent+'\\n';
+            contents += p.textContent+'\\n';
         })
         document.getElementById("contents").value = contents;
     }

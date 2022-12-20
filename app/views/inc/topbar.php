@@ -12,15 +12,14 @@
     <!-- Dropdown menu -->
     <div id="dropdown-oracle" class="hidden absolute z-10 bg-white rounded-md divide-y divide-gray-100 shadow dark:bg-gray-700">
         <ul class="rounded-md text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefault">
+            <?php foreach(HOSTS as $host => $db){
+                if($host != 'DEFAULT'){
+            ?>
             <li>
-                <form action="<?php echo URLROOT; ?>/homepages/index/RMSPRD" method="POST"><button type="submit" class="block w-full rounded-t-sm py-2 px-4 hover:bg-gray-400 hover:text-white dark:hover:text-white">RMS</button></form>
+                <form action="<?php echo URLROOT; ?>/homepages/index/<?php echo $host?>" method="POST"><button type="submit" class="block w-full rounded-t-sm py-2 px-4 hover:bg-gray-400 hover:text-white dark:hover:text-white"><?php echo $host?></button></form>
             </li>
-            <li>
-                <form action="<?php echo URLROOT; ?>/homepages/index/RDWPRD" method="POST"><button type="submit" class="block py-2 w-full px-4 hover:bg-gray-400 hover:text-white dark:hover:text-white">RDW</button></form>
-            </li>
-            <li>
-                <form action="<?php echo URLROOT; ?>/homepages/index/OFINDB" method="POST"><button type="submit" class="block py-2 w-full rounded-b-sm px-4 hover:bg-gray-400 hover:text-white dark:hover:text-white">OFIN</button></form>
-            </li>
+            <?php }
+            }?>
         </ul>
     </div>
     <!--Oracle Databases-->

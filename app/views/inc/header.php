@@ -8,16 +8,16 @@
     <meta name="description" content="">
     <link rel="icon" href="<?php echo URLROOT; ?>/public/img/kcc.png" />
 
-    <link rel="stylesheet" href="<?php echo URLROOT.'/public/css/extstyle.css'?>"/>
-    <link rel="stylesheet" href="<?php echo URLROOT.'/public/css/body_loader.css'?>"/>
+    <link rel="stylesheet" href="<?php echo URLROOT . '/public/css/extstyle.css' ?>" />
+    <link rel="stylesheet" href="<?php echo URLROOT . '/public/css/body_loader.css' ?>" />
 
     <!-- Tailwind -->
-    <link rel="stylesheet" href="<?php echo URLROOT.'/public/css/tailwindcss/tailwind_2.2.19.css'?>"/>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lexend:400,700&display=swap"/>
+    <link rel="stylesheet" href="<?php echo URLROOT . '/public/css/tailwindcss/tailwind_2.2.19.css' ?>" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lexend:400,700&display=swap" />
     <!-- Quill CSS -->
-    <link rel="stylesheet" href="<?php echo URLROOT.'/public/css/quillcss/quill.snow.css'?>"/>
-    <link rel="stylesheet" href="<?php echo URLROOT.'/public/css/quillcss/quill.bubble.css'?>"/>
-    
+    <link rel="stylesheet" href="<?php echo URLROOT . '/public/css/quillcss/quill.snow.css' ?>" />
+    <link rel="stylesheet" href="<?php echo URLROOT . '/public/css/quillcss/quill.bubble.css' ?>" />
+
     <style>
         .font-family-lexend {
             font-family: lexend;
@@ -59,52 +59,54 @@
             background-color: #2c2f33;
         }
 
-        .top-nav{
+        .top-nav {
             box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
-        } 
+        }
     </style>
     <!-- JQuery -->
-    <script text="text/javascript" src="<?php echo URLROOT.'/public/js/jquery_1.3.0/jquery.min.js'?>"></script>
-    <script text="text/javascript" src="<?php echo URLROOT.'/public/js/jquery_3.2.1/jquery.slim.min.js'?>"></script>
-    <script text="text/javascript" src="<?php echo URLROOT.'/public/js/jquery_1.8.3/jquery.min.js'?>"></script>
+    <script text="text/javascript" src="<?php echo URLROOT . '/public/js/jquery_1.3.0/jquery.min.js' ?>"></script>
+    <script text="text/javascript" src="<?php echo URLROOT . '/public/js/jquery_3.2.1/jquery.slim.min.js' ?>"></script>
+    <script text="text/javascript" src="<?php echo URLROOT . '/public/js/jquery_1.8.3/jquery.min.js' ?>"></script>
     <!-- Body Loader JS -->
-    <script type="text/javascript" src="<?php echo URLROOT.'/public/js/body-loader.js'?>"></script>
+    <script type="text/javascript" src="<?php echo URLROOT . '/public/js/body-loader.js' ?>"></script>
     <!-- Spinner -->
-    <script type="text/javascript" href="<?php echo URLROOT.'/public/js/spinner.js'?>"></script>
+    <script type="text/javascript" href="<?php echo URLROOT . '/public/js/spinner.js' ?>"></script>
     <!-- AlpineJS -->
-    <script text="text/javascript" src="<?php echo URLROOT.'/public/js/alpinejs/alpine_5.3.5.js'?>"></script>
+    <script text="text/javascript" src="<?php echo URLROOT . '/public/js/alpinejs/alpine_5.3.5.js' ?>"></script>
     <!-- Font Awesome -->
-    <script text="text/javascript" src="<?php echo URLROOT.'/public/js/font-awesomejs/font-awesome_5.13.0.js'?>"></script>
+    <script text="text/javascript" src="<?php echo URLROOT . '/public/js/font-awesomejs/font-awesome_5.13.0.js' ?>"></script>
     <!-- ChartJS -->
-    <script text="text/javascript" src="<?php echo URLROOT.'/public/js/chartjs/chart_3.9.1.js'?>"></script>
+    <script text="text/javascript" src="<?php echo URLROOT . '/public/js/chartjs/chart_3.9.1.js' ?>"></script>
     <!--FlowBite-->
-    <script text="text/javascript" src="<?php echo URLROOT.'/public/js/flowbitejs/flowbite_1.5.3.js'?>"></script>
+    <script text="text/javascript" src="<?php echo URLROOT . '/public/js/flowbitejs/flowbite_1.5.3.js' ?>"></script>
     <!--Apex Chart-->
-    <script text="text/javascript" src="<?php echo URLROOT.'/public/js/apexchartjs/apexchart_3.36.2.js'?>"></script>
+    <script text="text/javascript" src="<?php echo URLROOT . '/public/js/apexchartjs/apexchart_3.36.2.js' ?>"></script>
     <!-- Moment -->
-    <script text="text/javascript" src="<?php echo URLROOT.'/public/js/momentjs/moment.js'?>"></script>
+    <script text="text/javascript" src="<?php echo URLROOT . '/public/js/momentjs/moment.js' ?>"></script>
     <!-- Custom Tooltip Position -->
-    <script type="text/javascript" src="<?php echo URLROOT.'/public/js/customtooltip.js'?>"></script>
+    <script type="text/javascript" src="<?php echo URLROOT . '/public/js/customtooltip.js' ?>"></script>
     <!-- SideNavHideFunc -->
-    <script type="text/javascript" src="<?php echo URLROOT.'/public/js/sideNav.js'?>"></script>
+    <script type="text/javascript" src="<?php echo URLROOT . '/public/js/sideNav.js' ?>"></script>
     <!-- SideNavBtnFunc -->
-    <script type="text/javascript" src="<?php echo URLROOT.'/public/js/sidebar-toggle-btn.js'?>"></script>
+    <script type="text/javascript" src="<?php echo URLROOT . '/public/js/sidebar-toggle-btn.js' ?>"></script>
     <!-- Quill JS -->
-    <script text="text/javascript" src="<?php echo URLROOT.'/public/js/quilljs/quill.js'?>"></script>
+    <script text="text/javascript" src="<?php echo URLROOT . '/public/js/quilljs/quill.js' ?>"></script>
     <!-- Table Sort -->
-    <script src="<?php echo URLROOT.'/public/js/sortablejs/sortable.js'?>"></script>
+    <script src="<?php echo URLROOT . '/public/js/sortablejs/sortable.js' ?>"></script>
     <!-- DB STAT-Tabslide -->
-    <script type="text/javascript" src="<?php echo URLROOT.'/public/js/dbstats_tabslide.js'?>"></script>
+    <script type="text/javascript" src="<?php echo URLROOT . '/public/js/dbstats_tabslide.js' ?>"></script>
 </head>
 
 <div id="loaderz" class="loader">
+            <div>
             <div class="spinner flex justify-start items-center">
+                <div class="lds-ripple">
 
                 <svg class="absolute hidden">
                     <filter id="white-glow" x="-20" y="-20" width="50" height="50" > <feOffset result="offOut" in="SourceGraphic" dx="0" dy="0" /> <feColorMatrix result="matrixOut" in="offOut" type="matrix" values=" 1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 1 0" /> <feGaussianBlur result="blurOut" in="matrixOut" stdDeviation="30" /> <feBlend in="SourceGraphic" in2="blurOut" mode="normal" /> </filter>
                 </svg>
                 <svg>
-                    
+
 
                     <circle cx="50%" cy="50%" r="70"></circle>
                     <circle cx="50%" cy="50%" r="50"></circle>
@@ -117,7 +119,12 @@
                 <!-- <div class="lds-ripple">
                     <div></div>
                     <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
                 </div> -->
             </div>
+            </div>
+</div>
 </div>
 <body class="bg-gray-100 font-family-lexend flex">

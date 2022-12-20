@@ -18,7 +18,6 @@
             self::__construct();
   
             $_SESSION['HomepageDB'] = $DB;
-         
 
             if (isset($_SESSION['HomepageDB'])){
                 $this->db = $_SESSION['HomepageDB'];
@@ -29,10 +28,11 @@
             $data = [
                         'Sessions' => $this->homepageModel->getSession($this->db)['Session'],
                         'FRA' => $this->homepageModel->getFRA($this->db),
-                        'DB Status' => $this->homepageModel->getDBPerfStatus($this->db)['DBPerfStatus'],
+                        'DB PerfStatus' => $this->homepageModel->getDBPerfStatus($this->db)['DBPerfStatus'],
                         'DB Info' => $this->homepageModel->getDBInfoSummary($this->db),
                         'Locked Sessions' => $this->homepageModel->getLockedSessionCount($this->db),
-                        'Temp TS' =>$this->homepageModel->getTempTablespaceInfo($this->db)
+                        'Temp TS' =>$this->homepageModel->getTempTablespaceInfo($this->db),
+                        'DB Status' => $this->homepageModel->getDBStatus($this->db)
             ];
 
             $this->view('oracle/homepage/dashboard', $data);

@@ -64,33 +64,12 @@ require APPROOT . '/views/inc/sidebar.php'; ?>
                 <select id="application" name="application" autocomplete="application" class="mt-1 block w-full rounded-md border border-gray-300 bg-white py-2 px-3 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm">
                   <option class="hidden"><?php echo $data != null ? $data['Application'] : 'Select an application.'; ?></option>
                   <?php
-                  $options = [
-                    'RMS' => array('ORMS', 'OREIM', 'ORPM', 'KCS RETAIL', 'CUSTOM APP (OTHERS)'),
-                    'RDW' => array('KCS RETAIL', 'CUSTOM APP (OTHERS)'),
-                    'BSP' => array('BSPI CONCORD')
-                  ];
-
-                  if ($_SESSION['CreateUserDB'] == 'RMSPRD' || $_SESSION['CreateUserDB'] == 'default') {
-
-                    foreach ($options['RMS'] as $option) {
-
+                    foreach (APPS[$_SESSION['CreateUserDB']] as $option) {
                   ?>
-                      <option><?php echo $option; ?></option>
+                                        <option><?php echo $option; ?></option>
                     <?php
                     }
-                  } elseif ($_SESSION['CreateUserDB'] == 'RDWPRD'){
-                    foreach ($options['RDW'] as $option) {
                     ?>
-                      <option><?php echo $option; ?></option>
-                  <?php }
-                    }else{
-                      foreach ($options['BSP'] as $option) {
-                    ?>
-                    <option><?php echo $option; ?></option>
-                  <?php 
-                      }
-                    }
-                  ?>
                 </select>
               </div>
             </div>

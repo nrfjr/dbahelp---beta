@@ -114,7 +114,9 @@ class Users extends Controller
 
                     $this->passUserDetailsToModel($data, $DB);
 
-                    $this->userModel->insertToUserMaster($data, 'RMSPRD');
+                    if($DB == 'RMSPRD' || $DB == 'RDWPRD' || $DB == 'BSPIKCONDB'){
+                        $this->userModel->insertToUserMaster($data, 'RMSPRD');
+                    }
 
                     $data = [];
                 } else {
@@ -167,58 +169,33 @@ class Users extends Controller
             } else {
                 $this->dialog->FAILED('Create User', $DB . 'User creation failed', 'Unable to create user.', '/users/show/default');
             }
-        } elseif ($DB == 'RDWPRD') {
+        } else{
 
             $resultCreatedUser = $this->userModel->createUser($data['username'], $data['password'], $DB);
             $resultGrantUser = $this->userModel->grantUserRole($data['username'], $data['password'], $DB);
 
             if ($resultCreatedUser && $resultGrantUser) {
 
-                $this->printCreatedRDWUser($data, $DB, $resultUsername);
-            } else {
-                $this->dialog->FAILED('Create User', $DB . 'User creation failed', 'Unable to create user.', '/users/show/default');
-            }
-        } elseif ($DB == 'BSPIKCONDB') {
-
-            $resultCreatedUser = $this->userModel->createUser($data['username'], $data['password'], $DB);
-            $resultGrantUser = $this->userModel->grantUserRole($data['username'], $data['password'], $DB);
-
-            if ($resultCreatedUser && $resultGrantUser) {
-
-                $this->printCreatedBSPUser($data, $DB, $resultUsername);
+                $this->printCreatedOtherDBUser($data, $DB, $resultUsername);
             } else {
                 $this->dialog->FAILED('Create User', $DB . 'User creation failed', 'Unable to create user.', '/users/show/default');
             }
         }
     }
-
-    public function printCreatedBSPUser($data, $DB, $isExist)
-    {
-        if ($isExist) {
-
-            $msg = strtoupper($data['ID'] . ' ' . $data['fname'] . ' ' . $data['mname'] . ' ' . $data['lname']) . '<br>Username: ' . $data['username'] . '<br>Password: ' . $data['password'];
-            $this->dialog->SUCCESS('Update User', $DB . ' User has been updated successfully', $msg, '/users/create/RDWPRD');
-        } else {
-
-            $msg = strtoupper($data['ID'] . ' ' . $data['fname'] . ' ' . $data['mname'] . ' ' . $data['lname']) . '<br>Username: ' . $data['username'] . '<br>Password: ' . $data['password'];
-            $this->dialog->SUCCESS('Create User', $DB . ' User created successfully', $msg, '/users/create/RDWPRD');
-        }
-    }
-
 
     // This method is responsible for printing output
     // from database operation of RDW users.
 
-    public function printCreatedRDWUser($data, $DB, $isExist)
+    public function printCreatedOtherDBUser($data, $DB, $isExist)
     {
         if ($isExist) {
 
             $msg = strtoupper($data['ID'] . ' ' . $data['fname'] . ' ' . $data['mname'] . ' ' . $data['lname']) . '<br>Username: ' . $data['username'] . '<br>Password: ' . $data['password'];
-            $this->dialog->SUCCESS('Update User', $DB . ' User has been updated successfully', $msg, '/users/create/RDWPRD');
+            $this->dialog->SUCCESS('Update User', $DB . ' User has been updated successfully', $msg, '/users/show/default');
         } else {
 
             $msg = strtoupper($data['ID'] . ' ' . $data['fname'] . ' ' . $data['mname'] . ' ' . $data['lname']) . '<br>Username: ' . $data['username'] . '<br>Password: ' . $data['password'];
-            $this->dialog->SUCCESS('Create User', $DB . ' User created successfully', $msg, '/users/create/RDWPRD');
+            $this->dialog->SUCCESS('Create User', $DB . ' User created successfully', $msg, '/users/show/default');
         }
     }
 
@@ -243,7 +220,7 @@ class Users extends Controller
 
                 $msg = strtoupper($data['ID'] . ' ' . $data['fname'] . ' ' . $data['mname'] . ' ' . $data['lname']) . '<br>Username: ' . $data['username'] . '<br>Password: ' . $data['password'] . '<br>' . $this->getSameAccessStatus($sameAccessStatus);
 
-                $this->dialog->SUCCESS('Update User', $DB . ' User updated successfully', $msg, '/users/create/RMSPRD');
+                $this->dialog->SUCCESS('Update User', $DB . ' User updated successfully', $msg, '/users/show/default');
             } else {
 
                 //Generate LDIF File after user is created.
