@@ -127,11 +127,6 @@ require APPROOT . '/views/inc/sidebar.php';
               }
 
             });
-
-            const config<?php echo $mountcnt?>= {
-              type: 'doughnut',
-              data: data
-            };
           </script>
       </div>
 
