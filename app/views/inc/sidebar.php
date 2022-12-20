@@ -13,11 +13,7 @@ $url = 'http://' . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
                 <ul>
                     <!--DATABASES-->
                     <li class="flex flex-row">
-                        <a class="flex items-center py-4 pl-6 text-white w-10/12">
-                            <i class="fas fa-warehouse mr-3"></i>
-                            Databases
-                        </a>
-                        <button id="sidenavbtn" onclick="getAria()" type="button" class="flex-auto items-center py-4 hover:bg-gray-300 text-white" aria-expanded="<?php
+                        <button id="sidenavbtn" onclick="getAria()" type="button" class="flex-auto py-4 hover:bg-gray-300 text-white" aria-expanded="<?php
                                                                                                                                 if (preg_match('/dashboard|index|monitor|object|performance|security/', $url)) {
                                                                                                                                     echo 'true';
                                                                                                                                 } else {
@@ -25,7 +21,7 @@ $url = 'http://' . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
                                                                                                                                 } ?>" aria-controls="databases" data-accordion-target="#databases" data-collapse-toggle="databases">
                             <!--Code above is needed for collapse open while select-->
                             <!--Change here for control variables-->
-                            <i id="chevron" class="fas fa-regular fa-chevron-down"></i>                                                                                         
+                            <div class="flex justify-between mx-6"><span><b>Databases</b></span> <i id="chevron" class="mt-1 fas fa-regular fa-chevron-down"></i></div>                                                                                         
                         </button>
                     </li>
                     <ul id="databases" class="hidden py-1  ">
