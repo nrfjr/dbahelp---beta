@@ -8,7 +8,7 @@ $url = 'http://' . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
         <div class="pt-4 px-6 pb-3 logo">
             <a href="<?php echo URLROOT; ?>/homepage/dashboard" class="text-white text-3xl font-semibold hover:text-gray-300"><?php echo SITENAME ?></a>
         </div>
-        <nav class="text-white text-base font-semibold py-2 overflow-y-auto scrollbar-hide maxh">
+        <nav class="text-white text-base font-semibold py-2 overflow-y-auto scrollbar-hide h-max">
             <div id="accordion-open" data-accordion="open">
                 <ul>
                     <!--DATABASES-->
