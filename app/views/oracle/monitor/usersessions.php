@@ -62,7 +62,7 @@ if ($first_user_displayed === $last_user_displayed) {
             </button>
         </div>
     </form>
-    <div style="height: fit-contents; overflow: clip;">
+    <div style="height: fit-content; overflow: clip;">
         <div class="block w-full shadow-md overflow-auto sm:rounded-lg" style="max-height: 64vh;">
             <?php
             if (!empty($usersessions)) {

@@ -64,8 +64,8 @@ if ($first_analysis_displayed === $last_analysis_displayed) {
         </div>
 </div>
 
-<div class="overflow-x-auto relative shadow-md">
-    <div style="height: 72vh; overflow: clip;">
+<div class="overflow-x-auto relative shadow-md rounded-md">
+    <div style="height: fit-content; overflow: clip;">
         <div class="block w-full shadow-md overflow-auto sm:rounded-lg" style="max-height: 72vh;">
             <?php
             if (!empty($analysis)) {

@@ -74,8 +74,8 @@ if ($first_user_displayed === $last_user_displayed) {
             </form>
         </div>
     </div>
-    <div style="height: 65vh; overflow: clip;">
-        <div class="block w-full shadow-md overflow-auto sm:rounded-lg" style="max-height: 98%;">
+    <div style="height: fit-content; overflow: clip;">
+        <div class="block w-full shadow-md overflow-auto sm:rounded-lg" style="max-height: 66vh;">
             <?php
             if (!empty($users)) {
 
@@ -184,7 +184,7 @@ if ($first_user_displayed === $last_user_displayed) {
 
                 if ($total_pages > 1) { ?>
 
-            <nav class="rounded-md shadow-sm absolute right-0 bottom-2" aria-label="Pagination">
+            <nav class="shadow-sm absolute right-0 bottom-2" aria-label="Pagination">
                 <ul class="pagination inline-flex items-center -space-x-px">
 
                     <?php

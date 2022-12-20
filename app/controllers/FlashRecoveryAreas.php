@@ -39,7 +39,7 @@ class FlashRecoveryAreas extends Controller
 
             if (is_numeric($size)) {
 
-                $result = $this->fraModel->resizeRFA($size.$unit, $db);
+                $result = $this->fraModel->resizeFRA($size.$unit, $db);
 
                 if ($result == 1) {
 
@@ -58,7 +58,7 @@ class FlashRecoveryAreas extends Controller
                     );
                 }
             } else {
-                $this->dialog->FAILED('Resize RFA', 'Resizing failed', 'Invalid size', '/flashrecoveryareas/charts');
+                $this->dialog->FAILED('FRA Resize', 'Resizing failed', 'Invalid size', '/flashrecoveryareas/charts');
             }
         }
     }

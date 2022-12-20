@@ -99,8 +99,7 @@
             $this->db->query($query);
 
             $result = $this->db->single();
-            
-            //this line will check if IP address is IPV6 then it will return the ip in config file since the given ip starts in FE80
+
             if(!is_numeric(substr($result['IP Address'], 0, 3))){
                 $result['IP Address'] = HOSTS[$db];
             }

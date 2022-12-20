@@ -33,10 +33,10 @@ class FlashRecoveryArea{
         return false;
     }
 
-    public function resizeRFA($size, $db)
+    public function resizeFRA($size, $db)
     {     
         $this->db = new OracleDatabase($db);  
-        $query=$this->db->setProcedure('resizeRFA(:size)');
+        $query=$this->db->setProcedure('resizeFRA(:size)');
         $param = [
                      'size' => $size
                  ];

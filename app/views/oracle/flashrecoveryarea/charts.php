@@ -41,7 +41,7 @@ require APPROOT . '/views/inc/sidebar.php'; ?>
               <h1 class="text-xl"><?php echo $fras['FRA Reclaimable']; ?></h1>
             </div>
             <div x-data="{resizeFRA: false}">
-              <button @click="resizeFRA = true" alt="Resize FRA" class="rounded-lg w-full lg:w-1/2 xl:w-full 2xl:w-1/2 bg-gray-100 hover:bg-gray-500 border-1 border-solid border-gray-900 text-center px-4 py-2">Resize RFA</button>
+              <button @click="resizeFRA = true" alt="Resize FRA" class="rounded-lg w-full lg:w-1/2 xl:w-full 2xl:w-1/2 bg-gray-100 hover:bg-gray-500 border-1 border-solid border-gray-900 text-center px-4 py-2">Resize FRA</button>
               <button x-show="resizeFRA" @click="resizeFRA = false" alt="Resize FRA" class="border-blue-500 md:border-green-500"></button>
               <!-- Delete User Modal -->
               <div x-show="resizeFRA" class="absolute bg-red-500 w-full z-10" aria-labelledby="modal-title" role="dialog" aria-modal="true">
@@ -54,7 +54,7 @@ require APPROOT . '/views/inc/sidebar.php'; ?>
                       <form action="<?php echo URLROOT; ?>/flashrecoveryareas/resize" method="POST">
                         <div class="modal-header flex flex-shrink-0 items-center justify-between p-4 border-b border-gray-200 rounded-t-md">
                           <h5 class="text-xl font-medium leading-normal text-gray-800" id="exampleModalCenteredScrollableLabel">
-                            <b>Resize <?php echo $titles[$count] ?> RFA</b>
+                            <b>Resize <?php echo $titles[$count] ?> FRA</b>
                           </h5>
                           <button type="button" @click="resizeFRA = false" class="btn-close box-content w-4 h-4 p-1 text-black border-none rounded-none opacity-50 focus:shadow-none focus:outline-none focus:opacity-100 hover:text-black hover:opacity-75 hover:no-underline" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
