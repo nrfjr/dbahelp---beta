@@ -6,38 +6,38 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script text="text/javascript" src="<?php echo URLROOT . '/public/js/alpinejs/alpine.js' ?>" defer></script>
     <link rel="icon" href="<?php echo URLROOT; ?>/public/img/kcc.png" />
-    <link rel="stylesheet" href="<?php echo URLROOT.'/public/css/font-awesome/font-awesome_6.1.1.min.css'?>"/>
-    <link rel="stylesheet" href="<?php echo URLROOT.'/public/css/line-awesome/line-awesome_1.3.0.min.css'?>"/>
-    <link rel="stylesheet" href="<?php echo URLROOT.'/public/css/loginanimatebg.css'?>"/>
-    <link rel="stylesheet" href="<?php echo URLROOT.'/public/css/newyear.css'?>">
+    <link rel="stylesheet" href="<?php echo URLROOT . '/public/css/font-awesome/font-awesome_6.1.1.min.css' ?>" />
+    <link rel="stylesheet" href="<?php echo URLROOT . '/public/css/line-awesome/line-awesome_1.3.0.min.css' ?>" />
+    <link rel="stylesheet" href="<?php echo URLROOT . '/public/css/loginanimatebg.css' ?>" />
+    <link rel="stylesheet" href="<?php echo URLROOT . '/public/css/newyear.css' ?>">
 
-    <script text="text/javascript" src="<?php echo URLROOT.'/public/js/jquery_1.8.3/jquery.min.js'?>"></script>
-    <script text="text/javascript" src="<?php echo URLROOT.'/public/js/partypopper.js'?>"></script>
-    <script text="text/javascript" src="<?php echo URLROOT.'/public/js/alpinejs/alpine.js'?>" defer></script>
-    <script text="text/javascript" src="<?php echo URLROOT.'/public/js/tailwindjs/tailwind.js'?>"></script>
-  
-    <script text="text/javascript" src="<?php echo URLROOT.'/public/js/logingreet.js'?>"></script>
-    <script text="text/javascript" src="<?php echo URLROOT.'/public/js/spinner.js'?>"></script>
-    <script text="text/javascript" src="<?php echo URLROOT.'/public/js/dynamicSeasondetector.js'?>"></script>
-    <script text="text/javascript" src="<?php echo URLROOT.'/public/js/newyear.js'?>"></script>
-    
+    <script text="text/javascript" src="<?php echo URLROOT . '/public/js/jquery_1.8.3/jquery.min.js' ?>"></script>
+    <script text="text/javascript" src="<?php echo URLROOT . '/public/js/partypopper.js' ?>"></script>
+    <script text="text/javascript" src="<?php echo URLROOT . '/public/js/tailwindjs/tailwind.js' ?>"></script>
+
+    <script text="text/javascript" src="<?php echo URLROOT . '/public/js/logingreet.js' ?>"></script>
+    <script text="text/javascript" src="<?php echo URLROOT . '/public/js/spinner.js' ?>"></script>
+    <script text="text/javascript" src="<?php echo URLROOT . '/public/js/dynamicSeasondetector.js' ?>"></script>
+    <script text="text/javascript" src="<?php echo URLROOT . '/public/js/newyear.js' ?>"></script>
+
     <title><?php echo SITENAME ?> | Signin</title>
 
 </head>
 
 <body id="body" onload="newyear();changeSVGonSeason();logingreet();colorChange();" class="h-screen w-full bg-gradient-to-r from-cyan-500 to-indigo-500 overflow-hidden relative">
     <div id="boxcont" class="box z-10">
-        <div id="div1" onclick="colorChange()" class="Odd Div1 text-center"><i id="i1" class="odd fas fa-solid text-8xl font-light"></i></div> 
-        <div id="div2" onclick="colorChange()" class="Even Div2 text-center"><i id="i2" class="even fas fa-solid text-8xl font-light"></i></div>  
-        <div id="div3" onclick="colorChange()" class="Odd Div3 text-center"><i id="i3" class="odd fas fa-solid text-8xl font-light"></i></div>  
-        <div id="div4" onclick="colorChange()" class="Even Div4 text-center"><i id="i4" class="even fas fa-solid text-8xl font-light"></i></div> 
+        <div id="div1" onclick="colorChange()" class="Odd Div1 text-center"><i id="i1" class="odd fas fa-solid text-8xl font-light"></i></div>
+        <div id="div2" onclick="colorChange()" class="Even Div2 text-center"><i id="i2" class="even fas fa-solid text-8xl font-light"></i></div>
+        <div id="div3" onclick="colorChange()" class="Odd Div3 text-center"><i id="i3" class="odd fas fa-solid text-8xl font-light"></i></div>
+        <div id="div4" onclick="colorChange()" class="Even Div4 text-center"><i id="i4" class="even fas fa-solid text-8xl font-light"></i></div>
         <div id="div5" onclick="colorChange()" class="Extra Div5 text-center"><i id="i5" class="extra fas fa-solid text-8xl font-light"></i></div>
-        <div id="div6" onclick="colorChange()" class="Even Div6 text-center"><i id="i6" class="even fas fa-solid text-8xl font-light"></i></div> 
-        <div id="div7" onclick="colorChange()" class="Odd Div7 text-center"><i id="i7" class="odd fas fa-solid text-8xl font-light"></i></div>  
-        <div id="div8" onclick="colorChange()" class="Even Div8 text-center"><i id="i8" class="even fas fa-solid text-8xl font-light"></i></div>  
-        <div id="div9" onclick="colorChange()" class="Extra Div9 text-center"><i id="i9" class="extra fas fa-solid text-8xl font-light"></i></div>   
-        <div id="div10" onclick="colorChange()" class="Even Div10 text-center"><i id="i10" class="even fas fa-solid text-8xl font-light"></i></div>  
+        <div id="div6" onclick="colorChange()" class="Even Div6 text-center"><i id="i6" class="even fas fa-solid text-8xl font-light"></i></div>
+        <div id="div7" onclick="colorChange()" class="Odd Div7 text-center"><i id="i7" class="odd fas fa-solid text-8xl font-light"></i></div>
+        <div id="div8" onclick="colorChange()" class="Even Div8 text-center"><i id="i8" class="even fas fa-solid text-8xl font-light"></i></div>
+        <div id="div9" onclick="colorChange()" class="Extra Div9 text-center"><i id="i9" class="extra fas fa-solid text-8xl font-light"></i></div>
+        <div id="div10" onclick="colorChange()" class="Even Div10 text-center"><i id="i10" class="even fas fa-solid text-8xl font-light"></i></div>
     </div>
     <div id="login" class="flex flex-col-reverse md:flex-row justify-center m-auto pb-20 h-screen items-center">
         <div class="w-1/2 p-6 z-20 mx-auto bg-white rounded-md shadow-lg dark:bg-gray-700 mt-20">
@@ -52,7 +52,7 @@
                                     </b>
                                 </label>
                             </div>
-                            <input id="username" name="username" type="text" onkeyup="this.value = this.value.toUpperCase();" class="relative block w-full appearance-none rounded-sm px-3 py-2 bg-gray-900 text-white placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm" required value="<?php echo $data==null?'':$data['username'];?>">
+                            <input id="username" name="username" type="text" onkeyup="this.value = this.value.toUpperCase();" class="relative block w-full appearance-none rounded-sm px-3 py-2 bg-gray-900 text-white placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm" required value="<?php echo $data == null ? '' : $data['username']; ?>">
                         </div>
                         <div>
                             <div class="pb-1">
@@ -62,7 +62,12 @@
                                     </b>
                                 </label>
                             </div>
-                            <input id="password" name="password" type="password" autocomplete="current-password" class="relative block w-full appearance-none rounded-sm px-3 py-2 bg-gray-900 text-white placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm" required>
+                            <div class="relative" x-data="{ show: true }">
+                                <input id="password" name="password" :type="show ? 'password' : 'text'" autocomplete="current-password" class="relative block w-full appearance-none rounded-sm px-3 py-2 bg-gray-900 text-white placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm" required>
+                                <div class="absolute inset-y-0 right-0 pr-3 flex items-center text-sm leading-5">
+                                    <i class="fa-solid text-gray-400 z-20" @click="show = !show" :class="{' fa-eye': !show, ' fa-eye-slash':show }" title="show/hide password"></i>
+                                </div>
+                            </div>
                             <a href="#" class="text-sm text-indigo-600 hover:text-indigo-500">Forgot your password?</a>
                         </div>
                         <div x-data="{ isClicked: false}" class="mt-6 mb-6">
@@ -84,8 +89,8 @@
                 </form>
                 <div id="tag-logo-cont" class="flex justify-center w-auto p-0 hoverme">
                     <img id="tag-logo" type="button" onclick="partypopper()" draggable="false" class="object-cover my-auto h-30 w-72" src="<?php echo URLROOT; ?>/public/img/kcc-w-tagline.png" alt="company">
-                <?php 
-                    for($i=0; $i<=48; $i++){
+                    <?php
+                    for ($i = 0; $i <= 48; $i++) {
                         echo '<i></i>';
                     }
                     ?>
@@ -98,7 +103,7 @@
         <p class="ml-2 absolute left-0">Copyright &copy; 2022, All Rights reserved</p>
     </footer>
 </body>
-<script text="text/javascript" src="<?php echo URLROOT.'/public/js/loginbgcolorchanger.js'?>"></script>
-<script text="text/javascript" src="<?php echo URLROOT.'/public/js/kit-font-awesomejs/d1a7d83221.js'?>" crossorigin="anonymous"></script>
+<script text="text/javascript" src="<?php echo URLROOT . '/public/js/loginbgcolorchanger.js' ?>"></script>
+<script text="text/javascript" src="<?php echo URLROOT . '/public/js/kit-font-awesomejs/d1a7d83221.js' ?>" crossorigin="anonymous"></script>
 
 </html>
