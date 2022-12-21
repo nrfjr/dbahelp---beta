@@ -74,7 +74,7 @@
     <!-- AlpineJS -->
     <script text="text/javascript" src="<?php echo URLROOT . '/public/js/alpinejs/alpine_5.3.5.js' ?>"></script>
     <!-- Font Awesome -->
-    <script text="text/javascript" src="<?php echo URLROOT . '/public/js/font-awesomejs/font-awesome_5.13.0.js' ?>"></script>
+    <script text="text/javascript" src="<?php echo URLROOT . '/public/js/font-awesomejs/font-awesome_6.2.0.js' ?>"></script>
     <!-- ChartJS -->
     <script text="text/javascript" src="<?php echo URLROOT . '/public/js/chartjs/chart_3.9.1.js' ?>"></script>
     <!--FlowBite-->
