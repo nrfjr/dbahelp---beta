@@ -19,7 +19,7 @@ class OracleDatabase implements DBInterface
 
         try {
 
-            if (strpos($dbname, 'DB') || strpos($dbname, 'PRD')){
+            if (in_array($dbname, array_keys(HOSTS))){
                 return new PDO("oci:dbname=" . $this->getTNS(HOSTS[$dbname], DEFAULT_PORT, SIDS[$dbname]) . ";charset=utf8", ADMIN_USERNAME, ADMIN_PASSWORD, $this->getOption());
             }else{
                 return new PDO("oci:dbname=" . $this->getTNS(HOSTS['DEFAULT'], DEFAULT_PORT, SIDS['DEFAULT']) . ";charset=utf8", ADMIN_USERNAME, ADMIN_PASSWORD, $this->getOption());
