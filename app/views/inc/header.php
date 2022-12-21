@@ -115,14 +115,6 @@
                     <circle cx="50%" cy="50%" r="15"></circle>
                     <circle cx="50%" cy="50%" r="8" filter="url(#white-glow)"></circle>
                 </svg>
-                <!-- <b class="absolute top-1/2 left-1/2">Loading...</b> -->
-                <!-- <div class="lds-ripple">
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                </div>
-                </div> -->
             </div>
             </div>
 </div>

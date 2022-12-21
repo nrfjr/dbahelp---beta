@@ -121,14 +121,14 @@ if ($first_user_displayed === $last_user_displayed) {
                                         <input id="edit_db" name="edit_db" value="<?php echo $value['DB Name'] ?>" class="hidden">
                                         <button type="submit" alt="Edit" class="px-2">
                                             <font color="#005eff" title="Edit User">
-                                                <i class="fas mt-1 fa-pen ml-2 hover:bg-blue-200 rounded-lg w-6 h-6"></i>
+                                                <i class="fas mt-1 fa-user-edit ml-2 hover:bg-blue-200 rounded-lg w-6 h-6"></i>
                                             </font>
                                         </button>
                                     </form>
                                     <div x-data="{toSubmit: false}">
                                         <button @click="toSubmit = true" alt="Delete" class="border-blue-500 md:border-green-500">
-                                            <font color="#b00020" title="Delete User">
-                                                <i class="fas mt-1 fa-trash ml-2 hover:bg-red-200 rounded-lg w-6 h-6"></i>
+                                            <font color="#b00020" title="Deactivate User">
+                                                <i class="fas mt-1 fa-user-times ml-2 hover:bg-red-200 rounded-lg w-6 h-6"></i>
                                             </font>
                                         </button>
                                         <button x-show="toSubmit" @click="toSubmit = false" alt="Delete" class="border-blue-500 md:border-green-500">

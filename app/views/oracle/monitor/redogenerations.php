@@ -103,7 +103,7 @@ $filterPHPArrayToJS = function ($array, $key) {
             curve: 'smooth'
         },
         title: {
-            text: '<?php echo $_SESSION['MonitorDB']; ?> Redo Log Generation per Day',
+            text: '<?php echo $_SESSION['MonitorDB']; ?> Redo Log Switch per Day',
             align: 'left'
         },
         xaxis: {

@@ -21,7 +21,7 @@ $url = 'http://' . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
                                                                                                                                 } ?>" aria-controls="databases" data-accordion-target="#databases" data-collapse-toggle="databases">
                             <!--Code above is needed for collapse open while select-->
                             <!--Change here for control variables-->
-                            <div class="flex justify-between mx-6"><span><b>Databases</b></span> <i id="chevron" class="mt-1 fas fa-regular fa-chevron-down"></i></div>                                                                                         
+                            <div class="flex justify-between mx-6"><span><i class="fas fa-database mr-3"></i><b>Databases</b></span> <i id="chevron" class="mt-1 fa-solid fa-chevron-down"></i></div>                                                                                         
                         </button>
                     </li>
                     <ul id="databases" class="hidden py-1  ">
@@ -94,7 +94,7 @@ $url = 'http://' . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
                                                                                                                                                         } else {
                                                                                                                                                             echo 'opacity-75';
                                                                                                                                                         } ?>">
-                            <i class="fas fa-user-cog mr-3"></i>
+                            <i class="fas fa-users-cog mr-3"></i>
                             Manage Users
                         </a>
                     </li>
@@ -105,7 +105,7 @@ $url = 'http://' . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
                                                                                                                                                         } else {
                                                                                                                                                             echo 'opacity-75';
                                                                                                                                                         } ?>">
-                            <i class="fas fa-phone mr-3"></i>
+                            <i class="fa-solid fa-address-book mr-3"></i>
                             Telephone Directories
                         </a>
                     </li>

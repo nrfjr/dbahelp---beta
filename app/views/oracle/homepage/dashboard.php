@@ -295,7 +295,6 @@ require APPROOT . '/views/inc/sidebar.php';
           }])
           document.getElementById("noData").style.display = "none";
         } else {
-          console.log("no session")
           document.getElementById("noData").style.display = "static";
         }
 
@@ -439,7 +438,7 @@ require APPROOT . '/views/inc/sidebar.php';
 
     <!-- DB PerfStatuses -->
     <div id="tabs" class="w-full box rounded-lg text-md justify-center items-center" style="padding: 5px 25px 25px ;">
-      <div class="flex justify-center px-6">
+      <div class="flex justify-center">
       <button id="tabbtn1" onclick="tab1()" class="w-full transition-all rounded-l-full py-2 hover:bg-gray-800 hover:text-white bg-gray-800 outline-none ring ring-gray-400 z-10 text-white">
           Instance
         </button>

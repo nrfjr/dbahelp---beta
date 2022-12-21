@@ -22,7 +22,7 @@ require APPROOT . '/views/inc/sidebar.php'; ?>
         <div class="col-span-2 lg:col-span-1">
           <canvas id="chartDonut<?php echo $count; ?>"></canvas>
           <div class="mt-4">
-            <p>FRA Location: <span class="text-white text-sm"><?php echo $fras['FRA Location']; ?></span></p>
+            <p class="text-gray-300">FRA Location: <span class="text-white text-sm"><?php echo $fras['FRA Location']; ?></span></p>
           </div>
         </div>
 
