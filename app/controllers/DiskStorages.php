@@ -10,31 +10,16 @@ class DiskStorages extends Controller{
 
     public function diskstorage($host)
     {
-        $data = [
-                    'df' => $this->getDF($this->getDFSource($host))
-        ];
+        $data = $this->getDF($this->getDFSource($host));
         $this->view('oracle/diskstorage/diskstorage', $data);
     }
 
     public function getDFSource($hostname)
     {
-        if ($hostname == 'RMSPRD'){
-            return RMSPRD;
-        }
-        else if ($hostname == 'RDWPRD'){
-            return RDWPRD;
-        }
-        else if ($hostname == 'SIMREIM'){
-            return SIMREIM;
-        }
-        else if ($hostname == 'RPM'){
-            return RPM;
-        }
-        else if ($hostname == 'RMSOID'){
-            return RMSOID;
-        }
-        else{
-            return RMSPRD;
+        if (in_array($hostname, array_keys(DISK))){
+            return DISK[$hostname];
+        }else{
+            return DISK['DEFAULT'];
         }
     }
 
