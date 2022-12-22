@@ -32,7 +32,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 var Default = {
   alwaysOpen: false,
   activeClasses: 'bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-white',
-  inactiveClasses: 'text-white dark:text-gray-400',
+  inactiveClasses: 'text-white opacity-75 dark:text-gray-400',
   onOpen: function onOpen() {},
   onClose: function onClose() {},
   onToggle: function onToggle() {}
@@ -3457,7 +3457,7 @@ function tabs_createClass(Constructor, protoProps, staticProps) { if (protoProps
 var tabs_Default = {
   defaultTabId: null,
   activeClasses: 'text-blue-600 hover:text-blue-600 dark:text-blue-500 dark:hover:text-blue-500 border-blue-600 dark:border-blue-500',
-  inactiveClasses: 'dark:border-transparent text-white hover:text-gray-600 dark:text-gray-400 border-gray-100 hover:border-gray-300 dark:border-gray-700 dark:hover:text-gray-300',
+  inactiveClasses: 'dark:border-transparent text-white opacity-75 hover:text-gray-600 dark:text-gray-400 border-gray-100 hover:border-gray-300 dark:border-gray-700 dark:hover:text-gray-300',
   onShow: function onShow() {}
 };
 
