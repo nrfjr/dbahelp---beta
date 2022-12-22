@@ -10,7 +10,7 @@
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
         </svg></button>
     <!-- Dropdown menu -->
-    <div id="dropdown-oracle" class="hidden absolute z-10 bg-white rounded-md divide-y divide-gray-100 shadow dark:bg-gray-700">
+    <div id="dropdown-oracle" class="hidden absolute z-10 bg-white rounded-md divide-y divide-gray-100 shadow dark:bg-gray-700 max-h-48 overflow-y-auto scrollbar-hide">
         <ul class="rounded-md text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefault">
             <?php foreach(HOSTS as $host => $db){
                 if($host != 'DEFAULT'){
@@ -34,7 +34,7 @@
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
                 </svg></button>
             <!-- Dropdown menu -->
-            <div id="dropdown-monitor" class="hidden absolute z-10 w-44 bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700">
+            <div id="dropdown-monitor" class="hidden absolute z-10 w-44 bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700 max-h-48 overflow-y-auto scrollbar-hide">
                 <ul class="rounded-md text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefault">
                     <li>
                         <a href="<?php echo URLROOT; ?>/monitors/usersessions/<?php echo $_SESSION['HomepageDB'] ?>" class="rounded-t-sm block py-2 px-4 hover:bg-gray-400 hover:text-white dark:hover:bg-gray-600 dark:hover:text-white">User Sessions</a>
@@ -62,7 +62,7 @@
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
                 </svg></button>
             <!-- Dropdown menu -->
-            <div id="dropdown-performance" class="hidden z-10 w-44 bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700">
+            <div id="dropdown-performance" class="hidden z-10 w-44 bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700 max-h-48 overflow-y-auto scrollbar-hide">
                 <ul class="rounded-md text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefault">
                     <li>
                         <a href="<?php echo URLROOT; ?>/performances/pgatargetadvisor/<?php echo $_SESSION['HomepageDB'] ?>" class="rounded-t-sm block py-2 px-4 hover:bg-gray-400 hover:text-white dark:hover:bg-gray-600 dark:hover:text-white">PGA Target Advisor</a>
@@ -93,7 +93,7 @@
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
                 </svg></button>
             <!-- Dropdown menu -->
-            <div id="dropdown-security" class="hidden z-10 w-44 bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700">
+            <div id="dropdown-security" class="hidden z-10 w-44 bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700 max-h-48 overflow-y-auto scrollbar-hide">
                 <ul class="rounded-md text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefault">
                     <li>
                         <a href="<?php echo URLROOT; ?>/securities/roleprivilege/<?php echo $_SESSION['HomepageDB'] ?>" class="rounded-t-sm block py-2 px-4 hover:bg-gray-400 hover:text-white dark:hover:bg-gray-600 dark:hover:text-white">Role & Privilege</a>
@@ -112,7 +112,7 @@
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
                 </svg></button>
             <!-- Dropdown menu -->
-            <div id="dropdown-storage" class="hidden z-10 w-44 bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700">
+            <div id="dropdown-storage" class="hidden z-10 w-44 bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700 max-h-48 overflow-y-auto scrollbar-hide">
                 <ul class="rounded-md text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefault">
                     <li>
                         <a href="<?php echo URLROOT; ?>/storages/dbfilelayout/<?php echo $_SESSION['HomepageDB'] ?>" class="rounded-t-sm block py-2 px-4 hover:bg-gray-400 hover:text-white dark:hover:bg-gray-600 dark:hover:text-white">Database File Layout</a>
@@ -140,7 +140,7 @@
                     <?php echo strpos($url, 'index') ? 'block focus:bg-gray-400 hover:text-black' : 'hidden'; ?>
                     " type="button"><i class="fas fa-wrench"></i></button>
         <!-- Dropdown menu -->
-        <div id="dropdown-tools" class="hidden z-10 w-44 bg-gray-600 rounded divide-y divide-gray-100 shadow dark:bg-gray-700 ">
+        <div id="dropdown-tools" class="hidden z-10 w-44 bg-gray-600 rounded divide-y divide-gray-100 shadow dark:bg-gray-700 max-h-48 overflow-y-auto scrollbar-hide">
             <ul class="rounded-md text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefault">
                 <li>
                     <!--MONITOR-->
