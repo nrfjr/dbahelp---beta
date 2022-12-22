@@ -10,7 +10,7 @@ require APPROOT . '/views/inc/sidebar.php';
     <button onclick="window.location.reload()" class="px-4 py-2 rounded-lg bg-gray-200 hover:bg-gray-500"> Refresh<i class="ml-2 fas fa-redo"></i></button>
 </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-x-10 gap-y-8 justify-center place-content-evenly">
+    <div class="grid grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-x-10 gap-y-8 justify-center place-content-evenly">
       <?php
 
           // get donut array from main array
