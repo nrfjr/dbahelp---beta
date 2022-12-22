@@ -32,7 +32,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 var Default = {
   alwaysOpen: false,
   activeClasses: 'bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-white',
-  inactiveClasses: 'text-gray-500 dark:text-gray-400',
+  inactiveClasses: 'text-white dark:text-gray-400',
   onOpen: function onOpen() {},
   onClose: function onClose() {},
   onToggle: function onToggle() {}
