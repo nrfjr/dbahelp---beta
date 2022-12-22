@@ -13,12 +13,10 @@ require APPROOT . '/views/inc/sidebar.php';
     <div class="grid grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-x-10 gap-y-8 justify-center place-content-evenly">
       <?php
 
-          // get donut array from main array
-            $df = $data['df'];
 
             $mountcnt=0;
 
-            foreach($df as $mount => $size){
+            foreach($data as $mount => $size){
 
             $mountcnt++;
 
