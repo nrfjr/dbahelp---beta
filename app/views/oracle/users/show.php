@@ -46,7 +46,7 @@ if ($first_user_displayed === $last_user_displayed) {
                     Create
                     <i class="fas fa-chevron-down ml-2"></i>
                 </button>
-                <div id="dropdown-createuser" class="whitespace-normal hidden z-10 w-fit bg-white rounded-md divide-y divide-gray-100 shadow dark:bg-gray-700">
+                <div id="dropdown-createuser" class="whitespace-normal hidden z-10 w-fit bg-white rounded-md divide-y divide-gray-100 shadow dark:bg-gray-700 max-h-48 overflow-y-auto scrollbar-hide">
                         <ul class="text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefault">
                             <?php foreach(HOSTS as $host => $db){
                                 if($host != 'DEFAULT'){?>
