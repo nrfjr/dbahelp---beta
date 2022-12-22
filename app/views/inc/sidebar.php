@@ -17,7 +17,7 @@ $url = 'http://' . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
                                                                                                                                 if (preg_match('/dashboard|index|monitor|object|performance|security/', $url)) {
                                                                                                                                     echo 'true';
                                                                                                                                 } else {
-                                                                                                                                    echo ' false';
+                                                                                                                                    echo 'false';
                                                                                                                                 } ?>" aria-controls="databases" data-accordion-target="#databases" data-collapse-toggle="databases">
                             <!--Code above is needed for collapse open while select-->
                             <!--Change here for control variables-->

@@ -53,7 +53,7 @@ class OracleDatabase implements DBInterface
 
         try {
 
-            if (new PDO("oci:dbname=" . $this->getTNS(HOSTS['DEFAULT'], DEFAULT_PORT, 'RMSPRD') . ";charset=utf8", $username, $password, $this->getOption())) {
+            if (new PDO("oci:dbname=" . $this->getTNS(HOSTS['DEFAULT'], DEFAULT_PORT, SIDS['DEFAULT']) . ";charset=utf8", $username, $password, $this->getOption())) {
                 return true;
             }
             return false;

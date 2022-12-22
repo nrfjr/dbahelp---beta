@@ -147,7 +147,7 @@
                     <button id="dropdownDefault" data-dropdown-toggle="dropdown-sm-monitor" data-dropdown-placement="right-start" class="rounded-t-sm mb-1 text-white bg-gray-600 hover:bg-gray-400 hover:text-black focus:ring-4 focus:outline-none focus:ring-gray-800 font-medium rounded-lg text-sm px-4 py-2.5 text-center flex justify-between items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 w-full
                             <!--THIS BELOW CHANGE URL-->
                             <?php echo strpos($url, 'index') ? 'block focus:bg-gray-400 hover:text-black' : 'hidden'; ?>
-                            " type="button">MONITOR<i class="fas fa-regular fa-chevron-right"></i></button>
+                            " type="button">MONITOR<i class="fa-solid fa-chevron-right"></i></button>
                     <!-- Dropdown menu -->
                     <div id="dropdown-sm-monitor" class="hidden absolute z-10 w-44 bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700 left-0">
                         <ul class="rounded-md text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefault">
@@ -174,7 +174,7 @@
                     <!--PERFORMANCE-->
                     <button id="dropdownDefault" data-dropdown-toggle="dropdown-sm-performance" data-dropdown-placement="right-start" class="mb-1 text-white bg-gray-600 hover:bg-gray-400 hover:text-black focus:ring-4 focus:outline-none focus:ring-gray-800 font-medium rounded-lg text-sm px-4 py-2.5 text-center flex justify-between items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 w-full
                             <?php echo strpos($url, 'index') ? 'block focus:bg-gray-400 hover:text-black' : 'hidden'; ?>
-                            " type="button">PERFORMANCE<i class="fas fa-regular fa-chevron-right"></i></button>
+                            " type="button">PERFORMANCE<i class="fa-solid fa-chevron-right"></i></button>
                     <!-- Dropdown menu -->
                     <div id="dropdown-sm-performance" class="hidden z-10 w-44 bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700">
                         <ul class="rounded-md text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefault">
@@ -204,7 +204,7 @@
                     <!--SECURITY-->
                     <button id="dropdownDefault" data-dropdown-toggle="dropdown-sm-security" data-dropdown-placement="right-start" class="mb-1 text-white bg-gray-600 hover:bg-gray-400 hover:text-black focus:ring-4 focus:outline-none focus:ring-gray-800 font-medium rounded-lg text-sm px-4 py-2.5 text-center flex justify-between items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 w-full
                             <?php echo strpos($url, 'index/RMSPRD') ? 'block focus:bg-gray-400 hover:text-black' : 'hidden'; ?>
-                            " type="button">SECURITY<i class="fas fa-regular fa-chevron-right"></i></button>
+                            " type="button">SECURITY<i class="fa-solid fa-chevron-right"></i></button>
                     <!-- Dropdown menu -->
                     <div id="dropdown-sm-security" class="hidden z-10 w-44 bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700">
                         <ul class="rounded-md text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefault">
@@ -222,7 +222,7 @@
                     <!--OBJECTS-->
                     <button id="dropdownDefault" data-dropdown-toggle="dropdown-sm-storage" data-dropdown-placement="right-start" class="rounded-b-sm text-white bg-gray-600 hover:bg-gray-400 hover:text-black focus:ring-4 focus:outline-none focus:ring-gray-800 font-medium rounded-lg text-sm px-4 py-2.5 text-center flex justify-between items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 w-full
                             <?php echo strpos($url, 'index') ? 'block focus:bg-gray-400 hover:text-black' : 'hidden'; ?>
-                            " type="button">STORAGE<i class="fas fa-regular fa-chevron-right"></i></button>
+                            " type="button">STORAGE<i class="fa-solid fa-chevron-right"></i></button>
                     <!-- Dropdown menu -->
                     <div id="dropdown-sm-storage" class="hidden z-10 w-44 bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700">
                         <ul class="rounded-md text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefault">

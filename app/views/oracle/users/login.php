@@ -9,7 +9,6 @@
     <script text="text/javascript" src="<?php echo URLROOT . '/public/js/alpinejs/alpine.js' ?>" defer></script>
     <link rel="icon" href="<?php echo URLROOT; ?>/public/img/kcc.png" />
     <link rel="stylesheet" href="<?php echo URLROOT . '/public/css/font-awesome/font-awesome_6.1.1.min.css' ?>" />
-    <link rel="stylesheet" href="<?php echo URLROOT . '/public/css/line-awesome/line-awesome_1.3.0.min.css' ?>" />
     <link rel="stylesheet" href="<?php echo URLROOT . '/public/css/loginanimatebg.css' ?>" />
     <link rel="stylesheet" href="<?php echo URLROOT . '/public/css/newyear.css' ?>">
 
@@ -65,10 +64,10 @@
                             <div class="relative" x-data="{ show: true }">
                                 <input id="password" name="password" :type="show ? 'password' : 'text'" autocomplete="current-password" class="relative block w-full appearance-none rounded-sm px-3 py-2 bg-gray-900 text-white placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm" required>
                                 <div class="absolute inset-y-0 right-0 pr-3 flex items-center text-sm leading-5">
-                                    <i class="fa-solid text-gray-400 z-20" @click="show = !show" :class="{' fa-eye': !show, ' fa-eye-slash':show }" title="show/hide password"></i>
+                                    <i class="fa-solid fa-eye-slash text-indigo-600 z-20" @click="show = !show" :class="{'fa-eye': !show, ' fa-eye-slash':show }" title="show/hide password"></i>
                                 </div>
                             </div>
-                            <a href="#" class="text-sm text-indigo-600 hover:text-indigo-500">Forgot your password?</a>
+                            <a href="#" onclick="alert('Please contact your Administrator for this concern. Thank you!');" class="text-sm text-indigo-600 hover:text-indigo-500">Forgot your password?</a>
                         </div>
                         <div x-data="{ isClicked: false}" class="mt-6 mb-6">
                             <button onclick="loadit()" type="submit" name="Signin" value="submit" class="group relative flex w-full justify-center rounded-sm border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">

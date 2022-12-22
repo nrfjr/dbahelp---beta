@@ -34,5 +34,16 @@ SELECT
             TO_CHAR(SPACE_USED/POWER(2,30),'fm999999') || ' GB'
             else
             TO_CHAR(SPACE_USED/POWER(2,40),'fm999999') || ' TB' 
-            END) AS "USED", NAME, SPACE_RECLAIMABLE
+            END) AS "USED", NAME, 
+            (CASE
+            WHEN SPACE_RECLAIMABLE/POWER(2,10) < 1024 THEN
+            TO_CHAR(SPACE_RECLAIMABLE/POWER(2,10),'fm999999') || ' KB'
+            when
+            SPACE_RECLAIMABLE/POWER(2,20) < 1024 THEN
+            TO_CHAR(SPACE_RECLAIMABLE/POWER(2,20),'fm999999') || ' MB'
+            when SPACE_RECLAIMABLE/POWER(2,30) < 1024 THEN
+            TO_CHAR(SPACE_RECLAIMABLE/POWER(2,30),'fm999999') || ' GB'
+            else
+            TO_CHAR(SPACE_RECLAIMABLE/POWER(2,40),'fm999999') || ' TB' 
+            END) AS "SPACE_RECLAIMABLE"
                    from     V$RECOVERY_FILE_DEST) b

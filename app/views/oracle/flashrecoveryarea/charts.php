@@ -18,7 +18,7 @@ require APPROOT . '/views/inc/sidebar.php'; ?>
   ?>
 
     <div class="w-full box rounded-lg">
-      <div class="grid grid-cols-3 lg:grid-cols-2 place-center gap-2">
+      <div class="grid grid-cols-3 lg:grid-cols-2 place-center gap-2 overflow-auto">
         <div class="col-span-2 lg:col-span-1">
           <canvas id="chartDonut<?php echo $count; ?>"></canvas>
           <div class="mt-4">
@@ -158,15 +158,9 @@ require APPROOT . '/views/inc/sidebar.php'; ?>
           },
         }
       });
-
-      const configDonut<?php echo $count; ?> = {
-        type: 'doughnut',
-        data: data
-      };
     </script>
 </div>
 <?php
-
     $count++;
   }
 ?>

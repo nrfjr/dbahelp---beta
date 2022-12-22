@@ -97,7 +97,7 @@
     <script type="text/javascript" src="<?php echo URLROOT . '/public/js/dbstats_tabslide.js' ?>"></script>
 </head>
 
-<div id="loaderz" class="loader">
+<div id="loaderz" class="loader cursor-wait">
             <div>
             <div class="spinner flex justify-start items-center">
                 <div class="lds-ripple">

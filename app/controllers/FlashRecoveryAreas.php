@@ -19,12 +19,13 @@ class FlashRecoveryAreas extends Controller
     {
         self::__construct();
 
-        $data = [
-            'RMSPRD' => $this->fraModel->getFRA('RMSPRD'),
-            'RDWPRD' => $this->fraModel->getFRA('RDWPRD'),
-            'OFINDB' => $this->fraModel->getFRA('OFINDB'),
-            'BSPIKCONDB' => $this->fraModel->getFRA('BSPIKCONDB')
-        ];
+        $data = [];
+
+        foreach(array_keys(HOSTS) as $db){
+            if($db != 'DEFAULT'){
+                $data += [$db => $this->fraModel->getFRA($db)];
+            }
+        }
 
         $this->view('oracle/flashrecoveryarea/charts', $data);
     }

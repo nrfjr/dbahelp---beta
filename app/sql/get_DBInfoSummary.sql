@@ -1,8 +1,10 @@
 SELECT 
 
 (CASE 
-    WHEN (select host_name from v$instance where host_name like '%.kccmalls.com')IS NOT NULL THEN
+    WHEN (select host_name from v$instance where host_name like '%.com')IS NOT NULL THEN
     (select host_name from v$instance)
+    WHEN (select host_name from v$instance where host_name like '%.kccmalls')IS NOT NULL THEN
+    (select CONCAT(host_name,'.com') from v$instance)
     ELSE
     CONCAT((select host_name from v$instance), '.kccmalls.com')
 END) AS "Hostname",
@@ -25,4 +27,4 @@ UTL_INADDR.get_host_address AS "IP Address",
 
 (select count(*) from v$session where status = 'INACTIVE') AS "INACTIVE",
 
-(select count(*) SYSTEM from v$session where username is null) AS "SYSTEM" FROM DUAL
+(select count(*) from v$session where username is null) AS "SYSTEM" FROM DUAL
