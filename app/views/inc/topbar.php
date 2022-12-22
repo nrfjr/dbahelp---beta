@@ -140,7 +140,7 @@
                     <?php echo strpos($url, 'index') ? 'block focus:bg-gray-400 hover:text-black' : 'hidden'; ?>
                     " type="button"><i class="fas fa-wrench"></i></button>
         <!-- Dropdown menu -->
-        <div id="dropdown-tools" class="hidden z-10 w-44 bg-gray-600 rounded divide-y divide-gray-100 shadow dark:bg-gray-700 ">
+        <div id="dropdown-tools" class="hidden z-10 w-44 bg-gray-600 rounded divide-y divide-gray-100 shadow dark:bg-gray-700">
             <ul class="rounded-md text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefault">
                 <li>
                     <!--MONITOR-->
@@ -256,41 +256,21 @@
     <!-- Dropdown menu -->
     <div id="dropdown-disk" class="whitespace-normal hidden z-10 w-fit bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700">
         <ul class="rounded-md text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefault">
+            <?php 
+                foreach(DISK as $k => $v){
+                    if($k !='DEFAULT'){
+            ?>
             <li>
-                <a href="<?php echo URLROOT; ?>/diskstorages/diskstorage/RMSPRD">
+                <a href="<?php echo URLROOT; ?>/diskstorages/diskstorage/<?php echo $k;?>">
                     <button type="submit" class="rounded-t-sm block w-full py-2 px-4 hover:bg-gray-400 hover:text-white dark:hover:bg-gray-600 dark:hover:text-white">
-                        192.168.32.184 - RMSPRD
+                        <?php echo $k;?>
                     </button>
                 </a>
             </li>
-            <li>
-                <a href="<?php echo URLROOT; ?>/diskstorages/diskstorage/RDWPRD">
-                    <button type="submit" class="block w-full py-2 px-4 hover:bg-gray-400 hover:text-white dark:hover:bg-gray-600 dark:hover:text-white">
-                        192.168.32.198 - RDWPRD
-                    </button>
-                </a>
-            </li>
-            <li>
-                <a href="<?php echo URLROOT; ?>/diskstorages/diskstorage/RMSOID">
-                    <button type="submit" class="block w-full py-2 px-4 hover:bg-gray-400 hover:text-white dark:hover:bg-gray-600 dark:hover:text-white">
-                        192.168.32.162 - RMS/OID
-                    </button>
-                </a>
-            </li>
-            <li>
-                <a href="<?php echo URLROOT; ?>/diskstorages/diskstorage/SIMREIM">
-                    <button type="submit" class="block w-full py-2 px-4 hover:bg-gray-400 hover:text-white dark:hover:bg-gray-600 dark:hover:text-white">
-                        192.168.32.164 - SIM/REIM
-                    </button>
-                </a>
-            </li>
-            <li>
-                <a href="<?php echo URLROOT; ?>/diskstorages/diskstorage/RPM">
-                    <button type="submit" class="rounded-b-sm block w-full py-2 px-4 hover:bg-gray-400 hover:text-white dark:hover:bg-gray-600 dark:hover:text-white">
-                        192.168.32.165 - RPM
-                    </button>
-                </a>
-            </li>
+            <?php
+                }
+            }
+            ?>
         </ul>
     </div>
     <!--Database Disk-->
