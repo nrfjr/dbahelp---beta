@@ -140,7 +140,7 @@
                     <?php echo strpos($url, 'index') ? 'block focus:bg-gray-400 hover:text-black' : 'hidden'; ?>
                     " type="button"><i class="fas fa-wrench"></i></button>
         <!-- Dropdown menu -->
-        <div id="dropdown-tools" class="hidden z-10 w-44 bg-gray-600 rounded divide-y divide-gray-100 shadow dark:bg-gray-700 max-h-48 overflow-y-auto scrollbar-hide">
+        <div id="dropdown-tools" class="hidden z-10 w-44 bg-gray-600 rounded divide-y divide-gray-100 shadow dark:bg-gray-700 ">
             <ul class="rounded-md text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefault">
                 <li>
                     <!--MONITOR-->
