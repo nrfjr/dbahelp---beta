@@ -67,7 +67,7 @@ class User
 
         $this->db = new OracleDatabase($db);
 
-        $query = $this->db->setProcedure($db.'_upsertToDBAUser(:username, :password)');
+        $query = $this->db->setProcedure('upsertToDBAUser(:username, :password)');
 
         $param = [
             'username' => $username,
@@ -147,7 +147,7 @@ class User
 
         $this->db = new OracleDatabase($db);
 
-        $query = $this->db->setProcedure($db.'_upsertToUserAttrib(:username)');
+        $query = $this->db->setProcedure('upsertToUserAttrib(:username)');
 
         $param = [
             'username' => $username
@@ -166,7 +166,7 @@ class User
     {
         $this->db = new OracleDatabase($db);
 
-        $query = $this->db->setProcedure($db.'_upsertToIMUserAuth(:username, :password, :firstname, :lastname)');
+        $query = $this->db->setProcedure('upsertToIMUserAuth(:username, :password, :firstname, :lastname)');
 
         $param = [
             'username' => $data['username'],
@@ -187,7 +187,7 @@ class User
     {
         $this->db = new OracleDatabase($db);
 
-        $query = $this->db->setProcedure($db.'_upsertToIMBRoleMember(:username)');
+        $query = $this->db->setProcedure('upsertToIMBRoleMember(:username)');
 
         $param = [
             'username' => $username
@@ -205,7 +205,7 @@ class User
     {
         $this->db = new OracleDatabase($db);
 
-        $query = $this->db->setProcedure($db.'_upsertToSecUserGroup(:username)');
+        $query = $this->db->setProcedure('upsertToSecUserGroup(:username)');
 
         $param = [
             'username' => $username
@@ -245,7 +245,7 @@ class User
 
         $this->db = new OracleDatabase($db);
 
-        $query = $this->db->setProcedure($db.'_upsertToUserAccounts(:id, :firstname, :middlename, :lastname, :password, :username, :status)');
+        $query = $this->db->setProcedure('upsertToUserAccounts(:id, :firstname, :middlename, :lastname, :password, :username, :status)');
 
         $param = [
             'id' => (int)$data['ID'],
@@ -270,7 +270,7 @@ class User
     {
         $this->db = new OracleDatabase($db);
 
-        $query = $this->db->setProcedure($db.'_DeactivateUser(:username, :db_name)');
+        $query = $this->db->setProcedure('DeactivateUser(:username, :db_name)');
 
         $param = [
             'username' => $username,
@@ -290,7 +290,7 @@ class User
     {
         $this->db = new OracleDatabase($db);
 
-        $query = $this->db->setProcedure($db.'_grantUserPrivilege(:username, :password)');
+        $query = $this->db->setProcedure('grantUserPrivilege(:username, :password)');
 
         $param = [
             'username' => $username,
