@@ -303,7 +303,7 @@
         <div class="absolute top-0 right-2 transform -translate-x-1/2 -translate-y-1/2 rotate-45 w-4 h-4 bg-gray-800"></div>
         <div class="flex flex-col z-10 justify-between">
         <a href="<?php echo URLROOT; ?>/users/profile" class="block text-gray-300 py-2 text-center z-10 rounded-lg hover:bg-blue-300 hover:text-white">My Profile <i class="fas fa-user-circle"></i></a>
-        <a href="https://192.168.33.156/" target="_blank" class="block text-gray-300 py-2 text-center z-10 rounded-lg hover:bg-blue-300 hover:text-white">Email <i class="ml-8 fas fa-envelope"></i></a>
+        <a href="<?php echo EMAIL_URL; ?>" target="_blank" class="block text-gray-300 py-2 text-center z-10 rounded-lg hover:bg-blue-300 hover:text-white">Email <i class="ml-8 fas fa-envelope"></i></a>
         <a href="<?php echo URLROOT; ?>/users/logout" class="block text-gray-300  py-2 z-10 text-center rounded-lg hover:bg-red-600 hover:text-white">Sign Out <i class="ml-2 fas fa-power-off"></i></a>
         </div>
     </div>

@@ -35,7 +35,7 @@ class FlashRecoveryAreas extends Controller
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
             (int)$size = trim(SANITIZE_INPUT_STRING($_POST['size']));
-            $db = trim(SANITIZE_INPUT_STRING($_POST['db']));
+            $db = trim($_POST['db']);
             $unit = trim(SANITIZE_INPUT_STRING($_POST['unit']));
 
             if (is_numeric($size)) {
