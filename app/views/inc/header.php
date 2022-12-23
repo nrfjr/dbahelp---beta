@@ -130,7 +130,7 @@
                 <p>You are about to perform deletion of the Archives</p>
                 <p>Are you really sure about deleting the Archives of RMSPRD?</p>
             </div>
-            <div class="py-4 flex justify-end gap-6">
+            <div class="py-4 flex justify-end gap-6 items-center">
                 <a href="<?php echo URLROOT; ?>/homepages/delete_archive/<?php echo $_SESSION['HomepageDB']; ?>"><button class="px-4 py-2 bg-red-600 text-white rounded-md">Yes</button></a>
                 <button onclick="delArchiveModalClose()" class="px-4 py-2 border-2 border-gray-200 rounded-md">Cancel</button>
             </div>
