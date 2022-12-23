@@ -95,6 +95,8 @@
     <script src="<?php echo URLROOT . '/public/js/sortablejs/sortable.js' ?>"></script>
     <!-- DB STAT-Tabslide -->
     <script type="text/javascript" src="<?php echo URLROOT . '/public/js/dbstats_tabslide.js' ?>"></script>
+    <!-- Delete Archive Modal -->
+    <script type="text/javascript" src="<?php echo URLROOT . '/public/js/deleteArchivemodal.js' ?>"></script>
 </head>
 
 <div id="loaderz" class="loader cursor-wait">
@@ -120,3 +122,30 @@
 </div>
 </div>
 <body class="bg-gray-100 font-family-lexend flex">
+    <!--Delete Archive Modals-->
+    <div id="delArchivemodal" class=" hidden flex absolute justify-center items-center z-20 h-screen w-screen bg-gray-900 bg-opacity-30">
+        <div id="confirmDelArc" class="flex flex-col bg-white rounded-lg px-4 py-2 z-30 divide-y divide-light-blue-400 ">
+            <div class="py-4 flex justify-between"><b class="text-xl tracking-widest">Delete Archives</b><i class="fa-solid fa-circle-exclamation text-2xl animate-pulse text-red-500"></i></div>
+            <div class="flex flex-col gap-4 py-6 items-center tracking-wide">
+                <p>You are about to perform deletion of the Archives</p>
+                <p>Are you really sure about deleting the Archives of RMSPRD?</p>
+            </div>
+            <div class="py-4 flex justify-end gap-6">
+                <button onclick="delArchiveModalSuccessShow()" class="px-4 py-2 bg-red-600 text-white rounded-md">Yes</button>
+                <button onclick="delArchiveModalClose()" class="px-4 py-2 border-2 border-gray-200 rounded-md">Cancel</button>
+            </div>
+        </div>
+        <!--Modal Show when deletion of archives is successful-->
+        <div id="successDelArc" class="hidden flex flex-col bg-white rounded-lg px-4 py-2 z-30 divide-y divide-light-blue-400">
+            <div class="py-4 flex justify-between"><b class="text-xl tracking-widest">Success</b><i class="fa-solid fa-circle-check text-2xl animate-pulse text-green-500"></i></div>
+            <div class="flex flex-col gap-4 py-6 items-center tracking-wide">
+                <p>Deletion of Archives is successful</p>
+            </div>
+            <div class="py-4 flex justify-end gap-6">
+                <button onclick="successdelArchiveModalClose()" class="px-4 py-2 border-2 border-gray-200 rounded-md">Close
+            </button>
+            </div>
+        </div>
+        <!--Modal Show when deletion of archives is successful-->
+    </div> 
+    <!--Delete Archive Modals--> 
