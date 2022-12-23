@@ -61,6 +61,25 @@ footer{
     scrollbar-width: none;  /* Firefox */
 }
 
+/* Custom style of scrollbars */
+/* width */
+::-webkit-scrollbar {
+    width: 5px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background:#6b7280;
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: rgb(222, 222, 222);
+    border-radius: 5px;
+
+  }
+/* Custom style of scrollbars */
+
 .sm-card{
     box-shadow: rgba(73, 84, 100, 0.4) 5px 5px, rgba(187, 191, 202, 0.3) 10px 10px, rgba(232, 232, 232, 0.2) 15px 15px;
     padding: 15px 15px;
