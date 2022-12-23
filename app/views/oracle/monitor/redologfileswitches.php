@@ -13,7 +13,7 @@ require APPROOT . '/views/inc/sidebar.php'; ?>
 <div class="flex flex-col justify-evenly gap-y-2 xl:h-5/3">
   <div class="h-auto overflow-hidden">
     <h1 class="text-white">Morning Log File Switches Within a Week</h1>
-    <div class="flex gap-2">
+    <div class="flex gap-2 flex-col xl:flex-row">
       <div class="block justify-center w-full shadow-md overflow-auto sm:rounded-lg" style="max-height: 93%;">
         <?php
 
@@ -69,14 +69,14 @@ require APPROOT . '/views/inc/sidebar.php'; ?>
         }
         ?>
       </div>
-      <div id="redologchartAM" class="w-1/2 bg-white rounded-md h-fit">
+      <div id="redologchartAM" class="w-full xl:w-1/2 bg-white rounded-md h-fit">
       </div>
     </div>
   </div>
 
   <div class="h-auto overflow-hidden">
     <h1 class="text-white">Evening Log File Switches Within a Week</h1>
-    <div class="flex gap-2">
+    <div class="flex gap-2 flex-col xl:flex-row">
       <div class="block justify-center w-full shadow-md overflow-auto sm:rounded-lg " style="max-height: 93%;">
         <?php
 
@@ -132,7 +132,7 @@ require APPROOT . '/views/inc/sidebar.php'; ?>
         }
         ?>
       </div>
-      <div id="redologchartPM" class="w-1/2 bg-gray-700 rounded-md h-fit">
+      <div id="redologchartPM" class="w-full xl:w-1/2 bg-gray-700 rounded-md h-fit">
       </div>
     </div>
   </div>
