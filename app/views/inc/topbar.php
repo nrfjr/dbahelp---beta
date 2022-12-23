@@ -101,6 +101,13 @@
                     <li>
                         <a href="<?php echo URLROOT; ?>/securities/ldifforsso/<?php echo $_SESSION['HomepageDB'] ?>" class="rounded-b-sm block py-2 px-4 hover:bg-gray-400 hover:text-white dark:hover:bg-gray-600 dark:hover:text-white">Create LDIF Files for SSO</a>
                     </li>
+                    <li>
+                        <!--The Modal DIV is in the header.php-->
+                        <button onclick="delArchiveModalShow()" class="group flex justify-between w-full text-left rounded-b-sm block py-2 px-4 hover:bg-red-400 hover:text-white dark:hover:bg-gray-600 dark:hover:text-white">
+                            Delete Archive
+                            <i class="group-hover:text-red-700  fa-solid fa-circle-exclamation text-lg animate-pulse text-white"></i>
+                        </button>
+                    </li>
                 </ul>
             </div>
             <!--SECURITY-->
@@ -213,6 +220,13 @@
                             </li>
                             <li>
                                 <a href="<?php echo URLROOT; ?>/securities/ldifforsso/<?php echo $_SESSION['HomepageDB'] ?>" class="rounded-b-sm block py-2 px-4 hover:bg-gray-400 hover:text-white dark:hover:bg-gray-600 dark:hover:text-white">Create LDIF Files For SSO</a>
+                            </li>
+                            <li>
+                                <!--The Modal DIV is in the header.php-->
+                                <button onclick="delArchiveModalShow()" class="group flex justify-between w-full text-left rounded-b-sm block py-2 px-4 hover:bg-red-400 hover:text-white dark:hover:bg-gray-600 dark:hover:text-white">
+                                    Delete Archive
+                                    <i class="group-hover:text-red-700  fa-solid fa-circle-exclamation text-lg animate-pulse text-white"></i>
+                                </button>
                             </li>
                         </ul>
                     </div>
