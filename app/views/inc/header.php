@@ -135,17 +135,5 @@
                 <button onclick="delArchiveModalClose()" class="px-4 py-2 border-2 border-gray-200 rounded-md">Cancel</button>
             </div>
         </div>
-        <!--Modal Show when deletion of archives is successful-->
-        <div id="successDelArc" class="hidden flex flex-col bg-white rounded-lg px-4 py-2 z-30 divide-y divide-light-blue-400">
-            <div class="py-4 flex justify-between"><b class="text-xl tracking-widest">Success</b><i class="fa-solid fa-circle-check text-2xl animate-pulse text-green-500"></i></div>
-            <div class="flex flex-col gap-4 py-6 items-center tracking-wide">
-                <p>Deletion of Archives is successful</p>
-            </div>
-            <div class="py-4 flex justify-end gap-6">
-                <button onclick="successdelArchiveModalClose()" class="px-4 py-2 border-2 border-gray-200 rounded-md">Close
-            </button>
-            </div>
-        </div>
-        <!--Modal Show when deletion of archives is successful-->
     </div> 
     <!--Delete Archive Modals--> 
