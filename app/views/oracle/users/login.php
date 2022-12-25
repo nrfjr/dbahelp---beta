@@ -8,7 +8,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script text="text/javascript" src="<?php echo URLROOT . '/public/js/alpinejs/alpine.js' ?>" defer></script>
     <link rel="icon" href="<?php echo URLROOT; ?>/public/img/kcc.png" />
-    <link rel="stylesheet" href="<?php echo URLROOT . '/public/css/font-awesome/font-awesome_6.1.1.min.css' ?>" />
     <link rel="stylesheet" href="<?php echo URLROOT . '/public/css/loginanimatebg.css' ?>" />
     <link rel="stylesheet" href="<?php echo URLROOT . '/public/css/newyear.css' ?>">
 
@@ -20,6 +19,7 @@
     <script text="text/javascript" src="<?php echo URLROOT . '/public/js/spinner.js' ?>"></script>
     <script text="text/javascript" src="<?php echo URLROOT . '/public/js/dynamicSeasondetector.js' ?>"></script>
     <script text="text/javascript" src="<?php echo URLROOT . '/public/js/newyear.js' ?>"></script>
+    <script text="text/javascript" src="<?php echo URLROOT . '/public/js/font-awesomejs/font-awesome_6.2.1.js'?>"></script>
 
     <title><?php echo SITENAME ?> | Signin</title>
 
@@ -64,7 +64,9 @@
                             <div class="relative" x-data="{ show: true }">
                                 <input id="password" name="password" :type="show ? 'password' : 'text'" autocomplete="current-password" class="relative block w-full appearance-none rounded-sm px-3 py-2 bg-gray-900 text-white placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm" required>
                                 <div class="absolute inset-y-0 right-0 pr-3 flex items-center text-sm leading-5">
-                                    <i class="fa-solid fa-eye-slash text-indigo-600 z-20" @click="show = !show" :class="{'fa-eye': !show, ' fa-eye-slash':show }" title="show/hide password"></i>
+                                    <div @click="show = !show" class="z-20">
+                                        <i class="fa-solid fa-eye-slash text-indigo-600 " :class="{' fa-eye ': !show, ' fa-eye-slash ':show }" title="show/hide password"></i>
+                                    </div>
                                 </div>
                             </div>
                             <a href="#" onclick="alert('Please contact your Administrator for this concern. Thank you!');" class="text-sm text-indigo-600 hover:text-indigo-500">Forgot your password?</a>
@@ -103,6 +105,5 @@
     </footer>
 </body>
 <script text="text/javascript" src="<?php echo URLROOT . '/public/js/loginbgcolorchanger.js' ?>"></script>
-<script text="text/javascript" src="<?php echo URLROOT . '/public/js/kit-font-awesomejs/d1a7d83221.js' ?>" crossorigin="anonymous"></script>
 
 </html>
