@@ -77,7 +77,7 @@ require APPROOT . '/views/inc/sidebar.php'; ?>
             <div>
               <label for="remarks" class="block text-sm font-medium text-gray-700">Remarks</label>
               <div class="mt-1">
-                <input id="remarks" autocomplete="on" name="remarks" rows="3" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm " placeholder="Enter Remarks" value="<?php echo $data != null ? $data['Remarks'] : ''; ?>" ></input>
+                <textarea id="remarks" autocomplete="on" name="remarks" rows="3" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm h-30" placeholder="Enter Remarks"><?php echo $data != null ? $data['Remarks'] : ''; ?></textarea>
               </div>
               <p class="mt-2 text-sm text-gray-500"><em>User account remarks (ie: Access).</em></p>
             </div>

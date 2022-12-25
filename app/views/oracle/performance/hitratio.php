@@ -18,7 +18,7 @@ $current_tab = isset($_GET['tab']) ? $_GET['tab'] : 1;
 
 
     <div class=" border-b border-gray-200 dark:border-gray-700">
-        <ul class="flex flex-wrap -mb-px text-sm font-medium text-center bg-gray-200 rounded-t-lg" id="myTab" data-tabs-toggle="#myTabContent" role="tablist">
+        <ul class="flex flex-wrap -mb-px text-sm font-medium text-centert bg-gray-200 rounded-t-lg" id="myTab" data-tabs-toggle="#myTabContent" role="tablist">
             <li class="mr-2" role="presentation">
                 <button onclick="window.history.replaceState(null, null, '?tab=1')" class="inline-block p-4 rounded-t-lg border-b-2 hover:bg-gray-400" id="buffer-tab" data-tabs-target="#buffer" type="button" role="tab" aria-controls="buffer" aria-selected="<?php echo setSelectTabforHTML(1, $current_tab) ?>">Buffer Cache Hit Ratio</button>
             </li>

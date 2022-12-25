@@ -298,7 +298,7 @@ require APPROOT . '/views/inc/sidebar.php';
           document.getElementById("noData").style.display = "static";
         }
 
-      }, 1000);
+      }, 1000); //Set speed for chartline push
     </script>
   </div>
   <!--RealLine-->
@@ -334,7 +334,7 @@ require APPROOT . '/views/inc/sidebar.php';
       });
 
 
-    }, 15000);
+    }, 5000); // set interval speed for data refresh
   </script>
 
 

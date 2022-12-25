@@ -103,7 +103,7 @@ class Users extends Controller
                 if (!empty($data['fname']) && !empty($data['mname']) && !empty($data['lname']) && !empty($data['ID']) && !empty($data['requestor']) && !empty($data['remarks'])) {
 
                     $username = $this->generateUsername($data['fname'], $data['mname'], $data['lname'], $data['ID']);
-                    $ExistingPasswordByUsername = ($this->userModel->getUsername($username, 'get_Username', 'DEFAULT')) ? $this->userModel->getUsername($username, 'get_Username', 'DEFAULT')['PASSWORD'] : null;
+                    $ExistingPasswordByUsername = ($this->userModel->getUsername($username, 'get_Username', SIDS['DEFAULT'])) ? $this->userModel->getUsername($username, 'get_Username', SIDS['DEFAULT'])['PASSWORD'] : null;
                     $password = ($ExistingPasswordByUsername == null) ?  $this->generatePassword() : $ExistingPasswordByUsername;
 
                     $data += [
