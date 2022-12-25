@@ -43,7 +43,7 @@ class Homepages extends Controller
 
     public function delete_archive($DB)
     {
-        $output = $this->executeCommand(ARCHIVE_HOST, 22, ARCHIVE_USERNAME, ARCHIVE_PASSWORD, ARCHIVE_SCRIPT);
+        $output = $this->executeCommand(ARCHIVE_HOST, is_null(ARCHIVE_PORT)?22:ARCHIVE_PORT, ARCHIVE_USERNAME, ARCHIVE_PASSWORD, ARCHIVE_SCRIPT);
 
         if($output){
             $this->dialog->SUCCESS('Delete Archive', 'Archive has been deleted successfully', 'Archive Deletion script has been executed successfully!', '/homepages/index/'.$DB);
