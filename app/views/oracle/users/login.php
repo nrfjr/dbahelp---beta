@@ -20,12 +20,18 @@
     <script text="text/javascript" src="<?php echo URLROOT . '/public/js/dynamicSeasondetector.js' ?>"></script>
     <script text="text/javascript" src="<?php echo URLROOT . '/public/js/newyear.js' ?>"></script>
     <script text="text/javascript" src="<?php echo URLROOT . '/public/js/font-awesomejs/font-awesome_6.2.1.js'?>"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lexend:400,700&display=swap" />
+    <style>
+        .font-family-lexend {
+            font-family: lexend;
+        }
+    </style>
 
     <title><?php echo SITENAME ?> | Signin</title>
 
 </head>
 
-<body id="body" onload="newyear();changeSVGonSeason();logingreet();colorChange();" class="h-screen w-full bg-gradient-to-r from-cyan-500 to-indigo-500 overflow-hidden relative">
+<body id="body" onload="newyear();changeSVGonSeason();logingreet();colorChange();" class="h-screen w-full bg-gradient-to-r font-family-lexend from-cyan-500 to-indigo-500 overflow-hidden relative">
     <div id="boxcont" class="box z-10">
         <div id="div1" onclick="colorChange()" class="Odd Div1 text-center"><i id="i1" class="odd fas fa-solid text-8xl font-light"></i></div>
         <div id="div2" onclick="colorChange()" class="Even Div2 text-center"><i id="i2" class="even fas fa-solid text-8xl font-light"></i></div>
