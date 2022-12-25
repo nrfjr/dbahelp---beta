@@ -34,15 +34,10 @@ class DiskStorages extends Controller{
 
         return json_decode($contents, true);
         }
-        catch( \Exception $e ){
+        catch( \Exception|\Error|\Throwable|\TypeError $e ){
 
             $this->view('error/error', $data=['link' => '/disktorages/disktorage/default']);
 
-        }
-        catch( \Error $e ){
-
-            $this->view('error/error', $data=['link' => '/disktorages/disktorage/default']);
-            
         }
     }
 

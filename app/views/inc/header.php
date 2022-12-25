@@ -128,7 +128,7 @@
             <div class="py-4 flex justify-between"><b class="text-xl tracking-widest">Delete Archives</b><i class="fa-solid fa-circle-exclamation text-2xl animate-pulse text-red-500"></i></div>
             <div class="flex flex-col gap-4 py-6 items-center tracking-wide">
                 <p>You are about to perform deletion of the Archives</p>
-                <p>Are you really sure about deleting the Archives of RMSPRD?</p>
+                <p>Are you really sure about deleting the Archives of <?php echo $_SESSION['HomepageDB'];?>?</p>
             </div>
             <div class="py-4 flex justify-end gap-6 items-center">
                 <a href="<?php echo URLROOT; ?>/homepages/delete_archive/<?php echo $_SESSION['HomepageDB']; ?>"><button class="w-24 py-2 bg-red-600 text-white rounded-md">Yes</button></a>

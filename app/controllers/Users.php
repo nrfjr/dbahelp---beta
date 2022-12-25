@@ -103,7 +103,7 @@ class Users extends Controller
                 if (!empty($data['fname']) && !empty($data['mname']) && !empty($data['lname']) && !empty($data['ID']) && !empty($data['requestor']) && !empty($data['remarks'])) {
 
                     $username = $this->generateUsername($data['fname'], $data['mname'], $data['lname'], $data['ID']);
-                    $ExistingPasswordByUsername = ($this->userModel->getUsername($username, 'get_Username', 'RMSPRD')) ? $this->userModel->getUsername($username, 'get_Username', 'RMSPRD')['PASSWORD'] : null;
+                    $ExistingPasswordByUsername = ($this->userModel->getUsername($username, 'get_Username', 'DEFAULT')) ? $this->userModel->getUsername($username, 'get_Username', 'DEFAULT')['PASSWORD'] : null;
                     $password = ($ExistingPasswordByUsername == null) ?  $this->generatePassword() : $ExistingPasswordByUsername;
 
                     $data += [
@@ -114,8 +114,8 @@ class Users extends Controller
 
                     $this->passUserDetailsToModel($data, $DB);
 
-                    if($DB == 'RMSPRD' || $DB == 'RDWPRD' || $DB == 'BSPIKCONDB'){
-                        $this->userModel->insertToUserMaster($data, 'RMSPRD');
+                    if(in_array($DB, USER_MASTER)){
+                        $this->userModel->insertToUserMaster($data, 'DEFAULT');
                     }
 
                     $data = [];
@@ -177,6 +177,7 @@ class Users extends Controller
             if ($resultCreatedUser && $resultGrantUser) {
 
                 $this->printCreatedOtherDBUser($data, $DB, $resultUsername);
+
             } else {
                 $this->dialog->FAILED('Create User', $DB . 'User creation failed', 'Unable to create user.', '/users/show/default');
             }

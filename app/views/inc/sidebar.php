@@ -5,8 +5,8 @@ $url = 'http://' . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
 
 <aside id="myNav" class="hidden fixed md:relative h-screen w-64 md:block overflow-y-auto scrollbar-hide transition ease-in-out delay-150">
     <div>
-        <div class="pt-4 px-6 pb-3 logo">
-            <a href="<?php echo URLROOT; ?>/homepage/dashboard" class="text-white text-3xl font-semibold hover:text-gray-300"><?php echo SITENAME ?></a>
+        <div class="pt-4 px-6 pb-3 logo" title="Sitename">
+            <a href="<?php echo URLROOT; ?>/homepage/dashboard" class="text-white text-3xl font-semibold hover:text-gray-300 flex justify-between"><?php echo SITENAME ?><i class="mt-1.5 fa-solid fa-handshake-angle"></i></a>
         </div>
         <nav class="text-white text-base font-semibold py-2 overflow-y-auto scrollbar-hide h-max">
             <div id="accordion-open" data-accordion="open">

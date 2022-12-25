@@ -43,28 +43,24 @@ class Homepages extends Controller
 
     public function delete_archive($DB)
     {
-        $output = array();
-
-        $sshConn = ssh2_connect(ARCHIVE_HOST, 22);
-        usleep(100);
-
-        ssh2_auth_password($sshConn, ARCHIVE_USERNAME, ARCHIVE_PASSWORD);
-        $shell = ssh2_exec($sshConn, ARCHIVE_SCRIPT);
-
-        usleep(100);
-        $count = 0;
-        while ($count < 10){
-            sleep(1);
-            while (($line = fgets($shell))) {
-                array_push($output, $line);
-            }
-            $count++;
-        }
+        $output = $this->executeCommand(ARCHIVE_HOST, 22, ARCHIVE_USERNAME, ARCHIVE_PASSWORD, ARCHIVE_SCRIPT);
 
         if($output){
             $this->dialog->SUCCESS('Delete Archive', 'Archive has been deleted successfully', 'Archive Deletion script has been executed successfully!', '/homepages/index/'.$DB);
         }else{
             $this->dialog->FAILED('Delete Archive', 'Archive deletion failed', 'Archive Deletion script has failed to execute.', '/homepages/index/'.$DB);
         }
+    }
+
+    public function executeCommand($host, $port, $username, $password, $command) {
+        $connection = ssh2_connect($host, $port);
+        if (ssh2_auth_password($connection, $username, $password)) {
+            $stream = ssh2_exec($connection, $command);
+            stream_set_blocking($stream, true);
+            $response = stream_get_contents($stream);
+            fclose($stream);
+            return $response;
+        }
+        return false;
     }
 }
