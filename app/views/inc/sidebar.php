@@ -5,15 +5,15 @@ $url = 'http://' . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
 
 <aside id="myNav" class="hidden fixed md:relative h-screen w-64 md:block overflow-y-auto scrollbar-hide transition ease-in-out delay-150">
     <div>
-        <div class="pt-4 px-6 pb-3 logo" title="Sitename">
-            <a href="<?php echo URLROOT; ?>/homepage/dashboard" class="text-white text-3xl font-semibold hover:text-gray-300 flex justify-between"><?php echo SITENAME ?><i class="mt-1.5 fa-solid fa-handshake-angle"></i></a>
+        <div class="pt-4 px-2 pb-3 logo" title="Sitename">
+            <a href="<?php echo URLROOT; ?>/homepage/dashboard" class="text-white text-3xl font-semibold rounded-sm hover:bg-gray-600 flex justify-center"><?php echo SITENAME ?><i class="ml-2 mt-1.5 fa-solid fa-handshake-angle"></i></a>
         </div>
         <nav class="text-white text-base font-semibold py-2 overflow-y-auto scrollbar-hide h-max">
             <div id="accordion-open" data-accordion="open">
                 <ul>
                     <!--DATABASES-->
                     <li class="flex flex-row">
-                        <button id="sidenavbtn" onclick="getAria()" type="button" class="flex-auto py-4 hover:bg-gray-300 text-white" aria-expanded="<?php
+                        <button id="sidenavbtn" onclick="getAria()" type="button" class="flex-auto py-4 rounded-sm mx-2 mb-1 hover:bg-gray-600 text-white" aria-expanded="<?php
                                                                                                                                 if (preg_match('/dashboard|index|monitor|object|performance|security/', $url)) {
                                                                                                                                     echo 'true';
                                                                                                                                 } else {
@@ -26,7 +26,7 @@ $url = 'http://' . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
                     </li>
                     <ul id="databases" class="hidden py-1  ">
                         <li>
-                            <a href="<?php echo URLROOT; ?>/homepage/dashboard" class="flex items-center hover:opacity-100 py-4 pl-12 nav-item text-white <?php if (preg_match('/dashboard|index/', $url)) {
+                            <a href="<?php echo URLROOT; ?>/homepage/dashboard" class="flex rounded-sm mx-2 mb-1 items-center hover:opacity-100 py-4 pl-12 nav-item text-white <?php if (preg_match('/dashboard|index/', $url)) {
                                                                                                                                                                 echo 'active-nav-link ';
                                                                                                                                                             } else {
                                                                                                                                                                 echo 'opacity-75';
@@ -35,7 +35,7 @@ $url = 'http://' . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
                                 ORACLE
                             </a>
                         <li>
-                            <a href="#" class="flex items-center hover:opacity-100 py-4 pl-12 nav-item text-white <?php if (strpos($url, 'mssql')) {
+                            <a href="#" class="flex items-center rounded-sm mx-2 mb-1 hover:opacity-100 py-4 pl-12 nav-item text-white <?php if (strpos($url, 'mssql')) {
                                                                                                                                                                 echo 'active-nav-link ';
                                                                                                                                                             } else {
                                                                                                                                                                 echo 'opacity-75';
@@ -45,7 +45,7 @@ $url = 'http://' . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
                             </a>
                         </li>
                         <li>
-                            <a href="#" class="flex items-center hover:opacity-100 py-4 pl-12 nav-item text-white <?php if (strpos($url, 'mariadb')) {
+                            <a href="#" class="flex items-center rounded-sm mx-2 mb-1 hover:opacity-100 py-4 pl-12 nav-item text-white <?php if (strpos($url, 'mariadb')) {
                                                                                                                                                                 echo 'active-nav-link ';
                                                                                                                                                             } else {
                                                                                                                                                                 echo 'opacity-75';
@@ -55,7 +55,7 @@ $url = 'http://' . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
                             </a>
                         </li>
                         <li>
-                            <a href="#" class="flex items-center hover:opacity-100 py-4 pl-12 nav-item text-white <?php if (strpos($url, 'mariadb')) {
+                            <a href="#" class="flex items-center rounded-sm mx-2 mb-1 hover:opacity-100 py-4 pl-12 nav-item text-white <?php if (strpos($url, 'mariadb')) {
                                                                                                                                                                 echo 'active-nav-link ';
                                                                                                                                                             } else {
                                                                                                                                                                 echo 'opacity-75';
@@ -68,7 +68,7 @@ $url = 'http://' . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
                     <!--DASHBOARD-->
 
                     <li>
-                        <a href="<?php echo URLROOT; ?>/diskstorages/diskstorage/default" class="flex items-center py-4 pl-6 nav-item text-white <?php if (strpos($url, 'diskstorage')) {
+                        <a href="<?php echo URLROOT; ?>/diskstorages/diskstorage/default" class="flex items-center hover:opacity-100 rounded-sm mx-2 mb-1 py-4 pl-6 nav-item text-white <?php if (strpos($url, 'diskstorage')) {
                                                                                                                                                         echo 'active-nav-link';
                                                                                                                                                     } else {
                                                                                                                                                         echo ' opacity-75';
@@ -78,7 +78,7 @@ $url = 'http://' . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
                         </a>
                     </li>
                     <li>
-                        <a href="<?php echo URLROOT; ?>/flashrecoveryareas/charts" class="flex items-center py-4 pl-6 nav-item text-white <?php if (strpos($url, 'flashrecovery')) {
+                        <a href="<?php echo URLROOT; ?>/flashrecoveryareas/charts" class="flex items-center rounded-sm mx-2 mb-1 hover:opacity-100 py-4 pl-6 nav-item text-white <?php if (strpos($url, 'flashrecovery')) {
                                                                                                                                                 echo 'active-nav-link';
                                                                                                                                             } else {
                                                                                                                                                 echo ' opacity-75';
@@ -89,7 +89,7 @@ $url = 'http://' . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
                     </li>
 
                     <li>
-                        <a href="<?php echo URLROOT; ?>/users/show/default" class="flex items-center hover:opacity-100 py-4 pl-6 nav-item text-white <?php if (strpos($url, 'show')) {
+                        <a href="<?php echo URLROOT; ?>/users/show/default" class="flex items-center rounded-sm mx-2 mb-1 hover:opacity-100 py-4 pl-6 nav-item text-white <?php if (strpos($url, 'show')) {
                                                                                                                                                             echo 'active-nav-link ';
                                                                                                                                                         } else {
                                                                                                                                                             echo 'opacity-75';
@@ -100,13 +100,13 @@ $url = 'http://' . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
                     </li>
 
                     <li>
-                        <a href="<?php echo URLROOT; ?>/telephones/contacts" class="flex items-center hover:opacity-100 py-4 pl-6 nav-item text-white <?php if (strpos($url, 'telephones')) {
+                        <a href="<?php echo URLROOT; ?>/telephones/contacts" class="flex items-center rounded-sm mx-2 mb-1 hover:opacity-100 py-4 pl-6 nav-item text-white <?php if (strpos($url, 'telephones')) {
                                                                                                                                                             echo 'active-nav-link ';
                                                                                                                                                         } else {
                                                                                                                                                             echo 'opacity-75';
                                                                                                                                                         } ?>">
                             <i class="fa-solid fa-address-book mr-3"></i>
-                            Telephone Directories
+                            Telephonebook
                         </a>
                     </li>
 

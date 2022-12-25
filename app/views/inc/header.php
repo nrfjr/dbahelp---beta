@@ -17,52 +17,9 @@
     <!-- Quill CSS -->
     <link rel="stylesheet" href="<?php echo URLROOT . '/public/css/quillcss/quill.snow.css' ?>" />
     <link rel="stylesheet" href="<?php echo URLROOT . '/public/css/quillcss/quill.bubble.css' ?>" />
+    <!-- Sidebar CSS -->
+    <link rel="stylesheet" href="<?php echo URLROOT . '/public/css/sidebar.css' ?>" />
 
-    <style>
-        .font-family-lexend {
-            font-family: lexend;
-        }
-
-        .bg-sidebar {
-            background: #3d68ff;
-        }
-
-        .cta-btn {
-            color: #3d68ff;
-        }
-
-        .upgrade-btn {
-            background: #1947ee;
-        }
-
-        .upgrade-btn:hover {
-            background: #0038fd;
-        }
-
-        .active-nav-link {
-            box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
-            background-image: linear-gradient(150deg, #0575E6, #021B79);
-        }
-
-        .nav-item:hover {
-            background-image: linear-gradient(150deg, #1947ee, #3d68ff);
-        }
-
-        .account-link:hover {
-            background: #3d68ff;
-        }
-
-        .box {
-            box-shadow: rgba(0, 0, 0, 1) 0px 1px 3px, rgba(0, 0, 0, 1) 0px 1px 2px;
-            padding: 25px 25px;
-            border-radius: 5px;
-            background-color: #2c2f33;
-        }
-
-        .top-nav {
-            box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
-        }
-    </style>
     <!-- JQuery -->
     <script text="text/javascript" src="<?php echo URLROOT . '/public/js/jquery_1.3.0/jquery.min.js' ?>"></script>
     <script text="text/javascript" src="<?php echo URLROOT . '/public/js/jquery_3.2.1/jquery.slim.min.js' ?>"></script>
