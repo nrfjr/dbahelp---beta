@@ -75,7 +75,7 @@ if ($first_user_displayed === $last_user_displayed) {
         </div>
     </div>
     <div style="height: fit-content; overflow: clip;">
-        <div class="block w-full shadow-md overflow-auto sm:rounded-lg scrollbar-hide" style="max-height: 66vh;">
+        <div class="block w-full shadow-md overflow-auto sm:rounded-lg " style="max-height: 66vh;">
             <?php
             if (!empty($users)) {
 

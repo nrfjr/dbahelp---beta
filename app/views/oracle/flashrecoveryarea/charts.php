@@ -15,6 +15,7 @@ require APPROOT . '/views/inc/sidebar.php'; ?>
   $titles = array_keys($data);
 
   foreach ($data as $fras) {
+
   ?>
 
     <div class="w-full box rounded-lg">
@@ -22,7 +23,7 @@ require APPROOT . '/views/inc/sidebar.php'; ?>
         <div class="col-span-2 lg:col-span-1">
           <canvas id="chartDonut<?php echo $count; ?>"></canvas>
           <div class="mt-4">
-            <p class="text-gray-300">FRA Location: <span class="text-white text-sm"><?php echo $fras['FRA Location']; ?></span></p>
+            <p class="text-gray-300">FRA Location: <span class="text-white text-sm"><?php echo empty($fras['FRA Location'])? 'No data' : $fras['FRA Location']; ?></span></p>
           </div>
         </div>
 
@@ -30,19 +31,19 @@ require APPROOT . '/views/inc/sidebar.php'; ?>
           <div class="sm-card h-full grid grid-cols-1 flex justify-start gap-2 text-left">
             <div>
               <p>FRA Size:</p>
-              <h1 class="text-xl"><?php echo $fras['FRA Size']; ?></h1>
+              <h1 class="text-xl"><?php echo empty($fras['FRA Size']) ? 'No data' : $fras['FRA Size']; ?></h1>
             </div>
             <div>
               <p>Total Usage:</p>
-              <h1 class="text-xl"><?php echo $fras['FRA Usage']; ?></h1>
+              <h1 class="text-xl"><?php echo empty($fras['FRA Usage']) ? 'No data' : $fras['FRA Usage']; ?></h1>
             </div>
             <div>
               <p>Reclaimable:</p>
-              <h1 class="text-xl"><?php echo $fras['FRA Reclaimable']; ?></h1>
+              <h1 class="text-xl"><?php echo empty($fras['FRA Reclaimable']) ? 'No data' : $fras['FRA Reclaimable'] ; ?></h1>
             </div>
             <div x-data="{resizeFRA: false}">
-              <button @click="resizeFRA = true" alt="Resize FRA" class="rounded-lg w-full lg:w-1/2 xl:w-full 2xl:w-1/2 bg-gray-100 hover:bg-gray-500 border-1 border-solid border-gray-900 text-center px-4 py-2">Resize FRA</button>
-              <button x-show="resizeFRA" @click="resizeFRA = false" alt="Resize FRA" class="border-blue-500 md:border-green-500"></button>
+              <button @click="resizeFRA = true" alt="Resize FRA" class="rounded-lg w-full lg:w-1/2 xl:w-full 2xl:w-1/2 bg-gray-100 hover:bg-gray-500 border-1 border-solid border-gray-900 text-center px-4 py-2" <?php echo empty($fras['FRA Size']) ? 'disabled' : ''; ?>>Resize FRA</button>
+              <button x-show="resizeFRA" @click="resizeFRA = false" alt="Resize FRA" class="border-blue-500 md:border-green-500" <?php echo empty($fras['FRA Size']) ? 'disabled' : ''; ?>></button>
               <!-- Delete User Modal -->
               <div x-show="resizeFRA" class="absolute bg-red-500 w-full z-10" aria-labelledby="modal-title" role="dialog" aria-modal="true">
                 <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"></div>
@@ -98,14 +99,14 @@ require APPROOT . '/views/inc/sidebar.php'; ?>
           datasets: [{
             label: 'My First Dataset',
             //Free, Used
-            data: [<?php echo explode('/', $fras['FRA Percentage'])[0]; ?>, <?php echo explode('/', $fras['FRA Percentage'])[1]; ?>],
+            data: [<?php echo empty($fras)? 0.0 : explode('/', $fras['FRA Percentage'])[0]; ?> , <?php echo empty($fras)? 100.0 : explode('/', $fras['FRA Percentage'])[1]; ?>],
             backgroundColor: [
               '#339933',
-              '#66ff33'
+              '<?php echo empty($fras)? '#ff3333' : '#66ff33' ; ?>'
             ],
             borderColor: [
               '#339933',
-              '#66ff33'
+              '<?php echo empty($fras)? '#ff3333' : '#66ff33' ; ?>'
             ],
 
             hoverOffset: [15, 20]
@@ -163,6 +164,7 @@ require APPROOT . '/views/inc/sidebar.php'; ?>
 <?php
     $count++;
   }
+
 ?>
 
 <?php require APPROOT . '/views/inc/footer.php'; ?>

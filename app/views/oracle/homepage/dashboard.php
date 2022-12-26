@@ -11,9 +11,9 @@ require APPROOT . '/views/inc/sidebar.php';
 
   $Sessions = $data['Sessions'];
   $FRA = $data['FRA'];
-  $FRA_Size = $FRA['FRA Size'];
-  $FRA_Usage = $FRA['FRA Usage'];
-  $FRA_Percent = $FRA['FRA Percentage'];
+  $FRA_Size = empty($FRA['FRA Size'])? 'No data': $FRA['FRA Size'];
+  $FRA_Usage = empty($FRA['FRA Usage'])? 'No data': $FRA['FRA Usage'];
+  $FRA_Percent = empty($FRA['FRA Percentage'])? '0.0/100.0': $FRA['FRA Percentage'];
   $DBPerfStatus = $data['DB PerfStatus'];
   $DBInfo = $data['DB Info'];
   $LockedSessions = $data['Locked Sessions'];
@@ -339,8 +339,7 @@ require APPROOT . '/views/inc/sidebar.php';
   <div class="grid grid-cols-1 lg:grid-rows-2 gap-2 justify-center col-span-1">
     <!--Donuts-->
     <!--Must rename for duplicating: chartDonut1,myChart1, sampleChart1, config1-->
-    <!-- <?php
-          $total = explode('/', $FRA_Percent); ?> -->
+    <!-- <?php $total = explode('/', $FRA_Percent); ?> -->
     <div class="w-full box rounded-lg">
       <div class="grid grid-cols-3 place-center">
         <canvas id="chartDonut" class="col-span-2"></canvas>
@@ -372,11 +371,11 @@ require APPROOT . '/views/inc/sidebar.php';
               data: [<?php echo $total[0]; ?>, <?php echo $total[1]; ?>],
               backgroundColor: [
                 '#339933',
-                '#66ff33'
+                '<?php echo empty($FRA)? '#ff3333' : '#66ff33' ; ?>'
               ],
               borderColor: [
                 '#339933',
-                '#66ff33'
+                '<?php echo empty($FRA)? '#ff3333' : '#66ff33' ; ?>'
               ],
 
               hoverOffset: 20,
