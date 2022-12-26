@@ -320,7 +320,6 @@ require APPROOT . '/views/inc/sidebar.php';
           DBInfoArray = jQuery(response).find('#DBInfoArray').html();
 
           DBInfo = DBInfoArray.split('/');
-
           TotalSes = DBInfo[3];
           InactiveSes = DBInfo[4];
           SystemSes = DBInfo[5];
@@ -331,9 +330,8 @@ require APPROOT . '/views/inc/sidebar.php';
           document.getElementById('InactiveSes').innerHTML = InactiveSes;
           document.getElementById('SystemSes').innerHTML = SystemSes;
         }
+        
       });
-
-
     }, 5000); // set interval speed for data refresh
   </script>
 
@@ -439,7 +437,7 @@ require APPROOT . '/views/inc/sidebar.php';
     <!-- DB PerfStatuses -->
     <div id="tabs" class="w-full box rounded-lg text-md justify-center items-center" style="padding: 5px 25px 25px ;">
       <div class="flex justify-center">
-      <button id="tabbtn1" onclick="tab1()" class="w-full transition-all rounded-l-full py-2 hover:bg-gray-800 hover:text-white bg-gray-800 outline-none ring ring-gray-400 z-10 text-white">
+        <button id="tabbtn1" onclick="tab1()" class="w-full transition-all rounded-l-full py-2 hover:bg-gray-800 hover:text-white bg-gray-800 outline-none ring ring-gray-400 z-10 text-white">
           Instance
         </button>
         <button id="tabbtn2" onclick="tab2()" class="w-full transition-all bg-gray-400 rounded-r-full py-2 hover:bg-gray-800 hover:text-white">
@@ -461,13 +459,13 @@ require APPROOT . '/views/inc/sidebar.php';
               <tr title="DB Uptime">
                 <th>Uptime: </th>
                 <td>
-                    <span><?php echo $DBStatus['Start Time']; ?></span>
+                  <span><?php echo $DBStatus['Start Time']; ?></span>
                 </td>
               </tr>
               <tr title="Used SGA Size">
                 <th>SGA Usage: </th>
                 <td>
-                    <span><?php echo $DBStatus['Used SGA']; ?></span>
+                  <span><?php echo $DBStatus['Used SGA']; ?></span>
                 </td>
               </tr>
               <tr title="Free SGA Size">
@@ -477,7 +475,8 @@ require APPROOT . '/views/inc/sidebar.php';
               <tr title="Total SGA Size">
                 <th>Total SGA: </th>
                 <td>
-                  <span id="DBPerfStatus"><?php echo $DBStatus['Total SGA'];  ?></span></td>
+                  <span id="DBPerfStatus"><?php echo $DBStatus['Total SGA'];  ?></span>
+                </td>
               </tr>
             </table>
           </div>
@@ -526,6 +525,5 @@ require APPROOT . '/views/inc/sidebar.php';
   </div>
 
 </div>
-
 
 <?php require APPROOT . '/views/inc/footer.php'; ?>

@@ -8,7 +8,7 @@ $url = 'http://' . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
         <div class="pt-4 px-2 pb-3 logo" title="Sitename">
             <a href="<?php echo URLROOT; ?>/homepage/dashboard" class="text-white text-3xl font-semibold rounded-md hover:bg-gray-600 flex justify-center"><?php echo SITENAME ?><i class="ml-2 mt-1.5 fa-solid fa-handshake-angle"></i></a>
         </div>
-        <nav class="text-white text-base font-semibold py-2 overflow-y-auto scrollbar-hide h-max">
+        <nav class="text-white text-sm font-semibold py-2 overflow-y-auto scrollbar-hide h-max">
             <div id="accordion-open" data-accordion="open">
                 <ul>
                     <!--DATABASES-->
@@ -24,7 +24,7 @@ $url = 'http://' . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
                             <div class="flex justify-between mx-6"><span><i class="fas fa-database mr-3"></i><b>Databases</b></span> <i id="chevron" class="mt-1 fa-solid fa-chevron-down"></i></div>                                                                                         
                         </button>
                     </li>
-                    <ul id="databases" class="hidden py-1  ">
+                    <ul id="databases" class="hidden py-1">
                         <li>
                             <a href="<?php echo URLROOT; ?>/homepage/dashboard" class="flex rounded-md mx-2 mb-1 items-center hover:opacity-100 py-4 pl-12 nav-item text-white <?php if (preg_match('/dashboard|index/', $url)) {
                                                                                                                                                                 echo 'active-nav-link ';

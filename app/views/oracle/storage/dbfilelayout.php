@@ -24,15 +24,15 @@ $current_tab = isset($_GET['tab']) ? $_GET['tab'] : 1;
 
 
     <div class=" border-b border-gray-200 dark:border-gray-700">
-        <ul class="flex flex-wrap -mb-px text-sm font-medium text-center bg-gray-200 rounded-t-lg" id="myTab" data-tabs-toggle="#myTabContent" role="tablist">
+        <ul class="flex flex-wrap -mb-px text-sm font-medium text-center bg-gray-500 rounded-t-lg" id="myTab" data-tabs-toggle="#myTabContent" role="tablist">
             <li class="mr-2" role="presentation">
-                <button onclick="window.history.replaceState(null, null, '?tab=1')" class="inline-block p-4 rounded-t-lg border-b-2 hover:bg-gray-400" id="datafiles-tab" data-tabs-target="#datafiles" type="button" role="tab" aria-controls="datafiles" aria-selected="<?php echo setSelectTabforHTML(1, $current_tab) ?>">Data Files Location</button>
+                <button onclick="window.history.replaceState(null, null, '?tab=1')" class="inline-block p-4 rounded-t-lg border-b-2 " id="datafiles-tab" data-tabs-target="#datafiles" type="button" role="tab" aria-controls="datafiles" aria-selected="<?php echo setSelectTabforHTML(1, $current_tab) ?>">Data Files Location</button>
             </li>
             <li class="mr-2" role="presentation">
-                <button onclick="window.history.replaceState(null, null, '?tab=2')" class="inline-block p-4 rounded-t-lg border-b-2 border-transparent hover:bg-gray-400 hover:border-gray-300 dark:hover:text-gray-300" id="logfiles-tab" data-tabs-target="#logfiles" type="button" role="tab" aria-controls="logfiles" aria-selected="<?php echo setSelectTabforHTML(2, $current_tab) ?>">Redo Log Files Location</button>
+                <button onclick="window.history.replaceState(null, null, '?tab=2')" class="inline-block p-4 rounded-t-lg border-b-2 border-transparent" id="logfiles-tab" data-tabs-target="#logfiles" type="button" role="tab" aria-controls="logfiles" aria-selected="<?php echo setSelectTabforHTML(2, $current_tab) ?>">Redo Log Files Location</button>
             </li>
             <li class="mr-2" role="presentation">
-                <button onclick="window.history.replaceState(null, null, '?tab=3')" class="inline-block p-4 rounded-t-lg border-b-2 border-transparent hover:bg-gray-400 hover:border-gray-300 dark:hover:text-gray-300" id="controlfiles-tab" data-tabs-target="#controlfiles" type="button" role="tab" aria-controls="controlfiles" aria-selected="<?php echo setSelectTabforHTML(3, $current_tab) ?>">Control File Location</button>
+                <button onclick="window.history.replaceState(null, null, '?tab=3')" class="inline-block p-4 rounded-t-lg border-b-2 border-transparent" id="controlfiles-tab" data-tabs-target="#controlfiles" type="button" role="tab" aria-controls="controlfiles" aria-selected="<?php echo setSelectTabforHTML(3, $current_tab) ?>">Control File Location</button>
             </li>
         </ul>
     </div>
