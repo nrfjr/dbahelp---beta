@@ -89,6 +89,8 @@ require APPROOT . '/views/inc/sidebar.php'; ?>
     <script>
       let myChartDonut<?php echo $count; ?> = document.getElementById('chartDonut<?php echo $count; ?>').getContext('2d');
 
+      Chart.defaults.font.family = "Lexend";
+
       new Chart(myChartDonut<?php echo $count; ?>, {
         type: 'doughnut',
         data: {

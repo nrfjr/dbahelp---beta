@@ -160,6 +160,7 @@ require APPROOT . '/views/inc/sidebar.php'; ?>
       ?>
     ],
     chart: {
+      fontFamily: 'Lexend',
       height: 350,
       type: 'line',
       zoom: {
@@ -240,6 +241,7 @@ require APPROOT . '/views/inc/sidebar.php'; ?>
       ?>
     ],
     chart: {
+      fontFamily: 'Lexend',
       height: 350,
       type: 'line',
       zoom: {

@@ -32,6 +32,8 @@ require APPROOT . '/views/inc/sidebar.php';
             
           <script>
             let myChart<?php echo $mountcnt ?> = document.getElementById('chartDonut'+"<?php echo $mountcnt ?>").getContext('2d');
+
+            Chart.defaults.font.family = "Lexend";
             
             let sampleChart<?php echo $mountcnt ?> = new Chart(myChart<?php echo $mountcnt ?>, {
               type: 'doughnut',
@@ -75,7 +77,7 @@ require APPROOT . '/views/inc/sidebar.php';
                     labels: {
                       color: 'white',
                       textAlign: 'start',
-                      boxWidth: 20
+                      boxWidth: 20,
                     }
                   },
                   title: {
@@ -119,8 +121,8 @@ require APPROOT . '/views/inc/sidebar.php';
 
                         return label + ": " + convertedVal.toFixed(2) + unit + ' (' + percentage + '%)';
                       }
-                    }
-                  }
+                    },
+                  },
                 },
               }
 

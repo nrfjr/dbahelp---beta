@@ -87,6 +87,7 @@ require APPROOT . '/views/inc/sidebar.php';
       window.Apex = {
         chart: {
           foreColor: '#fff',
+          fontFamily: 'Lexend',
           toolbar: {
             show: true
           },
@@ -357,6 +358,8 @@ require APPROOT . '/views/inc/sidebar.php';
 
       <script>
         let myChartDonut = document.getElementById('chartDonut').getContext('2d');
+
+        Chart.defaults.font.family = "Lexend";
 
         new Chart(myChartDonut, {
           type: 'doughnut',

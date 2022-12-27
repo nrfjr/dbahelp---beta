@@ -88,6 +88,7 @@ $filterPHPArrayToJS = function ($array, $key) {
             data: [<?php $filterPHPArrayToJS($data, 'Switch Count'); ?>]
         }],
         chart: {
+            fontFamily: 'Lexend',
             height: 350,
             type: 'area',
             foreColor: '#FFFFFF',

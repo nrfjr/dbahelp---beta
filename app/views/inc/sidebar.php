@@ -89,7 +89,7 @@ $url = 'http://' . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
                     </li>
 
                     <li>
-                        <a href="<?php echo URLROOT; ?>/users/show/default" class="flex items-center rounded-md mx-2 mb-1 hover:opacity-100 py-4 pl-6 nav-item text-white <?php if (strpos($url, 'show')) {
+                        <a href="<?php echo URLROOT; ?>/users/show" class="flex items-center rounded-md mx-2 mb-1 hover:opacity-100 py-4 pl-6 nav-item text-white <?php if (strpos($url, 'show')) {
                                                                                                                                                             echo 'active-nav-link ';
                                                                                                                                                         } else {
                                                                                                                                                             echo 'opacity-75';
