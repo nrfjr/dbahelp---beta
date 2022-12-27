@@ -46,7 +46,7 @@ if ($first_locked_displayed === $last_locked_displayed) {
     <div class="rounded-lg flex justify-between items-center p-2 bg-gray-300 dark:bg-gray-900 mb-4">
         <div class="inline-flex">
             <p class="m-2">Locked Sessions Total:</p>
-            <b class="m-2"><?php echo $total_sessions?></b>
+            <b class="m-2"><?php echo $total_sessions ?></b>
         </div>
     </div>
 
@@ -93,16 +93,16 @@ if ($first_locked_displayed === $last_locked_displayed) {
                                 }
                                 ?>
                                 <td class=" item py-4  px-6 text-center">
-                                <!-- <div x-data="{toSubmit: false}" > -->
-                                <button @click="toSubmit = true" alt="Kill" class="w-fit h-3/4 rounded-full hover:bg-red-200 border-blue-500 md:border-green-500">
-                                    <font color="#b00020" title="Kill Session">
-                                        <i class="fas fa-times-circle transform scale-150"></i>
-                                    </font>
-                                </button>
-                                <!-- <button x-show="toSubmit" @click="toSubmit = false" alt="Kill" class="border-blue-500 md:border-green-500">
+                                    <!-- <div x-data="{toSubmit: false}" > -->
+                                    <button @click="toSubmit = true" alt="Kill" class="w-fit h-3/4 rounded-full hover:bg-red-200 border-blue-500 md:border-green-500">
+                                        <font color="#b00020" title="Kill Session">
+                                            <i class="fas fa-times-circle transform scale-150"></i>
+                                        </font>
+                                    </button>
+                                    <!-- <button x-show="toSubmit" @click="toSubmit = false" alt="Kill" class="border-blue-500 md:border-green-500">
                                 </button> -->
-                                <!-- Delete User Modal -->
-                                <!-- <div x-show="toSubmit" class="border-double border-2 border-red-500 absolute left-1/4 top-1/2 z-10" aria-labelledby="modal-title" role="dialog" aria-modal="true">
+                                    <!-- Delete User Modal -->
+                                    <!-- <div x-show="toSubmit" class="border-double border-2 border-red-500 absolute left-1/4 top-1/2 z-10" aria-labelledby="modal-title" role="dialog" aria-modal="true">
                                     <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"></div>
                                     <div class="modal fixed fade justify-center mr-48 top-72 w-5/12 h-full outline-none overflow-x-hidden overflow-y-auto" id="ModalCenteredScrollable" tabindex="-1" aria-labelledby="ModalCenteredScrollable" aria-modal="true" role="dialog">
                                         <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable relative pointer-events-none w-auto">
@@ -127,73 +127,73 @@ if ($first_locked_displayed === $last_locked_displayed) {
                                         </div>
                                     </div>
                                 </div> -->
-                                <!-- Delete User Modal -->
-                            </div>
-                                </td>
-                            </tr>
-                        <?php
+                                    <!-- Delete User Modal -->
+        </div>
+        </td>
+        </tr>
+    <?php
                         }
-                        ?>
-                    </tbody>
-                </table>
-        </div>
+    ?>
+    </tbody>
+    </table>
     </div>
-    <div class="sm:flex sm:flex-1 sm:justify-between py-4 relative">
-        <div>
-            <p class="text-sm text-white pl-2">
-                Showing <?php
-                        echo $range;
-                        ?>
-            </p>
-        </div>
+</div>
+<div class="sm:flex sm:flex-1 sm:justify-between py-4 relative">
+    <div>
+        <p class="text-sm text-white pl-2">
+            Showing <?php
+                    echo $range;
+                    ?>
+        </p>
+    </div>
 
-        <?php
+    <?php
 
                 if ($total_pages > 1) { ?>
 
-            <nav class="rounded-md shadow-sm absolute right-0 bottom-2" aria-label="Pagination">
-                <ul class="pagination inline-flex items-center -space-x-px">
+        <nav class="shadow-sm absolute right-0 bottom-2" aria-label="Pagination">
+            <ul class="pagination inline-flex items-center -space-x-px">
 
-                    <?php
+                <?php
                     if ($current_page > 1) { ?>
 
-                        <li class="page-item"><a class="page-link block px-3 py-2 ml-0 leading-tight text-gray-500 bg-white border border-gray-300 rounded-l-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white" href="<?php echo '?page=1'; ?>">First</a></li>
+                    <li class="page-item"><a class="page-link block px-3 py-2 ml-0 leading-tight text-gray-700 bg-indigo-200 border border-gray-300 rounded-l-lg hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white" href="<?php echo '?page=1'; ?>">First</a></li>
 
-                        <?php
+                    <?php
                     }
                     for ($page_in_loop = 1; $page_in_loop <= $total_pages; $page_in_loop++) {
                         if ($total_pages > 3) {
                             if (($page_in_loop >= $current_page - 5 && $page_in_loop <= $current_page)  || ($page_in_loop <= $current_page + 5 && $page_in_loop >= $current_page)) {  ?>
 
-                                <li class="page-item">
-                                    <a class="page-link px-3 py-2 leading-tight <?php echo $page_in_loop == $current_page ? 'text-blue-500 pointer-events-none bg-blue-100' : 'text-gray-700 bg-white'; ?> bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white" href="<?php echo '?page=' . $page_in_loop; ?> "><?php echo $page_in_loop; ?></a>
-                                </li>
-
-                            <?php }
-                        } else { ?>
-
                             <li class="page-item">
-                                <a class="page-link px-3 py-2 leading-tight <?php echo $page_in_loop == $current_page ? 'text-blue-500 pointer-events-none bg-blue-100' : 'text-gray-700 bg-white'; ?> bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white" href="<?php echo '?page=' . $page_in_loop; ?> "><?php echo $page_in_loop; ?></a>
+                                <a class="page-link px-3 py-2 leading-tight <?php echo $page_in_loop == $current_page ? 'text-blue-500 pointer-events-none bg-indigo-50' : 'text-gray-700 bg-indigo-200'; ?> <?php echo $page_in_loop == 1 && $current_page == 1 ? 'rounded-l-md' : ''; ?> <?php echo $page_in_loop == $total_pages && $current_page == $total_pages ? 'rounded-r-md' : ''; ?> border border-gray-300 hover:bg-gray-100 hover:text-gray-700" href="<?php echo '?page=' . $page_in_loop; ?> "><?php echo $page_in_loop; ?></a>
                             </li>
 
                         <?php }
-                        ?>
+                        } else { ?>
+
+                        <li class="page-item">
+                            <a class="page-link px-3 py-2 leading-tight <?php echo $page_in_loop == $current_page ? 'text-blue-500 pointer-events-none bg-indigo-50' : 'text-gray-700 bg-indigo-200'; ?> <?php echo $page_in_loop == 1 && $current_page == 1 ? 'rounded-l-md' : ''; ?> <?php echo $page_in_loop == $total_pages && $current_page == $total_pages ? 'rounded-r-md' : ''; ?> border border-gray-300 hover:bg-gray-100 hover:text-gray-700" href="<?php echo '?page=' . $page_in_loop; ?>"><?php echo $page_in_loop; ?></a>
+                        </li>
+
                     <?php }
+                    ?>
+                <?php }
 
                     if ($current_page < $total_pages) { ?>
 
-                        <li class="page-item"><a class="page-link block px-3 py-2 leading-tight text-gray-500 bg-white border border-gray-300 rounded-r-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white" href="<?php echo '?page=' . $total_pages; ?>">Last</a></li>
+                    <li class="page-item"><a class="page-link block px-4 py-2 leading-tight text-gray-700 bg-indigo-200 border border-gray-300 rounded-r-lg hover:bg-gray-100" href="<?php echo '?page=' . $total_pages; ?>">Last</a></li>
 
-                    <?php } ?>
-                </ul>
-            </nav>
+                <?php } ?>
+            </ul>
+        </nav>
 
-        <?php }
-        ?>
-        <div>
+    <?php }
+    ?>
+    <div>
 
-        </div>
     </div>
+</div>
 <?php
             } else {
 ?>
@@ -203,7 +203,7 @@ if ($first_locked_displayed === $last_locked_displayed) {
 <?php
             }
 ?>
-    
+
 </div>
 
 <?php require APPROOT . '/views/inc/footer.php'; ?>

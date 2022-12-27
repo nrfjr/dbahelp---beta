@@ -43,7 +43,7 @@ if ($first_stats_displayed === $last_stats_displayed) {
 <div class="overflow-x-auto relative shadow-md">
     <div style="height: fit-content; overflow: clip;" class="">
         <div class="block  justify-center w-full shadow-md overflow-auto sm:rounded-lg" style="max-height: 70vh;">
-        <?php
+            <?php
             if (!empty($tablestats)) {
 
                 //Separates Column title from result set
@@ -101,13 +101,13 @@ if ($first_stats_displayed === $last_stats_displayed) {
 
                 if ($total_pages > 1) { ?>
 
-            <nav class="rounded-md shadow-sm absolute right-0 bottom-2" aria-label="Pagination">
+            <nav class="shadow-sm absolute right-0 bottom-2" aria-label="Pagination">
                 <ul class="pagination inline-flex items-center -space-x-px">
 
                     <?php
                     if ($current_page > 1) { ?>
 
-                        <li class="page-item"><a class="page-link block px-3 py-2 ml-0 leading-tight text-gray-500 bg-white border border-gray-300 rounded-l-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white" href="<?php echo '?page=1'; ?>">First</a></li>
+                        <li class="page-item"><a class="page-link block px-3 py-2 ml-0 leading-tight text-gray-700 bg-indigo-200 border border-gray-300 rounded-l-lg hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white" href="<?php echo '?page=1'; ?>">First</a></li>
 
                         <?php
                     }
@@ -116,14 +116,14 @@ if ($first_stats_displayed === $last_stats_displayed) {
                             if (($page_in_loop >= $current_page - 5 && $page_in_loop <= $current_page)  || ($page_in_loop <= $current_page + 5 && $page_in_loop >= $current_page)) {  ?>
 
                                 <li class="page-item">
-                                    <a class="page-link px-3 py-2 leading-tight <?php echo $page_in_loop == $current_page ? 'text-blue-500 pointer-events-none bg-blue-100' : 'text-gray-700 bg-white'; ?> bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white" href="<?php echo '?page=' . $page_in_loop; ?> "><?php echo $page_in_loop; ?></a>
+                                    <a class="page-link px-3 py-2 leading-tight <?php echo $page_in_loop == $current_page ? 'text-blue-500 pointer-events-none bg-indigo-50' : 'text-gray-700 bg-indigo-200'; ?> <?php echo $page_in_loop == 1 && $current_page == 1 ? 'rounded-l-md' : ''; ?> <?php echo $page_in_loop == $total_pages && $current_page == $total_pages ? 'rounded-r-md' : ''; ?> border border-gray-300 hover:bg-gray-100 hover:text-gray-700" href="<?php echo '?page=' . $page_in_loop; ?> "><?php echo $page_in_loop; ?></a>
                                 </li>
 
                             <?php }
                         } else { ?>
 
                             <li class="page-item">
-                                <a class="page-link px-3 py-2 leading-tight <?php echo $page_in_loop == $current_page ? 'text-blue-500 pointer-events-none bg-blue-100' : 'text-gray-700 bg-white'; ?> bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white" href="<?php echo '?page=' . $page_in_loop; ?> "><?php echo $page_in_loop; ?></a>
+                                <a class="page-link px-3 py-2 leading-tight <?php echo $page_in_loop == $current_page ? 'text-blue-500 pointer-events-none bg-indigo-50' : 'text-gray-700 bg-indigo-200'; ?> <?php echo $page_in_loop == 1 && $current_page == 1 ? 'rounded-l-md' : ''; ?> <?php echo $page_in_loop == $total_pages && $current_page == $total_pages ? 'rounded-r-md' : ''; ?> border border-gray-300 hover:bg-gray-100 hover:text-gray-700" href="<?php echo '?page=' . $page_in_loop; ?>"><?php echo $page_in_loop; ?></a>
                             </li>
 
                         <?php }
@@ -132,7 +132,7 @@ if ($first_stats_displayed === $last_stats_displayed) {
 
                     if ($current_page < $total_pages) { ?>
 
-                        <li class="page-item"><a class="page-link block px-3 py-2 leading-tight text-gray-500 bg-white border border-gray-300 rounded-r-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white" href="<?php echo '?page=' . $total_pages; ?>">Last</a></li>
+                        <li class="page-item"><a class="page-link block px-4 py-2 leading-tight text-gray-700 bg-indigo-200 border border-gray-300 rounded-r-lg hover:bg-gray-100" href="<?php echo '?page=' . $total_pages; ?>">Last</a></li>
 
                     <?php } ?>
                 </ul>

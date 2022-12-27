@@ -41,23 +41,23 @@ if ($first_user_displayed === $last_user_displayed) {
 <div class="overflow-x-auto relative shadow-md sm:rounded-lg">
     <div class="flex justify-between items-center pb-4 bg-gray-600 dark:bg-gray-900">
         <div>
-            
-                <button id="dropdownDefault" data-dropdown-toggle="dropdown-createuser" class="inline-flex items-center text-black bg-green-300 focus:outline-none hover:bg-green-700  font-medium rounded-lg text-sm px-3 py-2  hover:text-white" type="button">
-                    Create
-                    <i class="fas fa-chevron-down ml-2"></i>
-                </button>
-                <div id="dropdown-createuser" class="whitespace-normal hidden z-10 w-fit bg-white rounded-md divide-y divide-gray-100 shadow dark:bg-gray-700 max-h-48 overflow-y-auto scrollbar-hide">
-                        <ul class="text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefault">
-                            <?php foreach(HOSTS as $host => $db){
-                                if($host != 'DEFAULT'){?>
+
+            <button id="dropdownDefault" data-dropdown-toggle="dropdown-createuser" class="inline-flex items-center text-black bg-green-300 focus:outline-none hover:bg-green-700  font-medium rounded-lg text-sm px-3 py-2  hover:text-white" type="button">
+                Create
+                <i class="fas fa-chevron-down ml-2"></i>
+            </button>
+            <div id="dropdown-createuser" class="whitespace-normal hidden z-10 w-fit bg-white rounded-md divide-y divide-gray-100 shadow max-h-48 overflow-y-auto scrollbar-hide">
+                <ul class="text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefault">
+                    <?php foreach (HOSTS as $host => $db) {
+                        if ($host != 'DEFAULT') { ?>
                             <li class="block py-2 px-4 hover:bg-gray-400 hover:text-white rounded-md dark:hover:bg-gray-600 dark:hover:text-white">
-                                <a href="<?php echo URLROOT; ?>/users/create/<?php echo $host?>"><?php echo $host?></a>
+                                <a href="<?php echo URLROOT; ?>/users/create/<?php echo $host ?>"><?php echo $host ?></a>
                             </li>
-                            <?php }
-                            }?>
-                        </ul>
-                </div>
-            
+                    <?php }
+                    } ?>
+                </ul>
+            </div>
+
         </div>
         <label for="table-search" class="sr-only">Search</label>
         <div class="relative absolute">
@@ -66,7 +66,7 @@ if ($first_user_displayed === $last_user_displayed) {
             </div>
             <form action="<?php echo URLROOT; ?>/users/show/<?php echo $_SESSION['UserDB']; ?>" method="POST">
                 <div class="flex justify-auto">
-                    <input type="text" id="searchuser" name="searchuser" value="<?php echo isset($_SESSION['Search'])? $_SESSION['Search']:''; ?>" class="block mr-4 p-2 pl-10 w-80 text-sm text-gray-900 bg-gray-50 rounded-lg" placeholder="Search for users">
+                    <input type="text" id="searchuser" name="searchuser" value="<?php echo isset($_SESSION['Search']) ? $_SESSION['Search'] : ''; ?>" class="block mr-4 p-2 pl-10 w-80 text-sm text-gray-900 bg-gray-50 rounded-lg" placeholder="Search for users">
                     <button id="dropdownRadioButton" class="inline-flex items-center text-black bg-blue-200 focus:outline-none hover:bg-blue-700 hover:text-white focus:ring-4 focus:ring-gray-200 font-medium rounded-lg text-sm px-3 py-1.5 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700" type="submit">
                         Search
                     </button>
@@ -87,11 +87,11 @@ if ($first_user_displayed === $last_user_displayed) {
                     }
                 }
             ?>
-                <table class="sortable w-full text-sm text-left text-white dark:text-gray-400">
-                    <thead class="cursor-pointer text-xs text-black bg-indigo-200 dark:bg-gray-700 dark:text-gray-400 sticky top-0">
+                <table class="sortable w-full text-sm text-left text-white">
+                    <thead class="cursor-pointer text-xs text-black bg-indigo-200 sticky top-0">
                         <tr>
                             <?php for ($title = 0; $title <= count($array) - 1; $title++) { ?>
-                                <th  scope="col" class="py-2 px-6">
+                                <th scope="col" class="py-2 px-6">
                                     <?php echo $column_names[$title]; ?>
                                 </th>
                             <?php } ?>
@@ -190,7 +190,7 @@ if ($first_user_displayed === $last_user_displayed) {
                     <?php
                     if ($current_page > 1) { ?>
 
-                        <li class="page-item"><a class="page-link block px-3 py-2 ml-0 leading-tight text-gray-500 bg-white border border-gray-300 rounded-l-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white" href="<?php echo '?page=1'; ?>">First</a></li>
+                        <li class="page-item"><a class="page-link block px-3 py-2 ml-0 leading-tight text-gray-700 bg-indigo-200 border border-gray-300 rounded-l-lg hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white" href="<?php echo '?page=1'; ?>">First</a></li>
 
                         <?php
                     }
@@ -199,14 +199,14 @@ if ($first_user_displayed === $last_user_displayed) {
                             if (($page_in_loop >= $current_page - 5 && $page_in_loop <= $current_page)  || ($page_in_loop <= $current_page + 5 && $page_in_loop >= $current_page)) {  ?>
 
                                 <li class="page-item">
-                                    <a class="page-link px-3 py-2 leading-tight <?php echo $page_in_loop == $current_page ? 'text-blue-500 pointer-events-none bg-blue-100' : 'text-gray-700 bg-white'; ?> border border-gray-300 hover:bg-gray-100 hover:text-gray-700" href="<?php echo '?page=' . $page_in_loop; ?> "><?php echo $page_in_loop; ?></a>
+                                    <a class="page-link px-3 py-2 leading-tight <?php echo $page_in_loop == $current_page ? 'text-blue-500 pointer-events-none bg-indigo-50' : 'text-gray-700 bg-indigo-200'; ?> <?php echo $page_in_loop == 1 && $current_page == 1 ? 'rounded-l-md' : ''; ?> <?php echo $page_in_loop == $total_pages && $current_page == $total_pages ? 'rounded-r-md' : ''; ?> border border-gray-300 hover:bg-gray-100 hover:text-gray-700" href="<?php echo '?page=' . $page_in_loop; ?> "><?php echo $page_in_loop; ?></a>
                                 </li>
 
                             <?php }
                         } else { ?>
 
                             <li class="page-item">
-                                <a class="page-link px-3 py-2 leading-tight <?php echo $page_in_loop == $current_page ? 'text-blue-500 pointer-events-none bg-blue-100' : 'text-gray-700 bg-white'; ?> border border-gray-300 hover:bg-gray-100 hover:text-gray-700" href="<?php echo '?page=' . $page_in_loop; ?>"><?php echo $page_in_loop; ?></a>
+                                <a class="page-link px-3 py-2 leading-tight <?php echo $page_in_loop == $current_page ? 'text-blue-500 pointer-events-none bg-indigo-50' : 'text-gray-700 bg-indigo-200'; ?> <?php echo $page_in_loop == 1 && $current_page == 1 ? 'rounded-l-md' : ''; ?> <?php echo $page_in_loop == $total_pages && $current_page == $total_pages ? 'rounded-r-md' : ''; ?> border border-gray-300 hover:bg-gray-100 hover:text-gray-700" href="<?php echo '?page=' . $page_in_loop; ?>"><?php echo $page_in_loop; ?></a>
                             </li>
 
                         <?php }
@@ -215,7 +215,7 @@ if ($first_user_displayed === $last_user_displayed) {
 
                     if ($current_page < $total_pages) { ?>
 
-                        <li class="page-item"><a class="page-link block px-3 py-2 leading-tight text-gray-500 bg-white border border-gray-300 rounded-r-lg hover:bg-gray-100 hover:text-gray-700" href="<?php echo '?page=' . $total_pages; ?>">Last</a></li>
+                        <li class="page-item"><a class="page-link block px-4 py-2 leading-tight text-gray-700 bg-indigo-200 border border-gray-300 rounded-r-lg hover:bg-gray-100" href="<?php echo '?page=' . $total_pages; ?>">Last</a></li>
 
                     <?php } ?>
                 </ul>
