@@ -37,16 +37,13 @@ if ($first_user_displayed === $last_user_displayed) {
 
 <h1 class="text-3xl text-black pb-6 text-white"><b>Manage Users</b></h1>
 
-
-<div class="overflow-x-auto relative shadow-md sm:rounded-lg">
-    <div class="flex justify-between items-center pb-4 bg-gray-600 dark:bg-gray-900">
-        <div>
-
+<div class="flex justify-between items-center pb-4 bg-gray-600 dark:bg-gray-900">
+        <div class="z-10">
             <button id="dropdownDefault" data-dropdown-toggle="dropdown-createuser" class="inline-flex items-center text-black bg-green-300 focus:outline-none hover:bg-green-700  font-medium rounded-lg text-sm px-3 py-2  hover:text-white" type="button">
                 Create
                 <i class="fas fa-chevron-down ml-2"></i>
             </button>
-            <div id="dropdown-createuser" class="whitespace-normal hidden z-10 w-fit bg-white rounded-md divide-y divide-gray-100 shadow max-h-48 overflow-y-auto scrollbar-hide">
+            <div id="dropdown-createuser" class="whitespace-normal hidden w-fit bg-white rounded-md divide-y divide-gray-100 shadow max-h-48 overflow-y-auto scrollbar-hide">
                 <ul class="text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefault">
                     <?php foreach (HOSTS as $host => $db) {
                         if ($host != 'DEFAULT') { ?>
@@ -57,7 +54,6 @@ if ($first_user_displayed === $last_user_displayed) {
                     } ?>
                 </ul>
             </div>
-
         </div>
         <label for="table-search" class="sr-only">Search</label>
         <div class="relative absolute">
@@ -74,6 +70,7 @@ if ($first_user_displayed === $last_user_displayed) {
             </form>
         </div>
     </div>
+<div class="overflow-x-auto relative shadow-md sm:rounded-lg">
     <div style="height: fit-content; overflow: clip;">
         <div class="block w-full shadow-md overflow-auto sm:rounded-lg " style="max-height: 66vh;">
             <?php
