@@ -253,7 +253,7 @@ class Users extends Controller
     }
 
     // get the list of users
-    public function show($DB)
+    public function show()
     {
         $data = ['search' => isset($_SESSION['Search']) ? $_SESSION['Search'] : ''];
 
@@ -262,7 +262,7 @@ class Users extends Controller
         }
 
         $_SESSION['Search'] = $data['search'];
-        $_SESSION['UserDB'] = $DB;
+        $_SESSION['UserDB'] = 'DEFAULT';
 
         if (isset($_SESSION['UserDB'])) {
             $this->db = $_SESSION['UserDB'];
