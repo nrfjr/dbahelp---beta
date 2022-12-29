@@ -1,6 +1,6 @@
 <div class="w-1/2 sm:w-fit md:w-full">
-    <button class="justify-center md:hidden mx-2 p-4 hover:bg-gray-400 rounded-full" onclick="navToggle()">
-        <i class="fas fa-regular fa-bars"></i>
+    <button class="group justify-center md:hidden mx-2 py-3 px-4 hover:bg-gray-400 rounded-full" onclick="navToggle()">
+        <i class="fa-solid fa-bars"></i>
     </button>
     <!--Oracle Databases-->
     <button id="dropdownDefault" data-dropdown-toggle="dropdown-oracle" data-dropdown-placement="bottom-end" class="text-white bg-gray-600 hover:bg-gray-400 hover:text-black focus:ring-4 focus:outline-none focus:ring-gray-800 font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center
