@@ -110,6 +110,13 @@ $filterPHPArrayToJS = function ($array, $key) {
         xaxis: {
             categories: [<?php $filterPHPArrayToJS($data, 'Date Generated'); ?>]
         },
+        yaxis: [{
+            labels: {
+                formatter: function(val) {
+                    return val.toFixed(0);
+                }
+            }
+        }],
         grid: {
             borderColor: '#FFFFFF',
         },
