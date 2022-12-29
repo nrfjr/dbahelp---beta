@@ -399,8 +399,8 @@ class Users extends Controller
                 ob_clean();
                 flush();
                 readfile($file['ldif']);
+                unlink($file['ldif']);
                 exit();
-                $this->view('oracle/users/create', []);
             }
         }
     }
