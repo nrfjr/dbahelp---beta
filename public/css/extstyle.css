@@ -7,6 +7,27 @@ h1, h2, h3, h4, h5, h6, strong {
     color: #fff;
 }
 
+/***
+Placeholder
+***/
+
+::-webkit-input-placeholder {
+    font-style: italic;
+ }
+ :-moz-placeholder {
+    font-style: italic;  
+ }
+ ::-moz-placeholder {
+    font-style: italic;  
+ }
+ :-ms-input-placeholder {  
+    font-style: italic; 
+ }
+
+/***
+Placeholder
+***/
+
 body{
     min-width: 40rem;
 }
