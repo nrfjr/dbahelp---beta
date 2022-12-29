@@ -54,6 +54,8 @@
     <script type="text/javascript" src="<?php echo URLROOT . '/public/js/dbstats_tabslide.js' ?>"></script>
     <!-- Delete Archive Modal -->
     <script type="text/javascript" src="<?php echo URLROOT . '/public/js/deleteArchivemodal.js' ?>"></script>
+    <!-- Redo Log File Chart Pop JS -->
+    <script type="text/javascript" src="<?php echo URLROOT . '/public/js/RedologZoomPop.js' ?>"></script>
 </head>
 
 <div id="loaderz" class="loader cursor-wait">
