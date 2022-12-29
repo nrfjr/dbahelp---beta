@@ -216,9 +216,13 @@ require APPROOT . '/views/inc/sidebar.php'; ?>
                       echo '\'' . $am_column_names[$am_title] . '\',';
                     } ?>],
     },
-    yaxis: {
-      tickAmount: 4,
-    },
+    yaxis: [{
+            labels: {
+                formatter: function(val) {
+                    return val.toFixed(0);
+                }
+            },
+        }],
     grid: {
       show: true,
       borderColor: '#0d0d0d',
@@ -396,6 +400,9 @@ require APPROOT . '/views/inc/sidebar.php'; ?>
       labels: {
         style: {
           colors: ['white']
+        },
+        formatter: function(val) {
+                    return val.toFixed(0);
         }
       }
     },
@@ -489,11 +496,10 @@ require APPROOT . '/views/inc/sidebar.php'; ?>
       }
     },
     yaxis: {
-      tickAmount: 4,
       labels: {
         style: {
           colors: ['white']
-        }
+        },
       }
     },
     grid: {
