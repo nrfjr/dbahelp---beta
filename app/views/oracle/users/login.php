@@ -45,7 +45,7 @@
         <div id="div10" onclick="colorChange()" class="Even Div10 text-center"><i id="i10" class="even fas fa-solid text-8xl font-light"></i></div>
     </div>
     <div id="login" class="flex flex-col-reverse md:flex-row justify-center m-auto pb-20 h-screen items-center">
-        <div class="w-1/2 p-6 z-20 mx-auto bg-white rounded-md shadow-lg dark:bg-gray-700 mt-20">
+        <div class="w-1/2 p-6 z-20 mx-auto rounded-md shadow-lg bg-gray-700 mt-20">
             <div class="flex flex-col-reverse lg:grid lg:grid-rows-1 lg:grid-flow-col h-fit">
                 <form class=" space-y-6" action="<?php echo URLROOT; ?>/users/login" method="POST">
                     <div class="grid grid-rows-1 gap-4">

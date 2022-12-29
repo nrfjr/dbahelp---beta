@@ -16,14 +16,14 @@ $current_tab = isset($_GET['tab']) ? $_GET['tab'] : 1;
 
 <div class="overflow-x-auto relative shadow-md ">
 
-    <div class="rounded-lg flex justify-between items-center p-2 bg-gray-300 dark:bg-gray-900 mb-4">
+    <div class="rounded-lg flex justify-between items-center p-2 bg-gray-300 mb-4">
         <div class="inline-flex w-1/2">
             <b><?php echo $_SESSION['StorageDB'] ?> Structure</b>
         </div>
     </div>
 
 
-    <div class=" border-b border-gray-200 dark:border-gray-700">
+    <div class=" border-b border-gray-200">
         <ul class="flex flex-wrap -mb-px text-sm font-medium text-center bg-gray-500 rounded-t-lg" id="myTab" data-tabs-toggle="#myTabContent" role="tablist">
             <li class="mr-2" role="presentation">
                 <button onclick="window.history.replaceState(null, null, '?tab=1')" class="inline-block p-4 rounded-t-lg border-b-2 " id="datafiles-tab" data-tabs-target="#datafiles" type="button" role="tab" aria-controls="datafiles" aria-selected="<?php echo setSelectTabforHTML(1, $current_tab) ?>">Data Files Location</button>
@@ -41,7 +41,7 @@ $current_tab = isset($_GET['tab']) ? $_GET['tab'] : 1;
         <?php
         foreach ($data as $title => $array) {
         ?>
-            <div class="hidden p-4 bg-gray-50 rounded-b-lg dark:bg-gray-800 max-h-screen overflow-auto h-full " id="<?php echo $title; ?>" role="tabpanel" aria-labelledby="<?php echo $title; ?>-tab">
+            <div class="hidden p-4 bg-gray-50 rounded-b-lg max-h-screen overflow-auto h-full " id="<?php echo $title; ?>" role="tabpanel" aria-labelledby="<?php echo $title; ?>-tab">
                 <div class="">
                     <div class="block justify-center w-full shadow-md overflow-auto sm:rounded-lg" style="max-height: 63vh;">
                         <?php
@@ -56,8 +56,8 @@ $current_tab = isset($_GET['tab']) ? $_GET['tab'] : 1;
                                 }
                             }
                         ?>
-                            <table class=" sortable w-full text-sm text-center text-white dark:text-gray-400">
-                                <thead class="cursor-pointer text-md text-black bg-indigo-200 dark:bg-gray-700 dark:text-gray-400 sticky top-0">
+                            <table class=" sortable w-full text-sm text-center text-white">
+                                <thead class="cursor-pointer text-md text-black bg-indigo-200 sticky top-0">
                                     <tr>
                                         <?php for ($title = 0; $title <= count($inner_array) - 1; $title++) { ?>
                                             <th scope="col" class="py-2 px-6">

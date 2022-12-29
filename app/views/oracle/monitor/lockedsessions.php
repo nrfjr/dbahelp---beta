@@ -43,7 +43,7 @@ if ($first_locked_displayed === $last_locked_displayed) {
 </div>
 <div class="overflow-x-auto relative shadow-md">
 
-    <div class="rounded-lg flex justify-between items-center p-2 bg-gray-300 dark:bg-gray-900 mb-4">
+    <div class="rounded-lg flex justify-between items-center p-2 bg-gray-300 mb-4">
         <div class="inline-flex">
             <p class="m-2">Locked Sessions Total:</p>
             <b class="m-2"><?php echo $total_sessions ?></b>
@@ -63,8 +63,8 @@ if ($first_locked_displayed === $last_locked_displayed) {
                     }
                 }
             ?>
-                <table class=" sortable w-full text-sm text-left text-white dark:text-gray-400">
-                    <thead class="cursor-pointer text-xs text-black bg-indigo-200 dark:bg-gray-700 dark:text-gray-400 sticky top-0">
+                <table class=" sortable w-full text-sm text-left text-white">
+                    <thead class="cursor-pointer text-xs text-black bg-indigo-200 sticky top-0">
                         <tr class="focus:hover:bg-gray-700">
                             <?php for ($title = 0; $title <= count($array) - 1; $title++) { ?>
                                 <th scope="col" class="py-2 px-6">
@@ -157,7 +157,7 @@ if ($first_locked_displayed === $last_locked_displayed) {
                 <?php
                     if ($current_page > 1) { ?>
 
-                    <li class="page-item"><a class="page-link block px-3 py-2 ml-0 leading-tight text-gray-700 bg-indigo-200 border border-gray-300 rounded-l-lg hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white" href="<?php echo '?page=1'; ?>">First</a></li>
+                    <li class="page-item"><a class="page-link block px-3 py-2 ml-0 leading-tight text-gray-700 bg-indigo-200 border border-gray-300 rounded-l-lg hover:bg-gray-100" href="<?php echo '?page=1'; ?>">First</a></li>
 
                     <?php
                     }

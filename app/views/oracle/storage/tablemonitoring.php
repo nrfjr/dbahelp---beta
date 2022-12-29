@@ -43,18 +43,18 @@ if ($first_analysis_displayed === $last_analysis_displayed) {
         <div class="flex gap-2">
             <b for="tables" class="flex flex-row inline-flex whitespace-nowrap w-full items-center text-sm font-medium text-gray-100">Select Table: </b>
             <!--OBJECTS-->
-            <button id="dropdownDefault" data-dropdown-toggle="dropdown-tables" class="text-center hover:bg-gray-400 hover:text-black focus:ring-4 focus:outline-none focus:ring-gray-800 font-medium rounded-lg text-sm px-4 py-2 flex justify-between items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 w-full bg-gray-200" type="button">TABLES <i class="fas fa-chevron-down"></i></button>
+            <button id="dropdownDefault" data-dropdown-toggle="dropdown-tables" class="text-center hover:bg-gray-400 hover:text-black focus:ring-4 focus:outline-none focus:ring-gray-800 font-medium rounded-lg text-sm px-4 py-2 flex justify-between items-center w-full bg-gray-200" type="button">TABLES <i class="fas fa-chevron-down"></i></button>
         </div>
 
         <!-- Dropdown menu -->
-        <div id="dropdown-tables" class="flex justify-center hidden z-10 w-auto bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700">
+        <div id="dropdown-tables" class="flex justify-center hidden z-10 w-auto bg-white rounded divide-y divide-gray-100 shadow">
             <form action="<?php echo URLROOT; ?>/storages/tablemonitoring/<?php echo $_SESSION['StorageDB'] ?>" method="POST">
-                <ul class="py-1 text-sm text-gray-700 dark:text-gray-200 flex flex-col items-center" aria-labelledby="dropdownDefault">
+                <ul class="py-1 text-sm text-gray-700 flex flex-col items-center" aria-labelledby="dropdownDefault">
                     <li>
-                        <button type="submit" id="table" name="table" value="all_tables" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 w-full dark:hover:text-white">All Tables</button>
+                        <button type="submit" id="table" name="table" value="all_tables" class="block py-2 px-4 hover:bg-gray-100 w-full">All Tables</button>
                     </li>
                     <li>
-                        <button type="submit" id="table" name="table" value="dba_tables" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 w-full dark:hover:text-white">DBA Tables</button>
+                        <button type="submit" id="table" name="table" value="dba_tables" class="block py-2 px-4 hover:bg-gray-100 w-full">DBA Tables</button>
                     </li>
                 </ul>
             </form>
@@ -78,8 +78,8 @@ if ($first_analysis_displayed === $last_analysis_displayed) {
                     }
                 }
             ?>
-                <table class=" sortable w-full text-sm text-left text-white dark:text-gray-400">
-                    <thead class="cursor-pointer text-xs text-black bg-indigo-200 dark:bg-gray-700 dark:text-gray-400 sticky top-0">
+                <table class=" sortable w-full text-sm text-left text-white">
+                    <thead class="cursor-pointer text-xs text-black bg-indigo-200 sticky top-0">
                         <tr>
                             <?php for ($title = 0; $title <= count($array) - 1; $title++) { ?>
                                 <th scope="col" class="py-2 px-6">
@@ -131,7 +131,7 @@ if ($first_analysis_displayed === $last_analysis_displayed) {
                     <?php
                     if ($current_page > 1) { ?>
 
-                        <li class="page-item"><a class="page-link block px-3 py-2 ml-0 leading-tight text-gray-700 bg-indigo-200 border border-gray-300 rounded-l-lg hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white" href="<?php echo '?page=1'; ?>">First</a></li>
+                        <li class="page-item"><a class="page-link block px-3 py-2 ml-0 leading-tight text-gray-700 bg-indigo-200 border border-gray-300 rounded-l-lg hover:bg-gray-100" href="<?php echo '?page=1'; ?>">First</a></li>
 
                         <?php
                     }
