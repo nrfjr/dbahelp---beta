@@ -12,6 +12,7 @@ function newyear(){
         document.getElementById("boxcont").classList.remove("box");
         for(i=1;i<=10;i++){
             document.getElementById("i"+i.toLocaleString()).classList.remove("fa-snowflake")
+            document.getElementById("i"+i.toLocaleString()).classList.add("hidden")
             document.getElementById("div"+i.toLocaleString()).classList.remove("Div"+i.toLocaleString());
             document.getElementById("div"+i.toLocaleString()).classList.add("firework");
         }

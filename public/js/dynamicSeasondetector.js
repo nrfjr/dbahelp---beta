@@ -2,7 +2,8 @@ function changeSVGonSeason(){
     const spring = ["March", "April", "May"]
     const summer = ["June", "July", "August"]
     const fall = ["September", "October", "November"]
-    const winter = ["December","January","February"]
+    const winter = ["December"]
+    const valentine = ["February"]
 
     const date = new Date();
     let currmonth = date.toLocaleString('default',{month: 'long'});
@@ -25,6 +26,11 @@ function changeSVGonSeason(){
     else if(winter.includes(currmonth)){
         for(i=1;i<=10;i++){
             document.getElementById("i"+i.toLocaleString()).classList.add("fa-snowflake")
+        }
+    }
+    else if(valentine.includes(currmonth)){
+        for(i=1;i<=10;i++){
+            document.getElementById("i"+i.toLocaleString()).classList.add("fa-heart")
         }
     }
 }
