@@ -24,7 +24,7 @@ $filterPHPArrayToJS = function ($array, $key) {
         <div id="redochart" class="bg-gray-500 rounded-md h-fit">
         </div>
     </div>
-    <div class="block justify-center lg:h-full w-full shadow-md overflow-auto sm:rounded-lg lg:max-h-80 xl:max-h-96">
+    <div class="block justify-center lg:h-full w-full shadow-md rounded-lg overflow-auto lg:max-h-80 xl:max-h-96">
         <?php
 
         $redogeneration = $data;

@@ -107,7 +107,7 @@ if ($first_stats_displayed === $last_stats_displayed) {
                     <?php
                     if ($current_page > 1) { ?>
 
-                        <li class="page-item"><a class="page-link block px-3 py-2 ml-0 leading-tight text-gray-700 bg-indigo-200 border border-gray-300 rounded-l-lg hover:bg-gray-100" href="<?php echo '?page=1'; ?>">First</a></li>
+                        <li class="page-item"><a class="page-link block px-3 py-2 ml-0 leading-tight text-gray-700 bg-indigo-200 border border-gray-300 rounded-l-md hover:bg-gray-100" href="<?php echo '?page=1'; ?>">First</a></li>
 
                         <?php
                     }
@@ -132,7 +132,7 @@ if ($first_stats_displayed === $last_stats_displayed) {
 
                     if ($current_page < $total_pages) { ?>
 
-                        <li class="page-item"><a class="page-link block px-4 py-2 leading-tight text-gray-700 bg-indigo-200 border border-gray-300 rounded-r-lg hover:bg-gray-100" href="<?php echo '?page=' . $total_pages; ?>">Last</a></li>
+                        <li class="page-item"><a class="page-link block px-4 py-2 leading-tight text-gray-700 bg-indigo-200 border border-gray-300 rounded-r-md hover:bg-gray-100" href="<?php echo '?page=' . $total_pages; ?>">Last</a></li>
 
                     <?php } ?>
                 </ul>

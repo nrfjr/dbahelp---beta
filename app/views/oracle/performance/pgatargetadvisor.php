@@ -13,7 +13,7 @@ require APPROOT . '/views/inc/sidebar.php'; ?>
 
 <div class="overflow-x-auto relative shadow-md">
 
-    <div style="height: fit-content; overflow: clip;">
+    <div style="height: fit-content; overflow: clip;" class="rounded-lg">
         <div class="block  justify-center w-full shadow-md overflow-auto sm:rounded-lg" style="max-height: 75vh;">
             <?php
 

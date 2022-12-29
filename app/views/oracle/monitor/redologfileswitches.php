@@ -10,7 +10,7 @@ require APPROOT . '/views/inc/sidebar.php'; ?>
   </div>
   <div id="redologPMZoom" class="hidden absolute flex rounded-md bg-white bg-opacity-50 w-full h-full z-20 top-0 left-0 justify-center items-center p-36 backdrop-filter backdrop-blur-sm">
       <button onclick="hidePopPM()" class="top-5 right-5 absolute"><i class="text-2xl fa-solid fa-xmark"></i></button>
-      <div id="ZredologchartPM" class="w-full z-50 bg-gray-700 rounded-md h-fit"></div>
+      <div id="ZredologchartPM" class="pt-1 w-full z-50 bg-gray-700 rounded-md h-fit"></div>
   </div>
   <div class="flex justify-between mb-3">
     <h1 class="text-3xl text-black text-white">
@@ -19,7 +19,7 @@ require APPROOT . '/views/inc/sidebar.php'; ?>
     <button onclick="window.location.reload()" class="px-4 py-2 rounded-lg bg-gray-200 hover:bg-gray-500"> Refresh<i class="ml-2 fas fa-redo"></i></button>
   </div>
 
-  <div class="flex flex-col justify-evenly gap-y-2 xl:h-5/3">
+  <div class="flex-col justify-evenly gap-y-2 xl:h-5/3">
     <div class="h-auto overflow-hidden">
       <h1 class="text-white">Morning Log File Switches Within a Week</h1>
       <div class="flex gap-2 flex-col xl:flex-row">
@@ -141,7 +141,7 @@ require APPROOT . '/views/inc/sidebar.php'; ?>
           }
           ?>
         </div>
-        <div ondblclick="showPopPM()" id="redologchartPM" class="cursor-pointer w-full xl:w-1/2 bg-gray-700 rounded-md h-fit">
+          <div ondblclick="showPopPM()" id="redologchartPM" class="pt-1 cursor-pointer w-full xl:w-1/2 bg-gray-700 rounded-md h-fit">
         </div>
       </div>
     </div>

@@ -27,7 +27,7 @@ require APPROOT . '/views/inc/sidebar.php'; ?>
                     }
                 }
             ?>
-                <table class=" sortable w-full text-sm text-center text-white">
+                <table class=" sortable w-full text-sm text-center text-white ">
                     <thead class="cursor-pointer text-md text-black bg-indigo-200 sticky top-0 z-10">
                         <tr>
                             <?php for ($title = 0; $title <= count($array) - 2; $title++) { ?>

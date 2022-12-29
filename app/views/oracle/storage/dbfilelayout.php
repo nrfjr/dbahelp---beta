@@ -16,7 +16,7 @@ $current_tab = isset($_GET['tab']) ? $_GET['tab'] : 1;
 
 <div class="overflow-x-auto relative shadow-md ">
 
-    <div class="rounded-lg flex justify-between items-center p-2 bg-gray-300 mb-4">
+    <div class="rounded-lg flex justify-between items-center p-2 bg-gray-300  mb-4">
         <div class="inline-flex w-1/2">
             <b><?php echo $_SESSION['StorageDB'] ?> Structure</b>
         </div>

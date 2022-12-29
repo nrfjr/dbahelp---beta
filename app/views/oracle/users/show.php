@@ -37,16 +37,13 @@ if ($first_user_displayed === $last_user_displayed) {
 
 <h1 class="text-3xl text-black pb-6 text-white"><b>Manage Users</b></h1>
 
-
-<div class="overflow-x-auto relative shadow-md sm:rounded-lg">
-    <div class="flex justify-between items-center pb-4 bg-gray-600">
-        <div>
-
+<div class="flex justify-between items-center pb-4 bg-gray-600 ">
+        <div class="z-10">
             <button id="dropdownDefault" data-dropdown-toggle="dropdown-createuser" class="inline-flex items-center text-black bg-green-300 focus:outline-none hover:bg-green-700  font-medium rounded-lg text-sm px-3 py-2  hover:text-white" type="button">
                 Create
                 <i class="fas fa-chevron-down ml-2"></i>
             </button>
-            <div id="dropdown-createuser" class="whitespace-normal hidden z-10 w-fit bg-white rounded-md divide-y divide-gray-100 shadow max-h-48 overflow-y-auto scrollbar-hide">
+            <div id="dropdown-createuser" class="whitespace-normal hidden w-fit bg-white rounded-md divide-y divide-gray-100 shadow max-h-48 overflow-y-auto scrollbar-hide">
                 <ul class="text-sm text-gray-700" aria-labelledby="dropdownDefault">
                     <?php foreach (HOSTS as $host => $db) {
                         if ($host != 'DEFAULT') { ?>
@@ -57,7 +54,6 @@ if ($first_user_displayed === $last_user_displayed) {
                     } ?>
                 </ul>
             </div>
-
         </div>
         <label for="table-search" class="sr-only">Search</label>
         <div class="relative absolute">
@@ -74,7 +70,8 @@ if ($first_user_displayed === $last_user_displayed) {
             </form>
         </div>
     </div>
-    <div style="height: fit-content; overflow: clip;">
+<div class="overflow-x-auto relative shadow-md sm:rounded-lg">
+    <div style="height: fit-content; overflow: clip;" class="rounded-lg">
         <div class="block w-full shadow-md overflow-auto sm:rounded-lg " style="max-height: 66vh;">
             <?php
             if (!empty($users)) {
@@ -190,7 +187,7 @@ if ($first_user_displayed === $last_user_displayed) {
                     <?php
                     if ($current_page > 1) { ?>
 
-                        <li class="page-item"><a class="page-link block px-3 py-2 ml-0 leading-tight text-gray-700 bg-indigo-200 border border-gray-300 rounded-l-lg hover:bg-gray-100" href="<?php echo '?page=1'; ?>">First</a></li>
+                        <li class="page-item"><a class="page-link block px-3 py-2 ml-0 leading-tight text-gray-700 bg-indigo-200 border border-gray-300 rounded-l-md hover:bg-gray-100" href="<?php echo '?page=1'; ?>">First</a></li>
 
                         <?php
                     }
@@ -215,7 +212,7 @@ if ($first_user_displayed === $last_user_displayed) {
 
                     if ($current_page < $total_pages) { ?>
 
-                        <li class="page-item"><a class="page-link block px-4 py-2 leading-tight text-gray-700 bg-indigo-200 border border-gray-300 rounded-r-lg hover:bg-gray-100" href="<?php echo '?page=' . $total_pages; ?>">Last</a></li>
+                        <li class="page-item"><a class="page-link block px-4 py-2 leading-tight text-gray-700 bg-indigo-200 border border-gray-300 rounded-r-md hover:bg-gray-100" href="<?php echo '?page=' . $total_pages; ?>">Last</a></li>
 
                     <?php } ?>
                 </ul>

@@ -51,10 +51,10 @@ if ($first_analysis_displayed === $last_analysis_displayed) {
             <form action="<?php echo URLROOT; ?>/storages/tablemonitoring/<?php echo $_SESSION['StorageDB'] ?>" method="POST">
                 <ul class="py-1 text-sm text-gray-700 flex flex-col items-center" aria-labelledby="dropdownDefault">
                     <li>
-                        <button type="submit" id="table" name="table" value="all_tables" class="block py-2 px-4 hover:bg-gray-100 w-full">All Tables</button>
+                        <button type="submit" id="table" name="table" value="all_tables" class="block py-2 px-4 hover:bg-gray-100">All Tables</button>
                     </li>
                     <li>
-                        <button type="submit" id="table" name="table" value="dba_tables" class="block py-2 px-4 hover:bg-gray-100 w-full">DBA Tables</button>
+                        <button type="submit" id="table" name="table" value="dba_tables" class="block py-2 px-4 hover:bg-gray-100">DBA Tables</button>
                     </li>
                 </ul>
             </form>
@@ -65,7 +65,7 @@ if ($first_analysis_displayed === $last_analysis_displayed) {
 </div>
 
 <div class="overflow-x-auto relative shadow-md rounded-md">
-    <div style="height: fit-content; overflow: clip;">
+    <div style="height: fit-content; overflow: clip;" class="rounded-lg">
         <div class="block w-full shadow-md overflow-auto sm:rounded-lg" style="max-height: 72vh;">
             <?php
             if (!empty($analysis)) {
@@ -131,7 +131,7 @@ if ($first_analysis_displayed === $last_analysis_displayed) {
                     <?php
                     if ($current_page > 1) { ?>
 
-                        <li class="page-item"><a class="page-link block px-3 py-2 ml-0 leading-tight text-gray-700 bg-indigo-200 border border-gray-300 rounded-l-lg hover:bg-gray-100" href="<?php echo '?page=1'; ?>">First</a></li>
+                        <li class="page-item"><a class="page-link block px-3 py-2 ml-0 leading-tight text-gray-700 bg-indigo-200 border border-gray-300 rounded-l-md hover:bg-gray-100" href="<?php echo '?page=1'; ?>">First</a></li>
 
                         <?php
                     }
@@ -156,7 +156,7 @@ if ($first_analysis_displayed === $last_analysis_displayed) {
 
                     if ($current_page < $total_pages) { ?>
 
-                        <li class="page-item"><a class="page-link block px-4 py-2 leading-tight text-gray-700 bg-indigo-200 border border-gray-300 rounded-r-lg hover:bg-gray-100" href="<?php echo '?page=' . $total_pages; ?>">Last</a></li>
+                        <li class="page-item"><a class="page-link block px-4 py-2 leading-tight text-gray-700 bg-indigo-200 border border-gray-300 rounded-r-md hover:bg-gray-100" href="<?php echo '?page=' . $total_pages; ?>">Last</a></li>
 
                     <?php } ?>
                 </ul>

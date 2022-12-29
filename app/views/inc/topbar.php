@@ -6,7 +6,7 @@
     <button id="dropdownDefault" data-dropdown-toggle="dropdown-oracle" data-dropdown-placement="bottom-end" class="text-white bg-gray-600 hover:bg-gray-400 hover:text-black focus:ring-4 focus:outline-none focus:ring-gray-800 font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center
                             <!--THIS BELOW CHANGE URL-->
                             <?php echo preg_match('/dashboard|index/', $url) ? 'block focus:bg-gray-400 focus:text-black' : 'hidden'; ?>
-                            " type="button">Databases<svg class="ml-2 w-4 h-4" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                           " type="button">Databases<svg class="ml-2 w-4 h-4" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
         </svg></button>
     <!-- Dropdown menu -->
@@ -27,14 +27,14 @@
         <div class="lg:ml-6 lg:px-6 lg:py-2 lg:border-l-2 lg:border-gray-900 inline-flex <?php echo strpos($url, 'index') ? 'block' : 'hidden'; ?>">
             <!-- Oracle Tools -->
             <!--MONITOR-->
-            <button id="dropdownDefault" data-dropdown-toggle="dropdown-monitor" data-dropdown-placement="bottom-start" class="mx-1 text-white bg-gray-600 hover:bg-gray-400 hover:text-black focus:ring-4 focus:outline-none focus:ring-gray-800 font-extralight lg:font-medium rounded-lg text-sm px-2 lg:px-4 py-0 lg:py-2.5 text-center inline-flex items-center 
+            <button id="dropdownDefault" data-dropdown-toggle="dropdown-monitor" data-dropdown-placement="bottom-start" class="mx-1 text-white bg-gray-600 hover:bg-gray-400 hover:text-black focus:ring-4 focus:outline-none focus:ring-gray-800 font-extralight lg:font-medium rounded-lg text-sm px-2 lg:px-4 py-0 lg:py-2.5 text-center inline-flex items-center
                     <!--THIS BELOW CHANGE URL-->
                     <?php echo strpos($url, 'index') ? 'block focus:bg-gray-400 hover:text-black' : 'hidden'; ?>
-                    " type="button">MONITOR<svg class="ml-2 w-4 h-4" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                   " type="button">MONITOR<svg class="ml-2 w-4 h-4" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
                 </svg></button>
             <!-- Dropdown menu -->
-            <div id="dropdown-monitor" class="hidden absolute z-10 w-44 bg-white rounded divide-y divide-gray-100 shadow  max-h-48 overflow-y-auto scrollbar-hide">
+            <div id="dropdown-monitor" class="hidden absolute z-10 w-44 bg-white rounded divide-y divide-gray-100 shadow max-h-48 overflow-y-auto scrollbar-hide">
                 <ul class="rounded-md text-sm text-gray-700" aria-labelledby="dropdownDefault">
                     <li>
                         <a href="<?php echo URLROOT; ?>/monitors/usersessions/<?php echo $_SESSION['HomepageDB'] ?>" class="rounded-t-sm block py-2 px-4 hover:bg-gray-400 hover:text-white">User Sessions</a>
@@ -58,11 +58,11 @@
             <!--PERFORMANCE-->
             <button id="dropdownDefault" data-dropdown-toggle="dropdown-performance" data-dropdown-placement="bottom-start" class="mx-1 text-white bg-gray-600 hover:bg-gray-400 hover:text-black focus:ring-4 focus:outline-none focus:ring-gray-800 font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center 
                     <?php echo strpos($url, 'index') ? 'block focus:bg-gray-400 hover:text-black' : 'hidden'; ?>
-                    " type="button">PERFORMANCE<svg class="ml-2 w-4 h-4" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                   " type="button">PERFORMANCE<svg class="ml-2 w-4 h-4" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
                 </svg></button>
             <!-- Dropdown menu -->
-            <div id="dropdown-performance" class="hidden z-10 w-44 bg-white rounded divide-y divide-gray-100 shadow  max-h-48 overflow-y-auto scrollbar-hide">
+            <div id="dropdown-performance" class="hidden z-10 w-44 bg-white rounded divide-y divide-gray-100 shadow max-h-48 overflow-y-auto scrollbar-hide">
                 <ul class="rounded-md text-sm text-gray-700" aria-labelledby="dropdownDefault">
                     <li>
                         <a href="<?php echo URLROOT; ?>/performances/pgatargetadvisor/<?php echo $_SESSION['HomepageDB'] ?>" class="rounded-t-sm block py-2 px-4 hover:bg-gray-400 hover:text-white">PGA Target Advisor</a>
@@ -87,9 +87,9 @@
             <!--PERFORMANCE-->
 
             <!--SECURITY-->
-            <button id="dropdownDefault" data-dropdown-toggle="dropdown-security" data-dropdown-placement="bottom-start" class="mx-1 text-white bg-gray-600 hover:bg-gray-400 hover:text-black focus:ring-4 focus:outline-none focus:ring-gray-800 font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center
+            <button id="dropdownDefault" data-dropdown-toggle="dropdown-security" data-dropdown-placement="bottom-start" class="mx-1 text-white bg-gray-600 hover:bg-gray-400 hover:text-black focus:ring-4 focus:outline-none focus:ring-gray-800 font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center 
                     <?php echo strpos($url, 'index/RMSPRD') ? 'block focus:bg-gray-400 hover:text-black' : 'hidden'; ?>
-                    " type="button">SECURITY<svg class="ml-2 w-4 h-4" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                   " type="button">SECURITY<svg class="ml-2 w-4 h-4" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
                 </svg></button>
             <!-- Dropdown menu -->
@@ -113,9 +113,9 @@
             <!--SECURITY-->
 
             <!--OBJECTS-->
-            <button id="dropdownDefault" data-dropdown-toggle="dropdown-storage" data-dropdown-placement="bottom-start" class="mx-1 text-white bg-gray-600 hover:bg-gray-400 hover:text-black focus:ring-4 focus:outline-none focus:ring-gray-800 font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center
+            <button id="dropdownDefault" data-dropdown-toggle="dropdown-storage" data-dropdown-placement="bottom-start" class="mx-1 text-white bg-gray-600 hover:bg-gray-400 hover:text-black focus:ring-4 focus:outline-none focus:ring-gray-800 font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center 
                     <?php echo strpos($url, 'index') ? 'block focus:bg-gray-400 hover:text-black' : 'hidden'; ?>
-                    " type="button">STORAGE & OBJECTS<svg class="ml-2 w-4 h-4" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                   " type="button">STORAGE & OBJECTS<svg class="ml-2 w-4 h-4" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
                 </svg></button>
             <!-- Dropdown menu -->
@@ -143,20 +143,20 @@
     <!-- Small Screen Tool Drop Down -->
     <div class="inline-flex xl:hidden">
         <!-- Container -->
-        <button id="dropdownDefault" data-dropdown-toggle="dropdown-tools" class="mx-1 text-white bg-gray-700 hover:bg-gray-400 hover:text-black focus:ring-4 focus:outline-none focus:ring-gray-800 font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center
+        <button id="dropdownDefault" data-dropdown-toggle="dropdown-tools" class="mx-1 text-white bg-gray-700 hover:bg-gray-400 hover:text-black focus:ring-4 focus:outline-none focus:ring-gray-800 font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center 
                     <?php echo strpos($url, 'index') ? 'block focus:bg-gray-400 hover:text-black' : 'hidden'; ?>
-                    " type="button"><i class="fas fa-wrench"></i></button>
+                   " type="button"><i class="fas fa-wrench"></i></button>
         <!-- Dropdown menu -->
         <div id="dropdown-tools" class="hidden z-10 w-44 bg-gray-600 rounded divide-y divide-gray-100 shadow">
             <ul class="rounded-md text-sm text-gray-700" aria-labelledby="dropdownDefault">
                 <li>
                     <!--MONITOR-->
-                    <button id="dropdownDefault" data-dropdown-toggle="dropdown-sm-monitor" data-dropdown-placement="right-start" class="rounded-t-sm mb-1 text-white bg-gray-600 hover:bg-gray-400 hover:text-black focus:ring-4 focus:outline-none focus:ring-gray-800 font-medium rounded-lg text-sm px-4 py-2.5 text-center flex justify-between items-center w-full
+                    <button id="dropdownDefault" data-dropdown-toggle="dropdown-sm-monitor" data-dropdown-placement="right-start" class="rounded-t-sm mb-1 text-white bg-gray-600 hover:bg-gray-400 hover:text-black focus:ring-4 focus:outline-none focus:ring-gray-800 font-medium rounded-lg text-sm px-4 py-2.5 text-center flex justify-between items-center  w-full
                             <!--THIS BELOW CHANGE URL-->
                             <?php echo strpos($url, 'index') ? 'block focus:bg-gray-400 hover:text-black' : 'hidden'; ?>
-                            " type="button">MONITOR<i class="fa-solid fa-chevron-right"></i></button>
+                           " type="button">MONITOR<i class="fa-solid fa-chevron-right"></i></button>
                     <!-- Dropdown menu -->
-                    <div id="dropdown-sm-monitor" class="hidden absolute z-10 w-44 bg-white rounded divide-y divide-gray-100 shadow left-0">
+                    <div id="dropdown-sm-monitor" class="hidden absolute z-10 w-44 bg-white rounded divide-y divide-gray-100 shadow  left-0">
                         <ul class="rounded-md text-sm text-gray-700" aria-labelledby="dropdownDefault">
                             <li>
                                 <a href="<?php echo URLROOT; ?>/monitors/usersessions/<?php echo $_SESSION['HomepageDB'] ?>" class="rounded-t-sm block py-2 px-4 hover:bg-gray-400 hover:text-white">User Sessions</a>
@@ -179,9 +179,9 @@
                 </li>
                 <li>
                     <!--PERFORMANCE-->
-                    <button id="dropdownDefault" data-dropdown-toggle="dropdown-sm-performance" data-dropdown-placement="right-start" class="mb-1 text-white bg-gray-600 hover:bg-gray-400 hover:text-black focus:ring-4 focus:outline-none focus:ring-gray-800 font-medium rounded-lg text-sm px-4 py-2.5 text-center flex justify-between items-center w-full
+                    <button id="dropdownDefault" data-dropdown-toggle="dropdown-sm-performance" data-dropdown-placement="right-start" class="mb-1 text-white bg-gray-600 hover:bg-gray-400 hover:text-black focus:ring-4 focus:outline-none focus:ring-gray-800 font-medium rounded-lg text-sm px-4 py-2.5 text-center flex justify-between items-center  w-full
                             <?php echo strpos($url, 'index') ? 'block focus:bg-gray-400 hover:text-black' : 'hidden'; ?>
-                            " type="button">PERFORMANCE<i class="fa-solid fa-chevron-right"></i></button>
+                           " type="button">PERFORMANCE<i class="fa-solid fa-chevron-right"></i></button>
                     <!-- Dropdown menu -->
                     <div id="dropdown-sm-performance" class="hidden z-10 w-44 bg-white rounded divide-y divide-gray-100 shadow">
                         <ul class="rounded-md text-sm text-gray-700" aria-labelledby="dropdownDefault">
@@ -209,9 +209,9 @@
                 </li>
                 <li>
                     <!--SECURITY-->
-                    <button id="dropdownDefault" data-dropdown-toggle="dropdown-sm-security" data-dropdown-placement="right-start" class="mb-1 text-white bg-gray-600 hover:bg-gray-400 hover:text-black focus:ring-4 focus:outline-none focus:ring-gray-800 font-medium rounded-lg text-sm px-4 py-2.5 text-center flex justify-between items-center w-full
+                    <button id="dropdownDefault" data-dropdown-toggle="dropdown-sm-security" data-dropdown-placement="right-start" class="mb-1 text-white bg-gray-600 hover:bg-gray-400 hover:text-black focus:ring-4 focus:outline-none focus:ring-gray-800 font-medium rounded-lg text-sm px-4 py-2.5 text-center flex justify-between items-center  w-full
                             <?php echo strpos($url, 'index/RMSPRD') ? 'block focus:bg-gray-400 hover:text-black' : 'hidden'; ?>
-                            " type="button">SECURITY<i class="fa-solid fa-chevron-right"></i></button>
+                           " type="button">SECURITY<i class="fa-solid fa-chevron-right"></i></button>
                     <!-- Dropdown menu -->
                     <div id="dropdown-sm-security" class="hidden z-10 w-44 bg-white rounded divide-y divide-gray-100 shadow">
                         <ul class="rounded-md text-sm text-gray-700" aria-labelledby="dropdownDefault">
@@ -234,9 +234,9 @@
                 </li>
                 <li>
                     <!--OBJECTS-->
-                    <button id="dropdownDefault" data-dropdown-toggle="dropdown-sm-storage" data-dropdown-placement="right-start" class="rounded-b-sm text-white bg-gray-600 hover:bg-gray-400 hover:text-black focus:ring-4 focus:outline-none focus:ring-gray-800 font-medium rounded-lg text-sm px-4 py-2.5 text-center flex justify-between items-center w-full
+                    <button id="dropdownDefault" data-dropdown-toggle="dropdown-sm-storage" data-dropdown-placement="right-start" class="rounded-b-sm text-white bg-gray-600 hover:bg-gray-400 hover:text-black focus:ring-4 focus:outline-none focus:ring-gray-800 font-medium rounded-lg text-sm px-4 py-2.5 text-center flex justify-between items-center  w-full
                             <?php echo strpos($url, 'index') ? 'block focus:bg-gray-400 hover:text-black' : 'hidden'; ?>
-                            " type="button">STORAGE<i class="fa-solid fa-chevron-right"></i></button>
+                           " type="button">STORAGE<i class="fa-solid fa-chevron-right"></i></button>
                     <!-- Dropdown menu -->
                     <div id="dropdown-sm-storage" class="hidden z-10 w-44 bg-white rounded divide-y divide-gray-100 shadow">
                         <ul class="rounded-md text-sm text-gray-700" aria-labelledby="dropdownDefault">
@@ -262,9 +262,9 @@
     <!-- Small Screen Tool Drop Down -->
 
     <!--Database Disk-->
-    <button id="dropdownDefault" data-dropdown-toggle="dropdown-disk" data-dropdown-placement="bottom-start" class="text-white bg-gray-600 hover:bg-gray-400 hover:text-black focus:ring-4 focus:outline-none focus:ring-gray-800 font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center
+    <button id="dropdownDefault" data-dropdown-toggle="dropdown-disk" data-dropdown-placement="bottom-start" class="text-white bg-gray-600 hover:bg-gray-400 hover:text-black focus:ring-4 focus:outline-none focus:ring-gray-800 font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center 
                     <?php echo strpos($url, 'diskstorage') ? 'block focus:bg-gray-400 focus:text-black' : 'hidden'; ?>
-                    " type="button">Database<svg class="ml-2 w-4 h-4" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                   " type="button">Database<svg class="ml-2 w-4 h-4" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
         </svg></button>
     <!-- Dropdown menu -->
