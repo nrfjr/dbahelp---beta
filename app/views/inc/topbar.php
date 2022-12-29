@@ -1,5 +1,5 @@
 <div class="w-1/2 sm:w-fit md:w-full">
-    <button class="group justify-center md:hidden mx-2 py-3 px-4 hover:bg-gray-400 rounded-full" onclick="navToggle()">
+    <button class="justify-center md:hidden mx-2 p-4 hover:bg-gray-400 rounded-full" onclick="navToggle()">
         <i class="fa-solid fa-bars"></i>
     </button>
     <!--Oracle Databases-->

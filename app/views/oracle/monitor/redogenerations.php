@@ -19,12 +19,12 @@ $filterPHPArrayToJS = function ($array, $key) {
     <button onclick="window.location.reload()" class="px-4 py-2 rounded-lg bg-gray-200 hover:bg-gray-500"> Refresh<i class="ml-2 fas fa-redo"></i></button>
 </div>
 
-<div class="flex flex-col justify-between h-fit gap-y-1" style="max-height:93% ;">
+<div class="flex flex-col justify-between h-fit gap-y-1" style="max-height:93%;">
     <div class="flex flex-col">
-        <div id="redochart" class="bg-gray-500 rounded-md h-fit">
+        <div id="redochart" class="bg-gray-500 rounded-lg h-fit">
         </div>
     </div>
-    <div class="block justify-center lg:h-full w-full shadow-md rounded-lg overflow-auto lg:max-h-80 xl:max-h-96">
+    <div class="block justify-center lg:h-full w-full shadow-md sm:rounded-lg overflow-auto lg:max-h-80 xl:max-h-96">
         <?php
 
         $redogeneration = $data;
