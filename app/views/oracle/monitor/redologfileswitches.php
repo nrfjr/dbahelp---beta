@@ -23,7 +23,7 @@ require APPROOT . '/views/inc/sidebar.php'; ?>
     <div class="h-auto overflow-hidden">
       <h1 class="text-white">Morning Log File Switches Within a Week</h1>
       <div class="flex gap-2 flex-col xl:flex-row">
-        <div class="block justify-center w-full shadow-md overflow-auto sm:rounded-lg" style="max-height: 93%;">
+        <div class="block justify-center w-full shadow-md overflow-auto sm:rounded-lg" style="max-height: 93%; height: fit-content;">
           <?php
 
           $am_redologfile = $data['AM'];
@@ -86,7 +86,7 @@ require APPROOT . '/views/inc/sidebar.php'; ?>
     <div class="h-auto overflow-hidden">
       <h1 class="text-white">Evening Log File Switches Within a Week</h1>
       <div class="flex gap-2 flex-col xl:flex-row">
-        <div class="block justify-center w-full shadow-md overflow-auto sm:rounded-lg " style="max-height: 93%;">
+        <div class="block justify-center w-full shadow-md overflow-auto sm:rounded-lg " style="max-height: 93%; height: fit-content;">
           <?php
 
           $pm_redologfile = $data['PM'];
