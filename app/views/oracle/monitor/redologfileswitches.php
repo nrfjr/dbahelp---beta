@@ -4,11 +4,11 @@ require APPROOT . '/views/inc/header.php';
 require APPROOT . '/views/inc/sidebar.php'; ?>
 
 <div class="relative">
-  <div id="redologAMZoom" class="hidden absolute flex rounded-md bg-black bg-opacity-50 w-full h-full z-20 top-0 left-0 justify-center items-center p-36 backdrop-filter backdrop-blur-sm">
+  <div id="redologAMZoom" class="hidden absolute flex rounded-md bg-black bg-opacity-25 w-full h-full z-20 top-0 left-0 justify-center items-center p-36 backdrop-filter backdrop-blur-sm">
       <button onclick="hidePopAM()" class="top-5 right-5 absolute"><i class="text-2xl text-white fa-solid fa-xmark"></i></button>
       <div id="ZredologchartAM" class="w-full z-50 bg-white rounded-md h-fit"></div>
   </div>
-  <div id="redologPMZoom" class="hidden absolute flex rounded-md bg-white bg-opacity-50 w-full h-full z-20 top-0 left-0 justify-center items-center p-36 backdrop-filter backdrop-blur-sm">
+  <div id="redologPMZoom" class="hidden absolute flex rounded-md bg-white bg-opacity-25 w-full h-full z-20 top-0 left-0 justify-center items-center p-36 backdrop-filter backdrop-blur-sm">
       <button onclick="hidePopPM()" class="top-5 right-5 absolute"><i class="text-2xl fa-solid fa-xmark"></i></button>
       <div id="ZredologchartPM" class="pt-1 w-full z-50 bg-gray-700 rounded-md h-fit"></div>
   </div>
