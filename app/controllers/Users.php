@@ -120,14 +120,14 @@ class Users extends Controller
 
                     $data = [];
                 } else {
-                    $this->dialog->FAILED('Create User', 'User creation failed', 'Invalid / Missing Input, Please try again!', '/users/show/' . $_SESSION['CreateUserDB']);
+                    $this->dialog->FAILED('Create User', 'User creation failed', 'Invalid / Missing Input, Please try again!', '/users/show');
                 }
             } else {
 
                 $this->view('oracle/users/create', []);
             }
         } catch (\Exception $e) {
-            $this->dialog->FAILED('Create User', 'User creation failed', $e->getMessage(), '/users/show/default');
+            $this->dialog->FAILED('Create User', 'User creation failed', $e->getMessage(), '/users/show');
         }
     }
 
@@ -167,7 +167,7 @@ class Users extends Controller
 
                 $this->printCreatedRetailUser($data, $DB, $resultSameAccess);
             } else {
-                $this->dialog->FAILED('Create User', $DB . 'User creation failed', 'Unable to create user.', '/users/show/default');
+                $this->dialog->FAILED('Create User', $DB . 'User creation failed', 'Unable to create user.', '/users/show');
             }
         } else{
 
@@ -179,7 +179,7 @@ class Users extends Controller
                 $this->printCreatedOtherDBUser($data, $DB, $resultUsername);
 
             } else {
-                $this->dialog->FAILED('Create User', $DB . 'User creation failed', 'Unable to create user.', '/users/show/default');
+                $this->dialog->FAILED('Create User', $DB . 'User creation failed', 'Unable to create user.', '/users/show');
             }
         }
     }
@@ -192,11 +192,11 @@ class Users extends Controller
         if ($isExist) {
 
             $msg = strtoupper($data['ID'] . ' ' . $data['fname'] . ' ' . $data['mname'] . ' ' . $data['lname']) . '<br>Username: ' . $data['username'] . '<br>Password: ' . $data['password'];
-            $this->dialog->SUCCESS('Update User', $DB . ' User has been updated successfully', $msg, '/users/show/default');
+            $this->dialog->SUCCESS('Update User', $DB . ' User has been updated successfully', $msg, '/users/show');
         } else {
 
             $msg = strtoupper($data['ID'] . ' ' . $data['fname'] . ' ' . $data['mname'] . ' ' . $data['lname']) . '<br>Username: ' . $data['username'] . '<br>Password: ' . $data['password'];
-            $this->dialog->SUCCESS('Create User', $DB . ' User created successfully', $msg, '/users/show/default');
+            $this->dialog->SUCCESS('Create User', $DB . ' User created successfully', $msg, '/users/show');
         }
     }
 
@@ -221,7 +221,7 @@ class Users extends Controller
 
                 $msg = strtoupper($data['ID'] . ' ' . $data['fname'] . ' ' . $data['mname'] . ' ' . $data['lname']) . '<br>Username: ' . $data['username'] . '<br>Password: ' . $data['password'] . '<br>' . $this->getSameAccessStatus($sameAccessStatus);
 
-                $this->dialog->SUCCESS('Update User', $DB . ' User updated successfully', $msg, '/users/show/default');
+                $this->dialog->SUCCESS('Update User', $DB . ' User updated successfully', $msg, '/users/show');
             } else {
 
                 //Generate LDIF File after user is created.
@@ -237,7 +237,7 @@ class Users extends Controller
 
             $msg = strtoupper($data['ID'] . ' ' . $data['fname'] . ' ' . $data['mname'] . ' ' . $data['lname']) . '<br>Username: ' . $data['username'] . '<br>Password: ' . $data['password'] . '<br>' . $this->getSameAccessStatus($sameAccessStatus);
 
-            $this->dialog->SUCCESS('Create User', $DB . ' User created successfully', $msg, '/users/show/default');
+            $this->dialog->SUCCESS('Create User', $DB . ' User created successfully', $msg, '/users/show');
         }
     }
 
@@ -328,12 +328,12 @@ class Users extends Controller
 
                 if ($resultDeactivate) {
 
-                    $this->dialog->SUCCESS('Delete User', ' User deletion/deactivation successful', $username . ' has been deleted/deactivated.', '/users/show/default');
+                    $this->dialog->SUCCESS('Delete User', ' User deletion/deactivation successful', $username . ' has been deleted/deactivated.', '/users/show');
                 } else {
-                    $this->dialog->FAILED('Delete User', 'User deletion/deactivation failed', 'Unable to delete/deactivate ' . $username, '/users/show/default');
+                    $this->dialog->FAILED('Delete User', 'User deletion/deactivation failed', 'Unable to delete/deactivate ' . $username, '/users/show');
                 }
             } catch (\Exception $e) {
-                $this->dialog->FAILED('Delete User', 'User deletion/deactivation failed', $e->getMessage(), '/users/show/default');
+                $this->dialog->FAILED('Delete User', 'User deletion/deactivation failed', $e->getMessage(), '/users/show');
             }
         }
     }

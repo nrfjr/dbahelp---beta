@@ -19,7 +19,7 @@ class Telephones extends Controller{
         $data = ['ContactSearch' => isset($_SESSION['ContactSearch']) ? $_SESSION['ContactSearch'] : ''];
 
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-            $data = ['ContactSearch' => trim(SANITIZE_INPUT_STRING(empty($_POST['search']) ? '' : $_POST['search']))];
+            $data = ['ContactSearch' => trim(empty($_POST['search']) ? '' : $_POST['search'])];
         }
 
         $_SESSION['ContactSearch'] = $data['ContactSearch'];

@@ -60,7 +60,7 @@ if ($first_user_displayed === $last_user_displayed) {
             <div class="flex absolute inset-y-0 left-0 items-center pl-3">
                 <i class="fas fa-search w-5 h-5 text-gray-500"></i>
             </div>
-            <form action="<?php echo URLROOT; ?>/users/show/<?php echo $_SESSION['UserDB']; ?>" method="POST">
+            <form action="<?php echo URLROOT; ?>/users/show" method="POST">
                 <div class="flex justify-auto">
                     <input type="text" id="searchuser" name="searchuser" value="<?php echo isset($_SESSION['Search']) ? $_SESSION['Search'] : ''; ?>" class="block mr-4 p-2 pl-10 w-80 text-sm text-gray-900 bg-gray-50 rounded-lg" placeholder="Search for users">
                     <button id="dropdownRadioButton" class="inline-flex items-center text-black bg-blue-200 focus:outline-none hover:bg-blue-700 hover:text-white focus:ring-4 focus:ring-gray-200 font-medium rounded-lg text-sm px-3 py-1.5" type="submit">
