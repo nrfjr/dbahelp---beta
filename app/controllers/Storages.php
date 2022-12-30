@@ -3,7 +3,7 @@
 class Storages extends Controller
 {
 
-    private $db;
+    private $db, $owner, $table;
 
     public function __construct()
     {
@@ -39,16 +39,14 @@ class Storages extends Controller
     {
         $_SESSION['StorageDB'] = $DB;
 
+        if(!isset($_SESSION['tableowner'])){
+            $_SESSION['tableowner'] = '';
+        }
+
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
             $_SESSION['tableowner'] = $_POST['owner'];
 
-        }
-
-        if ($_SESSION['tableowner'] == null) {
-            $_SESSION['tableowner'] = '';
-        } else {
-            $_SESSION['tableowner'] = $_SESSION['tableowner'];
         }
 
         if (isset($_SESSION['StorageDB'])) {
@@ -69,17 +67,15 @@ class Storages extends Controller
     public function tablemonitoring($DB)
     {
         $_SESSION['StorageDB'] = $DB;
+        
+        if(!isset($_SESSION['tableowner'])){
+            $_SESSION['tablename'] = 'all_tables';
+        }   
 
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
-            $_SESSION['tablename'] = $_POST['table'];
+            $this->table = $_POST['table'];
 
-        }
-
-        if ($_SESSION['tablename'] == null) {
-            $_SESSION['tablename'] = 'all_tables';
-        } else {
-            $_SESSION['tablename'] = $_SESSION['tablename'];
         }
 
         if (isset($_SESSION['StorageDB'])) {
@@ -97,3 +93,4 @@ class Storages extends Controller
         $this->view('oracle/storage/tablemonitoring', $data);
     }
 }
+
