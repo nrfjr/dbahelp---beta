@@ -96,7 +96,7 @@ if ($first_index_displayed === $last_index_displayed) {
 
                         foreach ($indexes as $column_title => $value) {
                         ?>
-                            <tr class="hover:bg-gray-700">
+                            <tr class="transition delay-50 focus:hover:bg-gray-700 hover:bg-gray-700">
                                 <?php
                                 foreach ($value as $index) {
                                 ?>

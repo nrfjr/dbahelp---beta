@@ -52,7 +52,7 @@ require APPROOT . '/views/inc/sidebar.php'; ?>
                 <?php
                 foreach ($am_redologfile as $am_column_title => $am_value) {
                 ?>
-                  <tr class="focus:hover:bg-gray-700 hover:bg-gray-700">
+                  <tr class="transition delay-50 focus:hover:bg-gray-700 hover:bg-gray-700">
                     <?php
                     foreach ($am_value as $am_logfile) {
                     ?>
@@ -115,7 +115,7 @@ require APPROOT . '/views/inc/sidebar.php'; ?>
                 <?php
                 foreach ($pm_redologfile as $pm_column_title => $pm_value) {
                 ?>
-                  <tr class="focus:hover:bg-gray-700 hover:bg-gray-700">
+                  <tr class="transition delay-50 focus:hover:bg-gray-700 hover:bg-gray-700">
                     <?php
                     foreach ($pm_value as $pm_logfile) {
                     ?>
@@ -301,9 +301,13 @@ require APPROOT . '/views/inc/sidebar.php'; ?>
                       echo '\'' . $am_column_names[$am_title] . '\',';
                     } ?>],
     },
-    yaxis: {
-      tickAmount: 4,
-    },
+    yaxis: [{
+            labels: {
+                formatter: function(val) {
+                    return val.toFixed(0);
+                }
+            },
+        }],
     grid: {
       show: true,
       borderColor: '#0d0d0d',
@@ -496,10 +500,14 @@ require APPROOT . '/views/inc/sidebar.php'; ?>
       }
     },
     yaxis: {
+      tickAmount: 4,
       labels: {
         style: {
           colors: ['white']
         },
+        formatter: function(val) {
+                    return val.toFixed(0);
+        }
       }
     },
     grid: {

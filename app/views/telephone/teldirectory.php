@@ -7,8 +7,6 @@ require APPROOT . '/views/inc/sidebar.php';
 
 $telcontacts = $data;
 
-$filtered_nums = array();
-
 $total_num = count($telcontacts);
 
 $current_page = isset($_GET['page']) ? $_GET['page'] : 1;
@@ -83,7 +81,7 @@ if ($first_num_displayed === $last_num_displayed) {
 
                     foreach ($telcontacts as $column_title => $value) {
                     ?>
-                        <tr class="focus:hover:bg-gray-700 hover:bg-gray-700">
+                        <tr class="transition delay-50 focus:hover:bg-gray-700 hover:bg-gray-700">
                             <?php
                             foreach ($value as $num) {
                             ?>

@@ -7,8 +7,6 @@ require APPROOT . '/views/inc/sidebar.php';
 
 $usersessions = $data;
 
-$filtered_users = array();
-
 $total_sessions = count($usersessions);
 
 $current_page = isset($_GET['page']) ? $_GET['page'] : 1;
@@ -94,7 +92,7 @@ if ($first_user_displayed === $last_user_displayed) {
 
                         foreach ($usersessions as $column_title => $value) {
                         ?>
-                            <tr class="focus:hover:bg-gray-700 hover:bg-gray-700">
+                            <tr class="transition delay-50 focus:hover:bg-gray-700 hover:bg-gray-700">
                                 <?php
                                 foreach ($value as $user) {
                                 ?>

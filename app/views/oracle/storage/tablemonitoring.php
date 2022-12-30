@@ -7,8 +7,6 @@ require APPROOT . '/views/inc/sidebar.php';
 
 $analysis = $data;
 
-$filtered_tables = array();
-
 $total_analysis = count($analysis);
 
 $current_page = isset($_GET['page']) ? $_GET['page'] : 1;
@@ -94,7 +92,7 @@ if ($first_analysis_displayed === $last_analysis_displayed) {
 
                         foreach ($analysis as $column_title => $value) {
                         ?>
-                            <tr class="hover:bg-gray-700">
+                            <tr class="transition delay-50 focus:hover:bg-gray-700 hover:bg-gray-700">
                                 <?php
                                 foreach ($value as $table) {
                                 ?>

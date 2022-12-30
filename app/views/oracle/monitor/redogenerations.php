@@ -19,7 +19,7 @@ $filterPHPArrayToJS = function ($array, $key) {
     <button onclick="window.location.reload()" class="px-4 py-2 rounded-lg bg-gray-200 hover:bg-gray-500"> Refresh<i class="ml-2 fas fa-redo"></i></button>
 </div>
 
-<div class="flex flex-col justify-between h-fit gap-y-1" style="max-height:93%;">
+<div class="flex flex-col justify-between h-fit gap-y-1 rounded-xl" style="max-height:93%;">
     <div class="flex flex-col">
         <div id="redochart" class="bg-gray-500 rounded-lg h-fit">
         </div>
@@ -53,7 +53,7 @@ $filterPHPArrayToJS = function ($array, $key) {
                     <?php
                     foreach ($redogeneration as $column_title => $value) {
                     ?>
-                        <tr class="focus:hover:bg-gray-700 hover:bg-gray-700">
+                        <tr class="transition delay-50 focus:hover:bg-gray-700 hover:bg-gray-700">
                             <?php
                             foreach ($value as $logfile) {
                             ?>

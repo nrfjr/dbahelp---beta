@@ -16,7 +16,7 @@
                 if($host != 'DEFAULT'){
             ?>
             <li>
-                <form action="<?php echo URLROOT; ?>/homepages/index/<?php echo $host?>" method="POST"><button type="submit" class="block w-full rounded-t-sm py-2 px-4 hover:bg-gray-400 hover:text-white"><?php echo $host?></button></form>
+                <form action="<?php echo URLROOT; ?>/homepages/index/<?php echo $host?>" method="POST"><button type="submit" class="transition delay-100 block w-full rounded-t-sm py-2 px-4 hover:bg-gray-400 hover:text-white"><?php echo $host?></button></form>
             </li>
             <?php }
             }?>
@@ -37,19 +37,19 @@
             <div id="dropdown-monitor" class="hidden absolute z-10 w-44 bg-white rounded divide-y divide-gray-100 shadow max-h-48 overflow-y-auto scrollbar-hide">
                 <ul class="rounded-md text-sm text-gray-700" aria-labelledby="dropdownDefault">
                     <li>
-                        <a href="<?php echo URLROOT; ?>/monitors/usersessions/<?php echo $_SESSION['HomepageDB'] ?>" class="rounded-t-sm block py-2 px-4 hover:bg-gray-400 hover:text-white">User Sessions</a>
+                        <a href="<?php echo URLROOT; ?>/monitors/usersessions/<?php echo $_SESSION['HomepageDB']?>" class="transition delay-100 rounded-t-sm block py-2 px-4 hover:bg-gray-400 hover:text-white">User Sessions</a>
                     </li>
                     <li>
-                        <a href="<?php echo URLROOT; ?>/monitors/lockedsessions/<?php echo $_SESSION['HomepageDB'] ?>" class="block py-2 px-4 hover:bg-gray-400 hover:text-white">Locked Sessions</a>
+                        <a href="<?php echo URLROOT; ?>/monitors/lockedsessions/<?php echo $_SESSION['HomepageDB']?>" class="transition delay-100 block py-2 px-4 hover:bg-gray-400 hover:text-white">Locked Sessions</a>
                     </li>
                     <li>
-                        <a href="<?php echo URLROOT; ?>/monitors/redologswitches/<?php echo $_SESSION['HomepageDB'] ?>" class="block py-2 px-4 hover:bg-gray-400 hover:text-white">Redo Log File Switches</a>
+                        <a href="<?php echo URLROOT; ?>/monitors/redologswitches/<?php echo $_SESSION['HomepageDB']?>" class="transition delay-100 block py-2 px-4 hover:bg-gray-400 hover:text-white">Redo Log File Switches</a>
                     </li>
                     <li>
-                        <a href="<?php echo URLROOT; ?>/monitors/redologgenerations/<?php echo $_SESSION['HomepageDB'] ?>" class="block py-2 px-4 hover:bg-gray-400 hover:text-white">Redo Generation Per Day</a>
+                        <a href="<?php echo URLROOT; ?>/monitors/redologgenerations/<?php echo $_SESSION['HomepageDB']?>" class="transition delay-100 block py-2 px-4 hover:bg-gray-400 hover:text-white">Redo Generation Per Day</a>
                     </li>
                     <li>
-                        <a href="<?php echo URLROOT; ?>/monitors/topsql/<?php echo $_SESSION['HomepageDB'] ?>" class="block rounded-b-sm py-2 px-4 hover:bg-gray-400 hover:text-white">Top SQL Running Processes</a>
+                        <a href="<?php echo URLROOT; ?>/monitors/topsql/<?php echo $_SESSION['HomepageDB']?>" class="transition delay-100 block rounded-b-sm py-2 px-4 hover:bg-gray-400 hover:text-white">Top SQL Running Processes</a>
                     </li>
                 </ul>
             </div>
@@ -65,22 +65,22 @@
             <div id="dropdown-performance" class="hidden z-10 w-44 bg-white rounded divide-y divide-gray-100 shadow max-h-48 overflow-y-auto scrollbar-hide">
                 <ul class="rounded-md text-sm text-gray-700" aria-labelledby="dropdownDefault">
                     <li>
-                        <a href="<?php echo URLROOT; ?>/performances/pgatargetadvisor/<?php echo $_SESSION['HomepageDB'] ?>" class="rounded-t-sm block py-2 px-4 hover:bg-gray-400 hover:text-white">PGA Target Advisor</a>
+                        <a href="<?php echo URLROOT; ?>/performances/pgatargetadvisor/<?php echo $_SESSION['HomepageDB']?>" class="transition delay-100 rounded-t-sm block py-2 px-4 hover:bg-gray-400 hover:text-white">PGA Target Advisor</a>
                     </li>
                     <li>
-                        <a href="<?php echo URLROOT; ?>/performances/sgatargetadvisor/<?php echo $_SESSION['HomepageDB'] ?>" class="block py-2 px-4 hover:bg-gray-400 hover:text-white">SGA Target Advisor</a>
+                        <a href="<?php echo URLROOT; ?>/performances/sgatargetadvisor/<?php echo $_SESSION['HomepageDB']?>" class="transition delay-100 block py-2 px-4 hover:bg-gray-400 hover:text-white">SGA Target Advisor</a>
                     </li>
                     <li>
-                        <a href="<?php echo URLROOT; ?>/performances/buffercacheadvisor/<?php echo $_SESSION['HomepageDB'] ?>" class="block py-2 px-4 hover:bg-gray-400 hover:text-white">Buffer Cache Advisor</a>
+                        <a href="<?php echo URLROOT; ?>/performances/buffercacheadvisor/<?php echo $_SESSION['HomepageDB']?>" class="transition delay-100 block py-2 px-4 hover:bg-gray-400 hover:text-white">Buffer Cache Advisor</a>
                     </li>
                     <li>
-                        <a href="<?php echo URLROOT; ?>/performances/hitratio/<?php echo $_SESSION['HomepageDB'] ?>" class="block py-2 px-4 hover:bg-gray-400 hover:text-white">Hit Ratio - Quick Checks</a>
+                        <a href="<?php echo URLROOT; ?>/performances/hitratio/<?php echo $_SESSION['HomepageDB']?>" class="transition delay-100 block py-2 px-4 hover:bg-gray-400 hover:text-white">Hit Ratio - Quick Checks</a>
                     </li>
                     <li>
-                        <a href="<?php echo URLROOT; ?>/performances/tablestatistics/<?php echo $_SESSION['HomepageDB'] ?>" class="rounded-b-sm block py-2 px-4 hover:bg-gray-400 hover:text-white">Table Statistics Status</a>
+                        <a href="<?php echo URLROOT; ?>/performances/tablestatistics/<?php echo $_SESSION['HomepageDB']?>" class="transition delay-100 rounded-b-sm block py-2 px-4 hover:bg-gray-400 hover:text-white">Table Statistics Status</a>
                     </li>
                     <li>
-                        <a href="<?php echo URLROOT; ?>/performances/dynacomp/<?php echo $_SESSION['HomepageDB'] ?>" class="rounded-b-sm block py-2 px-4 hover:bg-gray-400 hover:text-white">SGA Dynamic Components</a>
+                        <a href="<?php echo URLROOT; ?>/performances/dynacomp/<?php echo $_SESSION['HomepageDB']?>" class="transition delay-100 rounded-b-sm block py-2 px-4 hover:bg-gray-400 hover:text-white">SGA Dynamic Components</a>
                     </li>
                 </ul>
             </div>
@@ -96,10 +96,10 @@
             <div id="dropdown-security" class="hidden z-10 w-44 bg-white rounded divide-y divide-gray-100 shadow  max-h-48 overflow-y-auto scrollbar-hide">
                 <ul class="rounded-md text-sm text-gray-700" aria-labelledby="dropdownDefault">
                     <li>
-                        <a href="<?php echo URLROOT; ?>/securities/roleprivilege/<?php echo $_SESSION['HomepageDB'] ?>" class="rounded-t-sm block py-2 px-4 hover:bg-gray-400 hover:text-white">Role & Privilege</a>
+                        <a href="<?php echo URLROOT; ?>/securities/roleprivilege/<?php echo $_SESSION['HomepageDB']?>" class="transition delay-100 rounded-t-sm block py-2 px-4 hover:bg-gray-400 hover:text-white">Role & Privilege</a>
                     </li>
                     <li>
-                        <a href="<?php echo URLROOT; ?>/securities/ldifforsso/<?php echo $_SESSION['HomepageDB'] ?>" class="rounded-b-sm block py-2 px-4 hover:bg-gray-400 hover:text-white">Create LDIF Files for SSO</a>
+                        <a href="<?php echo URLROOT; ?>/securities/ldifforsso/<?php echo $_SESSION['HomepageDB']?>" class="transition delay-100 rounded-b-sm block py-2 px-4 hover:bg-gray-400 hover:text-white">Create LDIF Files for SSO</a>
                     </li>
                     <li>
                         <!--The Modal DIV is in the header.php-->
@@ -122,16 +122,16 @@
             <div id="dropdown-storage" class="hidden z-10 w-44 bg-white rounded divide-y divide-gray-100 shadow  max-h-48 overflow-y-auto scrollbar-hide">
                 <ul class="rounded-md text-sm text-gray-700" aria-labelledby="dropdownDefault">
                     <li>
-                        <a href="<?php echo URLROOT; ?>/storages/dbfilelayout/<?php echo $_SESSION['HomepageDB'] ?>" class="rounded-t-sm block py-2 px-4 hover:bg-gray-400 hover:text-white">Database File Layout</a>
+                        <a href="<?php echo URLROOT; ?>/storages/dbfilelayout/<?php echo $_SESSION['HomepageDB']?>" class="transition delay-100 rounded-t-sm block py-2 px-4 hover:bg-gray-400 hover:text-white">Database File Layout</a>
                     </li>
                     <li>
-                        <a href="<?php echo URLROOT; ?>/objects/invalidobjects/<?php echo $_SESSION['HomepageDB'] ?>" class="block py-2 px-4 hover:bg-gray-400 hover:text-white">Invalid Objects</a>
+                        <a href="<?php echo URLROOT; ?>/objects/invalidobjects/<?php echo $_SESSION['HomepageDB']?>" class="transition delay-100 block py-2 px-4 hover:bg-gray-400 hover:text-white">Invalid Objects</a>
                     </li>
                     <li>
-                        <a href="<?php echo URLROOT; ?>/storages/tablemonitoring/<?php echo $_SESSION['HomepageDB'] ?>" class="block py-2 px-4 hover:bg-gray-400 hover:text-white">Table Monitoring</a>
+                        <a href="<?php echo URLROOT; ?>/storages/tablemonitoring/<?php echo $_SESSION['HomepageDB']?>" class="transition delay-100 block py-2 px-4 hover:bg-gray-400 hover:text-white">Table Monitoring</a>
                     </li>
                     <li>
-                        <a href="<?php echo URLROOT; ?>/storages/tableidx/<?php echo $_SESSION['HomepageDB'] ?>" class="block rounded-b-sm py-2 px-4 hover:bg-gray-400 hover:text-white">Table Indexes</a>
+                        <a href="<?php echo URLROOT; ?>/storages/tableidx/<?php echo $_SESSION['HomepageDB']?>" class="transition delay-100 block rounded-b-sm py-2 px-4 hover:bg-gray-400 hover:text-white">Table Indexes</a>
                     </li>
                 </ul>
             </div>
@@ -159,19 +159,19 @@
                     <div id="dropdown-sm-monitor" class="hidden absolute z-10 w-44 bg-white rounded divide-y divide-gray-100 shadow  left-0">
                         <ul class="rounded-md text-sm text-gray-700" aria-labelledby="dropdownDefault">
                             <li>
-                                <a href="<?php echo URLROOT; ?>/monitors/usersessions/<?php echo $_SESSION['HomepageDB'] ?>" class="rounded-t-sm block py-2 px-4 hover:bg-gray-400 hover:text-white">User Sessions</a>
+                                <a href="<?php echo URLROOT; ?>/monitors/usersessions/<?php echo $_SESSION['HomepageDB']?>" class="transition delay-100 rounded-t-sm block py-2 px-4 hover:bg-gray-400 hover:text-white">User Sessions</a>
                             </li>
                             <li>
-                                <a href="<?php echo URLROOT; ?>/monitors/lockedsessions/<?php echo $_SESSION['HomepageDB'] ?>" class="block py-2 px-4 hover:bg-gray-400 hover:text-white">Locked Sessions</a>
+                                <a href="<?php echo URLROOT; ?>/monitors/lockedsessions/<?php echo $_SESSION['HomepageDB']?>" class="transition delay-100 block py-2 px-4 hover:bg-gray-400 hover:text-white">Locked Sessions</a>
                             </li>
                             <li>
-                                <a href="<?php echo URLROOT; ?>/monitors/redologswitches/<?php echo $_SESSION['HomepageDB'] ?>" class="block py-2 px-4 hover:bg-gray-400 hover:text-white">Redo Log File Switches</a>
+                                <a href="<?php echo URLROOT; ?>/monitors/redologswitches/<?php echo $_SESSION['HomepageDB']?>" class="transition delay-100 block py-2 px-4 hover:bg-gray-400 hover:text-white">Redo Log File Switches</a>
                             </li>
                             <li>
-                                <a href="<?php echo URLROOT; ?>/monitors/redologgenerations/<?php echo $_SESSION['HomepageDB'] ?>" class="block py-2 px-4 hover:bg-gray-400 hover:text-white">Redo Generation Per Day</a>
+                                <a href="<?php echo URLROOT; ?>/monitors/redologgenerations/<?php echo $_SESSION['HomepageDB']?>" class="transition delay-100 block py-2 px-4 hover:bg-gray-400 hover:text-white">Redo Generation Per Day</a>
                             </li>
                             <li>
-                                <a href="<?php echo URLROOT; ?>/monitors/topsql/<?php echo $_SESSION['HomepageDB'] ?>" class="rounded-b-sm block py-2 px-4 hover:bg-gray-400 hover:text-white">Top SQL Running Processes</a>
+                                <a href="<?php echo URLROOT; ?>/monitors/topsql/<?php echo $_SESSION['HomepageDB']?>" class="transition delay-100 rounded-b-sm block py-2 px-4 hover:bg-gray-400 hover:text-white">Top SQL Running Processes</a>
                             </li>
                         </ul>
                     </div>
@@ -186,22 +186,22 @@
                     <div id="dropdown-sm-performance" class="hidden z-10 w-44 bg-white rounded divide-y divide-gray-100 shadow">
                         <ul class="rounded-md text-sm text-gray-700" aria-labelledby="dropdownDefault">
                             <li>
-                                <a href="<?php echo URLROOT; ?>/performances/pgatargetadvisor/<?php echo $_SESSION['HomepageDB'] ?>" class="rounded-t-sm block py-2 px-4 hover:bg-gray-400 hover:text-white">PGA Target Advisor</a>
+                                <a href="<?php echo URLROOT; ?>/performances/pgatargetadvisor/<?php echo $_SESSION['HomepageDB']?>" class="transition delay-100 rounded-t-sm block py-2 px-4 hover:bg-gray-400 hover:text-white">PGA Target Advisor</a>
                             </li>
                             <li>
-                                <a href="<?php echo URLROOT; ?>/performances/sgatargetadvisor/<?php echo $_SESSION['HomepageDB'] ?>" class="block py-2 px-4 hover:bg-gray-400 hover:text-white">SGA Target Advisor</a>
+                                <a href="<?php echo URLROOT; ?>/performances/sgatargetadvisor/<?php echo $_SESSION['HomepageDB']?>" class="transition delay-100 block py-2 px-4 hover:bg-gray-400 hover:text-white">SGA Target Advisor</a>
                             </li>
                             <li>
-                                <a href="<?php echo URLROOT; ?>/performances/buffercacheadvisor/<?php echo $_SESSION['HomepageDB'] ?>" class="block py-2 px-4 hover:bg-gray-400 hover:text-white">Buffer Cache Advisor</a>
+                                <a href="<?php echo URLROOT; ?>/performances/buffercacheadvisor/<?php echo $_SESSION['HomepageDB']?>" class="transition delay-100 block py-2 px-4 hover:bg-gray-400 hover:text-white">Buffer Cache Advisor</a>
                             </li>
                             <li>
-                                <a href="<?php echo URLROOT; ?>/performances/hitratio/<?php echo $_SESSION['HomepageDB'] ?>" class="block py-2 px-4 hover:bg-gray-400 hover:text-white">Hit Ratio - Quick Checks</a>
+                                <a href="<?php echo URLROOT; ?>/performances/hitratio/<?php echo $_SESSION['HomepageDB']?>" class="transition delay-100 block py-2 px-4 hover:bg-gray-400 hover:text-white">Hit Ratio - Quick Checks</a>
                             </li>
                             <li>
-                                <a href="<?php echo URLROOT; ?>/performances/tablestatistics/<?php echo $_SESSION['HomepageDB'] ?>" class="rounded-b-sm block py-2 px-4 hover:bg-gray-400 hover:text-white">Table Statistics Status</a>
+                                <a href="<?php echo URLROOT; ?>/performances/tablestatistics/<?php echo $_SESSION['HomepageDB']?>" class="transition delay-100 rounded-b-sm block py-2 px-4 hover:bg-gray-400 hover:text-white">Table Statistics Status</a>
                             </li>
                             <li>
-                                <a href="<?php echo URLROOT; ?>/performances/dynacomp/<?php echo $_SESSION['HomepageDB'] ?>" class="rounded-b-sm block py-2 px-4 hover:bg-gray-400 hover:text-white">SGA Dynamic Components</a>
+                                <a href="<?php echo URLROOT; ?>/performances/dynacomp/<?php echo $_SESSION['HomepageDB']?>" class="transition delay-100 rounded-b-sm block py-2 px-4 hover:bg-gray-400 hover:text-white">SGA Dynamic Components</a>
                             </li>
                         </ul>
                     </div>
@@ -216,10 +216,10 @@
                     <div id="dropdown-sm-security" class="hidden z-10 w-44 bg-white rounded divide-y divide-gray-100 shadow">
                         <ul class="rounded-md text-sm text-gray-700" aria-labelledby="dropdownDefault">
                             <li>
-                                <a href="<?php echo URLROOT; ?>/securities/roleprivilege/<?php echo $_SESSION['HomepageDB'] ?>" class="rounded-t-sm block py-2 px-4 hover:bg-gray-400 hover:text-white">DB Role Priviledge</a>
+                                <a href="<?php echo URLROOT; ?>/securities/roleprivilege/<?php echo $_SESSION['HomepageDB']?>" class="transition delay-100 rounded-t-sm block py-2 px-4 hover:bg-gray-400 hover:text-white">DB Role Priviledge</a>
                             </li>
                             <li>
-                                <a href="<?php echo URLROOT; ?>/securities/ldifforsso/<?php echo $_SESSION['HomepageDB'] ?>" class="rounded-b-sm block py-2 px-4 hover:bg-gray-400 hover:text-white">Create LDIF Files For SSO</a>
+                                <a href="<?php echo URLROOT; ?>/securities/ldifforsso/<?php echo $_SESSION['HomepageDB']?>" class="transition delay-100 rounded-b-sm block py-2 px-4 hover:bg-gray-400 hover:text-white">Create LDIF Files For SSO</a>
                             </li>
                             <li>
                                 <!--The Modal DIV is in the header.php-->
@@ -241,16 +241,16 @@
                     <div id="dropdown-sm-storage" class="hidden z-10 w-44 bg-white rounded divide-y divide-gray-100 shadow">
                         <ul class="rounded-md text-sm text-gray-700" aria-labelledby="dropdownDefault">
                             <li>
-                                <a href="<?php echo URLROOT; ?>/storages/dbfilelayout/<?php echo $_SESSION['HomepageDB'] ?>" class="rounded-t-sm block py-2 px-4 hover:bg-gray-400 hover:text-white">Database File Layout</a>
+                                <a href="<?php echo URLROOT; ?>/storages/dbfilelayout/<?php echo $_SESSION['HomepageDB']?>" class="transition delay-100 rounded-t-sm block py-2 px-4 hover:bg-gray-400 hover:text-white">Database File Layout</a>
                             </li>
                             <li>
-                                <a href="<?php echo URLROOT; ?>/objects/invalidobjects/<?php echo $_SESSION['HomepageDB'] ?>" class="block py-2 px-4 hover:bg-gray-400 hover:text-white">Invalid Objects</a>
+                                <a href="<?php echo URLROOT; ?>/objects/invalidobjects/<?php echo $_SESSION['HomepageDB']?>" class="transition delay-100 block py-2 px-4 hover:bg-gray-400 hover:text-white">Invalid Objects</a>
                             </li>
                             <li>
-                                <a href="<?php echo URLROOT; ?>/storages/tablemonitoring/<?php echo $_SESSION['HomepageDB'] ?>" class="block py-2 px-4 hover:bg-gray-400 hover:text-white">Table Monitoring</a>
+                                <a href="<?php echo URLROOT; ?>/storages/tablemonitoring/<?php echo $_SESSION['HomepageDB']?>" class="transition delay-100 block py-2 px-4 hover:bg-gray-400 hover:text-white">Table Monitoring</a>
                             </li>
                             <li>
-                                <a href="<?php echo URLROOT; ?>/storages/tableidx/<?php echo $_SESSION['HomepageDB'] ?>" class="rounded-b-sm block py-2 px-4 hover:bg-gray-400 hover:text-white">Table Indexes</a>
+                                <a href="<?php echo URLROOT; ?>/storages/tableidx/<?php echo $_SESSION['HomepageDB']?>" class="transition delay-100 rounded-b-sm block py-2 px-4 hover:bg-gray-400 hover:text-white">Table Indexes</a>
                             </li>
                         </ul>
                     </div>
@@ -302,9 +302,9 @@
     <div x-show="isOpen" class="absolute w-32 justify-center bg-gray-800 top-0 rounded-lg shadow-lg mt-16">
         <div class="absolute top-0 right-2 transform -translate-x-1/2 -translate-y-1/2 rotate-45 w-4 h-4 bg-gray-800"></div>
         <div class="flex flex-col z-10 justify-between">
-        <a href="<?php echo URLROOT; ?>/users/profile" class="block text-gray-300 py-2 text-center z-10 rounded-lg hover:bg-blue-300 hover:text-white">My Profile <i class="fas fa-user-circle"></i></a>
-        <a href="<?php echo EMAIL_URL; ?>" target="_blank" class="block text-gray-300 py-2 text-center z-10 rounded-lg hover:bg-blue-300 hover:text-white">Email <i class="ml-8 fas fa-envelope"></i></a>
-        <a href="<?php echo URLROOT; ?>/users/logout" class="block text-gray-300  py-2 z-10 text-center rounded-lg hover:bg-red-600 hover:text-white">Sign Out <i class="ml-2 fas fa-power-off"></i></a>
+        <a href="<?php echo URLROOT; ?>/users/profile" class="transition delay-100 block text-gray-300 py-2 text-center z-10 rounded-lg hover:bg-blue-300 hover:text-white">My Profile <i class="fas fa-user-circle"></i></a>
+        <a href="<?php echo EMAIL_URL; ?>" target="_blank" class="transition delay-100 block text-gray-300 py-2 text-center z-10 rounded-lg hover:bg-blue-300 hover:text-white">Email <i class="ml-8 fas fa-envelope"></i></a>
+        <a href="<?php echo URLROOT; ?>/users/logout" class="transition delay-100 block text-gray-300  py-2 z-10 text-center rounded-lg hover:bg-red-600 hover:text-white">Sign Out <i class="ml-2 fas fa-power-off"></i></a>
         </div>
     </div>
 </div>

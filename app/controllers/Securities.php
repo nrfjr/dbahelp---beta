@@ -52,11 +52,15 @@ class Securities extends Controller{
         }
 
         $filtered_contents = explode('\n', $raw_contents);
+
         $file = fopen("MyLDIF.ldif", "w") or die("Unable to open file!");
+
         foreach($filtered_contents as $contents){
             fwrite($file, $contents.PHP_EOL);
         }
+
         fclose($file);
+        
         header('Content-Description: File Transfer');
         header('Content-Type: application/octet-stream');
         header('Content-Disposition: attachment; filename=' . basename('MyLDIF.ldif'));

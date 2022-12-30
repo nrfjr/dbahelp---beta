@@ -7,8 +7,6 @@ require APPROOT . '/views/inc/sidebar.php';
 
 $lockedsessions = $data;
 
-$filtered_locks = array();
-
 $total_sessions = count($lockedsessions);
 
 $current_page = isset($_GET['page']) ? $_GET['page'] : 1;
@@ -99,10 +97,10 @@ if ($first_locked_displayed === $last_locked_displayed) {
                                             <i class="fas fa-times-circle transform scale-150"></i>
                                         </font>
                                     </button>
-                                    <!-- <button x-show="toSubmit" @click="toSubmit = false" alt="Kill" class="border-blue-500 md:border-green-500">
-                                </button> -->
+                                    <button x-show="toSubmit" @click="toSubmit = false" alt="Kill" class="border-blue-500 md:border-green-500">
+                                </button>
                                     <!-- Delete User Modal -->
-                                    <!-- <div x-show="toSubmit" class="border-double border-2 border-red-500 absolute left-1/4 top-1/2 z-10" aria-labelledby="modal-title" role="dialog" aria-modal="true">
+                                    <div x-show="toSubmit" class="border-double border-2 border-red-500 absolute left-1/4 top-1/2 z-10" aria-labelledby="modal-title" role="dialog" aria-modal="true">
                                     <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"></div>
                                     <div class="modal fixed fade justify-center mr-48 top-72 w-5/12 h-full outline-none overflow-x-hidden overflow-y-auto" id="ModalCenteredScrollable" tabindex="-1" aria-labelledby="ModalCenteredScrollable" aria-modal="true" role="dialog">
                                         <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable relative pointer-events-none w-auto">
@@ -126,7 +124,7 @@ if ($first_locked_displayed === $last_locked_displayed) {
                                             </div>
                                         </div>
                                     </div>
-                                </div> -->
+                                </div>
                                     <!-- Delete User Modal -->
         </div>
         </td>

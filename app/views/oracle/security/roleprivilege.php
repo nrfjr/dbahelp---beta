@@ -64,7 +64,7 @@ $current_tab = isset($_GET['tab']) ? $_GET['tab'] : 1;
                                     <?php
                                     foreach ($array as $column_title => $values) {
                                     ?>
-                                        <tr class="focus:hover:bg-gray-700 hover:bg-gray-700">
+                                        <tr class="transition delay-50 focus:hover:bg-gray-700 hover:bg-gray-700">
                                             <?php
                                             foreach ($values as $ratios) {
                                             ?>

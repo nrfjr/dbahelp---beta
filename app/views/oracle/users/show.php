@@ -7,8 +7,6 @@ require APPROOT . '/views/inc/sidebar.php';
 
 $users = $data;
 
-$filtered_users = array();
-
 $total_users = count($users);
 
 $current_page = isset($_GET['page']) ? $_GET['page'] : 1;
@@ -48,7 +46,7 @@ if ($first_user_displayed === $last_user_displayed) {
                     <?php foreach (HOSTS as $host => $db) {
                         if ($host != 'DEFAULT') { ?>
                             <li class="block py-2 px-4 hover:bg-gray-400 hover:text-white rounded-md">
-                                <a href="<?php echo URLROOT; ?>/users/create/<?php echo $host ?>"><?php echo $host ?></a>
+                                <a href="<?php echo URLROOT; ?>/users/create/<?php echo $host ?>" class="transition delay-100"><?php echo $host ?></a>
                             </li>
                     <?php }
                     } ?>
@@ -72,7 +70,7 @@ if ($first_user_displayed === $last_user_displayed) {
     </div>
 <div class="overflow-x-auto relative shadow-md sm:rounded-lg">
     <div style="height: fit-content; overflow: clip;" class="rounded-lg">
-        <div class="block w-full shadow-md overflow-auto sm:rounded-lg " style="max-height: 66vh;">
+        <div class="block w-full shadow-md overflow-auto sm:rounded-lg" style="max-height: 66vh;">
             <?php
             if (!empty($users)) {
 
@@ -103,7 +101,7 @@ if ($first_user_displayed === $last_user_displayed) {
 
                         foreach ($users as $column_title => $value) {
                         ?>
-                            <tr class="focus:hover:bg-gray-700 hover:bg-gray-700">
+                            <tr class="transition delay-50 focus:hover:bg-gray-700 hover:bg-gray-700">
                                 <?php
                                 foreach ($value as $user) {
                                 ?>

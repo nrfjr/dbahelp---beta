@@ -93,4 +93,3 @@ class Storages extends Controller
         $this->view('oracle/storage/tablemonitoring', $data);
     }
 }
-

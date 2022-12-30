@@ -41,7 +41,7 @@ require APPROOT . '/views/inc/sidebar.php'; ?>
                         <?php
                         foreach ($buffercache as $column_title => $value) {
                         ?>
-                            <tr class="focus:hover:bg-gray-700 hover:bg-gray-700">
+                            <tr class="transition delay-50 focus:hover:bg-gray-700 hover:bg-gray-700">
                                 <?php
                                 foreach ($value as $logfile) {
                                 ?>
