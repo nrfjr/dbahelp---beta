@@ -65,4 +65,38 @@ class Storage{
         }
         return false;
     }
+
+    public function getTableIndexes($owner, $db)
+    {
+        $this->db = new OracleDatabase($db);
+        $query = $this->fm->loadSQL('get_TableIndexes');
+
+        $param = [
+                    'p_owner' => $owner
+                ];
+
+        $this->db->queryWithParam($query, $param);
+
+        $result = $this->db->resultSet();
+
+        if ($result) {
+            return $result;
+        }
+        return false;
+    }
+
+    public function getTableOwners($db)
+    {
+        $this->db = new OracleDatabase($db);
+        $query = $this->fm->loadSQL('get_TableOwners');
+        $this->db->query($query);
+
+        $result = $this->db->resultSet();
+
+        if ($result) {
+            return $result;
+        }
+        return false;
+
+    }
 }
