@@ -39,17 +39,36 @@ class Storages extends Controller
     {
         $_SESSION['StorageDB'] = $DB;
 
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+
+            $_SESSION['tableowner'] = $_POST['owner'];
+
+        }
+
+        if ($_SESSION['tableowner'] == null) {
+            $_SESSION['tableowner'] = '';
+        } else {
+            $_SESSION['tableowner'] = $_SESSION['tableowner'];
+        }
+
         if (isset($_SESSION['StorageDB'])) {
             $this->db = $_SESSION['StorageDB'];
         }
 
-        $this->view('oracle/storage/tableidx', []);
+        $indexes = $this->storageModel->getTableIndexes($_SESSION['tableowner'], $this->db);
+        $owners = $this->storageModel->getTableOwners($this->db);
+
+            $data = [
+                        'Indexes' => ($indexes)? $indexes: [],
+                        'Owners' => ($owners)? $owners: []
+                    ];
+
+        $this->view('oracle/storage/tableidx', $data);
     }
 
     public function tablemonitoring($DB)
     {
         $_SESSION['StorageDB'] = $DB;
-        $_SESSION['tablename'] = null;
 
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
