@@ -62,8 +62,8 @@ require APPROOT . '/views/inc/sidebar.php'; ?>
                         <div class="modal-body relative p-4">
                           <font color="black">Enter a value to resize FRA:</font>
                           <input id="db" name="db" class="hidden"  value="<?php echo $titles[$count]?>">
-                          <input id="size" name="size" class="ml-4 rounded-md bg-gray-200 text-black px-2" placeholder="eg: 20g, 10m ..." type="number">
-                          <select class="ml-4 bg-gray-200 rounded-md px-2 text-black border-none rounded-sm" name="unit" id="unit">
+                          <input id="size" name="size" class="ml-4 w-auto rounded-md bg-gray-200 shadow-md text-black px-2" placeholder="30, 20, 10 ..." type="number" min="0">
+                          <select class="ml-4 shadow-md bg-gray-200 rounded-md px-2 text-black border-none rounded-sm" name="unit" id="unit">
                                                               <option value="g">GB</option>
                                                               <option value="m">MB</option>
                                                             </select>

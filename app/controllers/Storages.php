@@ -3,7 +3,7 @@
 class Storages extends Controller
 {
 
-    private $db, $owner, $table;
+    private $db;
 
     public function __construct()
     {
@@ -68,13 +68,13 @@ class Storages extends Controller
     {
         $_SESSION['StorageDB'] = $DB;
         
-        if(!isset($_SESSION['tableowner'])){
+        if(!isset($_SESSION['tablename'])){
             $_SESSION['tablename'] = 'all_tables';
         }   
 
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
-            $this->table = $_POST['table'];
+            $_SESSION['tablename'] = $_POST['table'];
 
         }
 

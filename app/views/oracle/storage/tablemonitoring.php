@@ -41,7 +41,7 @@ if ($first_analysis_displayed === $last_analysis_displayed) {
         <div class="flex gap-2">
             <b for="tables" class="flex flex-row inline-flex whitespace-nowrap w-full items-center text-sm font-medium text-gray-100">Select Table: </b>
             <!--OBJECTS-->
-            <button id="dropdownDefault" data-dropdown-toggle="dropdown-tables" class="text-center hover:bg-gray-400 hover:text-black focus:ring-4 focus:outline-none focus:ring-gray-800 font-medium rounded-lg text-sm px-4 py-2 flex justify-between items-center w-full bg-gray-200" type="button">Owners <i class="fas fa-chevron-down"></i></button>
+            <button id="dropdownDefault" data-dropdown-toggle="dropdown-tables" class="text-center hover:bg-gray-400 hover:text-black focus:ring-4 focus:outline-none focus:ring-gray-800 font-medium rounded-lg text-sm px-4 py-2 flex justify-between items-center w-fit bg-gray-200" type="button"><?php echo isset($_SESSION['tablename'])? $_SESSION['tablename']: 'Tables';?><i class="ml-2 fas fa-chevron-down"></i></button>
         </div>
 
         <!-- Dropdown menu -->
