@@ -45,12 +45,12 @@ require APPROOT . '/views/inc/sidebar.php'; ?>
               <button @click="resizeFRA = true" alt="Resize FRA" class="rounded-lg w-full lg:w-1/2 xl:w-full 2xl:w-1/2 bg-gray-100 hover:bg-gray-500 border-1 border-solid border-gray-900 text-center px-4 py-2" <?php echo empty($fras['FRA Size']) ? 'disabled' : ''; ?>>Resize FRA</button>
               <button x-show="resizeFRA" @click="resizeFRA = false" alt="Resize FRA" class="border-blue-500 md:border-green-500" <?php echo empty($fras['FRA Size']) ? 'disabled' : ''; ?>></button>
               <!-- Delete User Modal -->
-              <div x-show="resizeFRA" class="absolute bg-red-500 w-full z-10" aria-labelledby="modal-title" role="dialog" aria-modal="true">
+              <div x-show="resizeFRA" class="absolute w-full z-10" aria-labelledby="modal-title" role="dialog" aria-modal="true">
                 <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"></div>
                 <!-- container -->
                 <div class="modal fixed fade top-0 left-0 justify-center w-full h-full outline-none overflow-x-hidden overflow-y-auto" id="ModalCenteredScrollable" tabindex="-1" aria-labelledby="ModalCenteredScrollable" aria-modal="true" role="dialog">
                   <!-- the box -->
-                  <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable absolute pointer-events-none w-1/3 top-1/3 left-1/3">
+                  <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable absolute pointer-events-none w-2/3 left-1/4 xl:w-1/3 top-1/3 xl:left-1/3">
                     <div class=" modal-content border-none shadow-lg relative flex flex-col w-full pointer-events-auto bg-white bg-clip-padding rounded-md outline-none text-current">
                       <form action="<?php echo URLROOT; ?>/flashrecoveryareas/resize" method="POST">
                         <div class="modal-header flex flex-shrink-0 items-center justify-between p-4 border-b border-gray-200 rounded-t-md">
@@ -62,8 +62,8 @@ require APPROOT . '/views/inc/sidebar.php'; ?>
                         <div class="modal-body relative p-4">
                           <font color="black">Enter a value to resize FRA:</font>
                           <input id="db" name="db" class="hidden"  value="<?php echo $titles[$count]?>">
-                          <input id="size" name="size" class="ml-4 w-auto rounded-md bg-gray-200 shadow-md text-black px-2" placeholder="30, 20, 10 ..." type="number" min="0">
-                          <select class="ml-4 shadow-md bg-gray-200 rounded-md px-2 text-black border-none rounded-sm" name="unit" id="unit">
+                          <input id="size" name="size" class="ml-4 rounded-md bg-gray-200 text-black px-2" placeholder="eg: 20g, 10m ..." type="number">
+                          <select class="ml-4 bg-gray-200 rounded-md px-2 text-black border-none rounded-sm" name="unit" id="unit">
                                                               <option value="g">GB</option>
                                                               <option value="m">MB</option>
                                                             </select>
