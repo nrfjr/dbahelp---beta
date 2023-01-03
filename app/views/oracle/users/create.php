@@ -5,13 +5,6 @@ require APPROOT . '/views/inc/sidebar.php'; ?>
 
 <div class="relative" x-data="{toSubmit: false}">
 <h1 class="text-3xl text-black pb-6 text-white"><b><?php echo $data == null ? 'Create User' : 'Edit User'; ?></b></h1>
-<!-- <label for="database" class="absolute right-0 text-sm font-medium text-gray-700">Database</label>
-      <select id="database" name="database" autocomplete="database" class="mr-6 absolute right-0 block w-64 rounded-md border  bg-white py-2 px-2 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm" >
-        <option>RMSPRD</option>
-        <option>RDWPRD</option>
-        <option>BSPIKCONCORD</option>
-        <option>OBIEE</option>
-      </select> -->
 <div class="hidden sm:block" aria-hidden="true">
   <div class="py-6">
     <div class="border-t border-gray-200"></div>

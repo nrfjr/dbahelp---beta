@@ -24,7 +24,7 @@ $filterPHPArrayToJS = function ($array, $key) {
         <div id="redochart" class="bg-gray-500 rounded-lg h-fit">
         </div>
     </div>
-    <div class="block justify-center lg:h-full w-full shadow-md sm:rounded-lg overflow-auto lg:max-h-80 xl:max-h-96">
+    <div class="block justify-center lg:h-full w-full shadow-md rounded-lg overflow-auto lg:max-h-80 xl:max-h-96">
         <?php
 
         $redogeneration = $data;
@@ -72,7 +72,7 @@ $filterPHPArrayToJS = function ($array, $key) {
         <?php
         } else {
         ?>
-            <div class="flex w-full shadow-md overflow-auto sm:rounded-lg bg-gray-500" style="max-height: 80%; min-height: 100%;">
+            <div class="flex w-full shadow-md overflow-auto rounded-lg bg-gray-500" style="max-height: 80%; min-height: 100%;">
                 <h1 class="text-white m-auto "><b>No Morning Log File Switches Found.</b></h1>
             </div>
         <?php

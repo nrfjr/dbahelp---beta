@@ -68,7 +68,7 @@ if ($first_index_displayed === $last_index_displayed) {
 
 <div class="overflow-x-auto relative shadow-md rounded-md">
     <div style="height: fit-content; overflow: clip;" class="rounded-lg">
-        <div class="block w-full shadow-md overflow-auto sm:rounded-lg" style="max-height: 72vh;">
+        <div class="block w-full shadow-md overflow-auto rounded-lg" style="max-height: 72vh;">
             <?php
             if (!empty($indexes)) {
 
@@ -173,7 +173,7 @@ if ($first_index_displayed === $last_index_displayed) {
 <?php
             } else {
 ?>
-    <div class="flex w-full shadow-md overflow-auto sm:rounded-lg bg-gray-500" style="max-height: 80%; min-height: 100%;">
+    <div class="flex w-full shadow-md overflow-auto rounded-lg bg-gray-500" style="max-height: 80%; min-height: 100%;">
         <h1 class="text-white m-auto "><b>No table indexes found or select another index owner.</b></h1>
     </div>
 <?php

@@ -38,7 +38,7 @@ if ($first_user_displayed === $last_user_displayed) {
 </h1>
 
 
-<div class="overflow-x-auto relative shadow-md sm:rounded-lg">
+<div class="overflow-x-auto relative shadow-md rounded-lg">
     <form class="rounded-lg flex justify-between items-center p-2 bg-gray-300  mb-4" action="<?php echo URLROOT; ?>/monitors/usersessions/<?php echo $_SESSION['MonitorDB']; ?>" method="POST">
         <div class="inline-flex">
             <p class="mt-2">Search: </p>
@@ -61,7 +61,7 @@ if ($first_user_displayed === $last_user_displayed) {
         </div>
     </form>
     <div style="height: fit-content; overflow: clip;" class="rounded-lg">
-        <div class="block w-full shadow-md overflow-auto sm:rounded-lg" style="max-height: 64vh;">
+        <div class="block w-full shadow-md overflow-auto rounded-lg" style="max-height: 64vh;">
             <?php
             if (!empty($usersessions)) {
 
@@ -210,7 +210,7 @@ if ($first_user_displayed === $last_user_displayed) {
 <?php
             } else {
 ?>
-    <div class="flex w-full shadow-md overflow-auto sm:rounded-lg bg-gray-500" style="max-height: 80%; min-height: 100%;">
+    <div class="flex w-full shadow-md overflow-auto rounded-lg bg-gray-500" style="max-height: 80%; min-height: 100%;">
         <h1 class="text-white m-auto "><b>No Sessions Found.</b></h1>
     </div>
 <?php

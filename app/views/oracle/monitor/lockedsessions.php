@@ -49,7 +49,7 @@ if ($first_locked_displayed === $last_locked_displayed) {
     </div>
 
     <div style="height: fit-content; overflow: clip;" class="rounded-lg">
-        <div class="block w-full shadow-md overflow-auto sm:rounded-lg" style="max-height: 98%;">
+        <div class="block w-full shadow-md overflow-auto rounded-lg" style="max-height: 98%;">
             <?php
             if (!empty($lockedsessions)) {
 
@@ -195,7 +195,7 @@ if ($first_locked_displayed === $last_locked_displayed) {
 <?php
             } else {
 ?>
-    <div class="flex w-full shadow-md overflow-auto sm:rounded-lg bg-gray-500" style="max-height: 80%; min-height: 100%;">
+    <div class="flex w-full shadow-md overflow-auto rounded-lg bg-gray-500" style="max-height: 80%; min-height: 100%;">
         <h1 class="text-white m-auto "><b>No Locked Sessions Found.</b></h1>
     </div>
 <?php

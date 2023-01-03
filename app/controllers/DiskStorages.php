@@ -8,11 +8,18 @@ class DiskStorages extends Controller{
 
     }
 
-    public function diskstorage($host)
+    public function show()
     {
-        $_SESSION['DiskStorageHost'] = $host;
-        $data = $this->getDF($this->getDFSource($host));
-        $this->view('oracle/diskstorage/diskstorage', $data);
+        if(!isset($_SESSION['DiskStorageHost'])){
+            $_SESSION['DiskStorageHost'] = 'DEFAULT';
+        }
+
+        if ($_SERVER['REQUEST_METHOD'] == 'GET') {
+            $_SESSION['DiskStorageHost'] = trim(empty($_GET['host'])? '' : $_GET['host']);
+        }
+
+        $data = $this->getDF($this->getDFSource($_SESSION['DiskStorageHost']));
+        $this->view('oracle/diskstorage/show', $data);
     }
 
     public function getDFSource($hostname)

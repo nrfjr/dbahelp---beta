@@ -68,7 +68,7 @@ $url = 'http://' . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
                     <!--DASHBOARD-->
 
                     <li>
-                        <a href="<?php echo URLROOT; ?>/diskstorages/diskstorage/default" class="flex items-center hover:opacity-100 rounded-md mx-2 mb-1 py-4 pl-6 nav-item text-white <?php if (strpos($url, 'diskstorage')) {
+                        <a href="<?php echo URLROOT; ?>/diskstorages/show" class="flex items-center hover:opacity-100 rounded-md mx-2 mb-1 py-4 pl-6 nav-item text-white <?php if (strpos($url, 'diskstorage')) {
                                                                                                                                                         echo 'active-nav-link';
                                                                                                                                                     } else {
                                                                                                                                                         echo ' opacity-75';

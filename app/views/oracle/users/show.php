@@ -68,9 +68,9 @@ if ($first_user_displayed === $last_user_displayed) {
             </form>
         </div>
     </div>
-<div class="overflow-x-auto relative shadow-md sm:rounded-lg">
+<div class="overflow-x-auto relative shadow-md rounded-lg">
     <div style="height: fit-content; overflow: clip;" class="rounded-lg">
-        <div class="block w-full shadow-md overflow-auto sm:rounded-lg" style="max-height: 66vh;">
+        <div class="block w-full shadow-md overflow-auto rounded-lg" style="max-height: 66vh;">
             <?php
             if (!empty($users)) {
 
@@ -225,7 +225,7 @@ if ($first_user_displayed === $last_user_displayed) {
 <?php
             } else {
 ?>
-    <div class="flex w-full shadow-md overflow-auto sm:rounded-lg bg-gray-500" style="max-height: 80%; min-height: 100%;">
+    <div class="flex w-full shadow-md overflow-auto rounded-lg bg-gray-500" style="max-height: 80%; min-height: 100%;">
         <h1 class="text-white m-auto "><b>No Users Found.</b></h1>
     </div>
 <?php

@@ -43,7 +43,7 @@ $current_tab = isset($_GET['tab']) ? $_GET['tab'] : 1;
         ?>
             <div class="hidden p-4 bg-gray-50 rounded-b-lg max-h-screen overflow-auto h-full " id="<?php echo $title; ?>" role="tabpanel" aria-labelledby="<?php echo $title; ?>-tab">
                 <div class="">
-                    <div class="block justify-center w-full shadow-md overflow-auto sm:rounded-lg" style="max-height: 63vh;">
+                    <div class="block justify-center w-full shadow-md overflow-auto rounded-lg" style="max-height: 63vh;">
                         <?php
 
                         if (!empty($array)) {
@@ -94,7 +94,7 @@ $current_tab = isset($_GET['tab']) ? $_GET['tab'] : 1;
                         <?php
                         } else {
                         ?>
-                            <div class="flex w-full shadow-md overflow-auto sm:rounded-lg bg-gray-500" style="max-height: 80%; min-height: 100%;">
+                            <div class="flex w-full shadow-md overflow-auto rounded-lg bg-gray-500" style="max-height: 80%; min-height: 100%;">
                                 <h1 class="text-white m-auto "><b>No <?php echo strtoupper($title[0]) . substr($title, 1); ?> Found.</b></h1>
                             </div>
                         <?php

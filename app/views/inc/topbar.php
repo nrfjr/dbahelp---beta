@@ -269,23 +269,23 @@
         </svg></button>
     <!-- Dropdown menu -->
     <div id="dropdown-disk" class="whitespace-normal hidden z-10 w-fit bg-white rounded divide-y divide-gray-100 shadow">
+        <form action="<?php echo URLROOT; ?>/diskstorages/show" method="GET">
         <ul class="rounded-md text-sm text-gray-700" aria-labelledby="dropdownDefault">
             <?php
             foreach (DISK as $k => $v) {
                 if ($k != 'DEFAULT') {
             ?>
                     <li>
-                        <a href="<?php echo URLROOT; ?>/diskstorages/diskstorage/<?php echo $k; ?>">
-                            <button type="submit" class="rounded-t-sm block w-full py-2 px-4 hover:bg-gray-400 hover:text-white">
+                            <button type="submit" id="host" name="host" value="<?php echo $k; ?>" class="rounded-t-sm block w-full py-2 px-4 hover:bg-gray-400 hover:text-white">
                                 <?php echo $k; ?>
                             </button>
-                        </a>
                     </li>
             <?php
                 }
             }
             ?>
         </ul>
+        </form>
     </div>
     <!--Database Disk-->
 </div>

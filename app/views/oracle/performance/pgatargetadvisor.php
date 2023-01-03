@@ -14,7 +14,7 @@ require APPROOT . '/views/inc/sidebar.php'; ?>
 <div class="overflow-x-auto relative shadow-md">
 
     <div style="height: fit-content; overflow: clip;" class="rounded-lg">
-        <div class="block  justify-center w-full shadow-md overflow-auto sm:rounded-lg" style="max-height: 75vh;">
+        <div class="block  justify-center w-full shadow-md overflow-auto rounded-lg" style="max-height: 75vh;">
             <?php
 
             $pgatarget = $data;
@@ -62,7 +62,7 @@ require APPROOT . '/views/inc/sidebar.php'; ?>
             <?php
             } else {
             ?>
-                <div class="flex w-full shadow-md overflow-auto sm:rounded-lg bg-gray-500" style="max-height: 80%; min-height: 100%;">
+                <div class="flex w-full shadow-md overflow-auto rounded-lg bg-gray-500" style="max-height: 80%; min-height: 100%;">
                     <h1 class="text-white m-auto "><b>No PGA Target Data Found.</b></h1>
                 </div>
             <?php

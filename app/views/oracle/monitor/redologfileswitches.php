@@ -23,7 +23,7 @@ require APPROOT . '/views/inc/sidebar.php'; ?>
     <div class="h-auto overflow-hidden">
       <h1 class="text-white">Morning Log File Switches Within a Week</h1>
       <div class="flex gap-2 flex-col xl:flex-row">
-        <div class="block justify-center w-full shadow-md overflow-auto sm:rounded-lg" style="max-height: 93%; height: fit-content;">
+        <div class="block justify-center w-full shadow-md overflow-auto rounded-lg" style="max-height: 93%; height: fit-content;">
           <?php
 
           $am_redologfile = $data['AM'];
@@ -71,7 +71,7 @@ require APPROOT . '/views/inc/sidebar.php'; ?>
           <?php
           } else {
           ?>
-            <div class="flex w-full shadow-md overflow-auto sm:rounded-lg bg-gray-500" style="max-height: 80%; min-height: 100%;">
+            <div class="flex w-full shadow-md overflow-auto rounded-lg bg-gray-500" style="max-height: 80%; min-height: 100%;">
               <h1 class="text-white m-auto "><b>No Morning Log File Switches Found.</b></h1>
             </div>
           <?php
@@ -86,7 +86,7 @@ require APPROOT . '/views/inc/sidebar.php'; ?>
     <div class="h-auto overflow-hidden">
       <h1 class="text-white">Evening Log File Switches Within a Week</h1>
       <div class="flex gap-2 flex-col xl:flex-row">
-        <div class="block justify-center w-full shadow-md overflow-auto sm:rounded-lg " style="max-height: 93%; height: fit-content;">
+        <div class="block justify-center w-full shadow-md overflow-auto rounded-lg " style="max-height: 93%; height: fit-content;">
           <?php
 
           $pm_redologfile = $data['PM'];
@@ -134,7 +134,7 @@ require APPROOT . '/views/inc/sidebar.php'; ?>
           <?php
           } else {
           ?>
-            <div class="flex w-full shadow-md overflow-auto sm:rounded-lg bg-gray-500" style="max-height: 80%; min-height: 100%;">
+            <div class="flex w-full shadow-md overflow-auto rounded-lg bg-gray-500" style="max-height: 80%; min-height: 100%;">
               <h1 class="text-white m-auto "><b>No Evening Log File Switches Found.</b></h1>
             </div>
           <?php
