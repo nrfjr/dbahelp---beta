@@ -10,6 +10,7 @@ class DiskStorages extends Controller{
 
     public function diskstorage($host)
     {
+        $_SESSION['DiskStorageHost'] = $host;
         $data = $this->getDF($this->getDFSource($host));
         $this->view('oracle/diskstorage/diskstorage', $data);
     }

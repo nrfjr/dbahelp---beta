@@ -264,7 +264,7 @@
     <!--Database Disk-->
     <button id="dropdownDefault" data-dropdown-toggle="dropdown-disk" data-dropdown-placement="bottom-start" class="text-white bg-gray-600 hover:bg-gray-400 hover:text-black focus:ring-4 focus:outline-none focus:ring-gray-800 font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center 
                     <?php echo strpos($url, 'diskstorage') ? 'block focus:bg-gray-400 focus:text-black' : 'hidden'; ?>
-                   " type="button">Database<svg class="ml-2 w-4 h-4" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                   " type="button"><?php echo (isset($_SESSION['DiskStorageHost']) && in_array($_SESSION['DiskStorageHost'], array_keys(DISK))) ? $_SESSION['DiskStorageHost'] : 'Disk Hosts'; ?><svg class="ml-2 w-4 h-4" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
         </svg></button>
     <!-- Dropdown menu -->
