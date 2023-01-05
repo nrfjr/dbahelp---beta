@@ -1,6 +1,6 @@
 <div class="left-0 widgets px-2 transition ease-in-out delay-150  rounded-sm">
     <div class="w-9/10 justify-center mt-1">
-        <div id="swtClock" class="bg-gradient-to-r from-pink-100 to-blue-100 rounded-t-sm" style="text-align: center;"></div>
+        <div id="swtClock" class="bg-gradient-to-r from-pink-100 to-blue-100 rounded-sm" style="text-align: center;"></div>
         <script type="text/javascript" src="<?php echo URLROOT . '/public/js/clock.js' ?>"></script>
 
     </div>

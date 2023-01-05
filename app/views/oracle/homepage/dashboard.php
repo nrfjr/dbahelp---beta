@@ -11,9 +11,9 @@ require APPROOT . '/views/inc/sidebar.php';
 
   $Sessions = $data['Sessions'];
   $FRA = $data['FRA'];
-  $FRA_Size = empty($FRA['FRA Size'])? 'No data': $FRA['FRA Size'];
-  $FRA_Usage = empty($FRA['FRA Usage'])? 'No data': $FRA['FRA Usage'];
-  $FRA_Percent = empty($FRA['FRA Percentage'])? '0.0/100.0': $FRA['FRA Percentage'];
+  $FRA_Size = empty($FRA['FRA Size']) ? 'No data' : $FRA['FRA Size'];
+  $FRA_Usage = empty($FRA['FRA Usage']) ? 'No data' : $FRA['FRA Usage'];
+  $FRA_Percent = empty($FRA['FRA Percentage']) ? '0.0/100.0' : $FRA['FRA Percentage'];
   $DBPerfStatus = $data['DB PerfStatus'];
   $DBInfo = $data['DB Info'];
   $LockedSessions = $data['Locked Sessions'];
@@ -257,8 +257,9 @@ require APPROOT . '/views/inc/sidebar.php';
           floating: true,
           align: 'right',
           offsetY: 0,
+          offsetX: 10,
           style: {
-            fontSize: '8px'
+            fontSize: '10px'
           }
         },
         legend: {
@@ -278,7 +279,7 @@ require APPROOT . '/views/inc/sidebar.php';
         document.querySelector("#linechart"),
         optionsLine
       );
-      chartLine.render()
+      chartLine.render();
 
       window.setInterval(function() {
 
@@ -294,6 +295,14 @@ require APPROOT . '/views/inc/sidebar.php';
               ]
             ]
           }])
+          if (Number(Sessions) > highestValue) {
+            highestValue = Number(Sessions);
+            chartLine.updateOptions({
+              subtitle: {
+                text: 'Highest Sessions: ' + highestValue
+              }
+            });
+          }
           document.getElementById("noData").style.display = "none";
         } else {
           document.getElementById("noData").style.display = "static";
@@ -305,7 +314,7 @@ require APPROOT . '/views/inc/sidebar.php';
   <!--RealLine-->
 
   <script>
-    var Sessions, DBPerfStatus, DBInfo, TotalSes, InactiveSes, SystemSes;
+    var Sessions, DBPerfStatus, DBInfo, TotalSes, InactiveSes, SystemSes, highestValue = 0;
     var DBInfoArray;
 
     setInterval(() => {
@@ -331,7 +340,7 @@ require APPROOT . '/views/inc/sidebar.php';
           document.getElementById('InactiveSes').innerHTML = InactiveSes;
           document.getElementById('SystemSes').innerHTML = SystemSes;
         }
-        
+
       });
     }, 5000); // set interval speed for data refresh
   </script>
@@ -374,11 +383,11 @@ require APPROOT . '/views/inc/sidebar.php';
               data: [<?php echo $total[0]; ?>, <?php echo $total[1]; ?>],
               backgroundColor: [
                 '#339933',
-                '<?php echo empty($FRA)? '#ff3333' : '#66ff33' ; ?>'
+                '<?php echo empty($FRA) ? '#ff3333' : '#66ff33'; ?>'
               ],
               borderColor: [
                 '#339933',
-                '<?php echo empty($FRA)? '#ff3333' : '#66ff33' ; ?>'
+                '<?php echo empty($FRA) ? '#ff3333' : '#66ff33'; ?>'
               ],
 
               hoverOffset: 20,

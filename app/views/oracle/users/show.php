@@ -43,9 +43,13 @@ if ($first_user_displayed === $last_user_displayed) {
             </button>
             <div id="dropdown-createuser" class="whitespace-normal hidden w-fit bg-white rounded-md divide-y divide-gray-100 shadow max-h-48 overflow-y-auto scrollbar-hide">
                 <ul class="text-sm text-gray-700" aria-labelledby="dropdownDefault">
-                    <?php foreach (HOSTS as $host => $db) {
+                    <?php 
+                    $db_array = array_slice(array_keys(HOSTS),1);
+                    $first_db = reset($db_array);
+                    $last_db = end($db_array);
+                    foreach (HOSTS as $host => $db) {
                         if ($host != 'DEFAULT') { ?>
-                            <li class="block py-2 px-4 hover:bg-gray-400 hover:text-white rounded-md">
+                            <li class="block py-2 px-4 hover:bg-gray-400 hover:text-white <?php if($host == $first_db){echo 'rounded-t-md';}elseif($host == $last_db){echo 'rounded-b-md';}?>">
                                 <a href="<?php echo URLROOT; ?>/users/create/<?php echo $host ?>" class="transition delay-100"><?php echo $host ?></a>
                             </li>
                     <?php }

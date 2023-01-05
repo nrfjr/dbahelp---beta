@@ -12,11 +12,15 @@
     <!-- Dropdown menu -->
     <div id="dropdown-oracle" class="hidden absolute z-10 bg-white rounded-md divide-y divide-gray-100 shadow max-h-48 overflow-y-auto scrollbar-hide">
         <ul class="rounded-md text-sm text-gray-700" aria-labelledby="dropdownDefault">
-            <?php foreach (HOSTS as $host => $db) {
+            <?php
+            $db_array = array_slice(array_keys(HOSTS),1);
+            $first_db = reset($db_array);
+            $last_db = end($db_array); 
+            foreach (HOSTS as $host => $db) {
                 if ($host != 'DEFAULT') {
             ?>
                     <li>
-                        <form action="<?php echo URLROOT; ?>/homepages/index/<?php echo $host ?>" method="POST"><button type="submit" class="transition delay-100 block w-full rounded-t-sm py-2 px-4 hover:bg-gray-400 hover:text-white"><?php echo $host ?></button></form>
+                        <form action="<?php echo URLROOT; ?>/homepages/index/<?php echo $host ?>" method="POST"><button type="submit" class="transition delay-100 block w-full <?php if($host == $first_db){echo 'rounded-t-md';}elseif($db == $last_db){echo 'rounded-b-md';}?> py-2 px-4 hover:bg-gray-400 hover:text-white"><?php echo $host ?></button></form>
                     </li>
             <?php }
             } ?>
@@ -151,7 +155,7 @@
             <ul class="rounded-md text-sm text-gray-700" aria-labelledby="dropdownDefault">
                 <li>
                     <!--MONITOR-->
-                    <button id="dropdownDefault" data-dropdown-toggle="dropdown-sm-monitor" data-dropdown-placement="right-start" class="rounded-t-sm mb-1 text-white bg-gray-600 hover:bg-gray-400 hover:text-black focus:ring-4 focus:outline-none focus:ring-gray-800 font-medium rounded-lg text-sm px-4 py-2.5 text-center flex justify-between items-center  w-full
+                    <button id="dropdownDefault" data-dropdown-toggle="dropdown-sm-monitor" data-dropdown-placement="right-start" class="rounded-md mb-1 text-white bg-gray-600 hover:bg-gray-400 hover:text-black focus:ring-4 focus:outline-none focus:ring-gray-800 font-medium rounded-lg text-sm px-4 py-2.5 text-center flex justify-between items-center  w-full
                             <!--THIS BELOW CHANGE URL-->
                             <?php echo strpos($url, 'index') ? 'block focus:bg-gray-400 hover:text-black' : 'hidden'; ?>
                            " type="button">MONITOR<i class="fa-solid fa-chevron-right"></i></button>
@@ -268,15 +272,18 @@
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
         </svg></button>
     <!-- Dropdown menu -->
-    <div id="dropdown-disk" class="whitespace-normal hidden z-10 w-fit bg-white rounded divide-y divide-gray-100 shadow">
+    <div id="dropdown-disk" class="whitespace-normal hidden z-10 w-fit bg-white rounded-md divide-y divide-gray-100 shadow">
         <form action="<?php echo URLROOT; ?>/diskstorages/show" method="GET">
         <ul class="rounded-md text-sm text-gray-700" aria-labelledby="dropdownDefault">
             <?php
+            $host_array = array_slice(array_keys(DISK),1);
+            $first_host = reset($host_array);
+            $last_host = end($host_array);
             foreach (DISK as $k => $v) {
                 if ($k != 'DEFAULT') {
             ?>
                     <li>
-                            <button type="submit" id="host" name="host" value="<?php echo $k; ?>" class="rounded-t-sm block w-full py-2 px-4 hover:bg-gray-400 hover:text-white">
+                            <button type="submit" id="host" name="host" value="<?php echo $k; ?>" class="transition delay-100 <?php if($k == $first_host) { echo 'rounded-t-md'; }elseif($k == $last_host){ echo 'rounded-b-md'; }?> block w-full py-2 px-4 hover:bg-gray-400 hover:text-white">
                                 <?php echo $k; ?>
                             </button>
                     </li>
@@ -302,9 +309,9 @@
     <div x-show="isOpen" class="absolute w-32 justify-center bg-gray-800 top-0 rounded-lg shadow-lg mt-16">
         <div class="absolute top-0 right-2 transform -translate-x-1/2 -translate-y-1/2 rotate-45 w-4 h-4 bg-gray-800"></div>
         <div class="flex flex-col z-10 justify-between">
-            <a href="<?php echo URLROOT; ?>/users/profile" class="transition delay-100 block text-gray-300 py-2 text-center z-10 rounded-lg hover:bg-blue-300 hover:text-white">My Profile <i class="fas fa-user-circle"></i></a>
-            <a href="<?php echo EMAIL_URL; ?>" target="_blank" class="transition delay-100 block text-gray-300 py-2 text-center z-10 rounded-lg hover:bg-blue-300 hover:text-white">Email <i class="ml-8 fas fa-envelope"></i></a>
-            <a href="<?php echo URLROOT; ?>/users/logout" class="transition delay-100 block text-gray-300  py-2 z-10 text-center rounded-lg hover:bg-red-600 hover:text-white">Sign Out <i class="ml-2 fas fa-power-off"></i></a>
+            <a href="<?php echo URLROOT; ?>/users/profile" class="transition delay-100 block text-gray-300 py-2 text-center z-10 rounded-t-lg hover:bg-blue-300 hover:text-white">My Profile <i class="fas fa-user-circle"></i></a>
+            <a href="<?php echo EMAIL_URL; ?>" target="_blank" class="transition delay-100 block text-gray-300 py-2 text-center z-10 hover:bg-blue-300 hover:text-white">Email <i class="ml-8 fas fa-envelope"></i></a>
+            <a href="<?php echo URLROOT; ?>/users/logout" class="transition delay-100 block text-gray-300  py-2 z-10 text-center rounded-b-lg hover:bg-red-600 hover:text-white">Sign Out <i class="ml-2 fas fa-power-off"></i></a>
         </div>
     </div>
 </div>
