@@ -8,49 +8,25 @@ require APPROOT . '/views/inc/sidebar.php'; ?>
         <b><?php echo $_SESSION['firstname'] ?>'s Profile</b>
     </h1>
     <div>
-        <button id="dropdownDefault" data-dropdown-toggle="dropdown-colors" data-dropdown-placement="right-start" type="button" class="shadow-md flex justify-center items-center rounded-lg bg-gray-800 w-10 h-10 p-2" style="padding:0;">
-            <div id="colorIcon" class=" z-10 w-8 h-8 rounded-md" style="background: radial-gradient(circle, rgba(255,0,0,1) 5%, rgba(255,244,0,1) 14%, rgba(26,254,0,1) 23%, rgba(0,253,251,1) 35%, rgba(0,21,252,1) 50%, rgba(244,0,251,1) 63%, rgba(250,0,93,1) 74%, rgba(250,0,25,1) 86%);">
+        <button id="dropdownDefault" data-dropdown-toggle="dropdown-colors" data-dropdown-placement="bottom-start" type="button" class="shadow-md flex justify-center items-center rounded-lg bg-gray-800 w-fit text-white h-fit" style="padding:0;">
+            <span class="p-2 text-xl"><i class="fa-brands fa-affiliatetheme"></i></span>
+            <div id="colorIcon" class="z-10 w-8 h-8 rounded-md" style="background: radial-gradient(circle, rgba(255,0,0,1) 5%, rgba(255,244,0,1) 14%, rgba(26,254,0,1) 23%, rgba(0,253,251,1) 35%, rgba(0,21,252,1) 50%, rgba(244,0,251,1) 63%, rgba(250,0,93,1) 74%, rgba(250,0,25,1) 86%);">
             </div>
         </button>
         <div id="dropdown-colors" class="whitespace-normal hidden z-10 w-fit bg-gray-800 rounded divide-y divide-gray-100 shadow dark:bg-gray-700">
             <ul class="flex justify-evenly flex-wrap rounded-md text-sm text-gray-700 dark:text-gray-200 w-40 gap-2 p-2" aria-labelledby="dropdownDefault">
+                <?php 
+                    foreach(BANNER as $Themes){
+                ?>
                 <li>
-                    <button class="z-10 w-8 h-8 rounded-md" onclick='getColor("#000046","#1CB5E0");' style="background: linear-gradient(90deg,#000046,#1CB5E0);"></button>
+                    <button class="z-10 w-8 h-8 rounded-md" onclick="getColor('<?php echo $Themes['Degrees'];?>','<?php echo $Themes['C1'];?>','<?php echo $Themes['C2'];?>');" style="background: linear-gradient(<?php echo $Themes['Degrees'];?>,<?php echo $Themes['C1'];?>,<?php echo $Themes['C2'];?>);"></button>
                 </li>
-                <li>
-                    <button class="z-10 w-8 h-8 rounded-md" onclick='getColor("#007991","#78ffd6");' style="background: linear-gradient(90deg,#007991,#78ffd6);"></button>
-                </li>
-                <li>
-                    <button class="z-10 w-8 h-8 rounded-md" onclick='getColor("#F2994A","#F2C94C");' style="background: linear-gradient(90deg,#F2994A,#F2C94C);"></button>
-                </li>
-                <li>
-                    <button class="z-10 w-8 h-8 rounded-md" onclick='getColor("#EB5757","#000000");' style="background: linear-gradient(90deg,#EB5757,#000000);"></button>
-                </li>
-                <li>
-                    <button class="z-10 w-8 h-8 rounded-md" onclick='getColor("#E44D26","#F16529");' style="background: linear-gradient(90deg,#E44D26,#F16529);"></button>
-                </li>
-                <li>
-                    <button class="z-10 w-8 h-8 rounded-md" onclick='getColor("#4AC29A","#BDFFF3");' style="background: linear-gradient(90deg,#4AC29A,#BDFFF3);"></button>
-                </li>
-                <li>
-                    <button class="z-10 w-8 h-8 rounded-md" onclick='getColor("#B2FEFA","#0ED2F7");' style="background: linear-gradient(90deg,#B2FEFA,#0ED2F7);"></button>
-                </li>
-                <li>
-                    <button class="z-10 w-8 h-8 rounded-md" onclick='getColor("#30E8BF","#FF8235");' style="background: linear-gradient(90deg,#30E8BF,#FF8235);"></button>
-                </li>
-                <li>
-                    <button class="z-10 w-8 h-8 rounded-md" onclick='getColor("#D66D75","#E29587");' style="background: linear-gradient(90deg,#D66D75,#E29587);"></button>
-                </li>
-                <li>
-                    <button class="z-10 w-8 h-8 rounded-md" onclick='getColor("#20002c","#cbb4d4");' style="background: linear-gradient(90deg,#20002c,#cbb4d4);"></button>
-                </li>
-                <li>
-                    <button class="z-10 w-8 h-8 rounded-md" onclick='getColor("#C33764","#1D2671");' style="background: linear-gradient(90deg,#C33764,#1D2671);"></button>
-                </li>
+                <?php
+                }
+                ?>
             </ul>
         </div>
     </div>
-    <!-- <button onclick="window.location.reload()" class="px-4 py-2 rounded-lg bg-gray-200 hover:bg-gray-500"> Refresh<i class="ml-2 fas fa-redo"></i></button> -->
 </div>
 <div class="relative flex flex-col justify-between h-fit rounded-md box" style="padding: 0;">
     <div class="relative flex flex-row w-full">
