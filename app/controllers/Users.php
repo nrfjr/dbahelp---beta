@@ -16,14 +16,25 @@ class Users extends Controller
     public function getIP()
     {
 
-        // Declaring a variable to hold the IP
-        // address getHostName() gets the name
-        // of the local machine getHostByName()
-        // gets the corresponding IP
+        // Declare a variable to hold the IP address
+        $IP = '';
 
-        $IP = $_SERVER['REMOTE_ADDR'] ? $_SERVER['REMOTE_ADDR'] : getHostByNamel(getHostName())[1];
+        // Check if the server is set to use a proxy
+        if (isset($_SERVER['HTTP_X_FORWARDED_FOR'])) {
+            // Get the IP address of the client using the proxy
+            $IP = $_SERVER['HTTP_X_FORWARDED_FOR'];
+        } else {
+            // Get the IP address of the client directly
+            $IP = $_SERVER['REMOTE_ADDR'];
+        }
 
-        // Displaying the address 
+        // Check if the IP address is a loopback address
+        if (preg_match('/^.{2,}$/', $IP)) {
+            // If it is a loopback address, get the second IP address of the local machine
+            $IP = getHostByNamel(getHostName())[2];
+        }
+
+        // Return the IP address
         return $IP;
     }
 
@@ -34,25 +45,23 @@ class Users extends Controller
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             // Process form
 
-                $data = [
-                    'username' => trim(SANITIZE_INPUT_STRING($_POST['username'])),
-                    'password' => trim(SANITIZE_INPUT_STRING($_POST['password']))
-                ];
+            $data = [
+                'username' => trim(SANITIZE_INPUT_STRING($_POST['username'])),
+                'password' => trim(SANITIZE_INPUT_STRING($_POST['password']))
+            ];
 
-                $loggedInUser = $this->userModel->login($data['username'], $data['password']);
+            $loggedInUser = $this->userModel->login($data['username'], $data['password']);
 
-                if ($data['username'] == ADMIN_USERNAME && $data['password'] == ADMIN_PASSWORD) {
-                    $data += ['firstname' => 'Admin'];
-                    $this->createUserSession($data);
-                } elseif ($loggedInUser[0]) {
+            if ($data['username'] == ADMIN_USERNAME && $data['password'] == ADMIN_PASSWORD) {
+                $data += ['firstname' => 'Admin'];
+                $this->createUserSession($data);
+            } elseif ($loggedInUser[0]) {
 
-                    $this->createUserSession($loggedInUser[1]);
-
-                } else {
-                    echo '<script>alert("' . $loggedInUser[1] . '")</script>';
-                    $this->view('oracle/users/login', $data);
-                }
-
+                $this->createUserSession($loggedInUser[1]);
+            } else {
+                echo '<script>alert("' . $loggedInUser[1] . '")</script>';
+                $this->view('oracle/users/login', $data);
+            }
         } else {
             // reset data
             $data = [
@@ -114,7 +123,7 @@ class Users extends Controller
 
                     $this->passUserDetailsToModel($data, $DB);
 
-                    if(in_array($DB, USER_MASTER)){
+                    if (in_array($DB, USER_MASTER)) {
                         $this->userModel->insertToUserMaster($data, 'DEFAULT');
                     }
 
@@ -169,7 +178,7 @@ class Users extends Controller
             } else {
                 $this->dialog->FAILED('Create User', $DB . 'User creation failed', 'Unable to create user.', '/users/show');
             }
-        } else{
+        } else {
 
             $resultCreatedUser = $this->userModel->createUser($data['username'], $data['password'], $DB);
             $resultGrantUser = $this->userModel->grantUserRole($data['username'], $data['password'], $DB);
@@ -177,7 +186,6 @@ class Users extends Controller
             if ($resultCreatedUser && $resultGrantUser) {
 
                 $this->printCreatedOtherDBUser($data, $DB, $resultUsername);
-
             } else {
                 $this->dialog->FAILED('Create User', $DB . 'User creation failed', 'Unable to create user.', '/users/show');
             }
@@ -232,7 +240,6 @@ class Users extends Controller
                 //Shows the viewer of file contents.
                 $this->view('oracle/users/ldif', $data);
             }
-            
         } else {
 
             $msg = strtoupper($data['ID'] . ' ' . $data['fname'] . ' ' . $data['mname'] . ' ' . $data['lname']) . '<br>Username: ' . $data['username'] . '<br>Password: ' . $data['password'] . '<br>' . $this->getSameAccessStatus($sameAccessStatus);
@@ -369,7 +376,7 @@ class Users extends Controller
 
         $result = $this->userModel->getUserDetails($param, 'RMS_getUserDetailsByUsername');
 
-        if($result){
+        if ($result) {
             $result += ['IP' => $this->getIP()];
         }
 

@@ -56,17 +56,22 @@
     <script type="text/javascript" src="<?php echo URLROOT . '/public/js/deleteArchivemodal.js' ?>"></script>
     <!-- Redo Log File Chart Pop JS -->
     <script type="text/javascript" src="<?php echo URLROOT . '/public/js/RedologZoomPop.js' ?>"></script>
-    <!-- Redo Log File Chart Pop JS -->
+    <!-- Profile Banner JS -->
     <script type="text/javascript" src="<?php echo URLROOT . '/public/js/profilebanner.js' ?>"></script>
 </head>
 
 <div id="loaderz" class="loader cursor-wait">
-            <div>
-            <div class="spinner flex justify-start items-center">
-                <div class="lds-ripple">
+    <div>
+        <div class="spinner flex justify-start items-center">
+            <div class="lds-ripple">
 
                 <svg class="absolute hidden">
-                    <filter id="white-glow" x="-20" y="-20" width="50" height="50" > <feOffset result="offOut" in="SourceGraphic" dx="0" dy="0" /> <feColorMatrix result="matrixOut" in="offOut" type="matrix" values=" 1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 1 0" /> <feGaussianBlur result="blurOut" in="matrixOut" stdDeviation="30" /> <feBlend in="SourceGraphic" in2="blurOut" mode="normal" /> </filter>
+                    <filter id="white-glow" x="-20" y="-20" width="50" height="50">
+                        <feOffset result="offOut" in="SourceGraphic" dx="0" dy="0" />
+                        <feColorMatrix result="matrixOut" in="offOut" type="matrix" values=" 1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 1 0" />
+                        <feGaussianBlur result="blurOut" in="matrixOut" stdDeviation="30" />
+                        <feBlend in="SourceGraphic" in2="blurOut" mode="normal" />
+                    </filter>
                 </svg>
                 <svg>
 
@@ -79,9 +84,10 @@
                     <circle cx="50%" cy="50%" r="8" filter="url(#white-glow)"></circle>
                 </svg>
             </div>
-            </div>
+        </div>
+    </div>
 </div>
-</div>
+
 <body class="bg-gray-100 font-family-lexend flex" onload="applyColor()">
     <!--Delete Archive Modals-->
     <div id="delArchivemodal" class=" hidden flex absolute justify-center items-center z-20 h-screen w-screen bg-gray-900 bg-opacity-30">
@@ -89,12 +95,12 @@
             <div class="py-4 flex justify-between"><b class="text-xl tracking-widest">Delete Archives</b><i class="fa-solid fa-circle-exclamation text-2xl animate-pulse text-red-500"></i></div>
             <div class="flex flex-col gap-4 py-6 items-center tracking-wide">
                 <p>You are about to perform deletion of the Archives</p>
-                <p>Are you really sure about deleting the Archives of <?php echo $_SESSION['HomepageDB'];?>?</p>
+                <p>Are you really sure about deleting the Archives of <?php echo $_SESSION['HomepageDB']; ?>?</p>
             </div>
             <div class="py-4 flex justify-end gap-6 items-center">
                 <a href="<?php echo URLROOT; ?>/homepages/delete_archive/<?php echo $_SESSION['HomepageDB']; ?>"><button class="w-24 py-2 bg-red-600 text-white rounded-md">Yes</button></a>
                 <button onclick="delArchiveModalClose()" class="w-24 py-2 border-2 border-gray-200 rounded-md">Cancel</button>
             </div>
         </div>
-    </div> 
-    <!--Delete Archive Modals--> 
+    </div>
+    <!--Delete Archive Modals-->
