@@ -42,7 +42,7 @@ $current_tab = isset($_GET['tab']) ? $_GET['tab'] : 1;
         foreach ($data as $title => $array) {
         ?>
             <div class="hidden p-4 bg-gray-50 rounded-b-lg max-h-screen overflow-auto h-full " id="<?php echo $title; ?>" role="tabpanel" aria-labelledby="<?php echo $title; ?>-tab">
-                <div class="">
+                <div style="overflow:clip;height: fit-content;" class="rounded-lg">
                     <div class="block justify-center w-full shadow-md overflow-auto rounded-lg" style="max-height: 63vh;">
                         <?php
 

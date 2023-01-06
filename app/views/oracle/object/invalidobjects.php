@@ -10,7 +10,7 @@ require APPROOT . '/views/inc/sidebar.php'; ?>
     <button onclick="window.location.reload()" class="px-4 py-2 rounded-lg bg-gray-200 hover:bg-gray-500"> Refresh<i class="ml-2 fas fa-redo"></i></button>
 </div>
 
-<div class="overflow-x-auto relative shadow-md">
+<div class="overflow-x-auto relative shadow-md rounded-lg">
     <div style="height: auto; overflow: clip;" class="">
         <div class="block  justify-center w-full shadow-md overflow-auto rounded-lg" style="max-height: 75vh;">
             <?php

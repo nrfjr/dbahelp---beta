@@ -66,7 +66,7 @@ if ($first_index_displayed === $last_index_displayed) {
     </div>
 </div>
 
-<div class="overflow-x-auto relative shadow-md rounded-md">
+<div class="overflow-x-auto relative shadow-md rounded-lg">
     <div style="height: fit-content; overflow: clip;" class="rounded-lg">
         <div class="block w-full shadow-md overflow-auto rounded-lg" style="max-height: 72vh;">
             <?php
