@@ -18,11 +18,11 @@ class DiskStorages extends Controller{
             $_SESSION['DiskStorageHost'] = trim(empty($_GET['host'])? '' : $_GET['host']);
         }
 
-        $data = $this->getDF($this->getDFSource($_SESSION['DiskStorageHost']));
+        $data = $this->getDF($this->setDFSource($_SESSION['DiskStorageHost']));
         $this->view('oracle/diskstorage/show', $data);
     }
 
-    public function getDFSource($hostname)
+    public function setDFSource($hostname)
     {
         if (in_array($hostname, array_keys(DISK))){
             return DISK[$hostname];
@@ -44,7 +44,7 @@ class DiskStorages extends Controller{
         }
         catch( \Exception|\Error|\Throwable|\TypeError $e ){
 
-            $this->view('error/error', $data=['link' => '/disktorages/disktorage/default']);
+            $this->view('error/error', ['link' => '/disktorages/disktorage/default']);
 
         }
     }

@@ -1,20 +1,25 @@
 <?php
-    // Load Config
-    require_once 'config/config.php';
+    /***
+     *  I can't figure out why these files
+     *  cannot be included in spl_autoload_register.
+     *  For now, i'll be storing them in this un-spl_autoload_register
+     *  array, in this way it is easy to include new files to be
+     *  required_once. i'll be looking further for possible solution for this.
+    ***/
+    
+    $UNSPLs = [
+                'config/config.php',
+                'helpers/url_helper.php',
+                'helpers/session_helper.php',
+                'helpers/tab_helper.php',
+                'filters/sanitize.php',
+                'misc/Greeting.php',
+                'interfaces/DBInterface.php',
+            ];
 
-    // Load Helpers
-    require_once 'helpers/url_helper.php';
-    require_once 'helpers/session_helper.php';
-    require_once 'helpers/tab_helper.php';
-
-    // Load Filter
-    require_once 'filters/sanitize.php';
-
-    // Load Misc
-    require_once 'misc/Greeting.php';
-
-    // Load Interface
-    require_once 'interfaces/DBInterface.php';
+    foreach($UNSPLs as $UNSPL){
+            require_once $UNSPL;
+    }
 
     // Autoload Core Libraries
     spl_autoload_register(function($className) {

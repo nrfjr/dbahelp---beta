@@ -8,8 +8,8 @@ require APPROOT . '/views/inc/sidebar.php'; ?>
         <b><?php echo $_SESSION['firstname'] ?>'s Profile</b>
     </h1>
     <div>
-        <button id="dropdownDefault" data-dropdown-toggle="dropdown-colors" data-dropdown-placement="bottom-start" type="button" class="shadow-md flex justify-center items-center rounded-lg bg-gray-800 w-fit text-white h-fit" style="padding:0;">
-            <span class="p-2 text-xl"><i class="fa-brands fa-affiliatetheme"></i></span>
+        <button id="dropdownDefault" data-dropdown-toggle="dropdown-colors" data-dropdown-placement="bottom-start" type="button" class="shadow-md flex justify-center items-center rounded-lg bg-gray-800 w-fit text-white h-fit p-2 gap-2">
+            <span class="text-xl"><i class="fa-brands fa-affiliatetheme"></i></span>
             <div id="colorIcon" class="z-10 w-8 h-8 rounded-md" style="background: radial-gradient(circle, rgba(255,0,0,1) 5%, rgba(255,244,0,1) 14%, rgba(26,254,0,1) 23%, rgba(0,253,251,1) 35%, rgba(0,21,252,1) 50%, rgba(244,0,251,1) 63%, rgba(250,0,93,1) 74%, rgba(250,0,25,1) 86%);">
             </div>
         </button>

@@ -83,9 +83,12 @@ class Users extends Controller
 
     public function logout()
     {
-        unset($_SESSION['username'], $_SESSION['firstname']);
-        session_destroy();
-        redirect('users/login');
+        try {
+            unset($_SESSION['username'], $_SESSION['firstname']);
+            session_destroy();
+            redirect('users/login');
+        } catch (\Exception | \Error | \Throwable | \TypeError $e) {
+        }
     }
 
     // Create user account (Create Account Module)

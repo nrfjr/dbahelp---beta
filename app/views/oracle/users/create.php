@@ -4,7 +4,7 @@ require APPROOT . '/views/inc/header.php';
 require APPROOT . '/views/inc/sidebar.php'; ?>
 
 <div class="relative" x-data="{toSubmit: false}">
-<h1 class="text-3xl text-black pb-6 text-white"><b><?php echo $data == null ? 'Create User' : 'Edit User'; ?></b></h1>
+<h1 class="text-3xl text-black pb-6 text-white"><b><?php echo $data == null ? 'Create '.$_SESSION['CreateUserDB'].' User' : 'Edit '.$_SESSION['CreateUserDB'].' User'; ?></b></h1>
 <div class="hidden sm:block" aria-hidden="true">
   <div class="py-6">
     <div class="border-t border-gray-200"></div>

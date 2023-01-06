@@ -68,7 +68,7 @@ $url = 'http://' . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
                     <!--DASHBOARD-->
 
                     <li>
-                        <a href="<?php echo URLROOT; ?>/diskstorages/show" class="flex items-center hover:opacity-100 rounded-md mx-2 mb-1 py-4 pl-6 nav-item text-white <?php if (strpos($url, 'diskstorages')) {
+                        <a href="<?php echo URLROOT; ?>/diskstorages/show" class="flex items-center hover:opacity-100 rounded-md mx-2 mb-1 py-4 pl-6 nav-item text-white <?php if (preg_match('/\b(diskstorages)\b/',$url)) {
                                                                                                                                                         echo 'active-nav-link';
                                                                                                                                                     } else {
                                                                                                                                                         echo ' opacity-75';
@@ -78,7 +78,7 @@ $url = 'http://' . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
                         </a>
                     </li>
                     <li>
-                        <a href="<?php echo URLROOT; ?>/flashrecoveryareas/charts" class="flex items-center rounded-md mx-2 mb-1 hover:opacity-100 py-4 pl-6 nav-item text-white <?php if (strpos($url, 'flashrecoveryareas')) {
+                        <a href="<?php echo URLROOT; ?>/flashrecoveryareas/charts" class="flex items-center rounded-md mx-2 mb-1 hover:opacity-100 py-4 pl-6 nav-item text-white <?php if (preg_match('/\b(flashrecoveryareas)\b/',$url)) {
                                                                                                                                                 echo 'active-nav-link';
                                                                                                                                             } else {
                                                                                                                                                 echo ' opacity-75';
@@ -89,7 +89,7 @@ $url = 'http://' . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
                     </li>
 
                     <li>
-                        <a href="<?php echo URLROOT; ?>/users/show" class="flex items-center rounded-md mx-2 mb-1 hover:opacity-100 py-4 pl-6 nav-item text-white <?php if (strpos($url, 'users') && !strpos($url, 'users/profile')) {
+                        <a href="<?php echo URLROOT; ?>/users/show" class="flex items-center rounded-md mx-2 mb-1 hover:opacity-100 py-4 pl-6 nav-item text-white <?php if (preg_match('/\b(users)\b/',$url) && !strpos($url, 'users/profile')) {
                                                                                                                                                             echo 'active-nav-link ';
                                                                                                                                                         } else {
                                                                                                                                                             echo 'opacity-75';
@@ -100,7 +100,7 @@ $url = 'http://' . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
                     </li>
 
                     <li>
-                        <a href="<?php echo URLROOT; ?>/telephones/contacts" class="flex items-center rounded-md mx-2 mb-1 hover:opacity-100 py-4 pl-6 nav-item text-white <?php if (strpos($url, 'telephones')) {
+                        <a href="<?php echo URLROOT; ?>/telephones/contacts" class="flex items-center rounded-md mx-2 mb-1 hover:opacity-100 py-4 pl-6 nav-item text-white <?php if (preg_match('/\b(telephones)\b/',$url)) {
                                                                                                                                                             echo 'active-nav-link ';
                                                                                                                                                         } else {
                                                                                                                                                             echo 'opacity-75';
