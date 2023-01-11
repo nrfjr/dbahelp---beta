@@ -112,7 +112,7 @@ class Users extends Controller
                     'access' => trim(SANITIZE_INPUT_STRING($_POST['access'])),
                 ];
 
-                if (!empty($data['fname']) && !empty($data['mname']) && !empty($data['lname']) && !empty($data['ID']) && !empty($data['requestor']) && !empty($data['remarks'])) {
+                if (!empty($data['fname']) && !empty($data['lname']) && !empty($data['ID']) && !empty($data['requestor']) && !empty($data['remarks'])) {
 
                     $username = $this->generateUsername($data['fname'], $data['mname'], $data['lname'], $data['ID']);
                     $ExistingPasswordByUsername = ($this->userModel->getUsername($username, 'get_Username', SIDS['DEFAULT'])) ? $this->userModel->getUsername($username, 'get_Username', SIDS['DEFAULT'])['PASSWORD'] : null;

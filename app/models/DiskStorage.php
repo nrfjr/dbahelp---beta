@@ -2,7 +2,7 @@
 
 class DiskStorage{
 
-    private $rmsdb, $fm;
+    private $db, $fm;
 
     public function __construct(){
         $this->fm = new FileManager;

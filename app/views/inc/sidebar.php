@@ -110,6 +110,17 @@ $url = 'http://' . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
                         </a>
                     </li>
 
+                    <li>
+                        <a href="<?php echo URLROOT; ?>/dbservers/show" class="flex items-center rounded-md mx-2 mb-1 hover:opacity-100 py-4 pl-6 nav-item text-white <?php if (preg_match('/\b(dbservers)\b/',$url)) {
+                                                                                                                                                            echo 'active-nav-link ';
+                                                                                                                                                        } else {
+                                                                                                                                                            echo 'opacity-75';
+                                                                                                                                                        } ?>">
+                            <i class="fa-solid fa-server mr-3"></i>
+                            DB Servers
+                        </a>
+                    </li>
+
                 </ul>
             </div>
         </nav>

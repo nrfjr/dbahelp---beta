@@ -9,3 +9,4 @@ WHERE
         LOCATION LIKE CONCAT(:search,'%')
 		OR LOCAL LIKE CONCAT(:search,'%')
 		OR DEPARTMENT LIKE CONCAT(:search,'%')
+		OR PERSONS LIKE CONCAT(:search,'%')

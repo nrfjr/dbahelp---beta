@@ -6,6 +6,10 @@ class DiskStorages extends Controller{
 
         $this->disksModel = $this->model('DiskStorage');
 
+        if (!isset($_SESSION['username'])) {
+            redirect('users/login');
+        }
+
     }
 
     public function show()

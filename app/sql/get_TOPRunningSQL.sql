@@ -18,5 +18,6 @@ SELECT
 				and sesion.sql_address = sqlarea.address
 				and sesion.paddr = process.addr
 				and sesion.username is not null
+                and sesion.username != 'DBADMINS'
 				AND ROWNUM < 20
 		ORDER BY ELAPSED_TIME desc

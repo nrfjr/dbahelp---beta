@@ -7,7 +7,7 @@ require APPROOT . '/views/inc/sidebar.php'; ?>
     <a href="<?php echo URLROOT; ?>/homepages/index/<?php echo $_SESSION['SecurityDB']; ?>" class="no-underline hover:underline">Security</a> > <b>Create LDIF for SSO</b>
 </h1>
 
-<div class="bg-gray-400 rounded-lg p-2 h-">
+<div class="bg-gray-400 rounded-lg p-2 h-fit">
     <form action="<?php echo URLROOT; ?>/securities/download/<?php echo $_SESSION['SecurityDB']; ?>" method="POST">
         <div id="editor" class="bg-white rounded-md focus:ring-6 focus:ring-blue-400">
             <?php
@@ -93,7 +93,7 @@ function save(){
 
     var editor = new Quill('#editor', {
         modules: {
-            toolbar: toolbarOptions
+            toolbar: toolbarOptions,
         },
         theme: 'snow',
     });

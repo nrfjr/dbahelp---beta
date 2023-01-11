@@ -10,8 +10,8 @@ require APPROOT . '/views/inc/sidebar.php'; ?>
     <button onclick="window.location.reload()" class="px-4 py-2 rounded-lg bg-gray-200 hover:bg-gray-500"> Refresh<i class="ml-2 fas fa-redo"></i></button>
 </div>
 
-<div class="overflow-x-auto relative shadow-md rounded-lg">
-    <div style="height: auto; overflow: clip;" class="">
+<div class="overflow-x-auto relative shadow-md">
+    <div style="height: auto; overflow: clip;" class="rounded-lg">
         <div class="block  justify-center w-full shadow-md overflow-auto rounded-lg" style="max-height: 75vh;">
             <?php
 
@@ -61,7 +61,7 @@ require APPROOT . '/views/inc/sidebar.php'; ?>
             } else {
             ?>
                 <div class="flex w-full shadow-md overflow-auto rounded-lg bg-gray-500" style="max-height: 80%; min-height: 100%;">
-                    <h1 class="text-white m-auto "><b>No SGA Target Data Found.</b></h1>
+                    <h1 class="text-white m-auto "><b>No Invalid Objects Found.</b></h1>
                 </div>
             <?php
             }

@@ -30,7 +30,7 @@ require APPROOT . '/views/inc/sidebar.php'; ?>
 
               <div class="col-span-6 sm:col-span-2">
                 <label for="middle-name" class="block text-sm font-medium text-gray-700">Middlename (Optional)</label>
-                <input type="text" name="middle-name" id="middle-name" class="mt-1 block w-full rounded-md  py-2 shadow-lg focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" value="<?php echo $data != null ? $data['Middlename'] : ''; ?>" required>
+                <input type="text" name="middle-name" id="middle-name" class="mt-1 block w-full rounded-md  py-2 shadow-lg focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" value="<?php echo $data != null ? $data['Middlename'] : ''; ?>">
               </div>
 
               <div class="col-span-6 sm:col-span-2">
@@ -87,10 +87,9 @@ require APPROOT . '/views/inc/sidebar.php'; ?>
               
             </div>
           </div>
-        </form>
         <div class="mr-32 px-4 py-3 text-right sm:px-6 absolute inset-x-0 bottom-0">
           <a href="<?php echo URLROOT; ?>/users/show">
-            <button type="submit" name="CreateUser" value="submit" class="inline-flex justify-center rounded-md border border-transparent bg-red-500 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
+            <button type="button" name="CreateUser" value="submit" class="inline-flex justify-center rounded-md border border-transparent bg-red-500 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
               Cancel
               <i class="fas mt-1 fa-times ml-2"></i>
             </button>
@@ -126,5 +125,6 @@ require APPROOT . '/views/inc/sidebar.php'; ?>
                 </div>
               <!-- Create User Modal -->
 </div>
+</form>
 
 <?php require APPROOT . '/views/inc/footer.php'; ?>
