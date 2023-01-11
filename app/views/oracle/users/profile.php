@@ -13,7 +13,7 @@ require APPROOT . '/views/inc/sidebar.php'; ?>
             <div id="colorIcon" class="z-10 w-8 h-8 rounded-md" style="background: radial-gradient(circle, rgba(255,0,0,1) 5%, rgba(255,244,0,1) 14%, rgba(26,254,0,1) 23%, rgba(0,253,251,1) 35%, rgba(0,21,252,1) 50%, rgba(244,0,251,1) 63%, rgba(250,0,93,1) 74%, rgba(250,0,25,1) 86%);">
             </div>
         </button>
-        <div id="dropdown-colors" class="whitespace-normal hidden z-10 w-fit bg-gray-800 rounded divide-y divide-gray-100 shadow dark:bg-gray-700">
+        <div id="dropdown-colors" class="whitespace-normal hidden z-10 w-fit bg-gray-800 rounded divide-y divide-gray-100 shadow dark:bg-gray-700" title="Banner">
             <ul class="flex justify-evenly flex-wrap rounded-md text-sm text-gray-700 dark:text-gray-200 w-40 gap-2 p-2" aria-labelledby="dropdownDefault">
                 <?php 
                     foreach(BANNER as $Themes){
@@ -41,15 +41,15 @@ require APPROOT . '/views/inc/sidebar.php'; ?>
     <?php if (!empty($data)) { ?>
         <div class="pt-24 px-8 pb-8 relative flex lg:flex-row items-center justify-evenly gap-6 h-fit xl:h-1/2 w-full">
             <div class="flex gap-6 w-full justify-between">
-                <div class="border rounded-lg shadow-inner flex flex-col bg-gradient-to-r from-red-100 via-gray-100 to-indigo-100 w-full h-full p-6">
+                <div class="border rounded-lg shadow-inner flex flex-col bg-gradient-to-r from-red-100 via-gray-100 to-indigo-100 w-full h-full p-6" title="Firstname">
                     <font class="text-xs self-start">Firstname</font>
                     <font class="font-bold text-lg self-center"><?php echo $data['Firstname'] ?></font>
                 </div>
-                <div class="border rounded-lg shadow-inner flex flex-col bg-gradient-to-r from-red-100 via-gray-100 to-indigo-100 w-full h-full p-6">
+                <div class="border rounded-lg shadow-inner flex flex-col bg-gradient-to-r from-red-100 via-gray-100 to-indigo-100 w-full h-full p-6" title="Middlename">
                     <font class="text-xs self-start">Middlename</font>
                     <font class="font-bold text-lg self-center"><?php echo $data['Middlename'] ?></font>
                 </div>
-                <div class="border rounded-lg shadow-inner flex flex-col bg-gradient-to-r from-red-100 via-gray-100 to-indigo-100 w-full h-full p-6">
+                <div class="border rounded-lg shadow-inner flex flex-col bg-gradient-to-r from-red-100 via-gray-100 to-indigo-100 w-full h-full p-6" title="Lastname">
                     <font class="text-xs self-start">Lastname</font>
                     <font class="font-bold text-lg self-center"><?php echo $data['Lastname'] ?></font>
                 </div>
@@ -57,11 +57,11 @@ require APPROOT . '/views/inc/sidebar.php'; ?>
         </div>
         <div class="px-8 pb-8">
             <div class="flex w-full gap-6 justify-between">
-                <div class="border rounded-lg shadow-inner flex flex-col bg-gradient-to-r from-red-100 via-gray-100 to-indigo-100 w-full h-full p-6">
+                <div class="border rounded-lg shadow-inner flex flex-col bg-gradient-to-r from-red-100 via-gray-100 to-indigo-100 w-full h-full p-6" title="User Id.">
                     <font class="text-xs self-start">Employee ID</font>
                     <font class="font-bold text-lg self-center"><?php echo $data['User Id'] ?></font>
                 </div>
-                <div class="border rounded-lg shadow-inner flex flex-col bg-gradient-to-r from-red-100 via-gray-100 to-indigo-100 w-full h-full p-6">
+                <div class="border rounded-lg shadow-inner flex flex-col bg-gradient-to-r from-red-100 via-gray-100 to-indigo-100 w-full h-full p-6" title="IP Address">
                     <font class="text-xs self-start">IP Address</font>
                     <font class="font-bold text-lg self-center"><?php echo $data['IP'] ?></font>
                 </div>

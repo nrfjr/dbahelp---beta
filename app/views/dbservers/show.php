@@ -8,7 +8,7 @@ $current_tab = isset($_GET['tab']) ? $_GET['tab'] : 1;
 
 <div class="flex justify-between mb-5">
     <h1 class="text-3xl text-black text-white">
-        <b>Server & Apps Lists</b>
+        <b>Servers & Apps Lists</b>
     </h1>
     <button onclick="window.location.reload()" class="px-4 py-2 rounded-lg bg-gray-200 hover:bg-gray-500"> Refresh<i class="ml-2 fas fa-redo"></i></button>
     </a>
@@ -53,9 +53,9 @@ $current_tab = isset($_GET['tab']) ? $_GET['tab'] : 1;
                             }
                         ?>
                             <table class=" sortable w-full text-sm text-center text-white">
-                                <thead class="cursor-pointer text-md text-black bg-indigo-200 sticky top-0">
+                                <thead class="cursor-pointer text-md text-black bg-indigo-200 sticky top-0 z-10">
                                     <tr>
-                                        <?php for ($title = 0; $title <= count($inner_array) - 1; $title++) { ?>
+                                        <?php for ($title = 1; $title <= count($inner_array) - 1; $title++) { ?>
                                             <th scope="col" class="py-2 px-6">
                                                 <?php
                                                 echo $column_names[$title];
@@ -65,22 +65,29 @@ $current_tab = isset($_GET['tab']) ? $_GET['tab'] : 1;
                                         }
                                         $column_names = [];
                                         ?>
+                                        <th scope="col" class="py-2 px-6">Action</th>
                                     </tr>
                                 </thead>
                                 <tbody class="bg-gray-500 overflow-y-auto">
                                     <?php
                                     foreach ($array as $column_title => $values) {
                                     ?>
-                                        <tr class="transition delay-50 focus:hover:bg-gray-700 hover:bg-gray-700">
+                                        <tr id="<?php echo $values['ID']; ?>" class="transition delay-50 focus:hover:bg-gray-700 hover:bg-gray-700">
                                             <?php
-                                            foreach ($values as $ratios) {
+                                            array_splice($values, 0, 1);
+                                            foreach ($values as $server) {
                                             ?>
                                                 <td class=" item py-4  px-6">
-                                                    <?php echo $ratios; ?>
+                                                    <?php echo $server; ?>
                                                 </td>
                                             <?php
                                             }
                                             ?>
+                                            <td class=" item py-4  px-6">
+                                                <font color="#005eff" title="Edit Details">
+                                                    <button type="button" onclick="alert('this will show form dialog soon.')"><i class="fas fa-pen-to-square transform  hover:bg-blue-200 rounded-md w-6 h-6"></i></button>
+                                                </font>
+                                            </td>
                                         </tr>
                                     <?php
                                     }
@@ -91,7 +98,7 @@ $current_tab = isset($_GET['tab']) ? $_GET['tab'] : 1;
                         } else {
                         ?>
                             <div class="flex w-full shadow-md overflow-auto rounded-lg bg-gray-500" style="max-height: 80%; min-height: 100%;">
-                                <h1 class="text-white m-auto "><b>No <?php echo strtoupper($title[0]) . substr($title, 1); ?> Found.</b></h1>
+                                <h1 class="text-white m-auto "><b>No Details Found.</b></h1>
                             </div>
                         <?php
                         }

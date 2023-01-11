@@ -73,7 +73,7 @@ $url = 'http://' . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
                                                                                                                                                     } else {
                                                                                                                                                         echo ' opacity-75';
                                                                                                                                                     } ?>">
-                            <i class="fas fa-compact-disc mr-3"></i>
+                            <i class="fas fa-hard-drive mr-3"></i>
                             Disk Storage
                         </a>
                     </li>
