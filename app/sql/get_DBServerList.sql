@@ -1,6 +1,5 @@
 SELECT 
        ROWNUM AS "Row No.",
-       ID AS "DB Id.",
        HOSTNAME AS "Hostname",
        IP_ADDR AS "IP Address",
        DB_VERSION AS "DB Version",

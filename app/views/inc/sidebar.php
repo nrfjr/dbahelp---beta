@@ -117,7 +117,7 @@ $url = 'http://' . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
                                                                                                                                                             echo 'opacity-75';
                                                                                                                                                         } ?>">
                             <i class="fa-solid fa-server mr-3"></i>
-                            DB Servers
+                            Servers & Apps
                         </a>
                     </li>
 

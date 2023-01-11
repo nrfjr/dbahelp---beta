@@ -8,7 +8,7 @@ $current_tab = isset($_GET['tab']) ? $_GET['tab'] : 1;
 
 <div class="flex justify-between mb-5">
     <h1 class="text-3xl text-black text-white">
-        <b>Server Lists</b>
+        <b>Server & Apps Lists</b>
     </h1>
     <button onclick="window.location.reload()" class="px-4 py-2 rounded-lg bg-gray-200 hover:bg-gray-500"> Refresh<i class="ml-2 fas fa-redo"></i></button>
     </a>
@@ -39,7 +39,7 @@ $current_tab = isset($_GET['tab']) ? $_GET['tab'] : 1;
         ?>
             <div class="hidden p-4 bg-gray-50 rounded-b-lg max-h-screen overflow-auto h-full " id="<?php echo $title; ?>" role="tabpanel" aria-labelledby="<?php echo $title; ?>-tab">
                 <div style="overflow:clip;height: fit-content;" class="rounded-lg">
-                    <div class="block justify-center w-full shadow-md overflow-auto rounded-lg" style="max-height: 63vh;">
+                    <div class="block justify-center w-full shadow-md overflow-auto rounded-lg" style="max-height: 68vh;">
                         <?php
 
                         if (!empty($array)) {
