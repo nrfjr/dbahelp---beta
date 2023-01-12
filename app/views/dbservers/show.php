@@ -61,7 +61,7 @@ $current_tab = isset($_GET['tab']) ? $_GET['tab'] : 1;
                     <button onclick="hidemodal()" class="p-2 rounded-md bg-red-500">
                         Cancel
                     </button>
-                    <button id="conbtn" onclick="" form="dbs" class="p-2 rounded-md bg-green-500">
+                    <button id="conbtndb" onclick="" form="dbs" class="p-2 rounded-md bg-green-500">
                         Create
                     </button>
                 </div>  
@@ -121,7 +121,7 @@ $current_tab = isset($_GET['tab']) ? $_GET['tab'] : 1;
                     <button onclick="hidemodal()" class="p-2 rounded-md bg-red-500">
                         Cancel
                     </button>
-                    <button id="conbtn" onclick="" form=""apps  class="p-2 rounded-md bg-green-500">
+                    <button id="conbtnapp" onclick="" form=""apps  class="p-2 rounded-md bg-green-500">
                         Create
                     </button>
                 </div> 
