@@ -58,6 +58,8 @@
     <script type="text/javascript" src="<?php echo URLROOT . '/public/js/RedologZoomPop.js' ?>"></script>
     <!-- Profile Banner JS -->
     <script type="text/javascript" src="<?php echo URLROOT . '/public/js/profilebanner.js' ?>"></script>
+    <!-- DBSERVERLIST JS -->
+    <script type="text/javascript" src="<?php echo URLROOT . '/public/js/dbserverlist.js' ?>"></script>
 </head>
 
 <div id="loaderz" class="loader cursor-wait">
