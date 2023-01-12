@@ -35,6 +35,7 @@ function createAPPmodal(){
     document.querySelector("#APPform").classList.remove("hidden");//shows appform
     document.querySelector("#dbformtitle").innerHTML = "Create Application";//replace title text
     document.querySelector("#conbtnapp").innerHTML = "Create";//replace confirm btn text
+    document.querySelector("#appurlapp").value = "http://"
 }
 
 function editmodal(id,type){
