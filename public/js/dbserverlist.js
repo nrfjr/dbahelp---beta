@@ -26,7 +26,7 @@ function createDBmodal(){
     document.querySelector("#APPform").classList.add("hidden");//hides appform 
     document.querySelector("#DBform").classList.remove("hidden");//shows dbform 
     document.querySelector("#dbformtitle").innerHTML = "Create Database";//replace title text
-    document.querySelector("#conbtn").innerHTML = "Create";//replace confirm btn text
+    document.querySelector("#conbtndb").innerHTML = "Create";//replace confirm btn text
 }
 
 function createAPPmodal(){
@@ -34,7 +34,7 @@ function createAPPmodal(){
     document.querySelector("#DBform").classList.add("hidden");//hides dbform
     document.querySelector("#APPform").classList.remove("hidden");//shows appform
     document.querySelector("#dbformtitle").innerHTML = "Create Application";//replace title text
-    document.querySelector("#conbtn").innerHTML = "Create";//replace confirm btn text
+    document.querySelector("#conbtnapp").innerHTML = "Create";//replace confirm btn text
 }
 
 function editmodal(id,type){
