@@ -1,6 +1,7 @@
 function hidemodal(){
     document.querySelector("#createmodal").classList.add("hidden");
     
+    //resets the inputs value in dbform upon clicking cancel
     document.querySelector("#iddb").value = "";
     document.querySelector("#hostnamedb").value = "";
     document.querySelector("#ipaddressdb").value = "";
@@ -9,7 +10,7 @@ function hidemodal(){
     document.querySelector("#osunamedb").value = "";
     document.querySelector("#ospassdb").value = "";
     document.querySelector("#affildb").value = "";
-
+    //resets the inputs value in appform upon clicking cancel
     document.querySelector("#idapp").value = "";
     document.querySelector("#hostnameapp").value = "";
     document.querySelector("#ipaddressapp").value = "";
@@ -21,19 +22,19 @@ function hidemodal(){
 }
 
 function createDBmodal(){
-    document.querySelector("#createmodal").classList.remove("hidden");
-    document.querySelector("#APPform").classList.add("hidden");
-    document.querySelector("#DBform").classList.remove("hidden");
-    document.querySelector("#dbformtitle").innerHTML = "Create Database"
-    document.querySelector("#conbtn").innerHTML = "Create";
+    document.querySelector("#createmodal").classList.remove("hidden");//shows modal
+    document.querySelector("#APPform").classList.add("hidden");//hides appform 
+    document.querySelector("#DBform").classList.remove("hidden");//shows dbform 
+    document.querySelector("#dbformtitle").innerHTML = "Create Database";//replace title text
+    document.querySelector("#conbtn").innerHTML = "Create";//replace confirm btn text
 }
 
 function createAPPmodal(){
-    document.querySelector("#createmodal").classList.remove("hidden");
-    document.querySelector("#DBform").classList.add("hidden");
-    document.querySelector("#APPform").classList.remove("hidden");
-    document.querySelector("#dbformtitle").innerHTML = "Create Application";
-    document.querySelector("#conbtn").innerHTML = "Create";
+    document.querySelector("#createmodal").classList.remove("hidden");//shows modal
+    document.querySelector("#DBform").classList.add("hidden");//hides dbform
+    document.querySelector("#APPform").classList.remove("hidden");//shows appform
+    document.querySelector("#dbformtitle").innerHTML = "Create Application";//replace title text
+    document.querySelector("#conbtn").innerHTML = "Create";//replace confirm btn text
 }
 
 function editmodal(id,type){
@@ -52,16 +53,16 @@ function editmodal(id,type){
 
 function editDBmodal(id,dbtyped){
     if (dbtyped == "PRD"){
-        document.querySelector("#dbtype").value = "PRD";
+        document.querySelector("#dbtype").value = "PRD";//sets the value of <select> if dbtyped is PRD
     }else if (dbtyped == "DEV"){
-        document.querySelector("#dbtype").value = "DEV";
+        document.querySelector("#dbtype").value = "DEV";//sets the value of <select> if dbtyped is DEV
     }
 
-    document.querySelector("#createmodal").classList.remove("hidden");
-    document.querySelector("#APPform").classList.add("hidden");
-    document.querySelector("#DBform").classList.remove("hidden");
-    document.querySelector("#dbformtitle").innerHTML = "Edit Database"
-    document.querySelector("#conbtn").innerHTML = "Edit"
+    document.querySelector("#createmodal").classList.remove("hidden");//shows modal
+    document.querySelector("#APPform").classList.add("hidden");//hide appform
+    document.querySelector("#DBform").classList.remove("hidden");//shows dbform
+    document.querySelector("#dbformtitle").innerHTML = "Edit Database";//replace title text
+    document.querySelector("#conbtndb").innerHTML = "Edit";//replace confirm btn text
 
     //get value from table first
     let hostName = document.querySelector("#Hostname"+id).innerHTML;
@@ -85,16 +86,16 @@ function editDBmodal(id,dbtyped){
 
 function editAPPSmodal(id,apptyped){
     if (apptyped == "PRD"){
-        document.querySelector("#apptype").value = "PRD";
+        document.querySelector("#apptype").value = "PRD";//sets the value of <select> if apptyped is PRD
     }else if (apptyped == "DEV"){
-        document.querySelector("#apptype").value = "DEV";
+        document.querySelector("#apptype").value = "DEV";//sets the value of <select> if apptyped is DEV
     }
 
-    document.querySelector("#createmodal").classList.remove("hidden");
-    document.querySelector("#DBform").classList.add("hidden");
-    document.querySelector("#APPform").classList.remove("hidden");
-    document.querySelector("#appformtitle").innerHTML = "Edit Application"
-    document.querySelector("#conbtn").innerHTML = "Edit"
+    document.querySelector("#createmodal").classList.remove("hidden");//shows modal
+    document.querySelector("#DBform").classList.add("hidden");//hide dbform
+    document.querySelector("#APPform").classList.remove("hidden");//shows appform
+    document.querySelector("#appformtitle").innerHTML = "Edit Application";//replace title text
+    document.querySelector("#conbtnapp").innerHTML = "Edit";//replace confirm btn text
 
     //get value from table first
     let hostName = document.querySelector("#Hostname"+id).innerHTML;
