@@ -7,10 +7,10 @@ $current_tab = isset($_GET['tab']) ? $_GET['tab'] : 1;
 ?>
 
 <div id="createmodal" class="hidden z-50 overflow-hidden absolute bg-gray-800 bg-opacity-30 top-0 left-0 w-full h-full">
-    <div class="flex w-full h-full justify-center items-center">
+    <div class="flex w-full h-full justify-center items-start xl:items-center overflow-y-auto py-24 md:pl-24 xl:pt-0">
         <!-- Create DB Form -->
         <div id="DBform" class="hidden flex flex-col gap-4 bg-gray-50 p-10 rounded-md"> 
-                <form class="flex flex-col gap-16" action="<?php echo URLROOT; ?>/dbservers/create" method="post" id="dbs">
+                <form class="flex flex-col gap-16" action="" method="post" id="dbs">
                     <div class="flex justify-between items-center w-full">
                         <font id="dbformtitle" class="text-2xl font-bold text-blue-700">Create Database</font>
                         <select class="rounded-lg bg-gray-100 border-gray-300 focus:outline-none focus:ring focus:ring-blue-900 p-2" name="dbtype" id="dbtype">
@@ -18,7 +18,7 @@ $current_tab = isset($_GET['tab']) ? $_GET['tab'] : 1;
                             <option class="rounded-lg appearance-none focus:outline-none p-2" value="DEV">Development</option>
                         </select>
                     </div>
-                    <div class="flex w-full gap-8">
+                    <div class="flex flex-col xl:flex-row w-full gap-8">
                         <!-- hidden input row ID -->
                         <input id="iddb" name="iddb" class="hidden" type="text">
                         <input id="typedb" name="typedb" class="hidden" value="DBS" type="text">
@@ -36,7 +36,7 @@ $current_tab = isset($_GET['tab']) ? $_GET['tab'] : 1;
                             <input id="dbversiondb" name="dbversiondb" class="p-3 border-gray-300 border-2 rounded-md focus:outline-none focus:ring focus:ring-blue-900" type="text">
                         </div>
                     </div>
-                    <div class="flex w-full gap-8">
+                    <div class="flex flex-col xl:flex-row w-full gap-8">
                         <div class="flex justify-center flex-grow w-full flex-col gap-2">
                             <p>OS:</p>
                             <input id="osdb" name="osdb" class="p-3 border-gray-300 border-2 rounded-md focus:outline-none focus:ring focus:ring-blue-900" type="text">
@@ -50,7 +50,7 @@ $current_tab = isset($_GET['tab']) ? $_GET['tab'] : 1;
                             <input id="ospassdb" name="ospassdb" class="p-3 border-gray-300 border-2 rounded-md focus:outline-none focus:ring focus:ring-blue-900" type="text">
                         </div>
                     </div>
-                    <div class="flex w-full gap-8">
+                    <div class="flex flex-col xl:flex-row w-full gap-8">
                         <div class="flex justify-center flex-grow w-full flex flex-col gap-2">
                             <p>Affiliation:</p>
                             <input id="affildb" name="affildb" class="p-3 border-gray-300 border-2 rounded-md focus:outline-none focus:ring focus:ring-blue-900" type="text">
@@ -70,7 +70,7 @@ $current_tab = isset($_GET['tab']) ? $_GET['tab'] : 1;
         <!-- Create DB Form -->
         <!-- Create APP Form -->
         <div id="APPform" class="hidden flex flex-col gap-4 bg-gray-50 p-10 rounded-md">
-                <form class="flex flex-col gap-16" action="<?php echo URLROOT; ?>/dbservers/create" method="post" id="apps">
+                <form class="flex flex-col gap-16" action="" method="post" id="apps">
                     <div class="flex justify-between items-center w-full">
                         <font id="appformtitle" class="text-2xl font-bold text-green-700">Create Application</font>
                         <select class="rounded-lg bg-gray-100 border-gray-300 focus:outline-none focus:ring focus:ring-blue-900 p-2" name="apptype" id="apptype">
@@ -78,7 +78,7 @@ $current_tab = isset($_GET['tab']) ? $_GET['tab'] : 1;
                             <option class="rounded-lg appearance-none focus:outline-none p-2" value="DEV">Development</option>
                         </select>
                     </div>
-                    <div class="flex w-full gap-8">
+                    <div class="flex flex-col xl:flex-row w-full gap-8">
                         <!-- hidden input row ID -->
                         <input id="idapp" name="idapp" class="hidden" type="text">
                         <input id="typeapp" name="typeapp" class="hidden" value="APPS" type="text">
@@ -92,7 +92,7 @@ $current_tab = isset($_GET['tab']) ? $_GET['tab'] : 1;
                             <input id="ipaddressapp" name="ipaddressapp" class="p-3 border-gray-300 border-2 rounded-md focus:outline-none focus:ring focus:ring-green-900" type="text">
                         </div>
                     </div>
-                    <div class="flex w-full gap-8">
+                    <div class="flex flex-col xl:flex-row w-full gap-8">
                         <div class="flex justify-center flex-grow w-full flex-col gap-2">
                             <p>OS:</p>
                             <input id="osapp" name="osapp" class="p-3 border-gray-300 border-2 rounded-md focus:outline-none focus:ring focus:ring-green-900" type="text">
@@ -106,7 +106,7 @@ $current_tab = isset($_GET['tab']) ? $_GET['tab'] : 1;
                             <input id="ospassapp" name="ospassapp" class="p-3 border-gray-300 border-2 rounded-md focus:outline-none focus:ring focus:ring-green-900" type="text">
                         </div>
                     </div>
-                    <div class="flex w-full gap-8">
+                    <div class="flex flex-col xl:flex-row w-full gap-8">
                         <div class="flex justify-center flex-grow w-full flex-col gap-2">
                             <p>Affiliation:</p>
                             <input id="affilapp" name="affilapp" class="p-3 border-gray-300 border-2 rounded-md focus:outline-none focus:ring focus:ring-green-900" type="text">
