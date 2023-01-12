@@ -39,15 +39,15 @@ $current_tab = isset($_GET['tab']) ? $_GET['tab'] : 1;
                     <div class="flex flex-col xl:flex-row w-full gap-8">
                         <div class="flex justify-center flex-grow w-full flex-col gap-2">
                             <p>OS:</p>
-                            <input id="osdb" name="osdb" class="p-3 border-gray-300 border-2 rounded-md focus:outline-none focus:ring focus:ring-blue-900" type="text">
+                            <input id="osdb" name="osdb" class="p-3 border-gray-300 border-2 rounded-md focus:outline-none focus:ring focus:ring-blue-900" type="text" required>
                         </div>
                         <div class="flex justify-center flex-grow w-full flex-col gap-2">
                             <p>OS Username:</p>
-                            <input id="osunamedb" name="osunamedb" class="p-3 border-gray-300 border-2 rounded-md focus:outline-none focus:ring focus:ring-blue-900" type="text">
+                            <input id="osunamedb" name="osunamedb" class="p-3 border-gray-300 border-2 rounded-md focus:outline-none focus:ring focus:ring-blue-900" type="text" required>
                         </div>
                         <div class="flex justify-center flex-grow w-full flex-col gap-2">
                             <p>OS Password:</p>
-                            <input id="ospassdb" name="ospassdb" class="p-3 border-gray-300 border-2 rounded-md focus:outline-none focus:ring focus:ring-blue-900" type="text">
+                            <input id="ospassdb" name="ospassdb" class="p-3 border-gray-300 border-2 rounded-md focus:outline-none focus:ring focus:ring-blue-900" type="text" required>
                         </div>
                     </div>
                     <div class="flex flex-col xl:flex-row w-full gap-8">
@@ -95,21 +95,21 @@ $current_tab = isset($_GET['tab']) ? $_GET['tab'] : 1;
                     <div class="flex flex-col xl:flex-row w-full gap-8">
                         <div class="flex justify-center flex-grow w-full flex-col gap-2">
                             <p>OS:</p>
-                            <input id="osapp" name="osapp" class="p-3 border-gray-300 border-2 rounded-md focus:outline-none focus:ring focus:ring-green-900" type="text">
+                            <input id="osapp" name="osapp" class="p-3 border-gray-300 border-2 rounded-md focus:outline-none focus:ring focus:ring-green-900" type="text" required>
                         </div>
                         <div class="flex justify-center flex-grow w-full flex-col gap-2">
                             <p>OS Username:</p>
-                            <input id="osunameapp" name="osunameapp" class="p-3 border-gray-300 border-2 rounded-md focus:outline-none focus:ring focus:ring-green-900" type="text">
+                            <input id="osunameapp" name="osunameapp" class="p-3 border-gray-300 border-2 rounded-md focus:outline-none focus:ring focus:ring-green-900" type="text" required>
                         </div>
                         <div class="flex justify-center flex-grow w-full flex-col gap-2">
                             <p>OS Password:</p>
-                            <input id="ospassapp" name="ospassapp" class="p-3 border-gray-300 border-2 rounded-md focus:outline-none focus:ring focus:ring-green-900" type="text">
+                            <input id="ospassapp" name="ospassapp" class="p-3 border-gray-300 border-2 rounded-md focus:outline-none focus:ring focus:ring-green-900" type="text" required>
                         </div>
                     </div>
                     <div class="flex flex-col xl:flex-row w-full gap-8">
                         <div class="flex justify-center flex-grow w-full flex-col gap-2">
                             <p>Affiliation:</p>
-                            <input id="affilapp" name="affilapp" class="p-3 border-gray-300 border-2 rounded-md focus:outline-none focus:ring focus:ring-green-900" type="text">
+                            <input id="affilapp" name="affilapp" class="p-3 border-gray-300 border-2 rounded-md focus:outline-none focus:ring focus:ring-green-900" type="text" required>
                         </div>
                         <div class="flex justify-center flex-grow w-full flex-col gap-2">
                             <p>Application URL:</p>
@@ -121,7 +121,7 @@ $current_tab = isset($_GET['tab']) ? $_GET['tab'] : 1;
                     <button onclick="hidemodal()" class="p-2 rounded-md bg-red-500">
                         Cancel
                     </button>
-                    <button id="conbtnapp" onclick="" form=""apps  class="p-2 rounded-md bg-green-500">
+                    <button id="conbtnapp" onclick="" form="apps"  class="p-2 rounded-md bg-green-500">
                         Create
                     </button>
                 </div> 
