@@ -10,7 +10,7 @@ $current_tab = isset($_GET['tab']) ? $_GET['tab'] : 1;
     <div class="flex w-full h-full justify-center items-center">
         <!-- Create DB Form -->
         <div id="DBform" class="hidden flex flex-col gap-4 bg-gray-50 p-10 rounded-md"> 
-                <form class="flex flex-col gap-16" action="" method="post" id="dbs">
+                <form class="flex flex-col gap-16" action="<?php echo URLROOT; ?>/dbservers/create" method="post" id="dbs">
                     <div class="flex justify-between items-center w-full">
                         <font id="dbformtitle" class="text-2xl font-bold text-blue-700">Create Database</font>
                         <select class="rounded-lg bg-gray-100 border-gray-300 focus:outline-none focus:ring focus:ring-blue-900 p-2" name="dbtype" id="dbtype">
@@ -70,7 +70,7 @@ $current_tab = isset($_GET['tab']) ? $_GET['tab'] : 1;
         <!-- Create DB Form -->
         <!-- Create APP Form -->
         <div id="APPform" class="hidden flex flex-col gap-4 bg-gray-50 p-10 rounded-md">
-                <form class="flex flex-col gap-16" action="" method="post" id="apps">
+                <form class="flex flex-col gap-16" action="<?php echo URLROOT; ?>/dbservers/create" method="post" id="apps">
                     <div class="flex justify-between items-center w-full">
                         <font id="appformtitle" class="text-2xl font-bold text-green-700">Create Application</font>
                         <select class="rounded-lg bg-gray-100 border-gray-300 focus:outline-none focus:ring focus:ring-blue-900 p-2" name="apptype" id="apptype">
