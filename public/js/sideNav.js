@@ -1,12 +1,12 @@
 function layoutfixer(){
   if(window.matchMedia("(min-width: 768px)").matches){
-    //to relative if screen is > 768px width
-    document.querySelector("#myNav").style.position = "relative";
-    document.querySelector("#myNav").classList.remove("scale-out-hor-left");
+      document.querySelector("#myNav").classList.remove("scale-out-hor-left");
       document.querySelector("#myNav").classList.add("scale-in-hor-left");
+      //show
+      document.querySelector("#myNav").style.display = "block";
       setTimeout(function(){
-        //show
-        document.querySelector("#myNav").style.display = "block";
+        //to relative if screen is > 768px width
+        document.querySelector("#myNav").style.position = "relative";
       },500)
   }else{
     //to absolute if screen is < 768px width
@@ -19,33 +19,36 @@ function navToggle() {
     var x = document.getElementById("myNav");
 
     if (x.style.display === "none") {
+      x.style.position = "absolute";
       x.classList.remove("scale-out-hor-left");
       x.classList.add("scale-in-hor-left");
+      //show
+      x.style.display = "block";
       setTimeout(function(){
-        //show
-        x.style.display = "block";
-        // if(window.matchMedia("(min-width: 768px)").matches){
-        //   //to relative if screen is > 768px width
-        //   x.style.position = "relative";
-        // }else{
-        //   //to absolute if screen is < 768px width
-        //   x.style.position = "absolute";
-        // }
+        if(window.matchMedia("(min-width: 768px)").matches){
+          //to relative if screen is > 768px width
+          x.style.position = "relative";
+        }else{
+          //to absolute if screen is < 768px width
+          x.style.position = "absolute";
+        }
       },500)
       
     } else{
       x.classList.add("scale-out-hor-left");
       x.classList.remove("scale-in-hor-left");
+      x.style.position = "absolute";
       setTimeout(function(){
         //hide
         x.style.display = "none";
-        // if(window.matchMedia("(min-width: 768px)")){
-        //   //to relative if screen is > 768px width
-        //   x.style.position = "relative;"
-        // }else{
-        //   //to absolute if screen is < 768px width
-        //   x.style.position = "absolute";
-        // }
+        
+        if(window.matchMedia("(min-width: 768px)")){
+          //to relative if screen is > 768px width
+          x.style.position = "relative;"
+        }else{
+          //to absolute if screen is < 768px width
+          x.style.position = "absolute";
+        }
       },500)
       
     }
