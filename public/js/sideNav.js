@@ -19,7 +19,7 @@ function navToggle() {
     var x = document.getElementById("myNav");
 
     if (x.style.display === "none") {
-      x.style.position = "absolute";
+      // x.style.position = "absolute"; //just comment this 
       x.classList.remove("scale-out-hor-left");
       x.classList.add("scale-in-hor-left");
       //show
@@ -37,7 +37,7 @@ function navToggle() {
     } else{
       x.classList.add("scale-out-hor-left");
       x.classList.remove("scale-in-hor-left");
-      x.style.position = "absolute";
+      // x.style.position = "absolute"; //just comment this 
       setTimeout(function(){
         //hide
         x.style.display = "none";
