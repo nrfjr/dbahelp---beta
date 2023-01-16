@@ -90,7 +90,7 @@
     </div>
 </div>
 
-<body class="bg-gray-100 font-family-lexend flex" onload="applyColor()">
+<body class="bg-gray-600 font-family-lexend flex" onload="applyColor()">
     <!--Delete Archive Modals-->
     <div id="delArchivemodal" class=" hidden flex absolute justify-center items-center z-20 h-screen w-screen bg-gray-900 bg-opacity-30">
         <div id="confirmDelArc" class="flex flex-col bg-white rounded-lg px-4 py-2 z-30 divide-y divide-light-blue-400 ">
