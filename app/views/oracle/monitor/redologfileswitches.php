@@ -206,6 +206,7 @@ require APPROOT . '/views/inc/sidebar.php'; ?>
       }
     },
     markers: {
+      colors: ['#2192FF','#38E54D','#9CFF2E','#9CFF2E','#FDFF00','#FF74B1', '#145051','#B1B2FF',],
       size: 0,
       hover: {
         sizeOffset: 6
@@ -291,6 +292,7 @@ require APPROOT . '/views/inc/sidebar.php'; ?>
       }
     },
     markers: {
+      colors: ['#2192FF','#38E54D','#9CFF2E','#9CFF2E','#FDFF00','#FF74B1', '#145051','#B1B2FF',],
       size: 0,
       hover: {
         sizeOffset: 6
@@ -384,6 +386,7 @@ require APPROOT . '/views/inc/sidebar.php'; ?>
       }
     },
     markers: {
+      colors: ['#2192FF','#38E54D','#9CFF2E','#9CFF2E','#FDFF00','#FF74B1', '#A7FFE4','#B1B2FF',],
       size: 0,
       hover: {
         sizeOffset: 6
@@ -484,6 +487,7 @@ require APPROOT . '/views/inc/sidebar.php'; ?>
       }
     },
     markers: {
+      colors: ['#2192FF','#38E54D','#9CFF2E','#9CFF2E','#FDFF00','#FF74B1', '#A7FFE4','#B1B2FF',],
       size: 0,
       hover: {
         sizeOffset: 6
