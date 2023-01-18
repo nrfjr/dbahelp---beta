@@ -99,27 +99,28 @@ require APPROOT . '/views/inc/sidebar.php';
                             currentValue = context.raw,
                             total = context.chart._metasets[context.datasetIndex].total;
 
-                        var percentage = parseFloat((currentValue/total*100).toFixed(1));
+                        var percentage = parseFloat((currentValue/total*100).toFixed(2));
+
                         let unit;
                         let convertedVal;
-                        if ((currentValue/1024) < 1024){
-                          convertedVal = currentValue/1024
-                          unit = 'KB';
-                        }
-                        else if ((currentValue/1048576) < 1024){
-                          convertedVal = currentValue/1048576
-                          unit = 'MB';
-                        }
-                        else if ((currentValue/1073741824) < 1024){
-                          convertedVal = currentValue/1073741824
-                          unit = 'GB';
-                        }
-                        else{
-                          convertedVal = currentValue/1099511627776
+                        if (currentValue/Math.pow(1024,3) >= Math.pow(1024,3)){
+                          convertedVal = currentValue/Math.pow(1024,3)
                           unit = 'TB';
                         }
+                        else if (currentValue/Math.pow(1024,2) <= Math.pow(1024,2)){
+                          convertedVal = currentValue/Math.pow(1024,2)
+                          unit = 'GB';
+                        }
+                        else if (currentValue/1000 <= 1024){
+                          convertedVal = currentValue/1000
+                          unit = 'MB';
+                        }
+                        else {
+                          convertedVal = currentValue/Math.pow(2,10)
+                          unit = 'KB';
+                        }
 
-                        return label + ": " + convertedVal.toFixed(2) + unit + ' (' + percentage + '%)';
+                        return label + ": " + convertedVal.toFixed(2) +" "+ unit + ' (' + percentage + '%)';
                       }
                     },
                   },
