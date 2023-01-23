@@ -23,7 +23,7 @@ require APPROOT . '/views/inc/sidebar.php';
   ?>
 
   <div class="hidden" id="Sessions"><?php echo $Sessions; ?></div>
-  <div class="hidden" id="DBPerfStatus"><?php echo $DBPerfStatus; ?></div>
+  <div class="hidden" id="DBPerfStats"><?php echo $DBPerfStatus; ?></div>
   <div class="hidden" id="DBInfoArray"><?php foreach ($DBInfo as $i) {
                                           echo $i . '/';
                                         } ?></div>
@@ -166,7 +166,7 @@ require APPROOT . '/views/inc/sidebar.php';
             dynamicAnimation: {
               enabled: false, // from true to false
               speed: 1000
-            }
+            },
           },
           dropShadow: {
             enabled: true,
@@ -315,26 +315,28 @@ require APPROOT . '/views/inc/sidebar.php';
 
   <script>
     var Sessions, DBPerfStatus, DBInfo, TotalSes, InactiveSes, SystemSes, highestValue = 0;
-    var DBInfoArray;
+    var DBInfoArray, DBPerfArray;
 
     setInterval(() => {
       $.ajax({
-        url: '../app/controllers/Homepage',
+        url: 'http://dev.dbahelp.gg/site/homepages/index/<?php echo $_SESSION['HomepageDB']; ?>',
         dataType: 'html',
         success: function(response) {
 
           Sessions = jQuery(response).find('#Sessions').html();
 
-          DBPerfStatus = jQuery(response).find('#DBPerfStatus').html();
+          DBPerfArray = jQuery(response).find('#DBPerfStats').html();
 
           DBInfoArray = jQuery(response).find('#DBInfoArray').html();
 
           DBInfo = DBInfoArray.split('/');
+          DBPerfStatus = DBPerfArray.split(',');
           TotalSes = DBInfo[3];
           InactiveSes = DBInfo[4];
           SystemSes = DBInfo[5];
 
-          document.getElementById('DBPerfStatus').innerHTML = DBPerfStatus;
+          document.getElementById('DBPerfStatus').innerHTML = DBPerfStatus[1];
+          document.getElementById('DBPerfStatus').style.color = DBPerfStatus[0];
           document.getElementById('Active_Num').innerHTML = Sessions === null ? 'Fetching...' : Sessions;
           document.getElementById('TotalSes').innerHTML = TotalSes;
           document.getElementById('InactiveSes').innerHTML = InactiveSes;
@@ -486,7 +488,7 @@ require APPROOT . '/views/inc/sidebar.php';
               <tr title="Total SGA Size">
                 <th>Total SGA: </th>
                 <td>
-                  <span id="DBPerfStatus"><?php echo $DBStatus['Total SGA'];  ?></span>
+                  <span><?php echo $DBStatus['Total SGA'];  ?></span>
                 </td>
               </tr>
             </table>
@@ -525,7 +527,7 @@ require APPROOT . '/views/inc/sidebar.php';
               </tr>
               <tr title="Database Performance">
                 <th>DB Performance: </th>
-                <td class="text-red-500"><span id="DBPerfStatus"><?php echo $DBPerfStatus; ?></span></td>
+                <td><span><font id="DBPerfStatus">Fetching...</font></span></td>
               </tr>
             </table>
           </div>
