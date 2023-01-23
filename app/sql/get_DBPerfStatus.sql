@@ -1,11 +1,11 @@
 SELECT   
 (CASE 
     WHEN wait_time.METRIC_VAL < 50 THEN
-    '<font style="color: #12ff51;">Good Performance</font>'
+    '#12ff51,Good Performance'
     WHEN wait_time.METRIC_VAL BETWEEN 50 AND 70 THEN
-    '<font style="color: #fae607;">Average Performance</font>'
+    '#fae607,Average Performance'
     ELSE
-    '<font style="color: #ff3c00;">Bottleneck Performance</font>'
+    '#ff3c00,Bottleneck Performance'
 END
 ) AS "DB STATUS"
 		 FROM          (select  	     METRIC_NAME
