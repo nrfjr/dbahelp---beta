@@ -39,10 +39,9 @@ require APPROOT . '/views/inc/sidebar.php'; ?>
                     </thead>
                     <tbody class="bg-gray-500">
                         <?php
-                        $i = 1;
                         foreach ($sgatarget as $column_title => $value) {
                         ?>
-                            <tr <?php echo 'id="sga_row'.$i.'"  onclick="getpercentage(`sga_row'.$i++.'`, '.$value['Physical Reads'].')" '?> class="transition delay-50 hover:bg-gray-700 cursor-pointer">
+                            <tr <?php echo 'id="sga_row'.$value['Size Factor'].'"  onclick="getpercentage(`sga_row'.$value['Size Factor'].'`, '.$value['Physical Reads'].')" '?> class="transition delay-50 hover:bg-gray-700 cursor-pointer">
                                 <?php
                                 foreach ($value as $sgavalue) {
                                 ?>
