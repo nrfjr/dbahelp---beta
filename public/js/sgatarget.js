@@ -5,6 +5,9 @@ function getpercentage(targetsgarow,targetphyread){
     const targetPhyRead = parseInt(targetphyread);
 
     const percentage = ((curphyRead-targetPhyRead)/curphyRead)*100
+        // (((curphyRead+targetPhyRead) - curphyRead)/curphyRead)*100
+    // console.log(percentage.toFixed(3))
+
 
     //rows
     //resetting the border styles of all TR
@@ -19,6 +22,17 @@ function getpercentage(targetsgarow,targetphyread){
 
     let gaindisp = document.querySelector("#gaindisplay")
     let gaindispcont = document.querySelector("#gaindisplay-cont")
+
+    if(percentage>0){
+        gaindisp.classList.remove("text-red-500")
+        gaindisp.classList.add("text-green-500")
+    }else if(percentage<0){
+        gaindisp.classList.remove("text-green-500")
+        gaindisp.classList.add("text-red-500")
+    }else if(percentage == 0){
+        gaindisp.classList.remove("text-green-500")
+        gaindisp.classList.remove("text-red-500")
+    }
 
     gaindisp.innerHTML = percentage.toFixed(2)+"%"; 
     gaindispcont.classList.remove("hidden");
