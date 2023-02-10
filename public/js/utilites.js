@@ -159,6 +159,17 @@
         let gaindisp = document.querySelector("#gaindisplay")
         let gaindispcont = document.querySelector("#gaindisplay-cont")
 
+        if(percentage>0){
+            gaindisp.classList.remove("text-red-500")
+            gaindisp.classList.add("text-green-500")
+        }else if(percentage<0){
+            gaindisp.classList.remove("text-green-500")
+            gaindisp.classList.add("text-red-500")
+        }else if(percentage == 0){
+            gaindisp.classList.remove("text-green-500")
+            gaindisp.classList.remove("text-red-500")
+        }
+
         gaindisp.innerHTML = percentage.toFixed(2)+"%"; 
         gaindispcont.classList.remove("hidden");
     }
