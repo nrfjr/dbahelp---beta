@@ -39,21 +39,22 @@ require APPROOT . '/views/inc/sidebar.php'; ?>
                     </thead>
                     <tbody class="bg-gray-500">
                         <?php
+                        $i = 1;
                         foreach ($sgatarget as $column_title => $value) {
                         ?>
-                            <tr class="transition delay-50 focus:hover:bg-gray-700 hover:bg-gray-700">
+                            <tr <?php echo 'id="sga_row'.$i.'"  onclick="getpercentage(sga_row'.$i++.', '.$value['Physical Reads'].')" '?> class="transition delay-50 hover:bg-gray-700">
                                 <?php
-                                foreach ($value as $logfile) {
+                                foreach ($value as $sgavalue) {
                                 ?>
-                                    <td class=" item py-4  px-6">
-                                        <?php echo $logfile; ?>
+                                    <td class="item py-4  px-6" <?php echo $value['Physical Reads'] == $sgavalue ? 'id="preads'.$value['Size Factor'].'"':'';?>>
+                                        <?php echo $sgavalue; ?>
                                     </td>
                                 <?php
                                 }
                                 ?>
                             </tr>
                         <?php
-                        }
+                    }
                         ?>
                     </tbody>
                 </table>
