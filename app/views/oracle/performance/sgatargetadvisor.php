@@ -42,7 +42,7 @@ require APPROOT . '/views/inc/sidebar.php'; ?>
                         $i = 1;
                         foreach ($sgatarget as $column_title => $value) {
                         ?>
-                            <tr <?php echo 'id="sga_row'.$i.'"  onclick="getpercentage(sga_row'.$i++.', '.$value['Physical Reads'].')" '?> class="transition delay-50 hover:bg-gray-700">
+                            <tr <?php echo 'id="sga_row'.$i.'"  onclick="getpercentage(`sga_row'.$i++.'`, '.$value['Physical Reads'].')" '?> class="transition delay-50 hover:bg-gray-700 cursor-pointer">
                                 <?php
                                 foreach ($value as $sgavalue) {
                                 ?>
@@ -68,6 +68,11 @@ require APPROOT . '/views/inc/sidebar.php'; ?>
             }
             ?>
         </div>
+    </div>
+</div>
+<div class="flex justify-end items-center mt-5">
+    <div id="gaindisplay-cont" class="hidden rounded-lg shadow-md bg-indigo-200 py-2 px-3">
+        <font class="text-sm italic">Gain Potential: <font id="gaindisplay" class="text-lg font-bold"></font></font> 
     </div>
 </div>
 
