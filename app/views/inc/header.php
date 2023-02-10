@@ -60,6 +60,8 @@
     <script type="text/javascript" src="<?php echo URLROOT . '/public/js/profilebanner.js' ?>"></script>
     <!-- DBSERVERLIST JS -->
     <script type="text/javascript" src="<?php echo URLROOT . '/public/js/dbserverlist.js' ?>"></script>
+    <!-- SGA TARGET JS -->
+    <script type="text/javascript" src="<?php echo URLROOT . '/public/js/sgatarget.js' ?>"></script>
 </head>
 
 <div id="loaderz" class="loader cursor-wait">
@@ -90,7 +92,7 @@
     </div>
 </div>
 
-<body class="bg-gray-600 font-family-lexend flex" onload="applyColor()">
+<body class="font-family-lexend flex" style="background-color: #2c2f33;" onload="applyColor()">
     <!--Delete Archive Modals-->
     <div id="delArchivemodal" class=" hidden flex absolute justify-center items-center z-20 h-screen w-screen bg-gray-900 bg-opacity-30">
         <div id="confirmDelArc" class="flex flex-col bg-white rounded-lg px-4 py-2 z-30 divide-y divide-light-blue-400 ">
