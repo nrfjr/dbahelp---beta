@@ -26,8 +26,6 @@
     <script text="text/javascript" src="<?php echo URLROOT . '/public/js/jquery_1.8.3/jquery.min.js' ?>"></script>
     <!-- Body Loader JS -->
     <script type="text/javascript" src="<?php echo URLROOT . '/public/js/body-loader.js' ?>"></script>
-    <!-- Spinner -->
-    <script type="text/javascript" href="<?php echo URLROOT . '/public/js/spinner.js' ?>"></script>
     <!-- AlpineJS -->
     <script text="text/javascript" src="<?php echo URLROOT . '/public/js/alpinejs/alpine_5.3.5.js' ?>"></script>
     <!-- Font Awesome -->
@@ -44,24 +42,14 @@
     <script type="text/javascript" src="<?php echo URLROOT . '/public/js/customtooltip.js' ?>"></script>
     <!-- SideNavHideFunc -->
     <script type="text/javascript" src="<?php echo URLROOT . '/public/js/sideNav.js' ?>"></script>
-    <!-- SideNavBtnFunc -->
-    <script type="text/javascript" src="<?php echo URLROOT . '/public/js/sidebar-toggle-btn.js' ?>"></script>
     <!-- Quill JS -->
     <script text="text/javascript" src="<?php echo URLROOT . '/public/js/quilljs/quill.js' ?>"></script>
     <!-- Table Sort -->
     <script src="<?php echo URLROOT . '/public/js/sortablejs/sortable.js' ?>"></script>
-    <!-- DB STAT-Tabslide -->
-    <script type="text/javascript" src="<?php echo URLROOT . '/public/js/dbstats_tabslide.js' ?>"></script>
-    <!-- Delete Archive Modal -->
-    <script type="text/javascript" src="<?php echo URLROOT . '/public/js/deleteArchivemodal.js' ?>"></script>
-    <!-- Redo Log File Chart Pop JS -->
-    <script type="text/javascript" src="<?php echo URLROOT . '/public/js/RedologZoomPop.js' ?>"></script>
-    <!-- Profile Banner JS -->
-    <script type="text/javascript" src="<?php echo URLROOT . '/public/js/profilebanner.js' ?>"></script>
-    <!-- DBSERVERLIST JS -->
-    <script type="text/javascript" src="<?php echo URLROOT . '/public/js/dbserverlist.js' ?>"></script>
-    <!-- SGA TARGET JS -->
-    <script type="text/javascript" src="<?php echo URLROOT . '/public/js/sgatarget.js' ?>"></script>
+    <!-- Utilities -->
+    <script type="text/javascript" src="<?php echo URLROOT . '/public/js/utilites.js' ?>"></script>
+    <!-- Front End Utilities -->
+    <script type="text/javascript" src="<?php echo URLROOT . '/public/js/frontendutilities.js' ?>"></script>
 </head>
 
 <div id="loaderz" class="loader cursor-wait">
