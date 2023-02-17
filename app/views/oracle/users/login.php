@@ -12,14 +12,9 @@
     <link rel="stylesheet" href="<?php echo URLROOT . '/public/css/newyear.css' ?>">
 
     <script text="text/javascript" src="<?php echo URLROOT . '/public/js/jquery_1.8.3/jquery.min.js' ?>"></script>
-    <script text="text/javascript" src="<?php echo URLROOT . '/public/js/partypopper.js' ?>"></script>
     <script text="text/javascript" src="<?php echo URLROOT . '/public/js/tailwindjs/tailwind.js' ?>"></script>
-
-    <script text="text/javascript" src="<?php echo URLROOT . '/public/js/logingreet.js' ?>"></script>
-    <script text="text/javascript" src="<?php echo URLROOT . '/public/js/spinner.js' ?>"></script>
-    <script text="text/javascript" src="<?php echo URLROOT . '/public/js/dynamicSeasondetector.js' ?>"></script>
-    <script text="text/javascript" src="<?php echo URLROOT . '/public/js/newyear.js' ?>"></script>
     <script text="text/javascript" src="<?php echo URLROOT . '/public/js/font-awesomejs/font-awesome_6.2.1.js'?>"></script>
+    <script text="text/javascript" src="<?php echo URLROOT . '/public/js/login-frontend-utilities.js' ?>"></script>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lexend:400,700&display=swap" />
     <style>
         .font-family-lexend {
