@@ -1,7 +1,8 @@
 <IfModule mod_rewrite.c>
     Options -Multiviews
     RewriteEngine On
-    RewriteBase /dbahelp/public
+    RewriteBase /site/public
+    RewriteCond %{HTTP_X_REQUESTED_WITH} !^XMLHttpRequest$
     RewriteCond %{REQUEST_FILENAME} !-d
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteRule ^(.+)$ index.php?url=$1 [QSA,L]
