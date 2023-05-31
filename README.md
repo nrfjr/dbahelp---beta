@@ -5,6 +5,9 @@
   <img src="https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png" height="95"/> 
 </p>
 <p>
+  <b>Note:</b> There are some files that are missing in this project because this is for private use. but we might create another repository for public use. :>
+</p>
+<p>
 <b>Confidentiality Warning:</b>
 <em>This project contains information intended only for the use of the author and its subordinates.
 If the viewer of this project is not the intended recipient or the employee or agent responsible for delivering it to the intended recipient,
