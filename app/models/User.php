@@ -1,7 +1,7 @@
 <?php
 class User
 {
-    private $db, $fm;
+    private $db, $fm, $defaultDB = SIDS['DEFAULT'];
 
     public function __construct()
     {
@@ -13,10 +13,10 @@ class User
     public function login($username, $password)
     {
 
-        $this->db = new OracleDatabase('RMSPRD');
+        $this->db = new OracleDatabase($this->defaultDB);
 
         $resultConnection = $this->db->test_connection($username, $password);
-        $resultUsername = $this->getUsername($username, 'get_Username', 'RMSPRD');
+        $resultUsername = $this->getUsername($username, 'get_Username', $this->defaultDB);
 
         if ($resultConnection) {
 
@@ -42,7 +42,7 @@ class User
 
     public function getUsername($username, $query, $db)
     {
-        $this->db = new OracleDatabase('RMSPRD');
+        $this->db = new OracleDatabase($this->defaultDB);
 
         $query = $this->fm->loadSQL($query);
         $param = [
@@ -86,7 +86,7 @@ class User
     // get user details specific to given id
     public function getUserDetails($param, $query)
     {
-        $this->db = new OracleDatabase('RMSPRD');
+        $this->db = new OracleDatabase($this->defaultDB);
         $query = $this->fm->loadSQL($query);
         $this->db->queryWithParam($query, $param);
 
