@@ -1,5 +1,30 @@
 <?php
 
+/***
+ * 
+ *      Disk Storage Controller 
+ *      Created: December 15, 2022 (Not Exact)
+ *      Created By: Nurfajar S. Sali
+ * 
+ *      This class contains methods that fetch data from
+ *      Model class, these methods are also responsible on
+ *      passing data to view, as these methods passes which
+ *      views are appropriate for certain method calls along
+ *      with necessary data.
+ * 
+ *      We made sure that methods are name after its purpose.
+ *      So it is undestandable what are their process is all
+ *      about.
+ * 
+ *      Comments are quite annoying if put in every line,
+ *      whereas comments should be solid and intact but 
+ *      informative as this for example.
+ * 
+ *      if there are confusing lines in the code below, you
+ *      can email me at Gmail: nurfajarsali@gmail.com
+ * 
+ */
+
 class DiskStorages extends Controller{
 
     public function __construct(){
@@ -35,6 +60,12 @@ class DiskStorages extends Controller{
         }
     }
 
+    /*** 
+     *   getDF stands for get disk free, i dont know
+     *   whats the history behind but this method is
+     *   responsible for getting the size in our
+     *   linux servers.
+    ***/
     public function getDF($FTP_DIR_WITH_FILE)       
     {
         try{

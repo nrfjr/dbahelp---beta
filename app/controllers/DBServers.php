@@ -1,5 +1,30 @@
 <?php
 
+/***
+ * 
+ *      DB Server & Apps Controller 
+ *      Created: January 11, 2023
+ *      Created By: Nurfajar S. Sali
+ * 
+ *      This class contains methods that fetch data from
+ *      Model class, these methods are also responsible on
+ *      passing data to view, as these methods passes which
+ *      views are appropriate for certain method calls along
+ *      with necessary data.
+ * 
+ *      We made sure that methods are name after its purpose.
+ *      So it is undestandable what are their process is all
+ *      about.
+ * 
+ *      Comments are quite annoying if put in every line,
+ *      whereas comments should be solid and intact but 
+ *      informative as this for example.
+ * 
+ *      if there are confusing lines in the code below, you
+ *      can email me at Gmail: nurfajarsali@gmail.com
+ * 
+ ***/
+
 class DBServers extends Controller{
 
     private $DB = SIDS['DEFAULT'];
@@ -36,7 +61,7 @@ class DBServers extends Controller{
     public function create()
     {
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-            $type = trim($_POST['typedb']?$_POST['typedb']:$_POST['typeapp']);
+            $type = trim(isset($_POST['typedb'])?$_POST['typedb']:$_POST['typeapp']);
 
             if ($type == 'DBS'){
                 $data = [
@@ -64,7 +89,6 @@ class DBServers extends Controller{
                     'p_cty' => trim($_POST['apptype']),
                 ];
             }
-            ///print_r($data);
             $this->passDetailsToModel($data, $type);
         }
     }

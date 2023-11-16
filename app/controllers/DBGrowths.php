@@ -41,33 +41,39 @@ class DBGrowths extends Controller{
 
     public function show()
     {
-		$data = ['GrowthYear' => isset($_SESSION['GrowthYear']) ? $_SESSION['GrowthYear'] : ''];
-
-        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-            $data = ['GrowthYear' => trim(empty($_POST['year']) ? date('Y') : $_POST['year'])];
-        }
-
-        $_SESSION['GrowthYear'] = $data['GrowthYear'];
+		$_SESSION['GrowthYear'] = isset($_POST['year']) ? $_POST['year'] : date('Y');
 
         if (isset($_SESSION['GrowthYear']) && $_SESSION['GrowthYear'] != null || $_SESSION['GrowthYear'] != '') {
             $this->growthYear = $_SESSION['GrowthYear'];
         }
 
-        $raw_data = $this->growthModel->getGrowth($this->growthYear);
+        $raw_growth = $this->growthModel->getGrowth($this->growthYear);
+		$raw_diff = $this->growthModel->getMonthlyGrowthDiff($this->growthYear);
 		
-		$result = [];
+		$result_growth = []; $result_diff = [];
 		
-		foreach($raw_data as $i => $j){
+		foreach($raw_growth as $i => $j){
 			$monthly_growth = [];
 			foreach($j as $k => $v){
 				if($k != 'Database Name'){
 					$monthly_growth[] = $v;
 				}
-				$result[$i] = ['name' => $j['Database Name'], 'data' => $monthly_growth];
+				$result_growth[$i] = ['name' => $j['Database Name'], 'data' => $monthly_growth];
 
 			}
 		}
 		
-        $this->view('dbgrowth/show', $result);
+		foreach($raw_diff as $i => $j){
+			$monthly_diff = [];
+			foreach($j as $k => $v){
+				if($k != 'Database Name'){
+					$monthly_diff[] = $v;
+				}
+				$result_diff[$i] = ['name' => $j['Database Name'], 'data' => $monthly_diff];
+
+			}
+		}
+		
+        $this->view('dbgrowth/show', ['Growth' => $result_growth, 'Diff' => $result_diff]);
     }
 }

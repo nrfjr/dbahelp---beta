@@ -1,4 +1,30 @@
 <?php
+
+/***
+ * 
+ *      Homepage Controller 
+ *      Created: December 15, 2022 (Not Exact)
+ *      Created By: Nurfajar S. Sali
+ * 
+ *      This class contains methods that fetch data from
+ *      Model class, these methods are also responsible on
+ *      passing data to view, as these methods passes which
+ *      views are appropriate for certain method calls along
+ *      with necessary data.
+ * 
+ *      We made sure that methods are name after its purpose.
+ *      So it is undestandable what are their process is all
+ *      about.
+ * 
+ *      Comments are quite annoying if put in every line,
+ *      whereas comments should be solid and intact but 
+ *      informative as this for example.
+ * 
+ *      if there are confusing lines in the code below, you
+ *      can email me at Gmail: nurfajarsali@gmail.com
+ * 
+ */
+
 class Homepages extends Controller
 {
 
@@ -52,7 +78,12 @@ class Homepages extends Controller
         }
     }
 
+    /***
+     *      This executeCommand method was specific for executing
+     *      LINUX command.
+     */
     public function executeCommand($host, $port, $username, $password, $command) {
+
         $connection = ssh2_connect($host, $port);
         if (ssh2_auth_password($connection, $username, $password)) {
             $stream = ssh2_exec($connection, $command);

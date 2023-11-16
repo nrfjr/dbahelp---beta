@@ -1,6 +1,29 @@
 <?php
 
-// Always check if-else degree, only 2nd to 3rd are allowed.
+/***
+ * 
+ *      Users Controller
+ *      Created: December 15, 2022 (Not Exact)
+ *      Created By: Nurfajar S. Sali
+ * 
+ *      This class contains methods that fetch data from
+ *      Model class, these methods are also responsible on
+ *      passing data to view, as these methods passes which
+ *      views are appropriate for certain method calls along
+ *      with necessary data.
+ * 
+ *      We made sure that methods are name after its purpose.
+ *      So it is undestandable what are their process is all
+ *      about.
+ * 
+ *      Comments are quite annoying if put in every line,
+ *      whereas comments should be solid and intact but 
+ *      informative as this for example.
+ * 
+ *      if there are confusing lines in the code below, you
+ *      can email me at Gmail: nurfajarsali@gmail.com
+ * 
+ */
 
 class Users extends Controller
 {
@@ -19,20 +42,12 @@ class Users extends Controller
         // Declare a variable to hold the IP address
         $IP = '';
 
-        // Check if the server is set to use a proxy
-        if (isset($_SERVER['HTTP_X_FORWARDED_FOR'])) {
-            // Get the IP address of the client using the proxy
-            $IP = $_SERVER['HTTP_X_FORWARDED_FOR'];
-        } else {
-            // Get the IP address of the client directly
-            $IP = $_SERVER['REMOTE_ADDR'];
-        }
-
-        // Check if the IP address is a loopback address
-        if (preg_match('/^.{2,}$/', $IP)) {
-            // If it is a loopback address, get the second IP address of the local machine
-            $IP = getHostByNamel(getHostName())[2];
-        }
+         if(!empty($_SERVER['REMOTE_ADDR'])) {  
+                 $IP = $_SERVER['REMOTE_ADDR'];  
+        }  
+        else{  
+                 $IP = $_SERVER['HTTP_CLIENT_IP'] ;  
+         }  
 
         // Return the IP address
         return $IP;
@@ -105,7 +120,7 @@ class Users extends Controller
                     'mname' => trim(SANITIZE_INPUT_STRING($_POST['middle-name'])),
                     'lname' => trim(SANITIZE_INPUT_STRING_EXCEPT_SPACE($_POST['last-name'])),
                     'ID' => trim(SANITIZE_INPUT_STRING($_POST['Id'])),
-                    'app' => trim(SANITIZE_INPUT_STRING_EXCEPT_SPACE($_POST['application'])),
+                    'app' => trim($_POST['application']),
                     'ip' => $this->getIP(),
                     'requestor' => trim(SANITIZE_INPUT_STRING_EXCEPT_SPACE($_POST['requestor'])),
                     'remarks' => trim(SANITIZE_INPUT_STRING_EXCEPT_SPACE($_POST['remarks'])),
@@ -151,7 +166,7 @@ class Users extends Controller
     {
         $resultUsername = $this->userModel->getUsername($data['username'], 'get_Username', $DB);
 
-        if ($DB == 'RMSPRD') {
+        if ($DB == SIDS['DEFAULT']) {
 
             $resultCreatedUser = $this->userModel->createUser($data['username'], $data['password'], $DB);
             $resultAttribTable = $this->userModel->insertToUserAttrib($data['username'], $DB);
