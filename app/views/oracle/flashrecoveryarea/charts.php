@@ -88,6 +88,7 @@ require APPROOT . '/views/inc/sidebar.php'; ?>
     </div>
     <script>
       let myChartDonut<?php echo $count; ?> = document.getElementById('chartDonut<?php echo $count; ?>').getContext('2d');
+	  let unit<?php echo $count; ?> = [<?php echo empty($fras)? 0.0 : explode('/', $fras['FRA Percentage'])[0]; ?> , <?php echo empty($fras)? 100.0 : explode('/', $fras['FRA Percentage'])[1]; ?>];
 
       Chart.defaults.font.family = "Lexend";
 
@@ -101,7 +102,7 @@ require APPROOT . '/views/inc/sidebar.php'; ?>
           datasets: [{
             label: 'My First Dataset',
             //Free, Used
-            data: [<?php echo empty($fras)? 0.0 : explode('/', $fras['FRA Percentage'])[0]; ?> , <?php echo empty($fras)? 100.0 : explode('/', $fras['FRA Percentage'])[1]; ?>],
+            data: [unit<?php echo $count; ?>[0],unit<?php echo $count; ?>[1]],
             backgroundColor: [
               '#339933',
               '<?php echo empty($fras)? '#ff3333' : '#66ff33' ; ?>'
@@ -154,7 +155,7 @@ require APPROOT . '/views/inc/sidebar.php'; ?>
                   var label = context.label,
                     currentValue = context.raw
 
-                  return label + ": " + currentValue.toFixed(2) + '%)';
+                  return label + ": " + currentValue.toFixed(2) + '%';
                 }
               }
             }

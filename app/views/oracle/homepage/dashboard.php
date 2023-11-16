@@ -113,7 +113,7 @@ require APPROOT . '/views/inc/sidebar.php';
         fill: {
           type: 'gradient',
           gradient: {
-            gradientToColors: ['#8f99a6', '#6078ea', '#6094ea']
+            gradientToColors: ['#6078ea', '#6094ea']
           },
         },
         tooltip: {
@@ -167,13 +167,6 @@ require APPROOT . '/views/inc/sidebar.php';
               enabled: false, // from true to false
               speed: 1000
             },
-          },
-          dropShadow: {
-            enabled: true,
-            opacity: 0.3,
-            blur: 5,
-            left: -7,
-            top: 22
           },
           //For Multiple Series
           events: {
@@ -235,7 +228,6 @@ require APPROOT . '/views/inc/sidebar.php';
         }],
         xaxis: {
           type: 'datetime',
-          tickPlacement: 'on',
           range: xRange,
           labels: {
             // formatter: function (val) {
@@ -319,7 +311,7 @@ require APPROOT . '/views/inc/sidebar.php';
 
     setInterval(() => {
       $.ajax({
-        url: 'http://dev.dbahelp.gg/site/homepages/index/<?php echo $_SESSION['HomepageDB']; ?>',
+        url: '<?php echo URLROOT.'/homepages/index/'. $_SESSION['HomepageDB']; ?>',
         dataType: 'html',
         success: function(response) {
 

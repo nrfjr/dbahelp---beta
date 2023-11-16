@@ -21,6 +21,7 @@ require APPROOT . '/views/inc/sidebar.php';
             $mountcnt++;
 
             $usage = explode('/', $size);
+			
 
       ?>
       <!--Must rename for duplicating: chartDonut1,myChart1, sampleChart1, config1-->

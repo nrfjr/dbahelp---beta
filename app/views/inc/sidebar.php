@@ -9,8 +9,8 @@ $url = 'http://' . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
             <div class="pt-4 px-2 pb-3 logo" title="Sitename">
                 <a href="<?php echo URLROOT; ?>/homepage/dashboard" class="text-white text-3xl font-semibold rounded-md flex justify-center"><?php echo SITENAME ?><i class="ml-2 mt-1.5 fa-solid fa-handshake-angle"></i></a>
             </div>
-            <button class="justify-center md:hidden  px-3 py-2 hover:bg-gray-400 rounded-l-lg" onclick="navToggle()">
-                <i class="fa-solid fa-bars text-white"></i>
+            <button class="justify-center md:hidden mx-2 px-2 py-1 hover:bg-gray-400 rounded-full" onclick="navToggle()">
+                <i class="fa-solid fa-bars"></i>
             </button>
         </div>
         
@@ -20,7 +20,7 @@ $url = 'http://' . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
                     <!--DATABASES-->
                     <li class="flex flex-row">
                         <button id="sidenavbtn" onclick="getAria()" type="button" class="flex-auto py-4 rounded-md mx-2 mb-1 text-white nav-item" aria-expanded="<?php
-                                                                                                                                if (preg_match('/\b(dashboard|index|monitors|objects|performances|securities|storages)\b/', $url)) {
+                                                                                                                                if (preg_match('/\b(dashboard|index|monitors|objects|performances|securities|storages|dbgrowths)\b/', $url)) {
                                                                                                                                     echo 'true';
                                                                                                                                 } else {
                                                                                                                                     echo 'false';
@@ -70,9 +70,18 @@ $url = 'http://' . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
                                 MYSQL
                             </a>
                         </li>
+						<li>
+                            <a href="<?php echo URLROOT; ?>/dbgrowths/show" class="flex items-center rounded-md mx-2 mb-1 hover:opacity-100 py-4 pl-12 nav-item text-white <?php if (strpos($url, 'dbgrowths')) {
+                                                                                                                                                                echo 'active-nav-link ';
+                                                                                                                                                            } else {
+                                                                                                                                                                echo 'opacity-75';
+                                                                                                                                                            } ?>">
+                                <i class="fas fa-chart-line mr-3"></i>
+                                Growth
+                            </a>
+                        </li>
                     </ul>
                     <!--DASHBOARD-->
-
                     <li>
                         <a href="<?php echo URLROOT; ?>/diskstorages/show" class="flex items-center hover:opacity-100 rounded-md mx-2 mb-1 py-4 pl-6 nav-item text-white <?php if (preg_match('/\b(diskstorages)\b/',$url)) {
                                                                                                                                                         echo 'active-nav-link';
@@ -126,7 +135,6 @@ $url = 'http://' . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
                             Servers & Apps
                         </a>
                     </li>
-
                 </ul>
             </div>
         </nav>
@@ -146,9 +154,7 @@ $url = 'http://' . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
     
     <!-- Desktop Header -->
     <header class="w-full items-center justify-between bg-gray-600 py-2 pr-6 flex">
-        <button id="sideNavbtn" style="background-color: #2c2f33;" class="lg:hidden px-4 py-3 rounded-r-md" onclick="navToggle()">
-            <i class="fa-solid fa-bars text-white"></i>
-        </button>                                                                     
+
         <!--TOP NAVBAR-->
         <?php
 

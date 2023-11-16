@@ -1,9 +1,9 @@
 <div class="w-1/2 sm:w-fit md:w-full">
-    <button id="sideNavbtn" class="justify-center lg:hidden mx-2 px-4 py-3 hover:bg-gray-400 rounded-full" onclick="navToggle()">
-        <i class="fa-solid fa-bars"></i>
+    <button id="sideNavbtn" style="background-color: #2c2f33;" class="justify-center lg:hidden px-4 py-3 hover:bg-gray-400 rounded-r-md" onclick="navToggle()">
+        <i class="fa-solid fa-bars text-white"></i>
     </button>
     <!--Oracle Databases-->
-    <button id="dropdownDefault" data-dropdown-toggle="dropdown-oracle" title="Select Database" data-dropdown-placement="bottom-end" class="text-white bg-gray-600 hover:bg-gray-400 hover:text-black focus:ring-4 focus:outline-none focus:ring-gray-800 font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center
+    <button id="dropdownDefault" data-dropdown-toggle="dropdown-oracle" title="Select Database" data-dropdown-placement="bottom-end" class="xl:ml-6 text-white bg-gray-600 hover:bg-gray-400 hover:text-black focus:ring-4 focus:outline-none focus:ring-gray-800 font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center
                             <!--THIS BELOW CHANGE URL-->
                             <?php echo preg_match('/dashboard|index/', $url) ? 'block focus:bg-gray-400 focus:text-black' : 'hidden'; ?>
                            " type="button"><?php echo (isset($_SESSION['HomepageDB']) && in_array($_SESSION['HomepageDB'], array_keys(HOSTS))) ? $_SESSION['HomepageDB'] : 'Databases'; ?><svg class="ml-2 w-4 h-4" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -266,7 +266,7 @@
     <!-- Small Screen Tool Drop Down -->
 
     <!--Database Disk-->
-    <button id="dropdownDefault" data-dropdown-toggle="dropdown-disk" data-dropdown-placement="bottom-start" class="text-white bg-gray-600 hover:bg-gray-400 hover:text-black focus:ring-4 focus:outline-none focus:ring-gray-800 font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center 
+    <button id="dropdownDefault" data-dropdown-toggle="dropdown-disk" data-dropdown-placement="bottom-start" class=" xl:ml-6 text-white bg-gray-600 hover:bg-gray-400 hover:text-black focus:ring-4 focus:outline-none focus:ring-gray-800 font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center 
                     <?php echo strpos($url, 'diskstorage') ? 'block focus:bg-gray-400 focus:text-black' : 'hidden'; ?>
                    " type="button"><?php echo (isset($_SESSION['DiskStorageHost']) && in_array($_SESSION['DiskStorageHost'], array_keys(DISK))) ? $_SESSION['DiskStorageHost'] : 'Disk Hosts'; ?><svg class="ml-2 w-4 h-4" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>

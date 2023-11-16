@@ -1,7 +1,27 @@
 <?php
 $title = 'Redo Log File Switches';
 require APPROOT . '/views/inc/header.php';
-require APPROOT . '/views/inc/sidebar.php'; ?>
+require APPROOT . '/views/inc/sidebar.php'; 
+
+function translate_array($old_array){
+	
+	  $new_array = [];
+	
+      foreach ($old_array as $index => $value) {
+        $new_array[$index]['name'] = $value['DAY'];
+        foreach ($value as $k => $v) {
+          if ($k != 'DAY') {
+            $new_array[$index]['data'][] = $v;
+          }
+        }
+      }
+	  
+	  return $new_array;
+}
+
+$am_redologfile = $data['AM'];
+
+?>
 
 <div class="relative">
   <div id="redologAMZoom" class="hidden absolute flex rounded-md bg-black bg-opacity-25 w-full h-full z-20 top-0 left-0 justify-center items-center p-4 xl:p-36 backdrop-filter backdrop-blur-sm">
@@ -25,8 +45,6 @@ require APPROOT . '/views/inc/sidebar.php'; ?>
       <div class="flex gap-2 flex-col xl:flex-row">
         <div class="block justify-center w-full shadow-md overflow-auto rounded-lg" style="max-height: 93%; height: fit-content;">
           <?php
-
-          $am_redologfile = $data['AM'];
 
           if (!empty($am_redologfile)) {
 
@@ -152,24 +170,7 @@ require APPROOT . '/views/inc/sidebar.php'; ?>
   var am_names = []
   // FOR AM
   var optionsAM = {
-    series: [
-      <?php
-      foreach ($am_redologfile as $am_column_title => $am_value) {
-
-        echo '{';
-        echo 'name: \'' . $am_value['DAY'] . '\',';
-        echo 'data: [';
-
-        foreach ($am_value as $k => $v) {
-          if ($k != 'DAY') {
-            echo $v . ',';
-          }
-        }
-        echo ']';
-        echo '},';
-      }
-      ?>
-    ],
+    series: <?php echo json_encode(translate_array($am_redologfile), JSON_UNESCAPED_SLASHES) ?>,
     chart: {
       fontFamily: 'Lexend',
       height: 350,
@@ -206,7 +207,6 @@ require APPROOT . '/views/inc/sidebar.php'; ?>
       }
     },
     markers: {
-      colors: ['#2192FF','#38E54D','#9CFF2E','#9CFF2E','#FDFF00','#FF74B1', '#145051','#B1B2FF',],
       size: 0,
       hover: {
         sizeOffset: 6
@@ -238,24 +238,7 @@ require APPROOT . '/views/inc/sidebar.php'; ?>
   var am_names = []
   // FOR AM
   var ZoptionsAM = {
-    series: [
-      <?php
-      foreach ($am_redologfile as $am_column_title => $am_value) {
-
-        echo '{';
-        echo 'name: \'' . $am_value['DAY'] . '\',';
-        echo 'data: [';
-
-        foreach ($am_value as $k => $v) {
-          if ($k != 'DAY') {
-            echo $v . ',';
-          }
-        }
-        echo ']';
-        echo '},';
-      }
-      ?>
-    ],
+    series: <?php echo json_encode(translate_array($am_redologfile), JSON_UNESCAPED_SLASHES) ?>,
     chart: {
       fontFamily: 'Lexend',
       height: 500,
@@ -292,7 +275,6 @@ require APPROOT . '/views/inc/sidebar.php'; ?>
       }
     },
     markers: {
-      colors: ['#2192FF','#38E54D','#9CFF2E','#9CFF2E','#FDFF00','#FF74B1', '#145051','#B1B2FF',],
       size: 0,
       hover: {
         sizeOffset: 6
@@ -324,26 +306,7 @@ require APPROOT . '/views/inc/sidebar.php'; ?>
 <script>
   // FOR PM
   var optionsPM = {
-    series: [
-      <?php
-
-      foreach ($pm_redologfile as $pm_column_title => $pm_value) {
-
-        echo '{';
-        echo 'name: \'' . $pm_value['DAY'] . '\',';
-        echo 'data: [';
-
-        foreach ($pm_value as $k => $v) {
-          if ($k != 'DAY') {
-            echo $v . ',';
-          }
-        }
-        echo ']';
-        echo '},';
-      }
-
-      ?>
-    ],
+    series: <?php echo json_encode(translate_array($pm_redologfile), JSON_UNESCAPED_SLASHES) ?>,
     chart: {
       background:'#374151',
       fontFamily: 'Lexend',
@@ -386,7 +349,6 @@ require APPROOT . '/views/inc/sidebar.php'; ?>
       }
     },
     markers: {
-      colors: ['#2192FF','#38E54D','#9CFF2E','#9CFF2E','#FDFF00','#FF74B1', '#A7FFE4','#B1B2FF',],
       size: 0,
       hover: {
         sizeOffset: 6
@@ -425,26 +387,7 @@ require APPROOT . '/views/inc/sidebar.php'; ?>
 <script>
   // FOR PM
   var ZoptionsPM = {
-    series: [
-      <?php
-
-      foreach ($pm_redologfile as $pm_column_title => $pm_value) {
-
-        echo '{';
-        echo 'name: \'' . $pm_value['DAY'] . '\',';
-        echo 'data: [';
-
-        foreach ($pm_value as $k => $v) {
-          if ($k != 'DAY') {
-            echo $v . ',';
-          }
-        }
-        echo ']';
-        echo '},';
-      }
-
-      ?>
-    ],
+    series: <?php echo json_encode(translate_array($pm_redologfile), JSON_UNESCAPED_SLASHES) ?>,
     chart: {
       background:'#374151',
       fontFamily: 'Lexend',
@@ -487,7 +430,6 @@ require APPROOT . '/views/inc/sidebar.php'; ?>
       }
     },
     markers: {
-      colors: ['#2192FF','#38E54D','#9CFF2E','#9CFF2E','#FDFF00','#FF74B1', '#A7FFE4','#B1B2FF',],
       size: 0,
       hover: {
         sizeOffset: 6

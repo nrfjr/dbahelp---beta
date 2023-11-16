@@ -70,7 +70,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <a href="#" onclick="alert('Please contact your Administrator for this concern. Thank you!');" class="text-sm text-indigo-600 hover:text-indigo-500">Forgot your password?</a>
+                            <a href="#" onclick="alert('Just relax for a while, take a cup of water and then remember it again.');" class="text-sm text-indigo-600 hover:text-indigo-500">Forgot your password?</a>
                         </div>
                         <div x-data="{ isClicked: false}" class="mt-6 mb-6">
                             <button onclick="loadit()" type="submit" name="Signin" value="submit" class="group relative flex w-full justify-center rounded-sm border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
@@ -102,7 +102,7 @@
     </div>
 
     <footer class="fixed bottom-0 left-0 w-full flex items-center justify-start font-bold bg-indigo-500 text-white h-10 mt-24 opacity-90 md:justify-center">
-        <p class="ml-2 absolute left-0">Copyright &copy; 2022, KCC, All Rights reserved.</p>
+        <p class="ml-2 absolute left-0">Copyright &copy; 2022, KCC, All rights reserved.</p>
     </footer>
 </body>
 <script text="text/javascript" src="<?php echo URLROOT . '/public/js/loginbgcolorchanger.js' ?>"></script>

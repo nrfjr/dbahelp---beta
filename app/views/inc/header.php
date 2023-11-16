@@ -45,7 +45,7 @@
     <!-- Quill JS -->
     <script text="text/javascript" src="<?php echo URLROOT . '/public/js/quilljs/quill.js' ?>"></script>
     <!-- Table Sort -->
-    <script src="<?php echo URLROOT . '/public/js/sortablejs/sortable.js' ?>"></script>
+    <script type="text/javascript" src="<?php echo URLROOT . '/public/js/sortablejs/sortable.js' ?>"></script>
     <!-- Utilities -->
     <script type="text/javascript" src="<?php echo URLROOT . '/public/js/utilites.js' ?>"></script>
     <!-- Front End Utilities -->

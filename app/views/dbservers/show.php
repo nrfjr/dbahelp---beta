@@ -58,10 +58,10 @@ $current_tab = isset($_GET['tab']) ? $_GET['tab'] : 1;
                     </div>
                 </form>
                 <div class="flex justify-end items-center w-full gap-4">
-                    <button onclick="hidemodal()" class="p-2 rounded-md bg-red-500">
+                    <button onclick="hidemodal()" class="p-2 rounded-md bg-red-500 text-white hover:bg-red-700">
                         Cancel
                     </button>
-                    <button id="conbtndb" onclick="" form="dbs" class="p-2 rounded-md bg-green-500">
+                    <button id="conbtndb" onclick="" form="dbs" class="p-2 rounded-md bg-green-500 text-white hover:bg-green-700">
                         Create
                     </button>
                 </div>  
@@ -118,10 +118,10 @@ $current_tab = isset($_GET['tab']) ? $_GET['tab'] : 1;
                     </div>
                 </form>
                 <div class="flex justify-end items-center w-full gap-4">
-                    <button onclick="hidemodal()" class="p-2 rounded-md bg-red-500">
+                    <button onclick="hidemodal()" class="p-2 rounded-md bg-red-500 text-white hover:bg-red-700">
                         Cancel
                     </button>
-                    <button id="conbtnapp" onclick="" form="apps"  class="p-2 rounded-md bg-green-500">
+                    <button id="conbtnapp" onclick="" form="apps"  class="p-2 rounded-md bg-green-500 text-white hover:bg-green-700">
                         Create
                     </button>
                 </div> 
@@ -135,9 +135,9 @@ $current_tab = isset($_GET['tab']) ? $_GET['tab'] : 1;
 <div class="flex flex-col gap-2">
     <div class="flex justify-between">
         <h1 class="text-3xl text-black text-white">
-            <b>Servers & Apps Lists</b>
+            <b>Servers & Apps</b>
         </h1>
-        <button onclick="window.location.reload()" class="px-4 py-2 rounded-lg bg-gray-200 hover:bg-gray-500"> Refresh<i class="ml-2 fas fa-redo"></i></button>
+            <button onclick="window.location.reload()" class="px-4 py-2 rounded-lg bg-gray-200 hover:bg-gray-500"> Refresh<i class="ml-2 fas fa-redo"></i></button>
         </a>
     </div>
 
@@ -172,7 +172,7 @@ $current_tab = isset($_GET['tab']) ? $_GET['tab'] : 1;
                     <button onclick="window.history.replaceState(null, null, '?tab=3')" class="inline-block p-4 rounded-t-lg border-b-2 border-transparent" id="devdb-tab" data-tabs-target="#devdb" type="button" role="tab" aria-controls="devdb" aria-selected="<?php echo setSelectTabforHTML(3, $current_tab) ?>">Development DB</button>
                 </li>
                 <li class="mr-2" role="presentation">
-                    <button onclick="window.history.replaceState(null, null, '?tab=4')" class="inline-block p-4 rounded-t-lg border-b-2 border-transparent" id="devapps-tab" data-tabs-target="#devapps" type="button" role="tab" aria-controls="devapps" aria-selected="<?php echo setSelectTabforHTML(3, $current_tab) ?>">Development Apps</button>
+                    <button onclick="window.history.replaceState(null, null, '?tab=4')" class="inline-block p-4 rounded-t-lg border-b-2 border-transparent" id="devapps-tab" data-tabs-target="#devapps" type="button" role="tab" aria-controls="devapps" aria-selected="<?php echo setSelectTabforHTML(4, $current_tab) ?>">Development Apps</button>
                 </li>
             </ul>
         </div>
@@ -216,7 +216,7 @@ $current_tab = isset($_GET['tab']) ? $_GET['tab'] : 1;
                                         <?php
                                         foreach ($array as $column_title => $values) {
                                         ?>
-                                            <tr id="<?php echo $values['ID']; ?>" class="transition delay-50 focus:hover:bg-gray-700 hover:bg-gray-700">
+                                            <tr id="<?php echo $values['ID']; ?>" <?php echo 'ondblclick="editmodal('.$values['ID'].',`'.$maintitle.'`)"' ?> class="transition delay-50 focus:hover:bg-gray-700 hover:bg-gray-700">
                                                 <?php
                                                 $foreditvalues=$values;
                                                 array_splice($values, 0, 1);
