@@ -94,4 +94,11 @@ class Homepages extends Controller
         }
         return false;
     }
+	
+	public function mssql_index(){
+		$data =	[
+			'test' => $this->homepageModel->testMS()
+		];
+		$this->view('msserver/homepage/dashboard', $data);
+	}
 }

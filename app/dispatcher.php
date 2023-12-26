@@ -7,9 +7,7 @@
             'Greeting' => 'misc/Greeting.php',
             'DBInterface' => 'interfaces/DBInterface.php',
             'config' => 'config/config.php',
-            'url_helper' => 'helpers/url_helper.php',
-            'session_helper' => 'helpers/session_helper.php',
-            'tab_helper' => 'helpers/tab_helper.php',
+            'Helper' => 'helpers/Helper.php',
             'sanitize' => 'filters/sanitize.php'
         ];
     

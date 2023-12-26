@@ -10,7 +10,7 @@ class Telephone{
 
     public function getContacts($search)
     {
-        $this->db = new OracleDatabase(SIDS['DEFAULT']);
+        $this->db = new OracleDatabase(ORACLE_DBS['DEFAULT'][1]);
         $query = $this->fm->loadSQL('get_TelephoneContacts');
 
         $param = [

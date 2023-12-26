@@ -10,7 +10,7 @@ require APPROOT . '/views/inc/sidebar.php';
     <button onclick="window.location.reload()" class="px-4 py-2 rounded-lg bg-gray-200 hover:bg-gray-500"> Refresh<i class="ml-2 fas fa-redo"></i></button>
 </div>
 
-    <div class="grid grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-x-10 gap-y-8 justify-center place-content-evenly">
+    <div class="grid grid-cols-2 xl:grid-cols-3 2xl:flex 2xl:flex-wrap 2xl:justify-start gap-x-10 gap-y-8 justify-center place-content-evenly">
       <?php
 
 
@@ -25,7 +25,7 @@ require APPROOT . '/views/inc/sidebar.php';
 
       ?>
       <!--Must rename for duplicating: chartDonut1,myChart1, sampleChart1, config1-->
-      <div class="w-full p-5 rounded-lg box">
+      <div class="w-fit p-5 rounded-lg box 2xl:flex-1 2xl:flex 2xl:justify-center 2xl:items-center">
         <div>
           <canvas id="chartDonut<?php echo $mountcnt ?>"></canvas>
         </div>
@@ -67,7 +67,7 @@ require APPROOT . '/views/inc/sidebar.php';
                   }
                 },
                 rotation: 90,
-                responsive: true,
+                responsive: false,
                 cutout: '30%',
                 hoverBorderColor: '#fff',
                 plugins: {

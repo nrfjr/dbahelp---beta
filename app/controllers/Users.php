@@ -67,7 +67,7 @@ class Users extends Controller
 
             $loggedInUser = $this->userModel->login($data['username'], $data['password']);
 
-            if ($data['username'] == ADMIN_USERNAME && $data['password'] == ADMIN_PASSWORD) {
+            if ($data['username'] == ORACLE_ADMIN_USERNAME && $data['password'] == ORACLE_ADMIN_PASSWORD) {
                 $data += ['firstname' => 'Admin'];
                 $this->createUserSession($data);
             } elseif ($loggedInUser[0]) {
@@ -130,7 +130,7 @@ class Users extends Controller
                 if (!empty($data['fname']) && !empty($data['lname']) && !empty($data['ID']) && !empty($data['requestor']) && !empty($data['remarks'])) {
 
                     $username = $this->generateUsername($data['fname'], $data['mname'], $data['lname'], $data['ID']);
-                    $ExistingPasswordByUsername = ($this->userModel->getUsername($username, 'get_Username', SIDS['DEFAULT'])) ? $this->userModel->getUsername($username, 'get_Username', SIDS['DEFAULT'])['PASSWORD'] : null;
+                    $ExistingPasswordByUsername = ($this->userModel->getUsername($username, 'get_Username', ORACLE_DBS['DEFAULT'][1])) ? $this->userModel->getUsername($username, 'get_Username', ORACLE_DBS['DEFAULT'][1])['PASSWORD'] : null;
                     $password = ($ExistingPasswordByUsername == null) ?  $this->generatePassword() : $ExistingPasswordByUsername;
 
                     $data += [
@@ -166,7 +166,7 @@ class Users extends Controller
     {
         $resultUsername = $this->userModel->getUsername($data['username'], 'get_Username', $DB);
 
-        if ($DB == SIDS['DEFAULT']) {
+        if ($DB == ORACLE_DBS['DEFAULT'][1]) {
 
             $resultCreatedUser = $this->userModel->createUser($data['username'], $data['password'], $DB);
             $resultAttribTable = $this->userModel->insertToUserAttrib($data['username'], $DB);

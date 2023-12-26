@@ -13,9 +13,9 @@ class FlashRecoveryArea{
         $this->db = new OracleDatabase($db);
 
         $query = $this->fm->loadSQL('get_FRA');
-
+	
         $this->db->query($query);
-
+		
         $result = $this->db->single();
 
         if (!empty($result)){

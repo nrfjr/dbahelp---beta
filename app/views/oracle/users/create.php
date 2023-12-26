@@ -58,7 +58,7 @@ require APPROOT . '/views/inc/sidebar.php'; ?>
                 <select id="application" name="application" autocomplete="application" class="mt-1 block w-full rounded-md bg-white py-2 px-3 py-2 shadow-lg focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm" required>
                   <option class="hidden"><?php echo $data != null ? $data['Application'] : 'Select an application.'; ?></option>
                   <?php
-                    foreach (APPS[$_SESSION['CreateUserDB']] as $option) {
+                    foreach (ORACLE_DBS[$_SESSION['CreateUserDB']][2] as $option) {
                   ?>
                                         <option><?php echo $option; ?></option>
                     <?php

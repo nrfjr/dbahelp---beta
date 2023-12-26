@@ -5,22 +5,45 @@
     <!--Oracle Databases-->
     <button id="dropdownDefault" data-dropdown-toggle="dropdown-oracle" title="Select Database" data-dropdown-placement="bottom-end" class="xl:ml-6 text-white bg-gray-600 hover:bg-gray-400 hover:text-black focus:ring-4 focus:outline-none focus:ring-gray-800 font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center
                             <!--THIS BELOW CHANGE URL-->
-                            <?php echo preg_match('/dashboard|index/', $url) ? 'block focus:bg-gray-400 focus:text-black' : 'hidden'; ?>
-                           " type="button"><?php echo (isset($_SESSION['HomepageDB']) && in_array($_SESSION['HomepageDB'], array_keys(HOSTS))) ? $_SESSION['HomepageDB'] : 'Databases'; ?><svg class="ml-2 w-4 h-4" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <?php echo preg_match('/dashboard|\bindex\b/', $url) ? 'block focus:bg-gray-400 focus:text-black' : 'hidden'; ?>
+                           " type="button"><?php echo (isset($_SESSION['HomepageDB']) && in_array($_SESSION['HomepageDB'], array_keys(ORACLE_DBS))) ? $_SESSION['HomepageDB'] : 'Databases'; ?><svg class="ml-2 w-4 h-4" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
         </svg></button>
     <!-- Dropdown menu -->
     <div id="dropdown-oracle" class="hidden absolute z-10 bg-white rounded-md divide-y divide-gray-100 shadow max-h-48 overflow-y-auto scrollbar-hide">
         <ul class="rounded-md text-sm text-gray-700" aria-labelledby="dropdownDefault">
             <?php
-            $db_array = array_slice(array_keys(HOSTS),1);
+            $db_array = array_slice(array_keys(ORACLE_DBS),1);
             $first_db = reset($db_array);
             $last_db = end($db_array); 
-            foreach (HOSTS as $host => $db) {
+            foreach (ORACLE_DBS as $host) {
                 if ($host != 'DEFAULT') {
             ?>
                     <li>
-                        <form action="<?php echo URLROOT; ?>/homepages/index/<?php echo $host ?>" method="POST"><button type="submit" class="transition delay-100 block w-full <?php if($host == $first_db){echo 'rounded-t-md';}elseif($db == $last_db){echo 'rounded-b-md';}?> py-2 px-4 hover:bg-gray-400 hover:text-white"><?php echo $host ?></button></form>
+                        <form action="<?php echo URLROOT; ?>/homepages/index/<?php echo $host ?>" method="POST"><button type="submit" class="transition delay-100 block w-full <?php if($host == $first_db){echo 'rounded-t-md';}elseif($host[0] == $last_db){echo 'rounded-b-md';}?> py-2 px-4 hover:bg-gray-400 hover:text-white"><?php echo $host ?></button></form>
+                    </li>
+            <?php }
+            } ?>
+        </ul>
+    </div>
+    <button id="dropdownDefault" data-dropdown-toggle="dropdown-mssql" title="Select Database" data-dropdown-placement="bottom-end" class="xl:ml-6 text-white bg-gray-600 hover:bg-gray-400 hover:text-black focus:ring-4 focus:outline-none focus:ring-gray-800 font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center
+                            <!--THIS BELOW CHANGE URL-->
+                            <?php echo preg_match('/\bmssql_index\b/', $url) ? 'block focus:bg-gray-400 focus:text-black' : 'hidden'; ?>
+                           " type="button"><?php echo (isset($_SESSION['MSSQLDB']) && in_array($_SESSION['MSSQLDB'], array_keys(MSSQL_DBS))) ? $_SESSION['MSSQLDB'] : 'Databases'; ?><svg class="ml-2 w-4 h-4" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+        </svg></button>
+    <!-- Dropdown menu -->
+    <div id="dropdown-mssql" class="hidden absolute z-10 bg-white rounded-md divide-y divide-gray-100 shadow max-h-48 overflow-y-auto scrollbar-hide">
+        <ul class="rounded-md text-sm text-gray-700" aria-labelledby="dropdownDefault">
+            <?php
+            $db_array = array_slice(array_keys(MSSQL_DBS),1);
+            $first_db = reset($db_array);
+            $last_db = end($db_array); 
+            foreach (MSSQL_DBS as $host) {
+                if ($host != 'DEFAULT') {
+            ?>
+                    <li>
+                        <form action="<?php echo URLROOT; ?>/homepages/mssql_index/<?php echo $host ?>" method="POST"><button type="submit" class="transition delay-100 block w-full <?php if($host == $first_db){echo 'rounded-t-md';}elseif($host[0] == $last_db){echo 'rounded-b-md';}?> py-2 px-4 hover:bg-gray-400 hover:text-white"><?php echo $host ?></button></form>
                     </li>
             <?php }
             } ?>
@@ -28,12 +51,12 @@
     </div>
     <!--Oracle Databases-->
     <div class="hidden xl:inline-flex">
-        <div class="lg:ml-6 lg:px-6 lg:py-2 lg:border-l-2 lg:border-gray-900 inline-flex <?php echo strpos($url, 'index') ? 'block' : 'hidden'; ?>">
+        <div class="lg:ml-6 lg:px-6 lg:py-2 lg:border-l-2 lg:border-gray-900 inline-flex <?php echo preg_match('/dashboard|\bindex\b/', $url) ? 'block' : 'hidden'; ?>">
             <!-- Oracle Tools -->
             <!--MONITOR-->
             <button id="dropdownDefault" data-dropdown-toggle="dropdown-monitor" data-dropdown-placement="bottom-start" class="mx-1 text-white bg-gray-600 hover:bg-gray-400 hover:text-black focus:ring-4 focus:outline-none focus:ring-gray-800 font-extralight lg:font-medium rounded-lg text-sm px-2 lg:px-4 py-0 lg:py-2.5 text-center inline-flex items-center
                     <!--THIS BELOW CHANGE URL-->
-                    <?php echo strpos($url, 'index') ? 'block focus:bg-gray-400 hover:text-black' : 'hidden'; ?>
+                    <?php echo preg_match('/dashboard|\bindex\b/', $url) ? 'block focus:bg-gray-400 hover:text-black' : 'hidden'; ?>
                    " type="button">MONITOR<svg class="ml-2 w-4 h-4" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
                 </svg></button>
@@ -61,7 +84,7 @@
 
             <!--PERFORMANCE-->
             <button id="dropdownDefault" data-dropdown-toggle="dropdown-performance" data-dropdown-placement="bottom-start" class="mx-1 text-white bg-gray-600 hover:bg-gray-400 hover:text-black focus:ring-4 focus:outline-none focus:ring-gray-800 font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center 
-                    <?php echo strpos($url, 'index') ? 'block focus:bg-gray-400 hover:text-black' : 'hidden'; ?>
+                    <?php echo preg_match('/dashboard|\bindex\b/', $url) ? 'block focus:bg-gray-400 hover:text-black' : 'hidden'; ?>
                    " type="button">PERFORMANCE<svg class="ml-2 w-4 h-4" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
                 </svg></button>
@@ -118,7 +141,7 @@
 
             <!--OBJECTS-->
             <button id="dropdownDefault" data-dropdown-toggle="dropdown-storage" data-dropdown-placement="bottom-start" class="mx-1 text-white bg-gray-600 hover:bg-gray-400 hover:text-black focus:ring-4 focus:outline-none focus:ring-gray-800 font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center 
-                    <?php echo strpos($url, 'index') ? 'block focus:bg-gray-400 hover:text-black' : 'hidden'; ?>
+                    <?php echo preg_match('/dashboard|\bindex\b/', $url) ? 'block focus:bg-gray-400 hover:text-black' : 'hidden'; ?>
                    " type="button">STORAGE & OBJECTS<svg class="ml-2 w-4 h-4" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
                 </svg></button>
@@ -148,7 +171,7 @@
     <div class="inline-flex xl:hidden">
         <!-- Container -->
         <button id="dropdownDefault" data-dropdown-toggle="dropdown-tools" class="mx-1 text-white bg-gray-700 hover:bg-gray-400 hover:text-black focus:ring-4 focus:outline-none focus:ring-gray-800 font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center 
-                    <?php echo strpos($url, 'index') ? 'block focus:bg-gray-400 hover:text-black' : 'hidden'; ?>
+                    <?php echo preg_match('/dashboard|\bindex\b/', $url) ? 'block focus:bg-gray-400 hover:text-black' : 'hidden'; ?>
                    " type="button"><i class="fas fa-wrench"></i></button>
         <!-- Dropdown menu -->
         <div id="dropdown-tools" class="hidden z-10 w-44 bg-gray-600 rounded divide-y divide-gray-100 shadow">
@@ -157,7 +180,7 @@
                     <!--MONITOR-->
                     <button id="dropdownDefault" data-dropdown-toggle="dropdown-sm-monitor" data-dropdown-placement="right-start" class="rounded-md mb-1 text-white bg-gray-600 hover:bg-gray-400 hover:text-black focus:ring-4 focus:outline-none focus:ring-gray-800 font-medium rounded-lg text-sm px-4 py-2.5 text-center flex justify-between items-center  w-full
                             <!--THIS BELOW CHANGE URL-->
-                            <?php echo strpos($url, 'index') ? 'block focus:bg-gray-400 hover:text-black' : 'hidden'; ?>
+                            <?php echo preg_match('/dashboard|\bindex\b/', $url) ? 'block focus:bg-gray-400 hover:text-black' : 'hidden'; ?>
                            " type="button">MONITOR<i class="fa-solid fa-chevron-right"></i></button>
                     <!-- Dropdown menu -->
                     <div id="dropdown-sm-monitor" class="hidden absolute z-10 w-44 bg-white rounded divide-y divide-gray-100 shadow  left-0">
@@ -184,7 +207,7 @@
                 <li>
                     <!--PERFORMANCE-->
                     <button id="dropdownDefault" data-dropdown-toggle="dropdown-sm-performance" data-dropdown-placement="right-start" class="mb-1 text-white bg-gray-600 hover:bg-gray-400 hover:text-black focus:ring-4 focus:outline-none focus:ring-gray-800 font-medium rounded-lg text-sm px-4 py-2.5 text-center flex justify-between items-center  w-full
-                            <?php echo strpos($url, 'index') ? 'block focus:bg-gray-400 hover:text-black' : 'hidden'; ?>
+                            <?php echo preg_match('/dashboard|\bindex\b/', $url) ? 'block focus:bg-gray-400 hover:text-black' : 'hidden'; ?>
                            " type="button">PERFORMANCE<i class="fa-solid fa-chevron-right"></i></button>
                     <!-- Dropdown menu -->
                     <div id="dropdown-sm-performance" class="hidden z-10 w-44 bg-white rounded divide-y divide-gray-100 shadow">
@@ -239,7 +262,7 @@
                 <li>
                     <!--OBJECTS-->
                     <button id="dropdownDefault" data-dropdown-toggle="dropdown-sm-storage" data-dropdown-placement="right-start" class="rounded-b-sm text-white bg-gray-600 hover:bg-gray-400 hover:text-black focus:ring-4 focus:outline-none focus:ring-gray-800 font-medium rounded-lg text-sm px-4 py-2.5 text-center flex justify-between items-center  w-full
-                            <?php echo strpos($url, 'index') ? 'block focus:bg-gray-400 hover:text-black' : 'hidden'; ?>
+                            <?php echo preg_match('/dashboard|\bindex\b/', $url) ? 'block focus:bg-gray-400 hover:text-black' : 'hidden'; ?>
                            " type="button">STORAGE<i class="fa-solid fa-chevron-right"></i></button>
                     <!-- Dropdown menu -->
                     <div id="dropdown-sm-storage" class="hidden z-10 w-44 bg-white rounded divide-y divide-gray-100 shadow">

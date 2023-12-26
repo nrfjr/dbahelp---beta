@@ -3,7 +3,7 @@
 function greetings($username)
 {
 
-    date_default_timezone_set('Asia/Manila');
+    date_default_timezone_set(TIME_ZONE);
 
     $date = date('G');
 

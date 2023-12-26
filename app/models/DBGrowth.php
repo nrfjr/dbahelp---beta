@@ -10,7 +10,7 @@ class DBGrowth{
 
     public function getGrowth($year)
     {
-        $this->db = new OracleDatabase(SIDS['DEFAULT']);
+        $this->db = new OracleDatabase(ORACLE_DBS['DEFAULT'][1]);
         $query = $this->fm->loadSQL('get_DBGrowth');
 
         $param = [
@@ -30,7 +30,7 @@ class DBGrowth{
 	
 	public function getMonthlyGrowthDiff($year){
 		
-		$this->db = new OracleDatabase(SIDS['DEFAULT']);
+		$this->db = new OracleDatabase(ORACLE_DBS['DEFAULT'][1]);
         $query = $this->fm->loadSQL('get_DBGrowthMonthlyDiff');
 
         $param = [

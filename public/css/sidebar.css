@@ -1,5 +1,17 @@
+@font-face{
+	font-family: 'Lexend';
+	src: url('http://192.168.34.202/site/public/ttf/Lexend-SemiBold.ttf') format('truetype'),
+		url('http://192.168.34.202/site/public/ttf/Lexend-Black.ttf') format('truetype'),
+		url('http://192.168.34.202/site/public/ttf/Lexend-Regular.ttf') format('truetype'),
+		url('http://192.168.34.202/site/public/ttf/Lexend-ExtraBold.ttf') format('truetype'),
+		url('http://192.168.34.202/site/public/ttf/Lexend-Bold.ttf') format('truetype'),
+		url('http://192.168.34.202/site/public/ttf/Lexend-Medium.ttf') format('truetype'),
+		url('http://192.168.34.202/site/public/ttf/Lexend-Thin.ttf') format('truetype'),
+		url('http://192.168.34.202/site/public/ttf/Lexend-Light.ttf') format('truetype'),
+		url('http://192.168.34.202/site/public/ttf/Lexend-ExtraLight.ttf') format('truetype');
+}
 .font-family-lexend {
-    font-family: lexend;
+    font-family: 'Lexend';
 }
 
 .bg-sidebar {

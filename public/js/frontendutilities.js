@@ -95,7 +95,7 @@
 
     const saveColor = (Deg,Color1,Color2) => {
         const colors = getColors();
-        console.log(colors);
+        //console.log(colors);
         colors.push(Deg,Color1,Color2);
         localStorage.setItem(0, JSON.stringify(colors));
         // console.log(colors);
@@ -104,7 +104,7 @@
 
     const applyColor = () => {
         const list = JSON.parse(localStorage.getItem(0));
-        // console.log(list[0].toLocaleString(),list[1].toLocaleString());
+        //console.log(list[0].toLocaleString(),list[1].toLocaleString());
         if(list.length > 0){
             document.querySelector("#defaultimage").classList.add("hidden");
             document.querySelector("#banner").classList.remove("hidden","bg-gradient-to-r","from-gray-400","to-gray-900");

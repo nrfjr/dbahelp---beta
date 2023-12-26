@@ -20,7 +20,7 @@ $url = 'http://' . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
                     <!--DATABASES-->
                     <li class="flex flex-row">
                         <button id="sidenavbtn" onclick="getAria()" type="button" class="flex-auto py-4 rounded-md mx-2 mb-1 text-white nav-item" aria-expanded="<?php
-                                                                                                                                if (preg_match('/\b(dashboard|index|monitors|objects|performances|securities|storages|dbgrowths)\b/', $url)) {
+                                                                                                                                if (preg_match('/\b(dashboard|index|monitors|objects|performances|securities|storages)\b/', $url)) {
                                                                                                                                     echo 'true';
                                                                                                                                 } else {
                                                                                                                                     echo 'false';
@@ -32,7 +32,7 @@ $url = 'http://' . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
                     </li>
                     <ul id="databases" class="hidden py-1">
                         <li>
-                            <a href="<?php echo URLROOT; ?>/homepage/dashboard" class="flex rounded-md mx-2 mb-1 items-center hover:opacity-100 py-4 pl-12 nav-item text-white <?php if (preg_match('/\b(dashboard|index|monitors|objects|performances|securities|storages)\b/', $url)) {
+                            <a href="<?php echo URLROOT; ?>/homepages/dashboard" class="flex rounded-md mx-2 mb-1 items-center hover:opacity-100 py-4 pl-12 nav-item text-white <?php if (preg_match('/\b(dashboard|index|monitors|objects|performances|securities|storages)\b/', $url)) {
                                                                                                                                                                 echo 'active-nav-link ';
                                                                                                                                                             } else {
                                                                                                                                                                 echo 'opacity-75';
@@ -41,13 +41,13 @@ $url = 'http://' . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
                                 ORACLE
                             </a>
                         <li>
-                            <a href="#" class="flex items-center rounded-md mx-2 mb-1 hover:opacity-100 py-4 pl-12 nav-item text-white <?php if (strpos($url, 'mssql')) {
+                            <a href="<?php echo URLROOT; ?>/homepages/msserver_index" class="flex items-center rounded-md mx-2 mb-1 hover:opacity-100 py-4 pl-12 nav-item text-white <?php if (strpos($url, 'mssql')) {
                                                                                                                                                                 echo 'active-nav-link ';
                                                                                                                                                             } else {
                                                                                                                                                                 echo 'opacity-75';
                                                                                                                                                             } ?>">
                                 <i class="fas fa-database mr-3"></i>
-                                SSMS
+                                MS SQL
                             </a>
                         </li>
                         <li>
@@ -70,8 +70,9 @@ $url = 'http://' . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
                                 MYSQL
                             </a>
                         </li>
-						<li>
-                            <a href="<?php echo URLROOT; ?>/dbgrowths/show" class="flex items-center rounded-md mx-2 mb-1 hover:opacity-100 py-4 pl-12 nav-item text-white <?php if (strpos($url, 'dbgrowths')) {
+                    </ul>
+					<li>
+                            <a href="<?php echo URLROOT; ?>/dbgrowths/show" class="flex items-center hover:opacity-100 rounded-md mx-2 mb-1 py-4 pl-6 nav-item text-white <?php if (strpos($url, 'dbgrowths')) {
                                                                                                                                                                 echo 'active-nav-link ';
                                                                                                                                                             } else {
                                                                                                                                                                 echo 'opacity-75';
@@ -80,7 +81,6 @@ $url = 'http://' . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
                                 Growth
                             </a>
                         </li>
-                    </ul>
                     <!--DASHBOARD-->
                     <li>
                         <a href="<?php echo URLROOT; ?>/diskstorages/show" class="flex items-center hover:opacity-100 rounded-md mx-2 mb-1 py-4 pl-6 nav-item text-white <?php if (preg_match('/\b(diskstorages)\b/',$url)) {

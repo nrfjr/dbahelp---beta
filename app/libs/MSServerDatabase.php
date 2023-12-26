@@ -8,75 +8,37 @@ This is library class for MS Database Connections. any ms sql statement should b
 
     class MSServerDatabase {
 
-
-
-
-//         $serverName = "localhost\SQLEXPRESS"; 
-// $dbUsername = ""; 
-// $dbPassword = ""; 
-// $dbName     = ""; 
- 
-// // Create database connection 
-// try {   
-//    $conn = new PDO( "sqlsrv:Server=$serverName;Database=$dbName", $dbUsername, $dbPassword);  
-//      $conn->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_OBJ);  
-//    $conn->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );   
-// }   
-   
-// catch( PDOException $e ) {   
-//    die( "Error connecting to SQL Server: ".$e->getMessage() );    
-// } 
-
-
-
         private $conn;
         private $stmt;
         private $error;
 
         private $count=0;
 
-        public function __construct($DB){
+        public function __construct(){
 
-            $this->conn = $this->getConn($DB);
+            $this->conn = $this->getConn();
 
         }
 
         public function getConn($dbname)    
         {
+            try{
             
-            // try{
+                if(in_array($dbname, array_keys(MSSQL_DBS))){
+			        $conn = new PDO($this->getDSN(MSSQL_DBS[$dbname][0], MSSQL_DEFAULT_PORT), MSSQL_DBS[$dbname][1], MSSQL_DBS[$dbname][2]);
+                }else{
+                    $conn = new PDO($this->getDSN(MSSQL_DBS['DEFAULT'][0], MSSQL_DEFAULT_PORT), MSSQL_DBS['DEFAULT'][1], MSSQL_DBS['DEFAULT'][2]);
+                }
 
-            //         //return connection
-                    
-            //     } catch(PDOException $e){
-
-            //         redirect('errors/void');
-
-            // }
+			    return $conn;
+			}
+			 catch(PDOException $e){   
+				echo "Error connecting to SQL Server: ".$e->getMessage();    
+			} 
         }
 
-        public function getOption()
-        {
-            $option = array(
-                PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
-                PDO::ATTR_EMULATE_PREPARES => false,
-                PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC
-                );
-            
-            return $option;
-        }
-
-        public function test_connection($username, $password){
-
-            // try{
-
-            // if (){
-            //     return true;
-            // }
-            // }catch(\Exception $e){
-            //     return false;
-            // }
-
+        public function getDSN($ip, $port){
+            return 'sqlsrv:Server='.$ip.','.$port;
         }
 
         // Prepare statement with query

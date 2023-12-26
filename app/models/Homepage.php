@@ -101,7 +101,7 @@
             $result = $this->db->single();
 
             if(!is_numeric(substr($result['IP Address'], 0, 3))){
-                $result['IP Address'] = HOSTS[$db];
+                $result['IP Address'] = ORACLE_DBS[$db][0];
             }
 
             if (!empty($result)){
@@ -170,5 +170,22 @@
             }
             return false;
         }
+		
+		public function testMS()
+		{
+            $this->db = new MSServerDatabase();
+
+            $query = $this->fm->loadSQL('get_BackupSize');
+
+            $this->db->query($query);
+
+            $result = $this->db->resultSet();
+
+            if (!empty($result)){
+
+                return $result;
+            }
+            return false;
+		}
 
     }

@@ -1,7 +1,7 @@
 <?php
 class User
 {
-    private $db, $fm, $defaultDB = SIDS['DEFAULT'];
+    private $db, $fm, $defaultDB = ORACLE_DBS['DEFAULT'][1];
 
     public function __construct()
     {

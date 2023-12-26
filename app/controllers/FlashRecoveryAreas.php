@@ -47,7 +47,7 @@ class FlashRecoveryAreas extends Controller
 
         $data = [];
 
-        foreach(array_keys(HOSTS) as $db){
+        foreach(array_keys(ORACLE_DBS) as $db){
             if($db != 'DEFAULT'){
                 $data += [$db => $this->fraModel->getFRA($db)];
             }

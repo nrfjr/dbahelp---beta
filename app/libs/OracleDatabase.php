@@ -19,10 +19,10 @@ class OracleDatabase implements DBInterface
 
         try {
 
-            if (in_array($dbname, array_keys(HOSTS))){
-                return new PDO("oci:dbname=" . $this->getTNS(HOSTS[$dbname], DEFAULT_PORT, SIDS[$dbname]) . ";charset=utf8", ADMIN_USERNAME, ADMIN_PASSWORD, $this->getOption());
+            if (in_array($dbname, array_keys(ORACLE_DBS))){
+                return new PDO("oci:dbname=" . $this->getTNS(ORACLE_DBS[$dbname][0], ORACLE_DEFAULT_PORT, ORACLE_DBS[$dbname][1]) . ";charset=utf8", ORACLE_ADMIN_USERNAME, ORACLE_ADMIN_PASSWORD, $this->getOption());
             }else{
-                return new PDO("oci:dbname=" . $this->getTNS(HOSTS['DEFAULT'], DEFAULT_PORT, SIDS['DEFAULT']) . ";charset=utf8", ADMIN_USERNAME, ADMIN_PASSWORD, $this->getOption());
+                return new PDO("oci:dbname=" . $this->getTNS(ORACLE_DBS['DEFAULT'][0], ORACLE_DEFAULT_PORT, ORACLE_DBS['DEFAULT'][1]) . ";charset=utf8", ORACLE_ADMIN_USERNAME, ORACLE_ADMIN_PASSWORD, $this->getOption());
             }
             
         } catch (PDOException $e) {
@@ -53,7 +53,7 @@ class OracleDatabase implements DBInterface
 
         try {
 
-            if (new PDO("oci:dbname=" . $this->getTNS(HOSTS['DEFAULT'], DEFAULT_PORT, SIDS['DEFAULT']) . ";charset=utf8", $username, $password, $this->getOption())) {
+            if (new PDO("oci:dbname=" . $this->getTNS(ORACLE_DBS['DEFAULT'][0], ORACLE_DEFAULT_PORT, ORACLE_DBS['DEFAULT'][1]) . ";charset=utf8", $username, $password, $this->getOption())) {
                 return true;
             }
             return false;
@@ -105,13 +105,6 @@ class OracleDatabase implements DBInterface
 
         return $this->stmt->fetch(PDO::FETCH_ASSOC);
     }
-
-    // Get row count
-    // public function rowCount(){
-
-    //     return $this->stmt->rowCount();
-
-    // }
 
     public function setProcedure($procedure)
     {

@@ -54,13 +54,6 @@
         var txt = 'GOOD DAY DBA!'; /* The text */
         var speed = 150; /* The speed/duration of the effect in milliseconds */
     
-        // function typeWriter() {
-        //   if (i < txt.length) {
-        //     document.getElementById("greet").innerHTML += txt.charAt(i);
-        //     i++;
-        //     setTimeout(typeWriter, speed);
-        //   }
-        // }
         setTimeout(function typeWriter(){
         if (i < txt.length) {
             document.getElementById("greet").innerHTML += txt.charAt(i);
@@ -90,9 +83,6 @@
                 document.getElementById("div"+i.toLocaleString()).classList.remove("Div"+i.toLocaleString());
                 document.getElementById("div"+i.toLocaleString()).classList.add("firework");
             }
-            // for(i=1;i<=5;i++){
-                
-            // }
         }
 
     }   

@@ -24,14 +24,6 @@ Placeholder
     font-style: italic; 
  }
 
-/***
-Placeholder
-***/
-
-/* body{
-    min-width: 40rem;
-} */
-
 aside{
     box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
     background-color: #2c2f33;
@@ -81,25 +73,24 @@ footer{
     -ms-overflow-style: none;  /* IE and Edge */
     scrollbar-width: none;  /* Firefox */
 }
-
 /* Custom style of scrollbars */
 /* width */
 ::-webkit-scrollbar {
     width: 5px;
   }
-  
+
   /* Track */
   ::-webkit-scrollbar-track {
     background:#6b7280;
   }
-  
+
   /* Handle */
   ::-webkit-scrollbar-thumb {
     background: rgb(222, 222, 222);
     border-radius: 5px;
-
   }
 /* Custom style of scrollbars */
+
 
 .sm-card{
     box-shadow: rgba(73, 84, 100, 0.4) 5px 5px, rgba(187, 191, 202, 0.3) 10px 10px, rgba(232, 232, 232, 0.2) 15px 15px;
@@ -222,7 +213,7 @@ footer{
         position: absolute;
         bottom: 0.5rem;
     }
-}
+}DB Statuses
 
 @media screen and (min-height: 800px){
     .widgets{
@@ -275,6 +266,7 @@ footer{
 /* quill JS */
 .ql-container.ql-snow{
      border: none !important;
+     height: 65vh;
 }
 .ql-toolbar.ql-snow { 
     border: none !important;
@@ -340,4 +332,3 @@ footer{
       opacity: 0;
     }
 }
-  

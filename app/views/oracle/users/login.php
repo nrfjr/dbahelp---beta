@@ -15,17 +15,27 @@
     <script text="text/javascript" src="<?php echo URLROOT . '/public/js/tailwindjs/tailwind.js' ?>"></script>
     <script text="text/javascript" src="<?php echo URLROOT . '/public/js/font-awesomejs/font-awesome_6.2.1.js'?>"></script>
     <script text="text/javascript" src="<?php echo URLROOT . '/public/js/login-frontend-utilities.js' ?>"></script>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lexend:400,700&display=swap" />
     <style>
+		@font-face{
+	font-family: 'Lexend';
+	src: url('http://192.168.34.202/site/public/ttf/Lexend-Bold.ttf') format('truetype'),
+		url('http://192.168.34.202/site/public/ttf/Lexend-Black.ttf') format('truetype'),
+		url('http://192.168.34.202/site/public/ttf/Lexend-Regular.ttf') format('truetype'),
+		url('http://192.168.34.202/site/public/ttf/Lexend-ExtraBold.ttf') format('truetype'),
+		url('http://192.168.34.202/site/public/ttf/Lexend-SemiBold.ttf') format('truetype'),
+		url('http://192.168.34.202/site/public/ttf/Lexend-Medium.ttf') format('truetype'),
+		url('http://192.168.34.202/site/public/ttf/Lexend-Thin.ttf') format('truetype'),
+		url('http://192.168.34.202/site/public/ttf/Lexend-Light.ttf') format('truetype'),
+		url('http://192.168.34.202/site/public/ttf/Lexend-ExtraLight.ttf') format('truetype');
+		}
         .font-family-lexend {
-            font-family: lexend;
+            font-family: 'Lexend';
         }
     </style>
 
     <title><?php echo SITENAME ?> | Signin</title>
 
 </head>
-
 <body id="body" onload="newyear();changeSVGonSeason();logingreet();colorChange();" class="h-screen w-full bg-gradient-to-r font-family-lexend from-cyan-500 to-indigo-500 overflow-hidden relative">
     <div id="boxcont" class="box z-10">
         <div id="div1" onclick="colorChange()" class="Odd Div1 text-center"><i id="i1" class="odd fas fa-solid text-8xl font-light"></i></div>

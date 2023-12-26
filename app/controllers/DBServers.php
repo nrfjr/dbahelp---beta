@@ -27,7 +27,7 @@
 
 class DBServers extends Controller{
 
-    private $DB = SIDS['DEFAULT'];
+    private $DB = ORACLE_DBS['DEFAULT'][1];
 
     public function __construct(){
 
